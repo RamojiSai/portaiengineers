@@ -105,21 +105,39 @@ export default function BlogsAllPage() {
     <main className="min-h-screen bg-white text-slate-900">
       {/* Hero */}
       <section className="w-full bg-[#0B1F4D] px-6 py-16 sm:px-10 sm:py-20">
-        <div className="mx-auto w-full max-w-3xl">
+        <div className="mx-auto w-full max-w-6xl">
           <FadeIn>
-            <div className="space-y-6">
-              <div className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold tracking-[0.22em] text-[#D9A441]">
-                ENGINEERING EXCELLENCE
+            <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+              <div className="space-y-6">
+                <div className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold tracking-[0.22em] text-[#D9A441]">
+                  ENGINEERING EXCELLENCE
+                </div>
+
+                <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+                  Complete Engineering Design Solutions for Modern Industries
+                </h1>
+
+                <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-white/70">
+                  <span>May 5, 2026</span>
+                  <span className="h-1 w-1 rounded-full bg-white/40" />
+                  <span>8 min read</span>
+                  <span className="h-1 w-1 rounded-full bg-white/40" />
+                  <span>Port AI Engineers</span>
+                </div>
+
+                <div className="space-y-2 text-sm leading-relaxed text-white/75 sm:text-base">
+                  <div>Port AI Engineers Private Limited</div>
+                  <div>portaiengineers.com</div>
+                  <div>Engineering &amp; Design</div>
+                </div>
               </div>
 
-              <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
-                Complete Engineering Design Solutions for Modern Industries
-              </h1>
-
-              <div className="space-y-2 text-sm leading-relaxed text-white/75 sm:text-base">
-                <div>Port AI Engineers Private Limited</div>
-                <div>portaiengineers.com</div>
-                <div>Engineering &amp; Design</div>
+              <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-white/5 shadow-[0_30px_80px_rgba(8,19,44,0.6)]">
+                <img
+                  src="/co2-capture.webp"
+                  alt="Engineering plant infrastructure"
+                  className="h-64 w-full object-cover sm:h-72 lg:h-[360px]"
+                />
               </div>
             </div>
           </FadeIn>
@@ -139,6 +157,19 @@ export default function BlogsAllPage() {
                 — from concept to commissioning.
               </p>
             </div>
+          </FadeIn>
+
+          <FadeIn>
+            <figure className="overflow-hidden rounded-3xl border border-[#E5E7EB] bg-white shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+              <img
+                src="/Low-Carbon-Ammonia-image1.webp"
+                alt="Industrial engineering design collaboration"
+                className="h-64 w-full object-cover sm:h-80"
+              />
+              <figcaption className="px-5 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                Featured insight: Industrial engineering systems designed for scale
+              </figcaption>
+            </figure>
           </FadeIn>
 
           {/* Section 2 — Who We Are */}
