@@ -2,11 +2,27 @@
 @import "./themes.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #111827;
-  --color-primary: #0f766e;
+  /* --background: #0e1b45; */
+  --background: #021526;
+  --foreground: #F7FAFC;
+  --color-primary: #4DA6FF;
   --color-text: var(--foreground);
   --color-bg: var(--background);
+  --color-surface: color-mix(in srgb, var(--background) 92%, var(--foreground) 8%);
+  --color-surface-strong: color-mix(in srgb, var(--background) 85%, var(--foreground) 15%);
+  --color-muted: color-mix(in srgb, var(--foreground) 60%, var(--background) 40%);
+  --color-muted-strong: color-mix(in srgb, var(--foreground) 75%, var(--background) 25%);
+  --color-border: color-mix(in srgb, var(--foreground) 15%, var(--background) 85%);
+  --color-border-strong: color-mix(in srgb, var(--foreground) 25%, var(--background) 75%);
+  --color-primary-soft: color-mix(in srgb, var(--color-primary) 14%, var(--background) 86%);
+  --color-primary-glow: color-mix(in srgb, var(--color-primary) 55%, transparent);
+  --color-on-primary: var(--background);
+  --color-hero-overlay: color-mix(in srgb, var(--foreground) 70%, transparent);
+  --color-on-hero: var(--background);
+  --color-card-shadow: color-mix(in srgb, var(--foreground) 18%, transparent);
+  --color-footer-bg: color-mix(in srgb, var(--foreground) 94%, var(--background) 6%);
+  --color-on-footer: var(--background);
+  --color-on-footer-muted: color-mix(in srgb, var(--color-on-footer) 70%, transparent);
 }
 
 @theme inline {
@@ -20,6 +36,12 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --color-hero-overlay: color-mix(in srgb, var(--background) 70%, transparent);
+    --color-on-hero: var(--foreground);
+    --color-on-primary: var(--foreground);
+    --color-footer-bg: var(--background);
+    --color-on-footer: var(--foreground);
+    --color-on-footer-muted: color-mix(in srgb, var(--color-on-footer) 65%, transparent);
   }
 }
 
@@ -67,4 +89,27 @@ html {
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+#__next-build-watcher,
+#__next-devtools,
+#__next-devtools-indicator,
+#nextjs-devtools,
+#nextjs-devtools-toggle,
+#nextjs-devtools-panel,
+#nextjs-portal,
+#nextjs-toast,
+[data-nextjs-devtools],
+[data-nextjs-dev-tools],
+[data-nextjs-devtools-panel],
+[data-nextjs-devtools-indicator],
+[data-nextjs-devtools-toggle],
+[data-nextjs-devtools-portal],
+[data-nextjs-devtools-menu],
+[data-nextjs-toast],
+.nextjs-toast,
+.nextjs-portal,
+.nextjs-devtools,
+.nextjs-devtools-indicator {
+  display: none !important;
 }

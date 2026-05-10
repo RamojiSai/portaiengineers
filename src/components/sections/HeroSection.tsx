@@ -17,8 +17,14 @@ const slides = [
     subtext:
       "Leveraging advanced CAD and AI-driven workflows for scalable and precise engineering solutions.",
   },
+  // {
+  //   image: "/Engineering%20Services.jpg",
+  //   heading: "Engineering Services Built for Scale",
+  //   subtext:
+  //     "Precision delivery across plant engineering, CAD automation, and complex infrastructure programs.",
+  // },
   {
-    image: "/Low-Carbon-Ammonia-image1.webp",
+    image: "/co2-capture.webp",
     heading: "Precision Engineering. Digitally Driven.",
     subtext:
       "Transforming complex systems into efficient, optimized, and intelligent designs.",
@@ -91,7 +97,7 @@ export default function HeroSection() {
         })}
       </div>
 
-      <div className="absolute inset-0 bg-slate-950/60" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.02))]" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-6xl items-center px-6 py-24 sm:px-10">
         <div
@@ -101,7 +107,7 @@ export default function HeroSection() {
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-primary)]">
             Engineering Services
           </span>
-          <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="text-4xl font-semibold tracking-tight text-[var(--color-on-hero)] sm:text-5xl lg:text-6xl">
             {activeSlide.heading.split(" ").map((word, index) => (
               <span
                 key={`${word}-${index}`}
@@ -117,12 +123,12 @@ export default function HeroSection() {
               </span>
             ))}
           </h1>
-          <p className="text-base text-slate-200 sm:text-lg">
+          <p className="text-base text-[color-mix(in_srgb,var(--color-on-hero)_85%,transparent)] sm:text-lg">
             {activeSlide.subtext}
           </p>
           <button
             type="button"
-            className="rounded-full border border-white/30 px-6 py-2 text-sm font-semibold text-white transition-all duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+            className="rounded-full border border-[color-mix(in_srgb,var(--color-on-hero)_30%,transparent)] px-6 py-2 text-sm font-semibold text-[var(--color-on-hero)] transition-all duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
           >
             Learn More
           </button>
@@ -133,7 +139,7 @@ export default function HeroSection() {
         type="button"
         aria-label="Previous slide"
         onClick={() => goToSlide(activeIndex - 1)}
-        className="absolute left-5 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 text-white transition-colors duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] md:inline-flex"
+        className="absolute left-5 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[color-mix(in_srgb,var(--color-on-hero)_30%,transparent)] text-[var(--color-on-hero)] transition-colors duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] md:inline-flex"
       >
         <span className="text-lg">&#8249;</span>
       </button>
@@ -141,7 +147,7 @@ export default function HeroSection() {
         type="button"
         aria-label="Next slide"
         onClick={() => goToSlide(activeIndex + 1)}
-        className="absolute right-5 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 text-white transition-colors duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] md:inline-flex"
+        className="absolute right-5 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[color-mix(in_srgb,var(--color-on-hero)_30%,transparent)] text-[var(--color-on-hero)] transition-colors duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] md:inline-flex"
       >
         <span className="text-lg">&#8250;</span>
       </button>
@@ -155,8 +161,8 @@ export default function HeroSection() {
             onClick={() => goToSlide(index)}
             className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
               index === activeIndex
-                ? "bg-[var(--color-primary)] shadow-[0_0_12px_rgba(15,118,110,0.7)]"
-                : "bg-white/50 hover:bg-white"
+                ? "bg-[var(--color-primary)] shadow-[0_0_12px_var(--color-primary-glow)]"
+                : "bg-[color-mix(in_srgb,var(--color-on-hero)_50%,transparent)] hover:bg-[var(--color-on-hero)]"
             }`}
           />
         ))}

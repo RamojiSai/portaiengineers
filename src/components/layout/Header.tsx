@@ -12,7 +12,7 @@ const navItems = [
     items: [
       { label: "Overview", href: "/platform/overview" },
       { label: "Features", href: "/platform/features" },
-      // { label: "Integrations", href: "/platform/integrations" },
+      { label: "Contact Us", href: "/contact" },
     ],
   },
   {
@@ -27,15 +27,15 @@ const navItems = [
       // { label: "Consulting", href: "/services/consulting" },
     ],
   },
-  {
-    label: "Solutions",
-    href: "#solutions",
-    items: [
-      { label: "AI Solutions", href: "/solutions/ai" },
-      { label: "Automation", href: "/solutions/automation" },
-      { label: "Industry Use Cases", href: "/solutions/industry" },
-    ],
-  },
+  // {
+  //   label: "Solutions",
+  //   href: "#solutions",
+  //   items: [
+  //     { label: "AI Solutions", href: "/solutions/ai" },
+  //     { label: "Automation", href: "/solutions/automation" },
+  //     { label: "Industry Use Cases", href: "/solutions/industry" },
+  //   ],
+  // },
   {
     label: "Blogs",
     href: "#blogs",
@@ -105,7 +105,7 @@ export default function Header() {
   }, [isEngineeringServicesPage]);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-200/70 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-40 w-full border-b border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-bg)_90%,transparent)] backdrop-blur">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 sm:px-10">
         <Link href="/" className="flex items-center gap-3">
           <Image
@@ -118,7 +118,7 @@ export default function Header() {
           />
           <div className="flex flex-col leading-tight text-[var(--color-text)]">
             <span className="text-base font-semibold">Port AI</span>
-            <span className="text-xs font-medium text-slate-500">
+            <span className="text-xs font-medium text-[var(--color-muted)]">
               Engineers PVT. LTD
             </span>
           </div>
@@ -159,7 +159,7 @@ export default function Header() {
                   </span>
                 </button>
                 <div className="pointer-events-none absolute left-0 top-full z-30 pt-3 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
-                  <div className="w-60 translate-y-2 rounded-2xl bg-white/80 p-4 text-sm text-[var(--color-text)] shadow-lg backdrop-blur-lg transition-all duration-300 group-hover:translate-y-0">
+                  <div className="w-60 translate-y-2 rounded-2xl bg-[color-mix(in_srgb,var(--color-bg)_85%,transparent)] p-4 text-sm text-[var(--color-text)] shadow-[0_16px_30px_var(--color-card-shadow)] backdrop-blur-lg transition-all duration-300 group-hover:translate-y-0">
                     <div className="flex flex-col gap-2">
                       {item.items.map((entry) => {
                         const entryHash = entry.href.split("#")[1];
@@ -175,8 +175,8 @@ export default function Header() {
                           <Link
                             key={entry.label}
                             href={entry.href}
-                            className={`rounded-lg px-3 py-2 transition-colors duration-300 hover:bg-white/70 hover:text-[var(--color-primary)] ${isEntryActive
-                                ? "bg-white/70 text-[var(--color-primary)]"
+                            className={`rounded-lg px-3 py-2 transition-colors duration-300 hover:bg-[color-mix(in_srgb,var(--color-bg)_70%,transparent)] hover:text-[var(--color-primary)] ${isEntryActive
+                                ? "bg-[color-mix(in_srgb,var(--color-bg)_70%,transparent)] text-[var(--color-primary)]"
                                 : ""
                               }`}
                           >
@@ -197,7 +197,7 @@ export default function Header() {
           aria-label="Toggle menu"
           aria-expanded={isOpen}
           onClick={toggleMenu}
-          className="inline-flex items-center justify-center rounded-full border border-slate-200 p-2 text-[var(--color-text)] transition-colors duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] md:hidden"
+          className="inline-flex items-center justify-center rounded-full border border-[var(--color-border)] p-2 text-[var(--color-text)] transition-colors duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] md:hidden"
         >
           <svg
             className="h-5 w-5"
@@ -226,7 +226,7 @@ export default function Header() {
       </div>
 
       <div
-        className={`overflow-hidden border-t border-slate-200/70 bg-white transition-[max-height,opacity] duration-300 md:hidden ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        className={`overflow-hidden border-t border-[var(--color-border)] bg-[var(--color-bg)] transition-[max-height,opacity] duration-300 md:hidden ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
       >
         <nav className="flex flex-col gap-4 px-6 py-4 text-sm font-medium text-[var(--color-text)]">
@@ -288,8 +288,8 @@ export default function Header() {
                             setIsOpen(false);
                             setActiveMobileMenu(null);
                           }}
-                          className={`rounded-lg px-3 py-2 text-slate-600 transition-colors duration-300 hover:bg-slate-100 hover:text-[var(--color-primary)] ${isEntryActive
-                              ? "bg-slate-100 text-[var(--color-primary)]"
+                          className={`rounded-lg px-3 py-2 text-[var(--color-muted)] transition-colors duration-300 hover:bg-[var(--color-surface)] hover:text-[var(--color-primary)] ${isEntryActive
+                            ? "bg-[var(--color-surface)] text-[var(--color-primary)]"
                               : ""
                             }`}
                         >
