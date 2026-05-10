@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const metrics = [
   {
-    value: "70%",
+    value: "90%",
     label: "Faster Operations",
     description: "We deliver with quality.",
   },
@@ -14,13 +14,13 @@ const metrics = [
     description: "We provide support.",
   },
   {
-    value: "90%",
+    value: "99%",
     label: "Data Accuracy",
     description: "Compliance and quality tracking.",
   },
   {
-    value: "90 Day",
-    label: "Deployment",
+    value: "10x",
+    label: "Faster Deployment",
     description: "Data collection to client delivery.",
   },
 ];
@@ -53,17 +53,17 @@ export default function ProvenResultsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[linear-gradient(135deg,#e0f2fe,#f8fbff)] px-6 py-20 sm:px-10 sm:py-24"
+      className="relative w-full bg-[linear-gradient(135deg,var(--color-primary-soft),var(--color-bg))] px-6 py-20 sm:px-10 sm:py-24"
     >
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-12 text-center">
         <div className="space-y-3">
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-primary)]">
             Proven Impact
           </span>
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
             PROVEN IMPACT
           </h2>
-          <p className="text-sm text-slate-600 sm:text-base">
+          <p className="text-sm text-[var(--color-muted)] sm:text-base">
             Real results across operations, engagement, and intelligence
           </p>
         </div>
@@ -72,17 +72,17 @@ export default function ProvenResultsSection() {
           {metrics.map((metric) => (
             <div
               key={metric.label}
-              className={`flex h-full flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 text-left shadow-[0_12px_30px_rgba(15,23,42,0.08)] transition-all duration-300 ease-out hover:scale-[1.05] hover:border-[#8494FF] hover:shadow-[0_24px_50px_rgba(132,148,255,0.2)] ${
+              className={`flex h-full flex-col gap-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 text-left shadow-[0_12px_30px_var(--color-card-shadow)] transition-all duration-300 ease-out hover:scale-[1.05] hover:border-[var(--color-primary)] hover:shadow-[0_24px_50px_var(--color-primary-glow)] ${
                 isVisible ? "fade-in-up" : "opacity-0"
               }`}
             >
-              <div className="text-3xl font-semibold text-[#8494FF] sm:text-4xl">
+              <div className="text-3xl font-semibold text-[var(--color-primary)] sm:text-4xl">
                 {metric.value}
               </div>
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8494FF]">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
                 {metric.label}
               </div>
-              <p className="text-sm text-slate-600">{metric.description}</p>
+              <p className="text-sm text-[var(--color-muted)]">{metric.description}</p>
             </div>
           ))}
         </div>

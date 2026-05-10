@@ -76,22 +76,22 @@ const coreStrengths = [
 
 export default function OverviewPage() {
   return (
-    <main className="min-h-screen bg-white text-[var(--color-text)]">
+    <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
       {/* Section 1 — Hero Overview */}
-      <section className="relative w-full overflow-hidden bg-[linear-gradient(135deg,#e0f2fe,#f8fbff)] px-6 py-20 sm:px-10 sm:py-24">
-        <div className="absolute -left-24 top-10 h-56 w-56 rounded-full bg-[#8494FF]/15 blur-3xl" />
-        <div className="absolute -right-24 bottom-8 h-64 w-64 rounded-full bg-[#8494FF]/10 blur-3xl" />
+      <section className="relative w-full overflow-hidden bg-[linear-gradient(135deg,var(--color-primary-soft),var(--color-bg))] px-6 py-20 sm:px-10 sm:py-24">
+        <div className="absolute -left-24 top-10 h-56 w-56 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_15%,transparent)] blur-3xl" />
+        <div className="absolute -right-24 bottom-8 h-64 w-64 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] blur-3xl" />
 
         <div className="relative mx-auto w-full max-w-6xl">
           <FadeInSection>
             <div className="max-w-3xl space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/50 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8494FF]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
                 Overview
               </div>
-              <h1 className="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+              <h1 className="text-4xl font-semibold tracking-tight text-[var(--color-text)] sm:text-5xl">
                 Engineering Intelligence. Industrial Excellence.
               </h1>
-              <p className="text-base leading-relaxed text-slate-600 sm:text-lg">
+              <p className="text-base leading-relaxed text-[var(--color-muted)] sm:text-lg">
                 Port AI Engineers Pvt. Ltd. combines advanced engineering expertise with
                 AI-driven innovation to deliver smarter industrial designs, faster
                 execution, and scalable engineering solutions for modern enterprises.
@@ -102,15 +102,15 @@ export default function OverviewPage() {
       </section>
 
       {/* Section 2 — Who We Are */}
-      <section className="w-full bg-[#F5FAFF] px-6 py-16 sm:px-10 sm:py-20">
+      <section className="w-full bg-[var(--color-primary-soft)] px-6 py-16 sm:px-10 sm:py-20">
         <div className="mx-auto w-full max-w-6xl">
           <FadeInSection>
             <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
               <div className="space-y-4">
-                <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                <h2 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
                   Who We Are
                 </h2>
-                <div className="space-y-5 text-base text-slate-600 sm:text-lg">
+                <div className="space-y-5 text-base text-[var(--color-muted)] sm:text-lg">
                   <p>
                     Port AI Engineers Pvt. Ltd. is an engineering and technology-driven
                     company focused on transforming industrial workflows through
@@ -125,9 +125,9 @@ export default function OverviewPage() {
                 </div>
               </div>
 
-              <div className="rounded-3xl border border-white/60 bg-white/70 p-8 shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
+              <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 shadow-[0_20px_50px_var(--color-card-shadow)]">
                 <div className="space-y-5">
-                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
                     Built For Enterprise Delivery
                   </div>
                   <div className="space-y-3">
@@ -135,12 +135,12 @@ export default function OverviewPage() {
                       (pill) => (
                         <div
                           key={pill}
-                          className="flex items-center justify-between rounded-2xl border border-slate-200/70 bg-white px-4 py-3"
+                          className="flex items-center justify-between rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3"
                         >
-                          <span className="text-sm font-medium text-slate-700">
+                          <span className="text-sm font-medium text-[var(--color-muted)]">
                             {pill}
                           </span>
-                          <span className="h-2.5 w-2.5 rounded-full bg-[#8494FF] shadow-[0_0_10px_rgba(132,148,255,0.5)]" />
+                          <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-primary)] shadow-[0_0_10px_var(--color-primary-glow)]" />
                         </div>
                       )
                     )}
@@ -153,32 +153,32 @@ export default function OverviewPage() {
       </section>
 
       {/* Section 3 — Mission & Vision */}
-      <section className="w-full bg-[linear-gradient(135deg,#e0f2fe,#f8fbff)] px-6 py-16 sm:px-10 sm:py-20">
+      <section className="w-full bg-[linear-gradient(135deg,var(--color-primary-soft),var(--color-bg))] px-6 py-16 sm:px-10 sm:py-20">
         <div className="mx-auto w-full max-w-6xl">
           <FadeInSection>
             <div className="grid gap-6 lg:grid-cols-2">
-              <div className="rounded-3xl border border-white/60 bg-white/70 p-8 shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
-                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8494FF]">
+              <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 shadow-[0_20px_50px_var(--color-card-shadow)]">
+                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
                   Mission
                 </div>
-                <p className="mt-4 text-xl font-semibold tracking-tight text-slate-900">
+                <p className="mt-4 text-xl font-semibold tracking-tight text-[var(--color-text)]">
                   To empower industries with intelligent engineering solutions
                 </p>
-                <p className="mt-3 text-base text-slate-600 sm:text-lg">
+                <p className="mt-3 text-base text-[var(--color-muted)] sm:text-lg">
                   To empower industries with intelligent engineering solutions that
                   improve operational efficiency, drive innovation, and create long-term
                   industrial value.
                 </p>
               </div>
 
-              <div className="rounded-3xl border border-white/60 bg-white/70 p-8 shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
-                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8494FF]">
+              <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 shadow-[0_20px_50px_var(--color-card-shadow)]">
+                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
                   Vision
                 </div>
-                <p className="mt-4 text-xl font-semibold tracking-tight text-slate-900">
+                <p className="mt-4 text-xl font-semibold tracking-tight text-[var(--color-text)]">
                   To become a global leader in engineering innovation
                 </p>
-                <p className="mt-3 text-base text-slate-600 sm:text-lg">
+                <p className="mt-3 text-base text-[var(--color-muted)] sm:text-lg">
                   To become a global leader in engineering innovation by combining
                   engineering excellence with AI, automation, and digital
                   transformation.
@@ -190,15 +190,15 @@ export default function OverviewPage() {
       </section>
 
       {/* Section 4 — What We Deliver */}
-      <section className="w-full bg-[#F5FAFF] px-6 py-16 sm:px-10 sm:py-20">
+      <section className="w-full bg-[var(--color-primary-soft)] px-6 py-16 sm:px-10 sm:py-20">
         <div className="mx-auto w-full max-w-6xl">
           <FadeInSection>
             <div className="space-y-8">
               <div className="space-y-3">
-                <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                <h2 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
                   What We Deliver
                 </h2>
-                <p className="max-w-3xl text-base text-slate-600 sm:text-lg">
+                <p className="max-w-3xl text-base text-[var(--color-muted)] sm:text-lg">
                   Enterprise-ready engineering outputs designed to improve speed,
                   quality, and operational predictability.
                 </p>
@@ -208,16 +208,16 @@ export default function OverviewPage() {
                 {deliverCards.map((card) => (
                   <div
                     key={card.title}
-                    className="group rounded-3xl border border-[#D6DEFF] bg-white p-6 shadow-[0_16px_40px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1 hover:border-[#8494FF] hover:bg-[#EEF2FF]"
+                    className="group rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[0_16px_40px_var(--color-card-shadow)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:bg-[color-mix(in_srgb,var(--color-primary)_8%,var(--color-bg))]"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="space-y-3">
-                        <h3 className="text-base font-semibold text-slate-900 transition-colors duration-300 group-hover:text-[#8494FF]">
+                        <h3 className="text-base font-semibold text-[var(--color-text)] transition-colors duration-300 group-hover:text-[var(--color-primary)]">
                           {card.title}
                         </h3>
-                        <p className="text-sm text-slate-600">{card.description}</p>
+                        <p className="text-sm text-[var(--color-muted)]">{card.description}</p>
                       </div>
-                      <div className="mt-1 h-10 w-10 rounded-2xl border border-[#D6DEFF] bg-white/80 p-2 text-[#8494FF] shadow-[0_0_12px_rgba(132,148,255,0.15)] transition-all duration-300 group-hover:border-[#8494FF] group-hover:shadow-[0_0_18px_rgba(132,148,255,0.3)]">
+                      <div className="mt-1 h-10 w-10 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-2 text-[var(--color-primary)] shadow-[0_0_12px_var(--color-primary-glow)] transition-all duration-300 group-hover:border-[var(--color-primary)] group-hover:shadow-[0_0_18px_var(--color-primary-glow)]">
                         <svg
                           viewBox="0 0 24 24"
                           fill="none"
@@ -240,15 +240,15 @@ export default function OverviewPage() {
       </section>
 
       {/* Section 5 — Core Strengths */}
-      <section className="w-full bg-[linear-gradient(135deg,#e0f2fe,#f8fbff)] px-6 py-16 sm:px-10 sm:py-20">
+      <section className="w-full bg-[linear-gradient(135deg,var(--color-primary-soft),var(--color-bg))] px-6 py-16 sm:px-10 sm:py-20">
         <div className="mx-auto w-full max-w-6xl">
           <FadeInSection>
             <div className="space-y-8">
               <div className="space-y-3">
-                <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                <h2 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
                   Core Strengths
                 </h2>
-                <p className="max-w-3xl text-base text-slate-600 sm:text-lg">
+                <p className="max-w-3xl text-base text-[var(--color-muted)] sm:text-lg">
                   Reliable delivery, measurable quality, and always-on technical support.
                 </p>
               </div>
@@ -257,12 +257,12 @@ export default function OverviewPage() {
                 {coreStrengths.map((metric) => (
                   <div
                     key={metric.label}
-                    className="rounded-3xl border border-white/60 bg-white/70 p-6 text-left shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
+                    className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 text-left shadow-[0_20px_50px_var(--color-card-shadow)]"
                   >
-                    <div className="text-3xl font-semibold tracking-tight text-[#8494FF]">
+                    <div className="text-3xl font-semibold tracking-tight text-[var(--color-primary)]">
                       {metric.value}
                     </div>
-                    <div className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                    <div className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
                       {metric.label}
                     </div>
                   </div>
@@ -274,15 +274,15 @@ export default function OverviewPage() {
       </section>
 
       {/* Section 6 — Why Port AI */}
-      <section className="w-full bg-[#F5FAFF] px-6 py-16 sm:px-10 sm:py-20">
+      <section className="w-full bg-[var(--color-primary-soft)] px-6 py-16 sm:px-10 sm:py-20">
         <div className="mx-auto w-full max-w-6xl">
           <FadeInSection>
             <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
               <div className="space-y-4">
-                <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                <h2 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
                   Why Port AI Engineers
                 </h2>
-                <div className="space-y-5 text-base text-slate-600 sm:text-lg">
+                <div className="space-y-5 text-base text-[var(--color-muted)] sm:text-lg">
                   <p>
                     We don’t just deliver engineering drawings—we build intelligent
                     engineering ecosystems.
@@ -295,12 +295,12 @@ export default function OverviewPage() {
                 </div>
               </div>
 
-              <div className="rounded-3xl border border-[#D6DEFF] bg-white p-8 shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
+              <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 shadow-[0_20px_50px_var(--color-card-shadow)]">
                 <div className="space-y-6">
                   {["Trust & Compliance", "Engineering Depth", "AI + Automation"].map(
                     (item) => (
                       <div key={item} className="flex items-start gap-4">
-                        <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-2xl border border-[#D6DEFF] bg-[#EEF2FF] text-[#8494FF]">
+                        <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-2xl border border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-primary)_10%,var(--color-bg))] text-[var(--color-primary)]">
                           <svg
                             className="h-5 w-5"
                             viewBox="0 0 24 24"
@@ -315,10 +315,10 @@ export default function OverviewPage() {
                           </svg>
                         </div>
                         <div className="space-y-1">
-                          <div className="text-sm font-semibold text-slate-900">
+                          <div className="text-sm font-semibold text-[var(--color-text)]">
                             {item}
                           </div>
-                          <div className="text-sm text-slate-600">
+                          <div className="text-sm text-[var(--color-muted)]">
                             Built for enterprise teams that demand reliability,
                             repeatability, and measurable outcomes.
                           </div>

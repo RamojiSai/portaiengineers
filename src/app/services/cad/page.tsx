@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
-const NODE_SWITCH_MS = 3500;
+const NODE_SWITCH_MS = 60000;
 const COUNT_DURATION_MS = 1400;
 
 const cadNodes = [
@@ -218,20 +218,20 @@ export default function CADServicesPage() {
   }, [isWhyVisible]);
 
   return (
-    <div className="min-h-screen bg-white text-[var(--color-text)]">
+    <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
       <section
         id="cad-flow"
-        className="w-full bg-white px-6 py-16 sm:px-10 sm:py-20"
+        className="w-full bg-[var(--color-bg)] px-6 py-16 sm:px-10 sm:py-20"
       >
         <div
           className={`mx-auto mb-12 flex max-w-3xl flex-col items-center gap-4 text-center transition-all duration-700 ease-out ${
             isCadVisible ? "translate-y-0 opacity-100" : "-translate-y-6 opacity-0"
           }`}
         >
-          <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+          <h1 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
             CAD Services
           </h1>
-          <p className="text-base text-slate-600 sm:text-lg">
+          <p className="text-base text-[var(--color-muted)] sm:text-lg">
             Advanced CAD drafting, automation, and design solutions built to
             improve engineering productivity and technical accuracy.
           </p>
@@ -240,7 +240,7 @@ export default function CADServicesPage() {
         <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="relative flex items-center justify-start lg:-ml-10">
             <div className="relative h-[480px] w-[480px] sm:h-[560px] sm:w-[560px]">
-              <div className="absolute left-1/2 top-1/2 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#8494FF] text-center text-sm font-semibold text-white shadow-[0_0_24px_rgba(132,148,255,0.55)] sm:h-40 sm:w-40">
+              <div className="absolute left-1/2 top-1/2 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--color-primary)] text-center text-sm font-semibold text-[var(--color-on-primary)] shadow-[0_0_24px_var(--color-primary-glow)] sm:h-40 sm:w-40">
                 CAD Services
               </div>
 
@@ -250,9 +250,9 @@ export default function CADServicesPage() {
                   className="absolute left-1/2 top-1/2 h-1 w-[140px] -translate-y-1/2 origin-left"
                   style={{ transform: `translateY(-50%) rotate(${node.angle}deg)` }}
                 >
-                  <div className="h-full w-full rounded-full bg-slate-200/80" />
+                  <div className="h-full w-full rounded-full bg-[color-mix(in_srgb,var(--color-border)_80%,transparent)]" />
                   <div
-                    className={`absolute left-0 top-0 h-full w-full origin-left rounded-full bg-[#8494FF] transition-transform duration-700 ${
+                    className={`absolute left-0 top-0 h-full w-full origin-left rounded-full bg-[var(--color-primary)] transition-transform duration-700 ${
                       isCadActive(index) ? "scale-x-100" : "scale-x-0"
                     }`}
                   />
@@ -266,8 +266,8 @@ export default function CADServicesPage() {
                   onClick={() => setCadActiveIndex(index)}
                   className={`absolute ${node.positionClass} flex h-20 w-20 items-center justify-center rounded-full border border-transparent text-[11px] font-semibold uppercase tracking-[0.08em] transition-all duration-500 sm:h-24 sm:w-24 ${
                     isCadActive(index)
-                      ? "scale-105 bg-[#8494FF] text-white shadow-[0_0_20px_rgba(132,148,255,0.6)]"
-                      : "bg-slate-100 text-slate-700"
+                      ? "scale-105 bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-[0_0_20px_var(--color-primary-glow)]"
+                      : "bg-[var(--color-surface)] text-[var(--color-muted-strong)]"
                   }`}
                 >
                   {node.title}
@@ -277,7 +277,7 @@ export default function CADServicesPage() {
           </div>
 
           <div className="flex flex-col gap-6">
-            <nav className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+            <nav className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
               <Link
                 href="/"
                 className="transition-colors hover:text-[var(--color-primary)]"
@@ -292,47 +292,59 @@ export default function CADServicesPage() {
                 Services
               </Link>
               <span className="px-2">→</span>
-              <span className="text-slate-700">CAD</span>
+              <span className="text-[var(--color-text)]">CAD</span>
             </nav>
 
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              <h2 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
                 CAD Design Services
               </h2>
-              <p className="mt-3 text-base text-slate-600 sm:text-lg">
+              <p className="mt-3 text-base text-[var(--color-muted)] sm:text-lg">
                 Professional CAD solutions designed for engineering precision.
               </p>
             </div>
 
             <article
               key={activeCadNode.key}
-              className="fade-in-up rounded-2xl border border-slate-200/70 bg-white p-8 shadow-[0_22px_60px_rgba(15,23,42,0.1)] sm:p-10"
+              className="fade-in-up rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 shadow-[0_22px_60px_var(--color-card-shadow)] sm:p-10"
             >
               <div className="space-y-2">
-                <h3 className="text-2xl font-semibold text-slate-900">
+                <h3 className="text-2xl font-semibold text-[var(--color-text)]">
                   {activeCadNode.title}
                 </h3>
-                <p className="text-base text-slate-600">
+                <p className="text-base text-[var(--color-muted)]">
                   {activeCadNode.overview}
                 </p>
               </div>
 
-              <div className="mt-6 space-y-2 border-l-4 border-[#8494FF] pl-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8494FF]">
+              <div className="mt-6 space-y-2 border-l-4 border-[var(--color-primary)] pl-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
                   Why It Matters
                 </p>
-                <p className="text-base text-slate-600">
+                <p className="text-base text-[var(--color-muted)]">
                   {activeCadNode.whyItMatters}
                 </p>
               </div>
 
               <div className="mt-6 space-y-2">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8494FF]">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
                   What We Do
                 </p>
-                <p className="text-base text-slate-600">
+                <p className="text-base text-[var(--color-muted)]">
                   {activeCadNode.whatWeDo}
                 </p>
+              </div>
+
+              <div className="mt-8">
+                <Link
+                  href={`/services/cad/flow/${activeCadNode.key}`}
+                  className="group inline-flex items-center gap-2 rounded-full border border-[var(--color-primary)] px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)] transition-colors duration-300 hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
+                >
+                  Learn More
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </Link>
               </div>
             </article>
           </div>
@@ -341,7 +353,7 @@ export default function CADServicesPage() {
 
       <section
         id="why-choose-services"
-        className="w-full bg-[#f8faff] px-6 py-20 sm:px-10 sm:py-24"
+        className="w-full bg-[var(--color-primary-soft)] px-6 py-20 sm:px-10 sm:py-24"
       >
         <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div
@@ -352,10 +364,10 @@ export default function CADServicesPage() {
             }`}
           >
             <div className="space-y-4">
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-                Why Choose Our <span className="text-[#8494FF]">CAD Services</span>
+              <h2 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
+                Why Choose Our <span className="text-[var(--color-primary)]">CAD Services</span>
               </h2>
-              <p className="text-base text-slate-600 sm:text-lg">
+              <p className="text-base text-[var(--color-muted)] sm:text-lg">
                 We deliver precise, automation-driven CAD solutions that accelerate
                 engineering workflows while maintaining the highest standards of
                 accuracy and compliance.
@@ -366,10 +378,10 @@ export default function CADServicesPage() {
               {featureBlocks.map((feature) => (
                 <div
                   key={feature.title}
-                  className="group rounded-2xl border border-slate-200/70 bg-white px-5 py-4 shadow-[0_12px_30px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1 hover:border-[#8494FF] hover:shadow-[0_20px_40px_rgba(132,148,255,0.2)]"
+                  className="group rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-4 shadow-[0_12px_30px_var(--color-card-shadow)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:shadow-[0_20px_40px_var(--color-primary-glow)]"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#8494FF]/10 text-[#8494FF]">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] text-[var(--color-primary)]">
                       <svg
                         className="h-5 w-5"
                         viewBox="0 0 24 24"
@@ -388,10 +400,10 @@ export default function CADServicesPage() {
                       </svg>
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-base font-semibold text-slate-900">
+                      <h3 className="text-base font-semibold text-[var(--color-text)]">
                         {feature.title}
                       </h3>
-                      <p className="text-sm text-slate-600">
+                      <p className="text-sm text-[var(--color-muted)]">
                         {feature.description}
                       </p>
                     </div>
@@ -411,13 +423,13 @@ export default function CADServicesPage() {
             {metricTargets.map((metric, index) => (
               <div
                 key={metric.label}
-                className="rounded-2xl border border-[#8494FF]/15 bg-[rgba(132,148,255,0.08)] p-6 shadow-[0_12px_30px_rgba(15,23,42,0.08)]"
+                className="rounded-2xl border border-[color-mix(in_srgb,var(--color-primary)_15%,transparent)] bg-[color-mix(in_srgb,var(--color-primary)_8%,var(--color-bg))] p-6 shadow-[0_12px_30px_var(--color-card-shadow)]"
               >
-                <div className="text-3xl font-semibold text-[#8494FF] sm:text-4xl">
+                <div className="text-3xl font-semibold text-[var(--color-primary)] sm:text-4xl">
                   {metricValues[index]}
                   {metric.suffix}
                 </div>
-                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
                   {metric.label}
                 </p>
               </div>
