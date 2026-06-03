@@ -40,7 +40,17 @@ const navItems = [
     label: "Blogs",
     href: "#blogs",
     items: [
-      { label: "Blogs", href: "/blogs/all" },
+      { label: "Inside Port AI Engineers", href: "/blogs/all" },
+      // { label: "ISO certified", href: "/blogs/iso-9001-2015" },
+      // { label: "Resources", href: "/blogs/resources" },
+    ],
+  },
+  {
+    label: "Certifications",
+    href: "#Certifications",
+    items: [
+      { label: "ISO Certified", href: "/blogs/iso-9001-2015" },
+      { label: "Startup INDIA Certified", href: "/blogs/startup-certified" },
       // { label: "Resources", href: "/blogs/resources" },
     ],
   }
@@ -109,7 +119,7 @@ export default function Header() {
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 sm:px-10">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/logo.jpeg"
+            src="/Logo.jpeg"
             alt="Company logo"
             width={140}
             height={48}

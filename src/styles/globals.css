@@ -91,6 +91,87 @@ html {
   animation: float 3s ease-in-out infinite;
 }
 
+@keyframes hero-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-gradient-text {
+  background-image: linear-gradient(
+    90deg,
+    #84c7ff 0%,
+    #4da6ff 25%,
+    #2b7bff 50%,
+    #241E92 70%,
+    #72e2ff 85%,
+    #4da6ff 100%
+  );
+  background-size: 240% 240%;
+  color: transparent;
+  animation: hero-gradient-shift 12s ease-in-out infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.hero-subtext {
+  color: #ffffff;
+  text-shadow: 0 2px 12px color-mix(in srgb, #0b2034 40%, transparent);
+}
+
+.hero-cta-gradient {
+  background-image: linear-gradient(
+    90deg,
+    #1f3ee8 0%,
+    #241E92 35%,
+    #2b7bff 65%,
+    #6fd3ff 100%
+  );
+  background-size: 220% 220%;
+  animation: hero-gradient-shift 10s ease-in-out infinite;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.marquee {
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 36s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-gradient-text {
+    animation: none;
+  }
+}
+
 #__next-build-watcher,
 #__next-devtools,
 #__next-devtools-indicator,

@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useMemo, useState } from "react";
 
-const NODE_SWITCH_MS = 3500;
+const NODE_SWITCH_MS = 10000;
 const COUNT_DURATION_MS = 1400;
 const CONNECTOR_LENGTH_PX = 160;
 const CENTER_EDGE_OFFSET_PX = 84;
@@ -202,7 +203,10 @@ const metricTargets = [
   { value: 24, suffix: "/7", label: "Technical Support" },
 ];
 
-export default function EngineeringServicesPage() {
+function EngineeringServicesPageContent() {
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [activeIndex, setActiveIndex] = useState(0);
   const [cadActiveIndex, setCadActiveIndex] = useState(0);
   const [isEngineeringVisible, setIsEngineeringVisible] = useState(false);
@@ -219,23 +223,94 @@ export default function EngineeringServicesPage() {
   );
 
   useEffect(() => {
-    const intervalId = window.setInterval(() => {
+    const timeoutId = window.setTimeout(() => {
       setActiveIndex((prev) => (prev + 1) % nodes.length);
     }, NODE_SWITCH_MS);
 
-    return () => window.clearInterval(intervalId);
-  }, []);
+    return () => window.clearTimeout(timeoutId);
+  }, [activeIndex]);
 
   useEffect(() => {
-    const intervalId = window.setInterval(() => {
+    const timeoutId = window.setTimeout(() => {
       setCadActiveIndex((prev) => (prev + 1) % cadNodes.length);
     }, NODE_SWITCH_MS);
 
-    return () => window.clearInterval(intervalId);
-  }, []);
+    return () => window.clearTimeout(timeoutId);
+  }, [cadActiveIndex]);
 
   const isActive = (index: number) => index === activeIndex;
   const isCadActive = (index: number) => index === cadActiveIndex;
+
+  const getStoredKey = (key: string) => {
+    try {
+      return window.sessionStorage.getItem(key);
+    } catch {
+      return null;
+    }
+  };
+
+  const setStoredKey = (key: string, value: string) => {
+    try {
+      window.sessionStorage.setItem(key, value);
+    } catch {
+      return;
+    }
+  };
+
+  const updateQueryParam = (key: string, value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set(key, value);
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
+
+  const handleSelectNode = (index: number) => {
+    setActiveIndex(index);
+    setStoredKey("engFlowKey", nodes[index].key);
+    updateQueryParam("eng", nodes[index].key);
+  };
+
+  const handleSelectCadNode = (index: number) => {
+    setCadActiveIndex(index);
+    setStoredKey("cadFlowKey", cadNodes[index].key);
+    updateQueryParam("cad", cadNodes[index].key);
+  };
+
+  useEffect(() => {
+    const engKey = searchParams.get("eng");
+    const cadKey = searchParams.get("cad");
+
+    if (engKey) {
+      setStoredKey("engFlowKey", engKey);
+      const index = nodes.findIndex((node) => node.key === engKey);
+      if (index >= 0 && index !== activeIndex) {
+        setActiveIndex(index);
+      }
+    } else {
+      const storedEngKey = getStoredKey("engFlowKey");
+      if (storedEngKey) {
+        const index = nodes.findIndex((node) => node.key === storedEngKey);
+        if (index >= 0 && index !== activeIndex) {
+          setActiveIndex(index);
+        }
+      }
+    }
+
+    if (cadKey) {
+      setStoredKey("cadFlowKey", cadKey);
+      const index = cadNodes.findIndex((node) => node.key === cadKey);
+      if (index >= 0 && index !== cadActiveIndex) {
+        setCadActiveIndex(index);
+      }
+    } else {
+      const storedCadKey = getStoredKey("cadFlowKey");
+      if (storedCadKey) {
+        const index = cadNodes.findIndex((node) => node.key === storedCadKey);
+        if (index >= 0 && index !== cadActiveIndex) {
+          setCadActiveIndex(index);
+        }
+      }
+    }
+  }, [searchParams, activeIndex, cadActiveIndex]);
 
   useEffect(() => {
     const section = document.getElementById("why-choose-services");
@@ -334,7 +409,7 @@ export default function EngineeringServicesPage() {
     <div className="min-h-screen bg-white text-[var(--color-text)]">
       <section
         id="engineering-flow"
-        className="w-full bg-[#F5FAFF] px-6 py-16 sm:px-10"
+        className="w-full bg-[#0B1F4D] px-6 py-16 sm:px-10"
       >
         <div className="mx-auto w-full max-w-6xl">
         <div
@@ -344,18 +419,18 @@ export default function EngineeringServicesPage() {
               : "-translate-y-6 opacity-0"
           }`}
         >
-          <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+          <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
             Engineering Services
           </h1>
-          <p className="text-base text-slate-600 sm:text-lg">
+          <p className="text-base text-white/75 sm:text-lg">
             Delivering intelligent engineering solutions designed for industrial
             precision, scalability, and operational excellence.
           </p>
         </div>
 
         <div className="grid w-full items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <div className="relative flex items-center justify-start lg:-ml-10">
-            <div className="relative h-[460px] w-[460px] sm:h-[520px] sm:w-[520px]">
+          <div className="relative flex items-center justify-center lg:justify-start lg:-ml-10">
+            <div className="relative h-[320px] w-[320px] sm:h-[520px] sm:w-[520px] [--node-radius:120px] [--center-edge-offset:56px] sm:[--node-radius:190px] sm:[--center-edge-offset:84px]">
               <div className="absolute left-1/2 top-1/2 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#6D7EFF] bg-[#8494FF] text-center text-sm font-semibold text-white shadow-[0_0_24px_rgba(132,148,255,0.55)] sm:h-40 sm:w-40">
                 Engineering Services
               </div>
@@ -365,8 +440,8 @@ export default function EngineeringServicesPage() {
                   key={`${node.key}-connector`}
                   className="absolute left-1/2 top-1/2 h-1 rounded-full"
                   style={{
-                    width: `${CONNECTOR_LENGTH_PX}px`,
-                    transform: `translateY(-50%) rotate(${node.angle}deg) translateX(${CENTER_EDGE_OFFSET_PX}px)`,
+                    width: "calc(var(--node-radius) - var(--center-edge-offset))",
+                    transform: `translateY(-50%) rotate(${node.angle}deg) translateX(var(--center-edge-offset))`,
                     transformOrigin: "left center",
                   }}
                 >
@@ -383,12 +458,15 @@ export default function EngineeringServicesPage() {
                 <button
                   key={node.key}
                   type="button"
-                  onClick={() => setActiveIndex(index)}
-                  className={`absolute ${node.positionClass} flex h-20 w-20 items-center justify-center rounded-full border text-[11px] font-semibold uppercase tracking-[0.08em] transition-all duration-300 sm:h-24 sm:w-24 ${
+                  onClick={() => handleSelectNode(index)}
+                  className={`absolute left-1/2 top-1/2 flex h-14 w-14 items-center justify-center rounded-full border px-1 text-center text-[9px] font-semibold uppercase leading-tight tracking-[0.06em] transition-all duration-300 sm:h-24 sm:w-24 sm:text-[11px] sm:tracking-[0.08em] ${
                     isActive(index)
                       ? "scale-105 border-[#6D7EFF] bg-[#8494FF] text-white shadow-[0_0_20px_rgba(132,148,255,0.6)]"
                       : "border-[#D6DEFF] bg-white text-[#1E293B] hover:scale-105 hover:border-[#8494FF] hover:bg-[#EEF2FF] hover:text-[#8494FF] hover:shadow-[0_0_16px_rgba(132,148,255,0.35)]"
                   }`}
+                  style={{
+                    transform: `translate(-50%, -50%) rotate(${node.angle}deg) translateX(var(--node-radius)) rotate(${-node.angle}deg)`,
+                  }}
                 >
                   {node.title}
                 </button>
@@ -421,6 +499,18 @@ export default function EngineeringServicesPage() {
                 </p>
                 <p className="text-base text-slate-600">{activeNode.whatWeDo}</p>
               </div>
+
+              <div className="mt-8">
+                <Link
+                  href={`/services/engineering/flow/${activeNode.key}`}
+                  className="group inline-flex items-center gap-2 rounded-full border border-[#8494FF] px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8494FF] transition-colors duration-300 hover:bg-[#8494FF] hover:text-white"
+                >
+                  Learn More
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </Link>
+              </div>
             </article>
           </div>
         </div>
@@ -429,25 +519,25 @@ export default function EngineeringServicesPage() {
 
       <section
         id="cad-flow"
-        className="w-full bg-[#F5FAFF] px-6 py-20 sm:px-10 sm:py-24"
+        className="w-full bg-[#0B1F4D] px-6 py-20 sm:px-10 sm:py-24"
       >
         <div
           className={`mx-auto mb-12 flex max-w-3xl flex-col items-center gap-4 text-center transition-all duration-700 ease-out ${
             isCadVisible ? "translate-y-0 opacity-100" : "-translate-y-6 opacity-0"
           }`}
         >
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
             CAD Services
           </h2>
-          <p className="text-base text-slate-600 sm:text-lg">
+          <p className="text-base text-white/75 sm:text-lg">
             Advanced CAD drafting, automation, and design solutions built to
             improve engineering productivity and technical accuracy.
           </p>
         </div>
 
         <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <div className="relative flex items-center justify-start lg:-ml-10">
-            <div className="relative h-[480px] w-[480px] sm:h-[560px] sm:w-[560px]">
+          <div className="relative flex items-center justify-center lg:justify-start lg:-ml-10">
+            <div className="relative h-[320px] w-[320px] sm:h-[560px] sm:w-[560px] [--node-radius:120px] [--center-edge-offset:56px] sm:[--node-radius:205px] sm:[--center-edge-offset:84px]">
               <div className="absolute left-1/2 top-1/2 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#6D7EFF] bg-[#8494FF] text-center text-sm font-semibold text-white shadow-[0_0_24px_rgba(132,148,255,0.55)] sm:h-40 sm:w-40">
                 CAD Services
               </div>
@@ -457,8 +547,8 @@ export default function EngineeringServicesPage() {
                   key={`${node.key}-connector`}
                   className="absolute left-1/2 top-1/2 h-1 -translate-y-1/2 origin-left"
                   style={{
-                    width: `${CONNECTOR_LENGTH_PX}px`,
-                    transform: `translateY(-50%) rotate(${node.angle}deg) translateX(${CENTER_EDGE_OFFSET_PX}px)`,
+                    width: "calc(var(--node-radius) - var(--center-edge-offset))",
+                    transform: `translateY(-50%) rotate(${node.angle}deg) translateX(var(--center-edge-offset))`,
                   }}
                 >
                   <div className="h-full w-full rounded-full bg-[#CBD5E1]" />
@@ -474,12 +564,15 @@ export default function EngineeringServicesPage() {
                 <button
                   key={node.key}
                   type="button"
-                  onClick={() => setCadActiveIndex(index)}
-                  className={`absolute ${node.positionClass} flex h-20 w-20 items-center justify-center rounded-full border text-[11px] font-semibold uppercase tracking-[0.08em] transition-all duration-300 sm:h-24 sm:w-24 ${
+                  onClick={() => handleSelectCadNode(index)}
+                  className={`absolute left-1/2 top-1/2 flex h-14 w-14 items-center justify-center rounded-full border px-1 text-center text-[9px] font-semibold uppercase leading-tight tracking-[0.06em] transition-all duration-300 sm:h-24 sm:w-24 sm:text-[11px] sm:tracking-[0.08em] ${
                     isCadActive(index)
                       ? "scale-105 border-[#6D7EFF] bg-[#8494FF] text-white shadow-[0_0_20px_rgba(132,148,255,0.6)]"
                       : "border-[#D6DEFF] bg-white text-[#1E293B] hover:scale-105 hover:border-[#8494FF] hover:bg-[#EEF2FF] hover:text-[#8494FF] hover:shadow-[0_0_16px_rgba(132,148,255,0.35)]"
                   }`}
+                  style={{
+                    transform: `translate(-50%, -50%) rotate(${node.angle}deg) translateX(var(--node-radius)) rotate(${-node.angle}deg)`,
+                  }}
                 >
                   {node.title}
                 </button>
@@ -518,6 +611,18 @@ export default function EngineeringServicesPage() {
                   {activeCadNode.whatWeDo}
                 </p>
               </div>
+
+              <div className="mt-8">
+                <Link
+                  href={`/services/cad/flow/${activeCadNode.key}`}
+                  className="group inline-flex items-center gap-2 rounded-full border border-[#8494FF] px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8494FF] transition-colors duration-300 hover:bg-[#8494FF] hover:text-white"
+                >
+                  Learn More
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </Link>
+              </div>
             </article>
           </div>
         </div>
@@ -525,7 +630,7 @@ export default function EngineeringServicesPage() {
 
       <section
         id="why-choose-services"
-        className="w-full bg-[#f8faff] px-6 py-20 sm:px-10 sm:py-24"
+        className="w-full bg-[#0B1F4D] px-6 py-20 sm:px-10 sm:py-24"
       >
         <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div
@@ -536,11 +641,11 @@ export default function EngineeringServicesPage() {
             }`}
           >
             <div className="space-y-4">
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                 Why Choose Our{" "}
                 <span className="text-[#8494FF]">Engineering Services</span>
               </h2>
-              <p className="text-base text-slate-600 sm:text-lg">
+              <p className="text-base text-white/75 sm:text-lg">
                 We combine advanced engineering expertise, AI-powered automation,
                 and industry-standard design practices to deliver scalable,
                 precise, and future-ready engineering solutions.
@@ -611,5 +716,13 @@ export default function EngineeringServicesPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function EngineeringServicesPage() {
+  return (
+    <Suspense fallback={null}>
+      <EngineeringServicesPageContent />
+    </Suspense>
   );
 }

@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   title: "Port AI Engineers Pvt. Ltd.",
   description: "Precision-focused engineering and CAD services powered by AI. Delivering faster, safer, and more predictable outcomes for complex industrial projects.",
   icons: {
-    icon: "/logo.jpeg",
-    shortcut: "/logo.jpeg",
-    apple: "/logo.jpeg",
+    icon: "/Logo.jpeg",
+    shortcut: "/Logo.jpeg",
+    apple: "/Logo.jpeg",
   },
 };
 

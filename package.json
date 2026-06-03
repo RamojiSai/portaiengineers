@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
-    "deploy": "gh-pages -d out"
-  },
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "eslint",
+  "predeploy": "next build && node -e \"require('fs').writeFileSync('out/.nojekyll', '')\"",
+  "deploy": "gh-pages -d out --dotfiles"
+},
   "dependencies": {
     "next": "^15.0.0",
     "react": "^19.0.0",

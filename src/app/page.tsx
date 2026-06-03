@@ -91,9 +91,46 @@ export default function Home() {
     },
   ];
 
+  const industriesWeServe = [
+    "Engineering Services",
+    "Isometric Services",
+    "Process Engineering",
+    "CAD Services",
+    "P&ID Drawings",
+    "3D Piping Design",
+    "Instrumentation & Control",
+    "Piping Stress Analysis",
+    "Greenfield Projects",
+    "Brownfield Projects",
+    "General Arrangement",
+    "CAD Conversion",
+    "CAD Training",
+    "CAD Automation",
+    "Fire Evacuation Drawings",
+  ];
+
   return (
     <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
       <HeroSection />
+      <section className="bg-[var(--color-bg)] px-6 pt-1 pb-6 sm:px-10 sm:pt-2 sm:pb-8 mt-1">
+        <div className="mx-auto w-full max-w-6xl">
+          <h2 className="text-center text-xl font-semibold tracking-tight text-[var(--color-text)] sm:text-2xl">
+            Industries We Serve
+          </h2>
+          <div className="marquee mt-4 rounded-3xl border border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-surface)_70%,transparent)] py-3 sm:py-4">
+            <div className="marquee-track gap-3 px-4 sm:px-6">
+              {[...industriesWeServe, ...industriesWeServe].map((item, index) => (
+                <div
+                  key={`${item}-${index}`}
+                  className="whitespace-nowrap rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-primary)] shadow-[0_10px_24px_var(--color-card-shadow)]"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
       <AboutSection />
       <section
         className="relative flex min-h-screen items-center overflow-hidden bg-[var(--color-bg)] px-6 py-20 sm:px-10 sm:py-24"
@@ -187,6 +224,66 @@ export default function Home() {
                   </Link>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="bg-[var(--color-bg)] px-6 py-14 sm:px-10 sm:py-16">
+        <div className="mx-auto w-full max-w-6xl">
+          <div className="fade-in-up group relative overflow-hidden rounded-3xl border border-[color-mix(in_srgb,var(--color-primary)_30%,transparent)] bg-[linear-gradient(135deg,color-mix(in_srgb,var(--color-primary)_14%,var(--color-bg)),var(--color-bg))] p-6 shadow-[0_20px_50px_var(--color-card-shadow)] transition-transform duration-300 hover:-translate-y-1 sm:p-8">
+            <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_18%,transparent)] blur-3xl" />
+            <div className="absolute -bottom-20 -left-12 h-44 w-44 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)] blur-3xl" />
+
+            <div className="relative flex flex-col gap-6">
+              <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[color-mix(in_srgb,var(--color-primary)_40%,transparent)] bg-[color-mix(in_srgb,var(--color-primary)_16%,transparent)] text-[var(--color-primary)] shadow-[0_0_20px_var(--color-primary-glow)]">
+                    <svg
+                      className="h-7 w-7"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 2l7 3v6c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z" />
+                      <path d="M9 12l2 2 4-4" />
+                    </svg>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-primary)]">
+                      Certification
+                    </p>
+                    <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-text)] sm:text-3xl">
+                      ISO 9001:2015 Certified Company
+                    </h2>
+                    <p className="max-w-2xl text-sm text-[var(--color-muted)] sm:text-base">
+                      Port AI Engineers Pvt. Ltd. is officially ISO 9001:2015 certified, demonstrating our commitment to quality management, engineering excellence, and continuous improvement.
+                    </p>
+                  </div>
+                </div>
+                <div className="relative flex items-center gap-4 rounded-2xl border border-[color-mix(in_srgb,var(--color-primary)_30%,transparent)] bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)] px-5 py-4 shadow-[0_18px_40px_var(--color-card-shadow)]">
+                  <img
+                    src="/ISOimage.webp"
+                    alt="ISO 9001:2015 certification badge"
+                    className="h-14 w-14 object-contain"
+                  />
+                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
+                    ISO Certified
+                  </div>
+                </div>
+              </div>
+              <Link
+                href="/blogs/iso-9001-2015"
+                className="flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)]"
+              >
+                Learn More
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  &rarr;
+                </span>
+              </Link>
             </div>
           </div>
         </div>

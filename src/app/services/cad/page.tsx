@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useMemo, useState } from "react";
 
-const NODE_SWITCH_MS = 60000;
+const NODE_SWITCH_MS = 10000;
 const COUNT_DURATION_MS = 1400;
 
 const cadNodes = [
@@ -122,7 +123,10 @@ const metricTargets = [
   { value: 24, suffix: "/7", label: "Technical Support" },
 ];
 
-export default function CADServicesPage() {
+function CADServicesPageContent() {
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [cadActiveIndex, setCadActiveIndex] = useState(0);
   const [isCadVisible, setIsCadVisible] = useState(false);
   const [isWhyVisible, setIsWhyVisible] = useState(false);
@@ -136,14 +140,64 @@ export default function CADServicesPage() {
   );
 
   useEffect(() => {
-    const intervalId = window.setInterval(() => {
+    const timeoutId = window.setTimeout(() => {
       setCadActiveIndex((prev) => (prev + 1) % cadNodes.length);
     }, NODE_SWITCH_MS);
 
-    return () => window.clearInterval(intervalId);
-  }, []);
+    return () => window.clearTimeout(timeoutId);
+  }, [cadActiveIndex]);
 
   const isCadActive = (index: number) => index === cadActiveIndex;
+
+  const getStoredKey = (key: string) => {
+    try {
+      return window.sessionStorage.getItem(key);
+    } catch {
+      return null;
+    }
+  };
+
+  const setStoredKey = (key: string, value: string) => {
+    try {
+      window.sessionStorage.setItem(key, value);
+    } catch {
+      return;
+    }
+  };
+
+  const updateQueryParam = (key: string, value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set(key, value);
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
+
+  const handleSelectCadNode = (index: number) => {
+    setCadActiveIndex(index);
+    setStoredKey("cadFlowKey", cadNodes[index].key);
+    updateQueryParam("cad", cadNodes[index].key);
+  };
+
+  useEffect(() => {
+    const cadKey = searchParams.get("cad");
+    if (cadKey) {
+      setStoredKey("cadFlowKey", cadKey);
+      const index = cadNodes.findIndex((node) => node.key === cadKey);
+      if (index >= 0 && index !== cadActiveIndex) {
+        setCadActiveIndex(index);
+      }
+      return;
+    }
+
+    const storedCadKey = getStoredKey("cadFlowKey");
+    if (!storedCadKey) {
+      return;
+    }
+
+    const index = cadNodes.findIndex((node) => node.key === storedCadKey);
+    if (index >= 0 && index !== cadActiveIndex) {
+      setCadActiveIndex(index);
+    }
+  }, [searchParams, cadActiveIndex]);
 
   useEffect(() => {
     const section = document.getElementById("why-choose-services");
@@ -238,8 +292,8 @@ export default function CADServicesPage() {
         </div>
 
         <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <div className="relative flex items-center justify-start lg:-ml-10">
-            <div className="relative h-[480px] w-[480px] sm:h-[560px] sm:w-[560px]">
+          <div className="relative flex items-center justify-center lg:justify-start lg:-ml-10">
+            <div className="relative h-[320px] w-[320px] sm:h-[560px] sm:w-[560px] [--node-radius:120px] sm:[--node-radius:205px]">
               <div className="absolute left-1/2 top-1/2 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--color-primary)] text-center text-sm font-semibold text-[var(--color-on-primary)] shadow-[0_0_24px_var(--color-primary-glow)] sm:h-40 sm:w-40">
                 CAD Services
               </div>
@@ -247,8 +301,11 @@ export default function CADServicesPage() {
               {cadNodes.map((node, index) => (
                 <div
                   key={`${node.key}-connector`}
-                  className="absolute left-1/2 top-1/2 h-1 w-[140px] -translate-y-1/2 origin-left"
-                  style={{ transform: `translateY(-50%) rotate(${node.angle}deg)` }}
+                  className="absolute left-1/2 top-1/2 h-1 -translate-y-1/2 origin-left"
+                  style={{
+                    width: "var(--node-radius)",
+                    transform: `translateY(-50%) rotate(${node.angle}deg)`
+                  }}
                 >
                   <div className="h-full w-full rounded-full bg-[color-mix(in_srgb,var(--color-border)_80%,transparent)]" />
                   <div
@@ -263,12 +320,15 @@ export default function CADServicesPage() {
                 <button
                   key={node.key}
                   type="button"
-                  onClick={() => setCadActiveIndex(index)}
-                  className={`absolute ${node.positionClass} flex h-20 w-20 items-center justify-center rounded-full border border-transparent text-[11px] font-semibold uppercase tracking-[0.08em] transition-all duration-500 sm:h-24 sm:w-24 ${
+                  onClick={() => handleSelectCadNode(index)}
+                  className={`absolute left-1/2 top-1/2 flex h-14 w-14 items-center justify-center rounded-full border border-transparent px-1 text-center text-[9px] font-semibold uppercase leading-tight tracking-[0.06em] transition-all duration-500 sm:h-24 sm:w-24 sm:text-[11px] sm:tracking-[0.08em] ${
                     isCadActive(index)
                       ? "scale-105 bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-[0_0_20px_var(--color-primary-glow)]"
                       : "bg-[var(--color-surface)] text-[var(--color-muted-strong)]"
                   }`}
+                  style={{
+                    transform: `translate(-50%, -50%) rotate(${node.angle}deg) translateX(var(--node-radius)) rotate(${-node.angle}deg)`,
+                  }}
                 >
                   {node.title}
                 </button>
@@ -438,5 +498,13 @@ export default function CADServicesPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function CADServicesPage() {
+  return (
+    <Suspense fallback={null}>
+      <CADServicesPageContent />
+    </Suspense>
   );
 }
