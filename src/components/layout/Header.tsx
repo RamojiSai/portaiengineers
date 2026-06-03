@@ -40,7 +40,17 @@ const navItems = [
     label: "Blogs",
     href: "#blogs",
     items: [
-      { label: "Blogs", href: "/blogs/all" },
+      { label: "Inside Port AI Engineers", href: "/blogs/all" },
+      // { label: "ISO certified", href: "/blogs/iso-9001-2015" },
+      // { label: "Resources", href: "/blogs/resources" },
+    ],
+  },
+  {
+    label: "Certifications",
+    href: "#Certifications",
+    items: [
+      { label: "ISO Certified", href: "/blogs/iso-9001-2015" },
+      { label: "Startup INDIA Certified", href: "/blogs/startup-certified" },
       // { label: "Resources", href: "/blogs/resources" },
     ],
   }

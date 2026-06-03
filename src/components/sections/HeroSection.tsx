@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 const SLIDE_INTERVAL_MS = 5000;
@@ -102,36 +103,23 @@ export default function HeroSection() {
       <div className="relative z-10 mx-auto flex w-full max-w-6xl items-center px-6 py-24 sm:px-10">
         <div
           key={activeSlide.heading}
-          className="fade-in-up flex w-full max-w-2xl flex-col items-center gap-6 text-center sm:items-start sm:text-left sm:pl-12 lg:pl-16"
+          className="fade-in-up -mt-20 flex w-full max-w-2xl flex-col items-center gap-6 text-center sm:items-start sm:text-left sm:pl-0 lg:pl-2"
         >
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-primary)]">
             Engineering Services
           </span>
-          <h1 className="text-4xl font-semibold tracking-tight text-[var(--color-on-hero)] sm:text-5xl lg:text-6xl">
-            {activeSlide.heading.split(" ").map((word, index) => (
-              <span
-                key={`${word}-${index}`}
-                className={
-                  word.toLowerCase() === "intelligent" ||
-                  word.toLowerCase() === "digitally"
-                    ? "text-[var(--color-primary)]"
-                    : ""
-                }
-              >
-                {word}
-                {index < activeSlide.heading.split(" ").length - 1 ? " " : ""}
-              </span>
-            ))}
+          <h1 className="hero-gradient-text text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+            {activeSlide.heading}
           </h1>
-          <p className="text-base text-[color-mix(in_srgb,var(--color-on-hero)_85%,transparent)] sm:text-lg">
+          <p className="hero-subtext text-base sm:text-lg">
             {activeSlide.subtext}
           </p>
-          <button
-            type="button"
-            className="rounded-full border border-[color-mix(in_srgb,var(--color-on-hero)_30%,transparent)] px-6 py-2 text-sm font-semibold text-[var(--color-on-hero)] transition-all duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+          <Link
+            href="/contact"
+            className="hero-cta-gradient rounded-full border border-[#241E92] px-6 py-2 text-sm font-semibold text-white"
           >
-            Learn More
-          </button>
+            Contact Us
+          </Link>
         </div>
       </div>
 

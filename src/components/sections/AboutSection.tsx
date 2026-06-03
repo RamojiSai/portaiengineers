@@ -24,36 +24,36 @@ export default function AboutSection() {
 
       <div className="relative mx-auto w-full max-w-6xl">
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="space-y-6">
+          <div className="space-y-6 text-center sm:text-left">
             <div className="space-y-4">
               <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
                 About
               </span>
-              <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-text)] sm:text-3xl lg:text-4xl">
+              <h2 className="mx-auto text-[clamp(1.35rem,5.5vw,2.25rem)] font-semibold tracking-tight text-[var(--color-text)] sm:mx-0 sm:whitespace-nowrap">
                 Advanced Engineering Powered by AI
               </h2>
-              <p className="text-left text-sm leading-relaxed text-[var(--color-muted)] sm:text-base sm:text-justify lg:text-lg">
+              <p className="text-sm leading-relaxed text-[var(--color-muted)] sm:text-base sm:text-justify lg:text-lg">
                 We combine automation, data intelligence, and rigorous
                 engineering practices to deliver faster, safer, and more
                 predictable outcomes.
               </p>
             </div>
             <div className="space-y-5 text-sm text-[var(--color-muted)] sm:text-base lg:text-lg">
-            <p className="text-left leading-relaxed sm:text-justify">
-              Port Engineers Pvt. Ltd. is a technology-driven engineering and CAD
-              services company delivering precision-focused solutions for
-              complex industrial projects. With a strong foundation in plant
-              engineering, design automation, and industrial drafting, we
-              support global industries with safe, scalable, and cost-effective
-              engineering outcomes.
-            </p>
-            <p className="text-left leading-relaxed sm:text-justify">
-              Teams gain real-time visibility into design dependencies, risks,
-              and change impacts, ensuring every deliverable aligns with
-              compliance and operational goals.
-            </p>
+              <p className="leading-relaxed sm:text-justify">
+                Port Engineers Pvt. Ltd. is a technology-driven engineering and CAD
+                services company delivering precision-focused solutions for
+                complex industrial projects. With a strong foundation in plant
+                engineering, design automation, and industrial drafting, we
+                support global industries with safe, scalable, and cost-effective
+                engineering outcomes.
+              </p>
+              <p className="leading-relaxed sm:text-justify">
+                Teams gain real-time visibility into design dependencies, risks,
+                and change impacts, ensuring every deliverable aligns with
+                compliance and operational goals.
+              </p>
             </div>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap justify-center gap-3 sm:justify-start">
               {[
                 "Automation-first execution",
                 "Predictive design insights",

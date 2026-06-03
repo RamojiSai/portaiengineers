@@ -1,7 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const footerColumns = [
+type FooterLink = {
+  label: string;
+  href: string;
+  isSpecial?: boolean;
+};
+
+type FooterColumn = {
+  title: string;
+  links: FooterLink[];
+};
+
+const footerColumns: FooterColumn[] = [
   {
     title: "Plant Engineering Services",
     links: [
@@ -47,15 +58,23 @@ const footerColumns = [
       { label: "Contact Us", href: "/contact" },
     ],
   },
+
   {
-    title: "Resources",
+    title: "Certifications",
     links: [
-      { label: "Reports & Research", href: "/blogs/all" },
-      { label: "Implementation Index", href: "/blogs/all" },
-      { label: "AI Readiness Report", href: "/blogs/all" },
-      { label: "Try Demo", href: "/#cta", isSpecial: true },
+      { label: "ISO  9001 : 2015", href: "/blogs/iso-9001-2015" },
+      { label: "Startup India Certified", href: "/blogs/startup-certified" },
     ],
   },
+  // {
+  //   title: "Resources",
+  //   links: [
+  //     { label: "Reports & Research", href: "/blogs/all" },
+  //     { label: "Implementation Index", href: "/blogs/all" },
+  //     { label: "AI Readiness Report", href: "/blogs/all" },
+  //     { label: "Try Demo", href: "/#cta", isSpecial: true },
+  //   ],
+  // },
 ];
 
 const socialLinks = [
@@ -211,9 +230,14 @@ export default function FooterSection() {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <div className="relative h-20 w-20 rounded-2xl border border-[color-mix(in_srgb,var(--color-on-footer)_10%,transparent)] bg-[color-mix(in_srgb,var(--color-on-footer)_6%,transparent)]">
-                <div className="absolute inset-4 rounded-xl border border-dashed border-[color-mix(in_srgb,var(--color-on-footer)_20%,transparent)]" />
-                <span className="absolute bottom-2 right-2 h-2 w-2 rounded-full bg-[var(--color-primary)] shadow-[0_0_10px_var(--color-primary-glow)] animate-float" />
+              <div className="relative h-20 w-20 overflow-hidden rounded-2xl border border-[color-mix(in_srgb,var(--color-on-footer)_10%,transparent)] bg-[color-mix(in_srgb,var(--color-on-footer)_6%,transparent)]">
+                <Image
+                  src="/LocationQR.png"
+                  alt="Location QR code"
+                  width={80}
+                  height={80}
+                  className="h-full w-full object-cover"
+                />
               </div>
               <div className="space-y-2">
                 <span className="text-xs uppercase tracking-[0.2em] text-[var(--color-on-footer-muted)]">
@@ -239,9 +263,26 @@ export default function FooterSection() {
         </div>
 
         <div className="mt-8 border-t border-[color-mix(in_srgb,var(--color-on-footer)_10%,transparent)] pt-6">
-          <p className="text-xs text-[var(--color-on-footer-muted)]">
-            © 2026 Port AI. All rights reserved.
-          </p>
+          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-xs text-[var(--color-on-footer-muted)]">
+              © 2026 Port AI. All rights reserved.
+            </p>
+            <Link
+              href="/blogs/iso-9001-2015"
+              className="flex items-center text-xs font-semibold text-[var(--color-primary)]"
+            >
+              <div className="relative flex items-center gap-3 rounded-2xl border border-[color-mix(in_srgb,var(--color-primary)_45%,transparent)] bg-[color-mix(in_srgb,var(--color-primary)_20%,transparent)] px-3 py-2 shadow-[0_18px_40px_var(--color-card-shadow)]">
+                <img
+                  src="/ISOimage.webp"
+                  alt="ISO 9001:2015 certification badge"
+                  className="h-10 w-10 object-contain"
+                />
+                <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
+                  ISO Certified
+                </div>
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
