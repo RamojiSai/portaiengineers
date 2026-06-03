@@ -102,7 +102,7 @@ const industries = [
 
 export default function BlogsAllPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <main className="min-h-screen bg-[#0B1F4D] text-white">
       {/* Hero */}
       <section className="w-full bg-[#0B1F4D] px-6 py-16 sm:px-10 sm:py-20">
         <div className="mx-auto w-full max-w-6xl">
@@ -145,12 +145,12 @@ export default function BlogsAllPage() {
       </section>
 
       {/* Content */}
-      <section className="w-full px-6 py-14 sm:px-10 sm:py-16">
+      <section className="w-full bg-[#0B1F4D] px-6 py-14 sm:px-10 sm:py-16">
         <div className="mx-auto w-full max-w-3xl space-y-14">
           {/* Section 1 — Introduction */}
           <FadeIn>
             <div className="space-y-4">
-              <p className="text-base leading-relaxed text-slate-700 sm:text-lg">
+              <p className="text-base leading-relaxed text-white/75 sm:text-lg">
                 In today’s fast-moving industrial landscape, every project demands
                 precision, efficiency, and smart design. At Port AI Engineers Private
                 Limited, we deliver the engineering foundations that industries rely on
@@ -175,10 +175,10 @@ export default function BlogsAllPage() {
           {/* Section 2 — Who We Are */}
           <FadeIn>
             <div className="space-y-5">
-              <h2 className="text-2xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-3xl">
+              <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl">
                 Who We Are
               </h2>
-              <div className="space-y-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+              <div className="space-y-4 text-base leading-relaxed text-white/75 sm:text-lg">
                 <p>
                   Port AI Engineers Private Limited is a modern engineering services
                   company built on industrial purpose, delivering reliable, accurate,
@@ -197,7 +197,7 @@ export default function BlogsAllPage() {
           {/* Section 3 — Our Core Engineering Services */}
           <FadeIn>
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-3xl">
+              <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl">
                 Our Core Engineering Services
               </h2>
 
@@ -224,7 +224,7 @@ export default function BlogsAllPage() {
           {/* Section 4 — Why Leading Industries Choose Us */}
           <FadeIn>
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-3xl">
+              <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl">
                 Why Leading Industries Choose Us
               </h2>
 
@@ -247,7 +247,7 @@ export default function BlogsAllPage() {
           {/* Section 5 — Our Engineering Process */}
           <FadeIn>
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-3xl">
+              <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl">
                 Our Engineering Process
               </h2>
 
@@ -275,7 +275,7 @@ export default function BlogsAllPage() {
           {/* Section 6 — Industries We Serve */}
           <FadeIn>
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-3xl">
+              <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl">
                 Industries We Serve
               </h2>
 
@@ -295,7 +295,7 @@ export default function BlogsAllPage() {
           {/* Section 7 — Mission & Vision */}
           <FadeIn>
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-3xl">
+              <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl">
                 Mission &amp; Vision
               </h2>
 

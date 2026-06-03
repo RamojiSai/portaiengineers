@@ -4,10 +4,10 @@ export default function NotFound() {
   return (
     <main className="mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-6 text-center">
       <h1 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
-        Page not found
+        Comming Soon: A New Chapter for Port AI Engineers
       </h1>
       <p className="mt-3 text-base text-[var(--color-muted)]">
-        The page you’re looking for doesn’t exist.
+        Comming Soon
       </p>
       <Link
         href="/"

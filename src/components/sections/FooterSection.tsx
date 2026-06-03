@@ -6,26 +6,26 @@ const footerColumns = [
     title: "Plant Engineering Services",
     links: [
       { label: "Engineering Services", href: "/services/engineering#engineering-flow" },
-      { label: "Process Engineering", href: "/services/engineering#engineering-flow" },
-      { label: "3D Piping Design", href: "/services/engineering#engineering-flow" },
-      { label: "Piping Engineering Services", href: "/services/engineering#engineering-flow" },
-      { label: "Instrumentation & Control", href: "/services/engineering#engineering-flow" },
-      { label: "Piping Stress Analysis", href: "/services/engineering#engineering-flow" },
-      { label: "Greenfield Projects", href: "/services/engineering#engineering-flow" },
-      { label: "Brownfield Projects", href: "/services/engineering#engineering-flow" },
+      { label: "Process Engineering", href: "/services/engineering?eng=process#engineering-flow" },
+      { label: "3D Piping Design", href: "/services/engineering?eng=piping-3d#engineering-flow" },
+      { label: "Piping Engineering Services", href: "/services/engineering?eng=piping-eng#engineering-flow" },
+      { label: "Instrumentation & Control", href: "/services/engineering?eng=instrumentation#engineering-flow" },
+      { label: "Piping Stress Analysis", href: "/services/engineering?eng=stress#engineering-flow" },
+      { label: "Greenfield Projects", href: "/services/engineering?eng=greenfield#engineering-flow" },
+      { label: "Brownfield Projects", href: "/services/engineering?eng=brownfield#engineering-flow" },
     ],
   },
   {
     title: "Cad Services",
     links: [
-      { label: "Process Flow Diagram (PFD)", href: "/services/engineering#cad-flow" },
-      { label: "P&ID Drawings", href: "/services/engineering#cad-flow" },
-      { label: "Isometric Drawings", href: "/services/engineering#cad-flow" },
-      { label: "General Arrangement", href: "/services/engineering#cad-flow" },
-      { label: "CAD Conversion", href: "/services/engineering#cad-flow" },
-      { label: "CAD Training", href: "/services/engineering#cad-flow" },
-      { label: "CAD Automation", href: "/services/engineering#cad-flow" },
-      { label: "Fire Evacuation Drawings", href: "/services/engineering#cad-flow" },
+      { label: "Process Flow Diagram (PFD)", href: "/services/engineering?cad=cad-pfd#cad-flow" },
+      { label: "P&ID Drawings", href: "/services/engineering?cad=cad-pid#cad-flow" },
+      { label: "Isometric Drawings", href: "/services/engineering?cad=cad-iso#cad-flow" },
+      { label: "General Arrangement", href: "/services/engineering?cad=cad-ga#cad-flow" },
+      { label: "CAD Conversion", href: "/services/engineering?cad=cad-conversion#cad-flow" },
+      { label: "CAD Training", href: "/services/engineering?cad=cad-training#cad-flow" },
+      { label: "CAD Automation", href: "/services/engineering?cad=cad-automation#cad-flow" },
+      { label: "Fire Evacuation Drawings", href: "/services/engineering?cad=cad-fire#cad-flow" },
     ],
   },
   {
@@ -55,6 +55,71 @@ const footerColumns = [
       { label: "AI Readiness Report", href: "/blogs/all" },
       { label: "Try Demo", href: "/#cta", isSpecial: true },
     ],
+  },
+];
+
+const socialLinks = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/port-ai/",
+    icon: (
+      <svg
+        className="h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm-2 7h4v10h-4v-10Zm7 0h3.8v1.4h.1c.5-.9 1.7-1.8 3.5-1.8 3.7 0 4.4 2.4 4.4 5.4v5h-4v-4.5c0-1.1 0-2.5-1.6-2.5-1.6 0-1.9 1.2-1.9 2.4v4.6h-4v-10Z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/portaiengineers?igsh=YTJseWtiM2pldWN0",
+    icon: (
+      <svg
+        className="h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17" cy="7" r="1" />
+      </svg>
+    ),
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61588678006058",
+    icon: (
+      <svg
+        className="h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M13.5 9.3V7.6c0-.8.5-1 1-1h2V3.2h-2.7c-2.7 0-3.6 2-3.6 3.3v2.8H8v3.2h2.2V21h3.3v-8.5h2.5l.4-3.2h-2.9Z" />
+      </svg>
+    ),
+  },
+  {
+    label: "YouTube",
+    href: "https://youtube.com/@portaiengineers?si=FkXxfA4DgDnX2yEl",
+    icon: (
+      <svg
+        className="h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M21.6 7.2c-.2-.8-.8-1.4-1.6-1.6C18.6 5.2 12 5.2 12 5.2s-6.6 0-8 .4c-.8.2-1.4.8-1.6 1.6-.4 1.4-.4 4.3-.4 4.3s0 2.9.4 4.3c.2.8.8 1.4 1.6 1.6 1.4.4 8 .4 8 .4s6.6 0 8-.4c.8-.2 1.4-.8 1.6-1.6.4-1.4.4-4.3.4-4.3s0-2.9-.4-4.3ZM10.5 14.7v-5.4l4.7 2.7-4.7 2.7Z" />
+      </svg>
+    ),
   },
 ];
 
@@ -90,38 +155,33 @@ export default function FooterSection() {
             </div>
           ))}
 
-          <div className="h-full rounded-3xl border border-[color-mix(in_srgb,var(--color-on-footer)_10%,transparent)] bg-[color-mix(in_srgb,var(--color-on-footer)_6%,transparent)] p-6 shadow-[0_20px_40px_var(--color-card-shadow)]">
-            <div className="flex items-center gap-3 text-[var(--color-on-footer-muted)]">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--color-on-footer)_10%,transparent)]">
-                <svg
-                  className="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" />
-                </svg>
-              </div>
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-on-footer-muted)]">
-                CTA
-              </span>
+          <div className="h-full rounded-3xl border border-[color-mix(in_srgb,var(--color-on-footer)_12%,transparent)] bg-[color-mix(in_srgb,var(--color-on-footer)_6%,transparent)] p-6 shadow-[0_22px_44px_var(--color-card-shadow)]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[color-mix(in_srgb,var(--color-on-footer)_18%,transparent)] bg-[color-mix(in_srgb,var(--color-on-footer)_10%,transparent)] text-[var(--color-on-footer)]">
+              <svg
+                className="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" />
+              </svg>
             </div>
-            <div className="mt-4 space-y-3">
+            <div className="mt-5 space-y-3">
               <h4 className="text-xl font-semibold text-[var(--color-on-footer)]">Let’s work together</h4>
-              <p className="text-sm text-[var(--color-on-footer-muted)]">
-                Get answers and a customized quote for your projects.
+              <p className="text-sm leading-relaxed text-[var(--color-on-footer-muted)]">
+                Get answers and a customized quote for your projects
               </p>
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--color-on-footer)_20%,transparent)] px-4 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-on-footer)] transition-all duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+                className="group inline-flex w-full items-center justify-between rounded-xl border border-[color-mix(in_srgb,var(--color-on-footer)_55%,transparent)] bg-transparent px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.26em] text-[var(--color-on-footer)] transition-all duration-300 hover:border-[var(--color-primary)] hover:shadow-[0_0_18px_rgba(15,118,110,0.35)]"
               >
-                Schedule Demo
+                SCHEDULE DEMO
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  -&gt;
+                  →
                 </span>
               </Link>
             </div>
@@ -132,7 +192,7 @@ export default function FooterSection() {
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div className="flex items-center gap-4">
               <Image
-                src="/logo.jpeg"
+                src="/Logo.jpeg"
                 alt="Port AI logo"
                 width={52}
                 height={52}
@@ -155,9 +215,25 @@ export default function FooterSection() {
                 <div className="absolute inset-4 rounded-xl border border-dashed border-[color-mix(in_srgb,var(--color-on-footer)_20%,transparent)]" />
                 <span className="absolute bottom-2 right-2 h-2 w-2 rounded-full bg-[var(--color-primary)] shadow-[0_0_10px_var(--color-primary-glow)] animate-float" />
               </div>
-              <span className="text-xs uppercase tracking-[0.2em] text-[var(--color-on-footer-muted)]">
-                QR Code
-              </span>
+              <div className="space-y-2">
+                <span className="text-xs uppercase tracking-[0.2em] text-[var(--color-on-footer-muted)]">
+                  QR Code
+                </span>
+                <div className="flex items-center gap-2">
+                  {socialLinks.map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={link.label}
+                      className="group inline-flex h-8 w-8 items-center justify-center rounded-full border border-[color-mix(in_srgb,var(--color-on-footer)_15%,transparent)] bg-[color-mix(in_srgb,var(--color-on-footer)_8%,transparent)] text-[var(--color-on-footer)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+                    >
+                      {link.icon}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

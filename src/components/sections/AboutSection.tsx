@@ -16,30 +16,30 @@ export default function AboutSection() {
 
   return (
     <section
-      className="relative flex min-h-screen items-center overflow-hidden bg-[linear-gradient(135deg,var(--color-primary-soft),var(--color-bg))] px-6 py-20 sm:px-10 sm:py-24"
+      className="relative flex min-h-screen items-center overflow-hidden bg-[linear-gradient(135deg,var(--color-primary-soft),var(--color-bg))] px-5 py-16 sm:px-10 sm:py-24"
       id="platform"
     >
       <div className="absolute -left-20 top-8 h-48 w-48 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] blur-3xl" />
       <div className="absolute -bottom-16 right-6 h-56 w-56 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] blur-3xl" />
 
       <div className="relative mx-auto w-full max-w-6xl">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-6">
             <div className="space-y-4">
               <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
                 About
               </span>
-              <h2 className="whitespace-nowrap text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
+              <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-text)] sm:text-3xl lg:text-4xl">
                 Advanced Engineering Powered by AI
               </h2>
-              <p className="text-justify text-base text-[var(--color-muted)] sm:text-lg">
+              <p className="text-left text-sm leading-relaxed text-[var(--color-muted)] sm:text-base sm:text-justify lg:text-lg">
                 We combine automation, data intelligence, and rigorous
                 engineering practices to deliver faster, safer, and more
                 predictable outcomes.
               </p>
             </div>
-            <div className="space-y-6 text-sm text-[var(--color-muted)] sm:text-base">
-            <p className="text-justify">
+            <div className="space-y-5 text-sm text-[var(--color-muted)] sm:text-base lg:text-lg">
+            <p className="text-left leading-relaxed sm:text-justify">
               Port Engineers Pvt. Ltd. is a technology-driven engineering and CAD
               services company delivering precision-focused solutions for
               complex industrial projects. With a strong foundation in plant
@@ -47,7 +47,7 @@ export default function AboutSection() {
               support global industries with safe, scalable, and cost-effective
               engineering outcomes.
             </p>
-            <p className="text-justify">
+            <p className="text-left leading-relaxed sm:text-justify">
               Teams gain real-time visibility into design dependencies, risks,
               and change impacts, ensuring every deliverable aligns with
               compliance and operational goals.
@@ -76,7 +76,7 @@ export default function AboutSection() {
           </div>
 
           <div className="relative mx-auto w-full max-w-sm">
-            <div className="fade-in-up rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-15 shadow-[0_20px_50px_var(--color-card-shadow)]">
+            <div className="fade-in-up rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[0_20px_50px_var(--color-card-shadow)] sm:p-8">
               <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
                 <span>Our Pulse</span>
                 <span className="text-[var(--color-primary)]">Active</span>
