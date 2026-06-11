@@ -21,7 +21,31 @@ const startupHtml = `
   </div>
 </header>
 
+
 <main class="startup-body">
+  <div class="startup-cert-card certReveal">
+    <div class="cert-accent">
+      <span class="saffron"></span>
+      <span class="white"></span>
+      <span class="green"></span>
+    </div>
+    <div class="cert-card-inner">
+      <div class="cert-left">
+        <div class="cert-image-wrap">
+          <img src="/Startup_India.jpg" alt="DIPP Certificate of Recognition - DIPP265006" />
+        </div>
+      </div>
+      <div class="cert-right">
+        <h3>Certificate of Recognition</h3>
+        <div class="cert-details">
+          <div><strong>Certificate No.</strong> DIPP265006</div>
+          <div><strong>Date of Issue</strong> 01-06-2026</div>
+          <div><strong>Valid Upto</strong> 04-05-2036</div>
+          <div><strong>Sector</strong> Design Industry</div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="startup-section-label">A Proud Milestone</div>
   <p class="startup-lead">
     We are delighted to announce that Port AI Engineers Pvt. Ltd. has been officially recognized under the Startup India initiative, a flagship program launched by the Government of India to promote innovation, entrepreneurship, and sustainable business growth across the country.
