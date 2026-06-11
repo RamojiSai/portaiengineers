@@ -153,7 +153,7 @@ html {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 36s linear infinite;
+  animation: marquee-scroll 40s linear infinite;
 }
 
 .marquee:hover .marquee-track {

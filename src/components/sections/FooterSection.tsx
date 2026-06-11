@@ -225,7 +225,7 @@ export default function FooterSection() {
                   </span>
                 </div>
                 <p>
-                  Enterprise Engineers that deliver results. Built with modern technology.
+                  Advanced Engineering Powered by AI
                 </p>
               </div>
             </div>
@@ -241,7 +241,7 @@ export default function FooterSection() {
               </div>
               <div className="space-y-2">
                 <span className="text-xs uppercase tracking-[0.2em] text-[var(--color-on-footer-muted)]">
-                  QR Code
+                  Follow us on
                 </span>
                 <div className="flex items-center gap-2">
                   {socialLinks.map((link) => (
