@@ -111,6 +111,26 @@
   justify-content: space-between;
   gap: 16px;
 }
+
+/* ISO banner card inserted between cert stats and article body */
+.iso-banner { max-width: 900px; margin: 18px auto; display: flex; gap: 18px; align-items: center; background: rgba(255,255,255,0.02); border-radius: 14px; padding: 14px; border: 1px solid var(--border); }
+.iso-banner.certFadeIn { animation: certFadeIn 700ms ease both; }
+.iso-banner-left { flex: 0 0 220px; display: block; }
+.iso-banner-left img { width: 220px; height: auto; border-radius: 12px; box-shadow: 0 12px 30px rgba(2,21,38,0.45); display:block; transition: transform 0.35s ease; }
+.iso-banner-left img:hover { transform: translateY(-4px) scale(1.02); }
+.iso-banner-right { flex: 1 1 1px; color: var(--text); }
+.iso-banner-right h3 { font-size: 1.05rem; color: var(--white); margin-bottom: 8px; }
+.iso-banner-right p { color: var(--muted); margin-bottom: 12px; }
+.iso-info-pills { display:flex; flex-wrap:wrap; gap:8px; }
+.iso-info-pills .pill { background: var(--tag-bg); color: var(--tag-text); padding:6px 12px; border-radius: 16px; font-weight:600; font-size:13px; }
+
+@keyframes certFadeIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+
+@media (max-width: 760px) {
+  .iso-banner { flex-direction: column; align-items: stretch; }
+  .iso-banner-left { flex: 1 1 auto; }
+  .iso-banner-left img { width: 100%; max-width: 420px; margin: 0 auto; }
+}
 .cert-badge {
   display: flex;
   align-items: center;

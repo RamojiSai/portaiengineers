@@ -18,7 +18,7 @@ const footerColumns: FooterColumn[] = [
     links: [
       { label: "Engineering Services", href: "/services/engineering#engineering-flow" },
       { label: "Process Engineering", href: "/services/engineering?eng=process#engineering-flow" },
-      { label: "3D Piping Design", href: "/services/engineering?eng=piping-3d#engineering-flow" },
+      { label: "3D Piping Engineering", href: "/services/engineering?eng=piping-3d#engineering-flow" },
       { label: "Piping Engineering Services", href: "/services/engineering?eng=piping-eng#engineering-flow" },
       { label: "Instrumentation & Control", href: "/services/engineering?eng=instrumentation#engineering-flow" },
       { label: "Piping Stress Analysis", href: "/services/engineering?eng=stress#engineering-flow" },

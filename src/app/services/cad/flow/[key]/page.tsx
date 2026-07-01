@@ -15,7 +15,7 @@ const flowDetails: FlowDetail[] = [
   {
     key: "cad-pfd",
     title: "Process Flow Diagram (PFD)",
-    image: "/ProcessFlow.webp",
+    image: "/PFD.jpg",
     description: [
       "Process Flow Diagrams provide a clear, high-level view of how materials and energy move through an industrial system.",
       "We create structured PFDs that capture major equipment, key streams, and operating intent to guide all downstream engineering.",
@@ -69,7 +69,7 @@ const flowDetails: FlowDetail[] = [
   {
     key: "cad-iso",
     title: "Isometric",
-    image: "/Isometric.jpg",
+    image: "/Isometric.png",
     description: [
       "Isometric drawings translate piping layouts into fabrication-ready instructions.",
       "We provide accurate dimensions, weld points, and material callouts that support fast shop work and precise installation.",
@@ -177,7 +177,7 @@ const flowDetails: FlowDetail[] = [
   {
     key: "cad-automation",
     title: "CAD Automation",
-    image: "/CADautomation.webp",
+    image: "/CADautomation.png",
     description: [
       "CAD automation reduces repetitive drafting work and increases delivery speed.",
       "We build automation scripts and workflows aligned to your drafting standards.",
@@ -204,7 +204,7 @@ const flowDetails: FlowDetail[] = [
   {
     key: "cad-fire",
     title: "Fire Evacuation",
-    image: "/Low-Carbon-Ammonia-image1.webp",
+    image: "/Fire Evacuation.png",
     description: [
       "Fire evacuation drawings provide clear guidance for safe exits and emergency response.",
       "We produce compliant layouts with clear routing, signage, and equipment references.",

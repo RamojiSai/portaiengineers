@@ -13,19 +13,20 @@ const slides = [
       "Delivering advanced engineering solutions powered by AI to transform industrial systems.",
   },
   {
-    image: "/lhqkttgb_image1.png",
+    image: "/hero-petrochemical-DMHvwGIB.webp",
     heading: "Designing the Future of Intelligent Engineering",
     subtext:
       "Leveraging advanced CAD and AI-driven workflows for scalable and precise engineering solutions.",
   },
-  // {
-  //   image: "/Engineering%20Services.jpg",
-  //   heading: "Engineering Services Built for Scale",
-  //   subtext:
-  //     "Precision delivery across plant engineering, CAD automation, and complex infrastructure programs.",
-  // },
+  
   {
-    image: "/co2-capture.webp",
+    image: "/Engineering Services1.jpg",
+    heading: "Engineering Services Built for Scale",
+    subtext:
+      "Precision delivery across plant engineering, CAD automation, and complex infrastructure programs.",
+  },
+  {
+    image: "/Lightimg.png",
     heading: "Precision Engineering. Digitally Driven.",
     subtext:
       "Transforming complex systems into efficient, optimized, and intelligent designs.",

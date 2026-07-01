@@ -99,6 +99,41 @@
   padding: 56px 32px;
 }
 
+/* Certificate card */
+.startup-cert-card {
+  margin: -50px auto 34px;
+  max-width: 900px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid var(--border);
+}
+.startup-cert-card .cert-accent { display: flex; height: 6px; }
+.startup-cert-card .cert-accent span { flex: 1 1 0; }
+.startup-cert-card .cert-accent .saffron { background: #FF9933; }
+.startup-cert-card .cert-accent .white { background: #FFFFFF; }
+.startup-cert-card .cert-accent .green { background: #138808; }
+.cert-card-inner { display: flex; gap: 20px; padding: 20px; align-items: center; }
+.cert-left { flex: 0 0 360px; display:flex; justify-content:center; }
+.cert-right { flex: 1 1 340px; color: var(--text); }
+.cert-right h3 { font-family: "Playfair Display", serif; font-size: 1.25rem; margin-bottom: 10px; color: var(--white); }
+.cert-details { display: grid; gap: 8px; font-size: 14px; color: var(--muted); }
+.cert-image-wrap { position: relative; display: inline-block; border-radius: 10px; overflow: hidden; }
+.cert-image-wrap img { display:block; width: 320px; max-width:100%; height: auto; border-radius: 8px; transition: transform 0.45s ease, box-shadow 0.25s ease; }
+.cert-image-wrap:hover img { transform: scale(1.04); }
+.cert-badge-official { position: absolute; left: 12px; bottom: 10px; background: #FF6A00; color: white; padding: 6px 10px; border-radius: 14px; font-weight:700; font-size:12px; box-shadow: 0 8px 18px rgba(0,0,0,0.28); }
+
+/* Load animation */
+.certReveal { animation: certReveal 700ms cubic-bezier(.2,.9,.2,1) both; }
+@keyframes certReveal { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform: translateY(0); } }
+
+@media (max-width: 760px) {
+  .cert-card-inner { flex-direction: column; align-items: stretch; }
+  .cert-left { flex: 1 1 auto; }
+  .cert-image-wrap img { width: 100%; }
+  .cert-right { padding-top: 12px; }
+}
+
 .startup-section-label {
   font-size: 11px;
   font-weight: 700;
