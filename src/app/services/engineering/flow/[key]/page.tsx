@@ -15,7 +15,7 @@ const flowDetails: FlowDetail[] = [
   {
     key: "process",
     title: "Process Engineering",
-    image: "/PipingEngineering.jpg",
+    image: "/processengineering.png",
     description: [
       "Process engineering establishes the technical foundation of every industrial project. We translate production goals into safe, compliant, and scalable process designs that guide downstream teams.",
       "Our engineers define process intent early, align equipment selection with operating envelopes, and build a clear engineering narrative that supports control, safety, and execution.",
@@ -41,10 +41,10 @@ const flowDetails: FlowDetail[] = [
   },
   {
     key: "piping-3d",
-    title: "3D Piping Design",
-    image: "/lhqkttgb_image1.png",
+    title: "3D Piping Engineering",
+    image: "/3DPIPE-DESIGN.jpg",
     description: [
-      "3D piping design provides a complete spatial model of piping systems, ensuring every route, support, and tie-in is coordinated before fabrication begins.",
+      "3D piping Engineering provides a complete spatial model of piping systems, ensuring every route, support, and tie-in is coordinated before fabrication begins.",
       "We build constructability-ready models that reduce site rework and improve multidisciplinary coordination.",
       "Our team focuses on clash detection, access validation, and field-fit accuracy, providing teams with confidence before construction.",
       "Models are delivered with clear design intent so downstream teams can interpret, fabricate, and install efficiently.",
@@ -69,7 +69,7 @@ const flowDetails: FlowDetail[] = [
   {
     key: "piping-eng",
     title: "Piping Engineering",
-    image: "/Low-Carbon-Ammonia-image1.webp",
+    image: "/PipingEngineering.png",
     description: [
       "Piping engineering defines the technical standards, materials, and system architecture that keep plants safe and operational for decades.",
       "We deliver coordinated piping specifications, line lists, and documentation aligned to codes, client standards, and project objectives.",
@@ -123,7 +123,7 @@ const flowDetails: FlowDetail[] = [
   {
     key: "stress",
     title: "Piping Stress Analysis",
-    image: "/Pipe-Stress-analysis.png",
+    image: "/PipingstressAnalysis.png",
     description: [
       "Piping stress analysis validates structural integrity under pressure, temperature, and dynamic loads.",
       "We model critical scenarios, identify risk points, and recommend design improvements before fabrication.",
@@ -150,7 +150,7 @@ const flowDetails: FlowDetail[] = [
   {
     key: "greenfield",
     title: "Greenfield Projects",
-    image: "/Low-Carbon-Ammonia-image1.webp",
+    image: "/Greenfieldproject.png",
     description: [
       "Greenfield engineering requires clear, end-to-end coordination across disciplines.",
       "We deliver full lifecycle engineering support to take projects from concept to execution with confidence.",
@@ -177,7 +177,7 @@ const flowDetails: FlowDetail[] = [
   {
     key: "brownfield",
     title: "Brownfield Projects",
-    image: "/BrownField.jpg",
+    image: "/BrownField.png",
     description: [
       "Brownfield projects require upgrades without interrupting existing operations.",
       "We deliver retrofit-ready engineering packages that respect site constraints and operational safety.",

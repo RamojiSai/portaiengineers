@@ -17,7 +17,7 @@ export default function Home() {
       href: "/services/engineering/flow/process",
     },
     {
-      title: "3D Piping Design",
+      title: "3D Piping Engineering",
       description: "Accurate 3D routing for build-ready layouts.",
       href: "/services/engineering/flow/piping-3d",
     },
@@ -159,12 +159,12 @@ export default function Home() {
             <p className="max-w-2xl text-base text-[var(--color-muted)] sm:text-lg">
               We transform complex concepts into precision-engineered realities, using advanced CAD solutions to accelerate innovation and streamline the path from blueprint to build.
             </p>
-            <button
-              type="button"
+            <Link
+              href="/services/engineering"
               className="w-fit rounded-full border border-[var(--color-primary)] px-6 py-2 text-sm font-semibold text-[var(--color-primary)] transition-colors duration-300 hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
             >
               Learn More
-            </button>
+            </Link>
           </div>
 
           <div className="mt-12 grid gap-10">

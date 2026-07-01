@@ -18,7 +18,7 @@ const cadNodes = [
       "PFD acts as the foundation of process design. It helps teams understand system flow before moving into detailed engineering. This ensures alignment between process, mechanical, and operations teams.",
     whatWeDo:
       "Port AI Engineers create clear, structured, and industry-standard PFDs that improve decision-making and reduce early-stage project risks.",
-    positionClass: "left-1/2 top-2 -translate-x-1/2",
+    positionClass: "max-w-sm",
   },
   {
     key: "cad-pid",
@@ -42,7 +42,7 @@ const cadNodes = [
       "They are directly used for fabrication and site installation.",
     whatWeDo:
       "We create fabrication-ready isometric drawings that ensure precision and reduce costly rework.",
-    positionClass: "right-1 top-1/2 -translate-y-1/2",
+    positionClass: "max-w-sm",
   },
   {
     key: "cad-ga",
@@ -83,7 +83,7 @@ const cadNodes = [
     overview: "Automation tools that reduce repetitive drafting work.",
     whyItMatters: "Improves speed, accuracy, and consistency.",
     whatWeDo: "We build smart automation solutions to boost productivity and reduce errors.",
-    positionClass: "left-1 top-1/2 -translate-y-1/2",
+    positionClass: "w-full h-auto max-h-screen object-contain",
   },
   {
     key: "cad-fire",

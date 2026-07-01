@@ -21,7 +21,7 @@ const nodes = [
   },
   {
     key: "piping-3d",
-    title: "3D Piping Design",
+    title: "3D Piping Engineering",
     angle: 315,
     overview: "3D models of piping systems for visualization and analysis.",
     whyItMatters: "Helps detect issues before construction begins.",
