@@ -15,7 +15,7 @@ const flowDetails: FlowDetail[] = [
   {
     key: "cad-pfd",
     title: "Process Flow Diagram (PFD)",
-    image: "/PFD.jpg",
+    image: "/PFD.jpeg",
     description: [
       "Process Flow Diagrams provide a clear, high-level view of how materials and energy move through an industrial system.",
       "We create structured PFDs that capture major equipment, key streams, and operating intent to guide all downstream engineering.",
@@ -270,7 +270,7 @@ export default async function CadFlowDetailPage({
             <img
               src={detail.image}
               alt={`${detail.title} service visual`}
-              className="h-64 w-full object-cover sm:h-80"
+              className="h-auto max-h-[70vh] w-full object-contain sm:max-h-[75vh]"
             />
           </div>
 

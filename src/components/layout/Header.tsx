@@ -38,11 +38,11 @@ const navItems = [
   // },
   {
     label: "Blogs",
-    href: "#blogs",
+    href: "/blogs",
     items: [
+      { label: "All Blogs", href: "/blogs" },
       { label: "Inside Port AI Engineers", href: "/blogs/all" },
-      // { label: "ISO certified", href: "/blogs/iso-9001-2015" },
-      // { label: "Resources", href: "/blogs/resources" },
+      { label: "Engineering Blogs", href: "/blogs/engineers-blog" },
     ],
   },
   {
