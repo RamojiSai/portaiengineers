@@ -20,13 +20,13 @@ const slides = [
   },
   
   {
-    image: "/Engineering Services1.jpg",
+    image: "/images/hero/engineering-services-1.webp",
     heading: "Engineering Services Built for Scale",
     subtext:
       "Precision delivery across plant engineering, CAD automation, and complex infrastructure programs.",
   },
   {
-    image: "/Lightimg.png",
+    image: "/images/hero/lightimg.webp",
     heading: "Precision Engineering. Digitally Driven.",
     subtext:
       "Transforming complex systems into efficient, optimized, and intelligent designs.",
@@ -78,6 +78,9 @@ export default function HeroSection() {
 
   return (
     <section className="relative flex h-[75vh] min-h-[520px] items-center overflow-hidden">
+      <h1 className="sr-only">
+        Industrial Plant Engineering & CAD Services Powered by AI
+      </h1>
       <div className="absolute inset-0">
         {slides.map((slide, index) => {
           const isActive = index === activeIndex;
@@ -109,9 +112,9 @@ export default function HeroSection() {
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-primary)]">
             Engineering Services
           </span>
-          <h1 className="hero-gradient-text text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+          <p className="hero-gradient-text text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
             {activeSlide.heading}
-          </h1>
+          </p>
           <p className="hero-subtext text-base sm:text-lg">
             {activeSlide.subtext}
           </p>

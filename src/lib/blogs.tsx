@@ -22,7 +22,7 @@ export const blogCards: BlogCard[] = [
     slug: "all",
     title: "Inside Port AI Engineers",
     category: "Company News",
-    image: "/hero-petrochemical-DMHvwGIB.jpg",
+    image: "/hero-petrochemical-DMHvwGIB.webp",
     excerpt:
       "A closer look at how precision engineering, process-driven workflows, and ISO-grade delivery shape our mission for modern industrial projects.",
     date: "May 5, 2026",
@@ -61,7 +61,7 @@ export const blogCards: BlogCard[] = [
     slug: "startup-certified",
     title: "Startup India Recognition",
     category: "Company News",
-    image: "/Startup_India.jpg",
+    image: "/images/certifications/startup-india.webp",
     excerpt:
       "Port AI Engineers is officially recognized under Startup India, supporting innovation, growth, and engineering excellence.",
     date: "June 2026",
@@ -87,7 +87,7 @@ export const blogCards: BlogCard[] = [
     slug: "greenfield-projects",
     title: "Greenfield Projects: Planning for Future Capacity",
     category: "Greenfield Projects",
-    image: "/Greenfieldproject.png",
+    image: "/images/services/greenfield-project.webp",
     excerpt:
       "Designing new facilities from scratch requires clarity, coordinated engineering, and a strong focus on long-term operability.",
     date: "April 2026",
@@ -100,7 +100,7 @@ export const blogCards: BlogCard[] = [
     slug: "fire-evacuation-planning",
     title: "Fire Evacuation Planning for Industrial Facilities",
     category: "Fire Evacuation",
-    image: "/Fire Evacuation.png",
+    image: "/images/services/fire-evacuation.webp",
     excerpt:
       "A robust fire evacuation plan protects people, assets, and production when every second matters.",
     date: "March 2026",
@@ -161,7 +161,7 @@ export const blogPosts: BlogDetail[] = [
     slug: "greenfield-projects",
     title: "Greenfield Projects: Planning for Future Capacity",
     category: "Greenfield Projects",
-    image: "/Greenfieldproject.png",
+    image: "/images/services/greenfield-project.webp",
     excerpt:
       "Designing new facilities from scratch requires clarity, coordinated engineering, and a strong focus on long-term operability.",
     date: "April 2026",
@@ -202,7 +202,7 @@ export const blogPosts: BlogDetail[] = [
     slug: "fire-evacuation-planning",
     title: "Fire Evacuation Planning for Industrial Facilities",
     category: "Fire Evacuation",
-    image: "/Fire Evacuation.png",
+    image: "/images/services/fire-evacuation.webp",
     excerpt:
       "A robust fire evacuation plan protects people, assets, and production when every second matters.",
     date: "March 2026",

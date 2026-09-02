@@ -8,50 +8,39 @@ import { useEffect, useState } from "react";
 const navItems = [
   {
     label: "Our Platform",
-    href: "#platform",
+    href: "/platform/",
     items: [
-      { label: "Overview", href: "/platform/overview" },
-      { label: "Features", href: "/platform/features" },
-      { label: "Contact Us", href: "/contact" },
+      { label: "Overview", href: "/platform/overview/" },
+      { label: "Features", href: "/platform/features/" },
+      { label: "Contact Us", href: "/contact/" },
     ],
   },
   {
     label: "Services",
-    href: "#services",
+    href: "/services/",
     items: [
       {
         label: "Engineering Services",
-        href: "/services/engineering#engineering-flow",
+        href: "/services/engineering/",
       },
-      { label: "CAD Services", href: "/services/engineering#cad-flow" },
-      // { label: "Consulting", href: "/services/consulting" },
+      { label: "CAD Services", href: "/services/cad/" },
     ],
   },
-  // {
-  //   label: "Solutions",
-  //   href: "#solutions",
-  //   items: [
-  //     { label: "AI Solutions", href: "/solutions/ai" },
-  //     { label: "Automation", href: "/solutions/automation" },
-  //     { label: "Industry Use Cases", href: "/solutions/industry" },
-  //   ],
-  // },
   {
     label: "Blogs",
-    href: "/blogs",
+    href: "/blogs/",
     items: [
-      { label: "All Blogs", href: "/blogs" },
-      { label: "Inside Port AI Engineers", href: "/blogs/all" },
-      { label: "Engineering Blogs", href: "/blogs/engineers-blog" },
+      { label: "All Blogs", href: "/blogs/" },
+      { label: "Inside Port AI Engineers", href: "/blogs/all/" },
+      { label: "Engineering Blogs", href: "/blogs/engineers-blog/" },
     ],
   },
   {
     label: "Certifications",
-    href: "#Certifications",
+    href: "/blogs/",
     items: [
-      { label: "ISO Certified", href: "/blogs/iso-9001-2015" },
-      { label: "Startup INDIA Certified", href: "/blogs/startup-certified" },
-      // { label: "Resources", href: "/blogs/resources" },
+      { label: "ISO Certified", href: "/blogs/iso-9001-2015/" },
+      { label: "Startup INDIA Certified", href: "/blogs/startup-certified/" },
     ],
   }
 ];
@@ -120,9 +109,9 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/Logo.jpeg"
-            alt="Company logo"
-            width={140}
-            height={48}
+            alt="Port AI Engineers Pvt. Ltd. Logo"
+            width={40}
+            height={40}
             className="h-10 w-10 rounded-full object-cover"
             priority
           />
@@ -143,9 +132,8 @@ export default function Header() {
 
             return (
               <div key={item.label} className="group relative">
-                <button
-                  type="button"
-                  aria-haspopup="true"
+                <Link
+                  href={item.href}
                   className={`flex items-center gap-2 transition-colors duration-300 hover:text-[var(--color-primary)] ${isActive ? "text-[var(--color-primary)]" : ""
                     }`}
                 >
@@ -167,7 +155,7 @@ export default function Header() {
                       <polyline points="6 9 12 15 18 9" />
                     </svg>
                   </span>
-                </button>
+                </Link>
                 <div className="pointer-events-none absolute left-0 top-full z-30 pt-3 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
                   <div className="w-60 translate-y-2 rounded-2xl bg-[color-mix(in_srgb,var(--color-bg)_85%,transparent)] p-4 text-sm text-[var(--color-text)] shadow-[0_16px_30px_var(--color-card-shadow)] backdrop-blur-lg transition-all duration-300 group-hover:translate-y-0">
                     <div className="flex flex-col gap-2">
@@ -248,31 +236,43 @@ export default function Header() {
 
             return (
               <div key={item.label} className="flex flex-col gap-2">
-                <button
-                  type="button"
-                  onClick={() => toggleMobileSubmenu(item.label)}
-                  className={`flex items-center justify-between rounded-lg px-2 py-2 text-left transition-colors duration-300 hover:text-[var(--color-primary)] ${isActive ? "text-[var(--color-primary)]" : ""
-                    }`}
-                >
-                  <span>{item.label}</span>
-                  <span
-                    className={`transition-transform duration-300 ${activeMobileMenu === item.label ? "rotate-180" : ""
+                <div className="flex items-center justify-between rounded-lg px-2 py-2">
+                  <Link
+                    href={item.href}
+                    onClick={() => {
+                      setIsOpen(false);
+                      setActiveMobileMenu(null);
+                    }}
+                    className={`flex-1 text-left transition-colors duration-300 hover:text-[var(--color-primary)] ${isActive ? "text-[var(--color-primary)]" : ""
                       }`}
                   >
-                    <svg
-                      className="h-4 w-4"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
+                    {item.label}
+                  </Link>
+                  <button
+                    type="button"
+                    aria-label={`Toggle ${item.label} submenu`}
+                    onClick={() => toggleMobileSubmenu(item.label)}
+                    className="p-1 text-[var(--color-text)] transition-colors hover:text-[var(--color-primary)]"
+                  >
+                    <span
+                      className={`inline-block transition-transform duration-300 ${activeMobileMenu === item.label ? "rotate-180" : ""
+                        }`}
                     >
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                  </span>
-                </button>
+                      <svg
+                        className="h-4 w-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
                 <div
                   className={`grid overflow-hidden transition-all duration-300 ${activeMobileMenu === item.label
                       ? "grid-rows-[1fr] opacity-100"

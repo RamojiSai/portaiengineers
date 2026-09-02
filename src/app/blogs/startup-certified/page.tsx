@@ -1,4 +1,44 @@
+import type { Metadata } from "next";
+import Link from "next/link";
 import "./startup.css";
+import {
+  JsonLd,
+  createWebPageSchema,
+  createBreadcrumbSchema,
+} from "../../../lib/schema";
+
+export const metadata: Metadata = {
+  title: "Startup India Recognition Milestone",
+  description:
+    "Port AI Engineers Pvt. Ltd. is officially recognized under the Startup India initiative by the Government of India, driving innovation in industrial design and engineering.",
+  alternates: {
+    canonical: "https://portaiengineers.com/blogs/startup-certified/",
+  },
+  openGraph: {
+    title: "Startup India Recognition Milestone | Port AI Engineers",
+    description:
+      "Port AI Engineers Pvt. Ltd. is officially recognized under the Startup India initiative by the Government of India, driving innovation in industrial design and engineering.",
+    url: "https://portaiengineers.com/blogs/startup-certified/",
+    siteName: "Port AI Engineers",
+    images: [
+      {
+        url: "/images/certifications/startup-india.webp",
+        width: 1200,
+        height: 630,
+        alt: "Port AI Engineers - Startup India Recognition",
+      },
+    ],
+    locale: "en_US",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Startup India Recognition Milestone | Port AI Engineers",
+    description:
+      "Port AI Engineers Pvt. Ltd. is officially recognized under the Startup India initiative by the Government of India, driving innovation in industrial design and engineering.",
+    images: ["/images/certifications/startup-india.webp"],
+  },
+};
 
 const startupHtml = `
 <header class="startup-hero">
@@ -32,7 +72,7 @@ const startupHtml = `
     <div class="cert-card-inner">
       <div class="cert-left">
         <div class="cert-image-wrap">
-          <img src="/Startup_India.jpg" alt="DIPP Certificate of Recognition - DIPP265006" />
+          <img src="/images/certifications/startup-india.webp" alt="DIPP Certificate of Recognition - DIPP265006" width="1400" height="989" loading="lazy" decoding="async" />
         </div>
       </div>
       <div class="cert-right">
@@ -165,5 +205,50 @@ const startupHtml = `
 `;
 
 export default function StartupCertifiedPage() {
-  return <div className="startup-page" dangerouslySetInnerHTML={{ __html: startupHtml }} />;
+  const webPageSchema = createWebPageSchema({
+    id: "https://portaiengineers.com/blogs/startup-certified/#webpage",
+    url: "https://portaiengineers.com/blogs/startup-certified/",
+    name: "Startup India Recognition Milestone",
+    description:
+      "Port AI Engineers Pvt. Ltd. is officially recognized under the Startup India initiative by the Government of India, driving innovation in industrial design and engineering.",
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://portaiengineers.com/" },
+    { name: "Blogs", url: "https://portaiengineers.com/blogs/" },
+    {
+      name: "Startup India Recognition Milestone",
+      url: "https://portaiengineers.com/blogs/startup-certified/",
+    },
+  ]);
+
+  return (
+    <div className="startup-page">
+      <JsonLd schema={webPageSchema} />
+      <JsonLd schema={breadcrumbSchema} />
+      <div dangerouslySetInnerHTML={{ __html: startupHtml }} />
+      <div className="mx-auto my-8 max-w-4xl px-6">
+        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm">
+          <div>
+            <h4 className="text-base font-semibold text-[var(--color-text)]">Explore More from Port AI Engineers</h4>
+            <p className="text-sm text-[var(--color-muted)]">Read our engineering insights or connect with our technical team.</p>
+          </div>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/blogs/"
+              className="rounded-full border border-[var(--color-border)] px-5 py-2.5 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
+            >
+              &larr; Back to Blogs
+            </Link>
+            <Link
+              href="/contact/"
+              className="rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-[var(--color-on-primary)] transition hover:opacity-90"
+            >
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

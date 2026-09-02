@@ -1,14 +1,40 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import {
+  JsonLd,
+  createWebPageSchema,
+  createBreadcrumbSchema,
+  createServiceSchema,
+} from "../../../../../lib/schema";
+
+type RelatedService = {
+  title: string;
+  href: string;
+};
 
 type FlowDetail = {
   key: string;
   title: string;
+  h1?: string;
   image: string;
+  imageAlt: string;
   description: string[];
   highlights: string[];
   deliverables: string[];
   outcomes: string[];
+  relatedServices: RelatedService[];
+};
+
+const CAD_IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
+  "/PFD.jpeg": { width: 1024, height: 724 },
+  "/P&ID.png": { width: 822, height: 518 },
+  "/images/services/piping-isometric.webp": { width: 1536, height: 1024 },
+  "/GeneralArrangements.jpg": { width: 1144, height: 755 },
+  "/images/services/cad-training.webp": { width: 992, height: 992 },
+  "/images/services/cad-conversion.webp": { width: 1024, height: 516 },
+  "/images/services/cad-automation.webp": { width: 1536, height: 1024 },
+  "/images/services/fire-evacuation.webp": { width: 1536, height: 1024 },
 };
 
 const flowDetails: FlowDetail[] = [
@@ -16,222 +42,344 @@ const flowDetails: FlowDetail[] = [
     key: "cad-pfd",
     title: "Process Flow Diagram (PFD)",
     image: "/PFD.jpeg",
+    imageAlt: "Process flow diagram for industrial engineering",
     description: [
       "Process Flow Diagrams provide a clear, high-level view of how materials and energy move through an industrial system.",
       "We create structured PFDs that capture major equipment, key streams, and operating intent to guide all downstream engineering.",
-      "Our team aligns process assumptions early to reduce rework and keep design reviews efficient.",
-      "Each diagram is delivered with consistent legends and tagging so teams can reference them throughout the project lifecycle.",
-      "This results in faster alignment, cleaner handoffs, and confident decision-making.",
+      "Our drafting team organizes main equipment sequences, fluid stream identifications, and core utility distribution networks with clarity.",
+      "Each diagram incorporates standardized equipment tags, basic stream temperature and pressure annotations, and balanced flow indicators.",
+      "Our team aligns process assumptions early to reduce rework and keep design reviews efficient across client engineering teams.",
+      "Each diagram is delivered with consistent legends and tagging so teams can reference them throughout the project lifecycle, resulting in faster alignment, cleaner handoffs, and confident decision-making.",
     ],
     highlights: [
-      "System-level flow clarity",
-      "Stream and utility alignment",
-      "Review-ready tagging standards",
+      "System-level flow clarity and process sequencing",
+      "Major equipment tagging and stream identification",
+      "Stream and utility balance reference coordination",
+      "Review-ready drafting standards and legend consistency",
     ],
     deliverables: [
-      "System-level flow diagram with major equipment",
-      "Stream and utility balance references",
-      "Process legend and tag conventions",
+      "System-level flow diagrams highlighting major process equipment",
+      "Stream identification and utility balance reference tables",
+      "Standardized process legend, symbology, and tag conventions",
+      "Review-ready drafting sheets prepared for detailed design handoff",
     ],
     outcomes: [
-      "Faster alignment across teams",
-      "Cleaner handoff into P&ID development",
-      "Reduced rework in early design",
+      "Faster technical alignment across multi-discipline engineering teams",
+      "Cleaner, seamless handoff into detailed P&ID drafting",
+      "Reduced revision cycles in early industrial system design",
+    ],
+    relatedServices: [
+      { title: "Piping & Instrumentation Diagram (P&ID)", href: "/services/cad/flow/cad-pid/" },
+      { title: "Piping Engineering", href: "/services/engineering/flow/piping-eng/" },
     ],
   },
   {
     key: "cad-pid",
     title: "P&ID",
+    h1: "Piping & Instrumentation Diagram (P&ID)",
     image: "/P&ID.png",
+    imageAlt: "Piping and instrumentation diagram",
     description: [
       "P&ID drawings capture the detailed piping, instrumentation, and control logic required to build and operate safely.",
       "We develop P&IDs that are standards-compliant, clearly tagged, and ready for review across engineering teams.",
-      "Our deliverables reduce construction ambiguity and support safer commissioning.",
-      "Each sheet is structured for maintenance and long-term operational use.",
-      "This ensures your team has a reliable source of truth from design through operations.",
+      "Our drafting specialists document pipeline sizes, valve types, instrumentation bubbles, inline components, and safety relief devices in full detail.",
+      "By incorporating process control interlocks, utility connections, and boundary battery limits, our drawings serve as the authoritative coordination blueprint between mechanical, electrical, and automation engineers.",
+      "Each sheet is structured for maintenance, operational clarity, and long-term facility asset management.",
+      "This ensures your project team has a reliable, audit-ready source of truth from detailed design through field commissioning and continuous operations.",
     ],
     highlights: [
-      "Control logic clarity",
-      "Code-compliant documentation",
-      "Long-term operational reference",
+      "Detailed piping line designations, sizes, and spec breaks",
+      "Instrument tag references and automated control logic clarity",
+      "Valve schedules, safety relief valves, and inline specialty items",
+      "Long-term operational reference and standards compliance",
     ],
     deliverables: [
-      "Detailed P&ID sheets with control logic",
-      "Instrument and valve tagging references",
-      "Review-ready revision tracking",
+      "Detailed P&ID sheets with control logic and interlock references",
+      "Instrument and valve tagging coordination schedules",
+      "Utility distribution and battery limit interface diagrams",
+      "Review-ready revision tracking and drawing lifecycle packages",
     ],
     outcomes: [
-      "Lower commissioning risk",
-      "Improved safety and compliance",
-      "Accurate construction references",
+      "Lower commissioning risk through clear control representation",
+      "Improved plant safety and regulatory compliance verification",
+      "Accurate construction and procurement references across disciplines",
+    ],
+    relatedServices: [
+      { title: "Process Flow Diagram (PFD)", href: "/services/cad/flow/cad-pfd/" },
+      { title: "Instrumentation & Control", href: "/services/engineering/flow/instrumentation/" },
+      { title: "Piping Engineering", href: "/services/engineering/flow/piping-eng/" },
     ],
   },
   {
     key: "cad-iso",
     title: "Isometric",
-    image: "/Isometric.png",
+    h1: "Piping Isometric Drawings",
+    image: "/images/services/piping-isometric.webp",
+    imageAlt: "Industrial piping isometric drawing",
     description: [
       "Isometric drawings translate piping layouts into fabrication-ready instructions.",
       "We provide accurate dimensions, weld points, and material callouts that support fast shop work and precise installation.",
-      "Our team validates constructability to prevent site revisions and schedule delays.",
-      "Each drawing is reviewed for clarity and compatibility with fabrication workflows.",
-      "This reduces rework and improves installation confidence.",
+      "Each drawing captures 3D piping routing in a single-line isometric projection, detailing exact cut lengths, fitting angles, and elevations.",
+      "Our team incorporates complete bills of materials (BOM), spool numbering, weld identification (shop vs. field), and support location coordinates.",
+      "We validate constructability against physical routing constraints to prevent site revisions and schedule delays during fabrication and erection.",
+      "Each drawing is reviewed for clarity, dimensional accuracy, and compatibility with fabrication shop workflows, reducing rework and improving installation confidence.",
     ],
     highlights: [
-      "Fabrication-ready clarity",
-      "Weld and spool accuracy",
-      "Reduced field changes",
+      "Fabrication-ready clarity with complete three-dimensional coordinates",
+      "Weld and spool accuracy with shop versus field weld distinction",
+      "Integrated Bill of Materials (BOM) with cut pipe lengths and fitting data",
+      "Reduced field changes and accelerated mechanical assembly",
     ],
     deliverables: [
-      "Dimensioned iso drawings",
-      "Weld and spool references",
-      "Material take-off details",
+      "Fully dimensioned piping isometric drawings",
+      "Weld identification, spool references, and cut-length schedules",
+      "Comprehensive material take-off (MTO) and component details",
+      "Field-verified fabrication sheets ready for shop production",
     ],
     outcomes: [
-      "Faster shop fabrication",
-      "Fewer site revisions",
-      "Improved installation accuracy",
+      "Faster shop fabrication with minimized cutting and fitting errors",
+      "Fewer site revisions and reduced mechanical installation delays",
+      "Improved dimensional accuracy during field erection and tie-in",
+    ],
+    relatedServices: [
+      { title: "3D Piping Engineering", href: "/services/engineering/flow/piping-3d/" },
+      { title: "Piping Engineering", href: "/services/engineering/flow/piping-eng/" },
+      { title: "General Arrangement (GA)", href: "/services/cad/flow/cad-ga/" },
     ],
   },
   {
     key: "cad-ga",
     title: "General Arrangement (GA)",
     image: "/GeneralArrangements.jpg",
+    imageAlt: "Industrial general arrangement drawing",
     description: [
       "GA drawings establish how equipment, structures, and access paths fit together on site.",
-      "We produce layout plans that support safe access, maintenance, and operational efficiency.",
-      "Our deliverables highlight spatial coordination and minimize interferences across disciplines.",
-      "Each layout is optimized for workflow and long-term maintainability.",
-      "This helps projects move smoothly from design to construction.",
+      "We produce layout plans that support safe access, maintenance, and operational efficiency across industrial facilities.",
+      "Our deliverables illustrate physical equipment placement, nozzle positions, structural foundations, maintenance drop areas, and operator transit corridors in plan and section views.",
+      "By coordinating equipment centerlines with structural steel and piping headers, our layouts minimize spatial interferences across disciplines.",
+      "Each layout is optimized for plant workflow, safety egress, crane access, and long-term equipment maintainability.",
+      "This rigorous spatial planning helps industrial projects transition smoothly from conceptual layout to site construction and equipment installation.",
     ],
     highlights: [
-      "Optimized spatial coordination",
-      "Access and clearance planning",
-      "Operationally efficient layouts",
+      "Optimized spatial coordination across equipment, piping, and structures",
+      "Maintenance access, crane reach, and clearance envelope planning",
+      "Comprehensive plan views, elevations, and detail cross-sections",
+      "Operationally efficient layouts supporting safe facility workflows",
     ],
     deliverables: [
-      "Layout plans with equipment positioning",
-      "Access and clearance annotations",
-      "Coordination-ready revisions",
+      "Detailed general arrangement layout plans with equipment positioning",
+      "Elevation and cross-sectional coordination drawings",
+      "Access corridors, walkway clearances, and maintenance drop annotations",
+      "Coordination-ready revision packages for site construction teams",
     ],
     outcomes: [
-      "Improved safety and access",
-      "Better cross-discipline coordination",
-      "Reduced layout conflicts",
+      "Improved personnel safety and streamlined equipment access",
+      "Better cross-discipline coordination between civil, piping, and structural teams",
+      "Reduced site layout conflicts and optimized equipment footings",
+    ],
+    relatedServices: [
+      { title: "3D Piping Engineering", href: "/services/engineering/flow/piping-3d/" },
+      { title: "Piping Engineering", href: "/services/engineering/flow/piping-eng/" },
+      { title: "Piping Isometric Drawings", href: "/services/cad/flow/cad-iso/" },
     ],
   },
   {
     key: "cad-conversion",
     title: "CAD Conversion",
-    image: "/image.png",
+    image: "/images/services/cad-training.webp",
+    imageAlt: "CAD drawing conversion workflow",
     description: [
       "CAD conversion modernizes legacy drawings into reusable digital assets.",
-      "We clean, standardize, and validate converted files to match current drafting standards.",
-      "This improves collaboration, storage, and future update cycles.",
-      "Each converted drawing is structured for long-term maintainability.",
-      "Teams gain faster access to reliable documentation.",
+      "We clean, standardize, and validate converted files to match current drafting standards, CAD layering guidelines, and text styles.",
+      "Whether digitizing legacy paper blueprints, raster scans, PDF sets, or obsolete CAD formats, our team verifies dimensional accuracy against original callouts.",
+      "We structure converted drawings into standardized layers, normalized blocks, and clean vector geometry ready for modern engineering modifications.",
+      "This enhances collaboration, improves digital archival, and streamlines future plant revamps and turnaround planning.",
+      "Teams gain faster access to reliable, editable documentation that integrates directly into ongoing plant design workflows.",
     ],
     highlights: [
-      "Legacy data modernization",
-      "Standardized layers and tags",
-      "QA-checked deliverables",
+      "Legacy blueprint and raster data modernization into editable vector CAD",
+      "Standardized layer conventions, block definitions, and dimension styles",
+      "Dimensional verification against original design notes and callouts",
+      "QA-checked deliverables formatted for ongoing plant maintenance",
     ],
     deliverables: [
-      "Clean CAD source files",
-      "Layer and tag normalization",
-      "Revision-ready formatting",
+      "Clean, fully editable CAD source files in standard formats",
+      "Layer, font, and block normalization packages",
+      "Dimensionally validated drawing sets matching original schematics",
+      "Revision-ready digital drawing libraries for plant engineering teams",
     ],
     outcomes: [
-      "Faster updates to legacy assets",
-      "Improved data reuse",
-      "Consistent drawing libraries",
+      "Faster updates and revamps to legacy plant drawing assets",
+      "Improved data reuse and streamlined engineering collaboration",
+      "Consistent, organized digital drawing archives across facilities",
+    ],
+    relatedServices: [
+      { title: "CAD Automation", href: "/services/cad/flow/cad-automation/" },
+      { title: "CAD Training", href: "/services/cad/flow/cad-training/" },
     ],
   },
   {
     key: "cad-training",
     title: "CAD Training",
-    image: "/lhqkttgb_image1.png",
+    image: "/images/services/cad-conversion.webp",
+    imageAlt: "Industrial CAD training",
     description: [
       "CAD training equips teams with the skills needed for consistent, high-quality drafting.",
-      "We tailor sessions to your workflows, using real project scenarios and practical exercises.",
-      "Participants learn best practices that reduce errors and accelerate delivery.",
-      "Training materials are structured for ongoing reference and improvement.",
-      "This builds long-term drafting capability across the organization.",
+      "We tailor sessions to your workflows, using real project scenarios and practical exercises from plant and piping drafting.",
+      "Our training modules focus on industry drafting conventions, layer management, title block standards, dynamic blocks, and efficient command workflows.",
+      "Participants gain hands-on practice in drafting process schematics, isometric layouts, and general arrangement plans.",
+      "Training materials and reference templates are structured for ongoing drafting team reference and continuous improvement.",
+      "This practical instruction builds long-term drafting capability, accelerates onboarding for new engineers, and elevates overall output quality.",
     ],
     highlights: [
-      "Workflow-specific training",
-      "Hands-on project exercises",
-      "Reusable learning materials",
+      "Workflow-specific drafting modules tailored to engineering operations",
+      "Hands-on project exercises based on real industrial drafting deliverables",
+      "Standardization guidance covering layers, blocks, and dimensioning",
+      "Reusable learning materials and reference templates for team use",
     ],
     deliverables: [
-      "Workflow-based training sessions",
-      "Practice exercises and templates",
-      "Skill validation checkpoints",
+      "Structured, workflow-based drafting training sessions",
+      "Practical exercises, drafting templates, and reference guides",
+      "Standardization checkpoints and technique validation reviews",
+      "Reference documentation supporting consistent team drafting habits",
     ],
     outcomes: [
-      "Higher drafting accuracy",
-      "Faster team ramp-up",
-      "Consistent output standards",
+      "Higher drafting accuracy and reduced drafting revision cycles",
+      "Faster team ramp-up and seamless onboarding for drafting staff",
+      "Consistent, professional drawing output across the organization",
+    ],
+    relatedServices: [
+      { title: "CAD Automation", href: "/services/cad/flow/cad-automation/" },
+      { title: "CAD Conversion", href: "/services/cad/flow/cad-conversion/" },
     ],
   },
   {
     key: "cad-automation",
     title: "CAD Automation",
-    image: "/CADautomation.png",
+    image: "/images/services/cad-automation.webp",
+    imageAlt: "CAD automation and drafting workflow",
     description: [
       "CAD automation reduces repetitive drafting work and increases delivery speed.",
-      "We build automation scripts and workflows aligned to your drafting standards.",
-      "This improves consistency and frees teams to focus on higher-value engineering tasks.",
-      "Automation is documented for maintainability and future expansion.",
-      "The result is faster, more reliable CAD output at scale.",
+      "We build automation scripts and workflows aligned to your drafting standards and drawing production requirements.",
+      "By automating routine tasks such as title block population, layer standardization, batch plotting, and drawing index generation, teams eliminate manual errors.",
+      "Our custom routines free engineers and draftsmen to focus on high-value design coordination and constructability reviews.",
+      "Automation scripts are documented for maintainability, ease of use, and future expansion as project requirements grow.",
+      "The result is faster turnaround times, strict standard compliance, and scalable CAD delivery capacity for demanding project schedules.",
     ],
     highlights: [
-      "Automation aligned to standards",
-      "Consistent drafting quality",
-      "Scalable delivery workflows",
+      "Automation scripts and routines aligned to company drafting standards",
+      "Elimination of repetitive manual drafting tasks and batch operations",
+      "Consistent drafting quality, title block standardization, and layer hygiene",
+      "Scalable delivery workflows supporting large drawing packages",
     ],
     deliverables: [
-      "Automation scripts and macros",
-      "Standardized templates",
-      "Usage and maintenance guidance",
+      "Custom CAD automation scripts, tools, and macro routines",
+      "Standardized dynamic drawing templates and block libraries",
+      "Usage documentation and script maintenance guidelines",
+      "Automated batch generation and processing workflows",
     ],
     outcomes: [
-      "Reduced drafting time",
-      "Fewer manual errors",
-      "Scalable delivery capacity",
+      "Significantly reduced drafting hours on routine drawing preparation",
+      "Fewer manual errors and standardized drawing package quality",
+      "Scalable delivery capacity to handle large engineering project volumes",
+    ],
+    relatedServices: [
+      { title: "CAD Conversion", href: "/services/cad/flow/cad-conversion/" },
+      { title: "CAD Training", href: "/services/cad/flow/cad-training/" },
     ],
   },
   {
     key: "cad-fire",
     title: "Fire Evacuation",
-    image: "/Fire Evacuation.png",
+    h1: "Fire Evacuation Plans & Layouts",
+    image: "/images/services/fire-evacuation.webp",
+    imageAlt: "Fire evacuation layout drawing",
     description: [
       "Fire evacuation drawings provide clear guidance for safe exits and emergency response.",
       "We produce compliant layouts with clear routing, signage, and equipment references.",
-      "Our drawings support audits, training, and operational readiness.",
-      "Each plan is organized for quick understanding during critical events.",
-      "This strengthens compliance and improves safety culture.",
+      "Our drawings map primary and secondary escape routes, emergency assembly points, fire alarm pull stations, fire extinguishers, and hose reel positions.",
+      "By incorporating architectural floor plans and industrial plant layouts, we ensure symbols and directional arrows are immediately legible in high-stress situations.",
+      "Our documentation supports safety audits, regulatory compliance inspections, personnel training, and facility emergency readiness.",
+      "Each evacuation plan is organized for quick visual comprehension, strengthening plant safety culture and regulatory compliance.",
     ],
     highlights: [
-      "Compliance-ready evacuation plans",
-      "Clear signage and routing",
-      "Improved emergency readiness",
+      "Compliance-ready evacuation layouts with primary and secondary routes",
+      "Clear safety signage, exit door locations, and assembly area mapping",
+      "Accurate fire equipment callouts including extinguishers and alarm points",
+      "High-visibility layouts designed for rapid comprehension during emergencies",
     ],
     deliverables: [
-      "Evacuation route layouts",
-      "Emergency equipment references",
-      "Code-compliant labeling",
+      "Facility fire evacuation route layouts and floor plan drawings",
+      "Emergency safety equipment location maps and symbol references",
+      "Code-compliant directional labeling and exit path documentation",
+      "Audit-ready emergency evacuation sheets formatted for facility display",
     ],
     outcomes: [
-      "Improved safety readiness",
-      "Compliance support",
-      "Faster emergency response",
+      "Improved personnel safety readiness during emergencies",
+      "Clear documentation supporting facility safety compliance audits",
+      "Faster, organized emergency egress and response coordination",
+    ],
+    relatedServices: [
+      { title: "General Arrangement (GA)", href: "/services/cad/flow/cad-ga/" },
+      { title: "CAD Conversion", href: "/services/cad/flow/cad-conversion/" },
     ],
   },
 ];
 
 export function generateStaticParams() {
   return flowDetails.map((detail) => ({ key: detail.key }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ key: string }>;
+}): Promise<Metadata> {
+  const { key } = await params;
+  const detail = flowDetails.find((item) => item.key === key);
+
+  if (!detail) {
+    return {
+      title: "CAD Service Detail",
+    };
+  }
+
+  const title = `${detail.title} Drafting & Design Services`;
+  const description =
+    detail.description[0] ||
+    `${detail.title} drafting and engineering deliverables by Port AI Engineers Pvt. Ltd.`;
+  const canonical = `https://portaiengineers.com/services/cad/flow/${detail.key}/`;
+  const imageUrl = detail.image;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title: `${title} | Port AI Engineers`,
+      description,
+      url: canonical,
+      siteName: "Port AI Engineers",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${detail.title} - Port AI Engineers`,
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Port AI Engineers`,
+      description,
+      images: [imageUrl],
+    },
+  };
 }
 
 export default async function CadFlowDetailPage({
@@ -246,15 +394,83 @@ export default async function CadFlowDetailPage({
     notFound();
   }
 
+  const canonicalUrl = `https://portaiengineers.com/services/cad/flow/${detail.key}/`;
+
+  const serviceSchema = createServiceSchema({
+    name: detail.title,
+    description:
+      detail.description[0] ||
+      `${detail.title} drafting and engineering deliverables by Port AI Engineers Pvt. Ltd.`,
+    url: canonicalUrl,
+    serviceType: "Industrial CAD Design Services",
+    image: detail.image,
+  });
+
+  const webPageSchema = createWebPageSchema({
+    id: `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: `${detail.title} Drafting & Design Services`,
+    description:
+      detail.description[0] ||
+      `${detail.title} drafting and engineering deliverables by Port AI Engineers Pvt. Ltd.`,
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://portaiengineers.com/" },
+    { name: "Services", url: "https://portaiengineers.com/services/" },
+    { name: "CAD", url: "https://portaiengineers.com/services/cad/" },
+    { name: detail.h1 || detail.title, url: canonicalUrl },
+  ]);
+
+  const imageDimensions =
+    CAD_IMAGE_DIMENSIONS[detail.image] ?? { width: 1200, height: 800 };
+
   return (
     <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
+      <JsonLd schema={serviceSchema} />
+      <JsonLd schema={webPageSchema} />
+      <JsonLd schema={breadcrumbSchema} />
       <section className="mx-auto w-full max-w-5xl px-6 py-16 sm:px-10 sm:py-20">
-        {/* <Link
-          href="/services/cad#cad-flow"
-          className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]"
+        {/* Hierarchical Breadcrumb Navigation */}
+        <nav
+          aria-label="Breadcrumb"
+          className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]"
         >
-          Back to CAD Flow Diagram
-        </Link> */}
+          <Link
+            href="/"
+            className="transition-colors hover:text-[var(--color-primary)]"
+          >
+            Home
+          </Link>
+          <span className="px-2">→</span>
+          <Link
+            href="/services/"
+            className="transition-colors hover:text-[var(--color-primary)]"
+          >
+            Services
+          </Link>
+          <span className="px-2">→</span>
+          <Link
+            href="/services/cad/"
+            className="transition-colors hover:text-[var(--color-primary)]"
+          >
+            CAD
+          </Link>
+          <span className="px-2">→</span>
+          <span className="text-[var(--color-text)]" aria-current="page">
+            {detail.h1 || detail.title}
+          </span>
+        </nav>
+
+        {/* Back Link to Parent CAD Division */}
+        <div className="mt-4">
+          <Link
+            href="/services/cad/"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)] transition-colors hover:underline"
+          >
+            &larr; Back to CAD Services
+          </Link>
+        </div>
 
         <div className="mt-6 space-y-10">
           <div className="space-y-3">
@@ -262,14 +478,18 @@ export default async function CadFlowDetailPage({
               CAD Service Detail
             </p>
             <h1 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
-              {detail.title}
+              {detail.h1 || detail.title}
             </h1>
           </div>
 
           <div className="overflow-hidden rounded-3xl border border-[var(--color-border)]">
             <img
               src={detail.image}
-              alt={`${detail.title} service visual`}
+              alt={detail.imageAlt}
+              width={imageDimensions.width}
+              height={imageDimensions.height}
+              loading="lazy"
+              decoding="async"
               className="h-auto max-h-[70vh] w-full object-contain sm:max-h-[75vh]"
             />
           </div>
@@ -324,6 +544,36 @@ export default async function CadFlowDetailPage({
             </div>
           </div>
 
+          {/* Related Services Cross-Linking Section */}
+          <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8">
+            <div className="space-y-4">
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
+                  Cross-Disciplinary Coordination
+                </span>
+                <h2 className="mt-1 text-xl font-semibold text-[var(--color-text)]">
+                  Related Services
+                </h2>
+              </div>
+              <p className="text-sm text-[var(--color-muted)]">
+                Explore complementary drafting capabilities and plant engineering disciplines coordinated by Port AI Engineers.
+              </p>
+              <div className="flex flex-wrap gap-3 pt-2">
+                {detail.relatedServices.map((service) => (
+                  <Link
+                    key={service.href}
+                    href={service.href}
+                    className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-2 text-xs font-semibold text-[var(--color-text)] transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+                  >
+                    <span>{service.title}</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Contact / Scoping CTA Section */}
           <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-primary-soft)] p-6">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>

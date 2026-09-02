@@ -1,9 +1,65 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { blogCards } from "../../lib/blogs";
+import {
+  JsonLd,
+  createWebPageSchema,
+  createBreadcrumbSchema,
+} from "../../lib/schema";
+
+export const metadata: Metadata = {
+  title: "Engineering Insights, Blogs & Technical Articles",
+  description:
+    "Browse engineering insights, technical guides, and industry updates covering CAD services, piping stress analysis, greenfield projects, and ISO certifications.",
+  alternates: {
+    canonical: "https://portaiengineers.com/blogs/",
+  },
+  openGraph: {
+    title: "Engineering Insights, Blogs & Technical Articles | Port AI Engineers",
+    description:
+      "Browse engineering insights, technical guides, and industry updates covering CAD services, piping stress analysis, greenfield projects, and ISO certifications.",
+    url: "https://portaiengineers.com/blogs/",
+    siteName: "Port AI Engineers",
+    images: [
+      {
+        url: "/hero-petrochemical-DMHvwGIB.webp",
+        width: 1200,
+        height: 630,
+        alt: "Port AI Engineers - Blog & Insights",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Engineering Insights, Blogs & Technical Articles | Port AI Engineers",
+    description:
+      "Browse engineering insights, technical guides, and industry updates covering CAD services, piping stress analysis, greenfield projects, and ISO certifications.",
+    images: ["/hero-petrochemical-DMHvwGIB.webp"],
+  },
+};
 
 export default function BlogsListingPage() {
+  const collectionPageSchema = createWebPageSchema({
+    id: "https://portaiengineers.com/blogs/#webpage",
+    url: "https://portaiengineers.com/blogs/",
+    name: "Engineering Insights, Blogs & Technical Articles",
+    description:
+      "Browse engineering insights, technical guides, and industry updates covering CAD services, piping stress analysis, greenfield projects, and ISO certifications.",
+    type: "CollectionPage",
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://portaiengineers.com/" },
+    { name: "Blogs", url: "https://portaiengineers.com/blogs/" },
+  ]);
+
   return (
     <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
+      <JsonLd schema={collectionPageSchema} />
+      <JsonLd schema={breadcrumbSchema} />
       <section className="bg-[var(--color-bg)] px-6 py-16 sm:px-10 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <div className="space-y-6">
@@ -25,16 +81,19 @@ export default function BlogsListingPage() {
       <section className="px-6 pb-20 sm:px-10">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {blogCards.map((card) => (
+            {blogCards.map((card, index) => (
               <Link
                 key={card.slug}
                 href={card.href}
                 className="group overflow-hidden rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[0_24px_80px_rgba(0,0,0,0.18)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_90px_rgba(0,0,0,0.24)]"
               >
                 <div className="relative h-64 overflow-hidden bg-slate-900">
-                  <img
+                  <Image
                     src={card.image}
-                    alt={card.title}
+                    alt=""
+                    width={600}
+                    height={400}
+                    priority={index === 0}
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
                 </div>

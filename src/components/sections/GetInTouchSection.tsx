@@ -3,8 +3,8 @@ import Link from "next/link";
 const contactItems = [
   {
     label: "Email",
-    value: "contact@portaienginees.com",
-    href: "mailto:contact@portaienginees.com",
+    value: "contact@portaiengineers.com",
+    href: "mailto:contact@portaiengineers.com",
     description: "Send us your project requirements and timelines.",
     icon: (
       <svg

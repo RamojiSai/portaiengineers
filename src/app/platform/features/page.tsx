@@ -1,4 +1,43 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  JsonLd,
+  createWebPageSchema,
+  createBreadcrumbSchema,
+} from "../../../lib/schema";
+
+export const metadata: Metadata = {
+  title: "Platform Features & Engineering Capabilities",
+  description:
+    "Explore Port AI Engineers' core capabilities across engineering design, technical consultancy, project management support, and skilled manpower solutions.",
+  alternates: {
+    canonical: "https://portaiengineers.com/platform/features/",
+  },
+  openGraph: {
+    title: "Platform Features & Engineering Capabilities | Port AI Engineers",
+    description:
+      "Explore Port AI Engineers' core capabilities across engineering design, technical consultancy, project management support, and skilled manpower solutions.",
+    url: "https://portaiengineers.com/platform/features/",
+    siteName: "Port AI Engineers",
+    images: [
+      {
+        url: "/hero-powerplant-em3KN7cR.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Port AI Engineers - Platform Features & Capabilities",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Platform Features & Engineering Capabilities | Port AI Engineers",
+    description:
+      "Explore Port AI Engineers' core capabilities across engineering design, technical consultancy, project management support, and skilled manpower solutions.",
+    images: ["/hero-powerplant-em3KN7cR.jpg"],
+  },
+};
 
 const coreServices = [
   {
@@ -106,13 +145,36 @@ const deliveryFlow = [
 ];
 
 export default function FeaturesPage() {
+  const webPageSchema = createWebPageSchema({
+    id: "https://portaiengineers.com/platform/features/#webpage",
+    url: "https://portaiengineers.com/platform/features/",
+    name: "Platform Features & Engineering Capabilities",
+    description:
+      "Explore Port AI Engineers' core capabilities across engineering design, technical consultancy, project management support, and skilled manpower solutions.",
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://portaiengineers.com/" },
+    { name: "Platform", url: "https://portaiengineers.com/platform/" },
+    { name: "Features", url: "https://portaiengineers.com/platform/features/" },
+  ]);
+
   return (
     <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
+      <JsonLd schema={webPageSchema} />
+      <JsonLd schema={breadcrumbSchema} />
       <section className="relative overflow-hidden px-6 py-16 sm:px-10 sm:py-20">
         <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_14%,transparent)] blur-3xl" />
         <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)] blur-3xl" />
 
         <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-8">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-medium text-[var(--color-muted)]">
+            <Link href="/" className="transition-colors hover:text-[var(--color-primary)]">Home</Link>
+            <span>/</span>
+            <Link href="/platform/" className="transition-colors hover:text-[var(--color-primary)]">Platform</Link>
+            <span>/</span>
+            <span className="text-[var(--color-primary)]">Features</span>
+          </nav>
           <div className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-primary)]">
               The Port AI Advantage
@@ -349,6 +411,10 @@ export default function FeaturesPage() {
                   <img
                     src="/ISOimage.webp"
                     alt="ISO 9001:2015 certification badge"
+                    width={56}
+                    height={56}
+                    loading="lazy"
+                    decoding="async"
                     className="h-14 w-14 object-contain"
                   />
                   <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
@@ -475,12 +541,26 @@ export default function FeaturesPage() {
                 Engineering Excellence. Innovation. Reliability.
               </p>
             </div>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-[var(--color-primary)] transition-colors duration-300 hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
-            >
-              Contact Us
-            </Link>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                href="/contact/"
+                className="inline-flex items-center justify-center rounded-full border border-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-[var(--color-primary)] transition-colors duration-300 hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
+              >
+                Contact Us
+              </Link>
+              <Link
+                href="/platform/overview/"
+                className="inline-flex items-center justify-center rounded-full border border-[var(--color-border)] px-6 py-3 text-sm font-semibold text-[var(--color-text)] transition-colors duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+              >
+                Platform Overview &rarr;
+              </Link>
+              <Link
+                href="/platform/"
+                className="text-sm font-medium text-[var(--color-muted)] transition-colors hover:text-[var(--color-primary)] hover:underline"
+              >
+                Back to Platform Hub
+              </Link>
+            </div>
           </div>
         </div>
       </section>

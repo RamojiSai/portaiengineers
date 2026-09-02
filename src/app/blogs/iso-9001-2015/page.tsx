@@ -1,4 +1,44 @@
+import type { Metadata } from "next";
+import Link from "next/link";
 import "./iso.css";
+import {
+  JsonLd,
+  createWebPageSchema,
+  createBreadcrumbSchema,
+} from "../../../lib/schema";
+
+export const metadata: Metadata = {
+  title: "ISO 9001:2015 Certification Milestone",
+  description:
+    "Port AI Engineers Pvt. Ltd. has achieved ISO 9001:2015 certification for its Quality Management System, validating engineering design and quality excellence.",
+  alternates: {
+    canonical: "https://portaiengineers.com/blogs/iso-9001-2015/",
+  },
+  openGraph: {
+    title: "ISO 9001:2015 Certification Milestone | Port AI Engineers",
+    description:
+      "Port AI Engineers Pvt. Ltd. has achieved ISO 9001:2015 certification for its Quality Management System, validating engineering design and quality excellence.",
+    url: "https://portaiengineers.com/blogs/iso-9001-2015/",
+    siteName: "Port AI Engineers",
+    images: [
+      {
+        url: "/ISOimage.webp",
+        width: 1200,
+        height: 630,
+        alt: "Port AI Engineers - ISO 9001:2015 Certification",
+      },
+    ],
+    locale: "en_US",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ISO 9001:2015 Certification Milestone | Port AI Engineers",
+    description:
+      "Port AI Engineers Pvt. Ltd. has achieved ISO 9001:2015 certification for its Quality Management System, validating engineering design and quality excellence.",
+    images: ["/ISOimage.webp"],
+  },
+};
 
 const isoHtml = `
 <header class="hero">
@@ -34,9 +74,9 @@ const isoHtml = `
 </header>
 
 <div class="iso-banner certFadeIn">
-    <a href="/blogs/iso-9001-2015" class="iso-banner-left">
+    <div class="iso-banner-left">
       <img src="/ISOimage.webp" alt="ISO 9001:2015 badge" />
-    </a>
+    </div>
     <div class="iso-banner-right">
       <h3>ISO 9001:2015 · Quality Management System</h3>
       <p>Port AI Engineers' Quality Management System is certified to ISO 9001:2015, demonstrating our commitment to consistent quality, process control, and customer satisfaction.</p>
@@ -289,5 +329,50 @@ const isoHtml = `
 `;
 
 export default function Iso9001BlogPage() {
-  return <div className="iso-page" dangerouslySetInnerHTML={{ __html: isoHtml }} />;
+  const webPageSchema = createWebPageSchema({
+    id: "https://portaiengineers.com/blogs/iso-9001-2015/#webpage",
+    url: "https://portaiengineers.com/blogs/iso-9001-2015/",
+    name: "ISO 9001:2015 Certification Milestone",
+    description:
+      "Port AI Engineers Pvt. Ltd. has achieved ISO 9001:2015 certification for its Quality Management System, validating engineering design and quality excellence.",
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://portaiengineers.com/" },
+    { name: "Blogs", url: "https://portaiengineers.com/blogs/" },
+    {
+      name: "ISO 9001:2015 Certification Milestone",
+      url: "https://portaiengineers.com/blogs/iso-9001-2015/",
+    },
+  ]);
+
+  return (
+    <div className="iso-page">
+      <JsonLd schema={webPageSchema} />
+      <JsonLd schema={breadcrumbSchema} />
+      <div dangerouslySetInnerHTML={{ __html: isoHtml }} />
+      <div className="mx-auto my-8 max-w-4xl px-6">
+        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm">
+          <div>
+            <h4 className="text-base font-semibold text-[var(--color-text)]">Explore More from Port AI Engineers</h4>
+            <p className="text-sm text-[var(--color-muted)]">Read our engineering insights or connect with our quality management team.</p>
+          </div>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/blogs/"
+              className="rounded-full border border-[var(--color-border)] px-5 py-2.5 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
+            >
+              &larr; Back to Blogs
+            </Link>
+            <Link
+              href="/contact/"
+              className="rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-[var(--color-on-primary)] transition hover:opacity-90"
+            >
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
