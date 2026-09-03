@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
 import { Suspense, useEffect, useMemo, useState } from "react";
 
 const NODE_SWITCH_MS = 10000;
@@ -10,6 +9,7 @@ const COUNT_DURATION_MS = 1400;
 const cadNodes = [
   {
     key: "cad-pfd",
+    slug: "pfd",
     title: "PFD",
     angle: 270,
     overview:
@@ -22,6 +22,7 @@ const cadNodes = [
   },
   {
     key: "cad-pid",
+    slug: "pid",
     title: "P&ID",
     angle: 315,
     overview:
@@ -34,6 +35,7 @@ const cadNodes = [
   },
   {
     key: "cad-iso",
+    slug: "isometric",
     title: "Isometric",
     angle: 0,
     overview:
@@ -46,6 +48,7 @@ const cadNodes = [
   },
   {
     key: "cad-ga",
+    slug: "general-arrangement",
     title: "GA",
     angle: 45,
     overview:
@@ -57,6 +60,7 @@ const cadNodes = [
   },
   {
     key: "cad-conversion",
+    slug: "conversion",
     title: "CAD Conversion",
     angle: 90,
     overview:
@@ -69,6 +73,7 @@ const cadNodes = [
   },
   {
     key: "cad-training",
+    slug: "training",
     title: "CAD Training",
     angle: 135,
     overview: "Hands-on CAD training focused on real engineering applications.",
@@ -78,6 +83,7 @@ const cadNodes = [
   },
   {
     key: "cad-automation",
+    slug: "automation",
     title: "CAD Automation",
     angle: 180,
     overview: "Automation tools that reduce repetitive drafting work.",
@@ -87,6 +93,7 @@ const cadNodes = [
   },
   {
     key: "cad-fire",
+    slug: "fire-evacuation",
     title: "Fire Evacuation",
     angle: 225,
     overview:
@@ -124,8 +131,6 @@ const metricTargets = [
 ];
 
 function CADServicesPageContent() {
-  const pathname = usePathname();
-  const router = useRouter();
   const [cadActiveIndex, setCadActiveIndex] = useState(0);
   const [isCadVisible, setIsCadVisible] = useState(false);
   const [isWhyVisible, setIsWhyVisible] = useState(false);
@@ -148,58 +153,9 @@ function CADServicesPageContent() {
 
   const isCadActive = (index: number) => index === cadActiveIndex;
 
-  const getStoredKey = (key: string) => {
-    try {
-      return window.sessionStorage.getItem(key);
-    } catch {
-      return null;
-    }
-  };
-
-  const setStoredKey = (key: string, value: string) => {
-    try {
-      window.sessionStorage.setItem(key, value);
-    } catch {
-      return;
-    }
-  };
-
-  const updateQueryParam = (key: string, value: string) => {
-    if (typeof window === "undefined") return;
-    const params = new URLSearchParams(window.location.search);
-    params.set(key, value);
-    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
-  };
-
   const handleSelectCadNode = (index: number) => {
     setCadActiveIndex(index);
-    setStoredKey("cadFlowKey", cadNodes[index].key);
-    updateQueryParam("cad", cadNodes[index].key);
   };
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const params = new URLSearchParams(window.location.search);
-    const cadKey = params.get("cad");
-    if (cadKey) {
-      setStoredKey("cadFlowKey", cadKey);
-      const index = cadNodes.findIndex((node) => node.key === cadKey);
-      if (index >= 0 && index !== cadActiveIndex) {
-        setCadActiveIndex(index);
-      }
-      return;
-    }
-
-    const storedCadKey = getStoredKey("cadFlowKey");
-    if (!storedCadKey) {
-      return;
-    }
-
-    const index = cadNodes.findIndex((node) => node.key === storedCadKey);
-    if (index >= 0 && index !== cadActiveIndex) {
-      setCadActiveIndex(index);
-    }
-  }, [cadActiveIndex]);
 
   useEffect(() => {
     const section = document.getElementById("why-choose-services");
@@ -399,7 +355,7 @@ function CADServicesPageContent() {
 
               <div className="mt-8">
                 <Link
-                  href={`/services/cad/flow/${activeCadNode.key}`}
+                  href={`/services/cad/${activeCadNode.slug}/`}
                   className="group inline-flex items-center gap-2 rounded-full border border-[var(--color-primary)] px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)] transition-colors duration-300 hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
                 >
                   Learn More
@@ -432,7 +388,7 @@ function CADServicesPageContent() {
             {cadNodes.map((node) => (
               <Link
                 key={node.key}
-                href={`/services/cad/flow/${node.key}`}
+                href={`/services/cad/${node.slug}/`}
                 className="group flex flex-col justify-between rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:shadow-[0_12px_30px_var(--color-card-shadow)]"
               >
                 <div className="space-y-3">

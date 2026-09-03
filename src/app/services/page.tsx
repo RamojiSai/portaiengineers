@@ -73,49 +73,49 @@ export default function ServicesIndexPage() {
   const engineeringDisciplines = [
     {
       title: "Process Engineering",
-      key: "process",
+      slug: "process",
       description:
         "End-to-end process design from concept to execution, optimizing systems for performance, safety, and reliability.",
     },
     {
       title: "3D Piping Engineering",
-      key: "piping-3d",
+      slug: "piping-3d",
       description:
         "Accurate 3D models of piping systems for spatial visualization, clash detection, and construction planning.",
     },
     {
       title: "Piping Engineering",
-      key: "piping-eng",
+      slug: "piping-engineering",
       description:
         "Complete piping system design including material specifications, routing layouts, and technical documentation.",
     },
     {
       title: "Instrumentation & Control",
-      key: "instrumentation",
+      slug: "instrumentation",
       description:
         "Design of intelligent control systems and field instrumentation for automated, safe plant operations.",
     },
     {
       title: "Piping Stress Analysis",
-      key: "stress",
+      slug: "piping-stress-analysis",
       description:
         "Comprehensive stress analysis under pressure, thermal variation, and structural loads to ensure system integrity.",
     },
     {
       title: "Greenfield Projects",
-      key: "greenfield",
+      slug: "greenfield-projects",
       description:
         "Complete multidisciplinary engineering and layout planning for newly developed industrial facilities.",
     },
     {
       title: "Brownfield Projects",
-      key: "brownfield",
+      slug: "brownfield-projects",
       description:
         "Smart plant upgrade, modification, and revamp solutions executed with minimal disruption to operations.",
     },
     {
       title: "Power Plants",
-      key: "power-plants",
+      slug: "power-plants",
       description:
         "Multidisciplinary engineering deliverables and design support across the power generation plant lifecycle.",
     },
@@ -124,49 +124,49 @@ export default function ServicesIndexPage() {
   const cadDisciplines = [
     {
       title: "PFD (Process Flow Diagrams)",
-      key: "cad-pfd",
+      slug: "pfd",
       description:
         "Clear, structured diagrams representing the overall flow of materials, energy, and major equipment across plant systems.",
     },
     {
       title: "P&ID (Piping & Instrumentation)",
-      key: "cad-pid",
+      slug: "pid",
       description:
         "Standards-compliant diagrams detailing piping lines, valves, instrumentation loops, and operational control logic.",
     },
     {
       title: "Isometric Drawings",
-      key: "cad-iso",
+      slug: "isometric",
       description:
         "Fabrication-ready isometric drawings with precise dimensions, weld points, and bill of materials data.",
     },
     {
       title: "General Arrangement (GA)",
-      key: "cad-ga",
+      slug: "general-arrangement",
       description:
         "Optimized plant layout and equipment arrangement drawings that prioritize accessibility, safety, and workflow.",
     },
     {
       title: "CAD Conversion",
-      key: "cad-conversion",
+      slug: "conversion",
       description:
         "Accurate digitization of legacy paper blueprints, PDF drawings, and conceptual sketches into modern CAD formats.",
     },
     {
       title: "CAD Training",
-      key: "cad-training",
+      slug: "training",
       description:
         "Hands-on, practical CAD training programs focused on real-world industrial drafting and engineering applications.",
     },
     {
       title: "CAD Automation",
-      key: "cad-automation",
+      slug: "automation",
       description:
         "Custom drafting automation routines and workflows that boost drawing throughput and ensure drafting consistency.",
     },
     {
       title: "Fire Evacuation CAD",
-      key: "cad-fire",
+      slug: "fire-evacuation",
       description:
         "Code-compliant safety layout drawings detailing emergency exits, egress pathways, and emergency equipment.",
     },
@@ -288,8 +288,8 @@ export default function ServicesIndexPage() {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {engineeringDisciplines.map((item) => (
                 <Link
-                  key={item.key}
-                  href={`/services/engineering/flow/${item.key}`}
+                  key={item.slug}
+                  href={`/services/engineering/${item.slug}/`}
                   className="group flex flex-col justify-between rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:shadow-[0_12px_30px_var(--color-card-shadow)]"
                 >
                   <div className="space-y-2">
@@ -333,8 +333,8 @@ export default function ServicesIndexPage() {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {cadDisciplines.map((item) => (
                 <Link
-                  key={item.key}
-                  href={`/services/cad/flow/${item.key}`}
+                  key={item.slug}
+                  href={`/services/cad/${item.slug}/`}
                   className="group flex flex-col justify-between rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:shadow-[0_12px_30px_var(--color-card-shadow)]"
                 >
                   <div className="space-y-2">

@@ -46,42 +46,42 @@ export default function Home() {
     {
       title: "Process Engineering",
       description: "Process optimization from concept through delivery.",
-      href: "/services/engineering/flow/process/",
+      href: "/services/engineering/process/",
     },
     {
       title: "3D Piping Engineering",
       description: "Accurate 3D routing for build-ready layouts.",
-      href: "/services/engineering/flow/piping-3d/",
+      href: "/services/engineering/piping-3d/",
     },
     {
       title: "Piping Engineering",
       description: "Code-compliant piping systems and specifications.",
-      href: "/services/engineering/flow/piping-eng/",
+      href: "/services/engineering/piping-engineering/",
     },
     {
       title: "Instrumentation & Control",
       description: "Smart control strategies for safe operations.",
-      href: "/services/engineering/flow/instrumentation/",
+      href: "/services/engineering/instrumentation/",
     },
     {
       title: "Piping Stress Analysis",
       description: "Stress validation for reliability and safety.",
-      href: "/services/engineering/flow/stress/",
+      href: "/services/engineering/piping-stress-analysis/",
     },
     {
       title: "Greenfield Projects",
       description: "End-to-end engineering for new facilities.",
-      href: "/services/engineering/flow/greenfield/",
+      href: "/services/engineering/greenfield-projects/",
     },
     {
       title: "Brownfield Projects",
       description: "Revamps and upgrades with minimal downtime.",
-      href: "/services/engineering/flow/brownfield/",
+      href: "/services/engineering/brownfield-projects/",
     },
     {
       title: "Power Plants",
       description: "Comprehensive engineering for thermal, co-gen, and renewable plants.",
-      href: "/services/engineering/flow/power-plants/",
+      href: "/services/engineering/power-plants/",
     },
   ];
 
@@ -89,42 +89,42 @@ export default function Home() {
     {
       title: "Process Flow Diagram (PFD)",
       description: "Clear process mapping for early alignment.",
-      href: "/services/cad/flow/cad-pfd/",
+      href: "/services/cad/pfd/",
     },
     {
       title: "P&ID Drawings",
       description: "Detailed piping and instrumentation diagrams.",
-      href: "/services/cad/flow/cad-pid/",
+      href: "/services/cad/pid/",
     },
     {
       title: "Isometric Drawings",
       description: "Fabrication-ready isometrics and spools.",
-      href: "/services/cad/flow/cad-iso/",
+      href: "/services/cad/isometric/",
     },
     {
       title: "General Arrangement",
       description: "Site and equipment layout coordination.",
-      href: "/services/cad/flow/cad-ga/",
+      href: "/services/cad/general-arrangement/",
     },
     {
       title: "CAD Conversion",
       description: "Migrate legacy files to modern CAD.",
-      href: "/services/cad/flow/cad-conversion/",
+      href: "/services/cad/conversion/",
     },
     {
       title: "CAD Training",
       description: "Upskill teams with practical CAD workflows.",
-      href: "/services/cad/flow/cad-training/",
+      href: "/services/cad/training/",
     },
     {
       title: "CAD Automation",
       description: "Automations that reduce drafting time.",
-      href: "/services/cad/flow/cad-automation/",
+      href: "/services/cad/automation/",
     },
     {
       title: "Fire Evacuation Drawings",
       description: "Compliant safety plans and egress maps.",
-      href: "/services/cad/flow/cad-fire/",
+      href: "/services/cad/fire-evacuation/",
     },
   ];
 

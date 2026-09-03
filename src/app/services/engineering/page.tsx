@@ -61,35 +61,35 @@ export default function EngineeringServicesPage() {
     items: [
       {
         name: "Process Engineering",
-        url: "https://portaiengineers.com/services/engineering/flow/process/",
+        url: "https://portaiengineers.com/services/engineering/process/",
       },
       {
         name: "3D Piping Engineering",
-        url: "https://portaiengineers.com/services/engineering/flow/piping-3d/",
+        url: "https://portaiengineers.com/services/engineering/piping-3d/",
       },
       {
         name: "Piping Engineering",
-        url: "https://portaiengineers.com/services/engineering/flow/piping-eng/",
+        url: "https://portaiengineers.com/services/engineering/piping-engineering/",
       },
       {
         name: "Instrumentation & Control",
-        url: "https://portaiengineers.com/services/engineering/flow/instrumentation/",
+        url: "https://portaiengineers.com/services/engineering/instrumentation/",
       },
       {
         name: "Piping Stress Analysis",
-        url: "https://portaiengineers.com/services/engineering/flow/stress/",
+        url: "https://portaiengineers.com/services/engineering/piping-stress-analysis/",
       },
       {
         name: "Greenfield Projects",
-        url: "https://portaiengineers.com/services/engineering/flow/greenfield/",
+        url: "https://portaiengineers.com/services/engineering/greenfield-projects/",
       },
       {
         name: "Brownfield Projects",
-        url: "https://portaiengineers.com/services/engineering/flow/brownfield/",
+        url: "https://portaiengineers.com/services/engineering/brownfield-projects/",
       },
       {
         name: "Power Plants",
-        url: "https://portaiengineers.com/services/engineering/flow/power-plants/",
+        url: "https://portaiengineers.com/services/engineering/power-plants/",
       },
     ],
   });

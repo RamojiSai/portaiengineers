@@ -68,15 +68,15 @@ export async function generateMetadata({
 const serviceMapping: Record<string, { label: string; href: string }> = {
   "piping-stress-analysis": {
     label: "Piping Stress Analysis Services",
-    href: "/services/engineering/flow/stress/",
+    href: "/services/engineering/piping-stress-analysis/",
   },
   "greenfield-projects": {
     label: "Greenfield Projects Engineering",
-    href: "/services/engineering/flow/greenfield/",
+    href: "/services/engineering/greenfield-projects/",
   },
   "fire-evacuation-planning": {
     label: "Fire Evacuation Drawings & Layouts",
-    href: "/services/cad/flow/cad-fire/",
+    href: "/services/cad/fire-evacuation/",
   },
 };
 
