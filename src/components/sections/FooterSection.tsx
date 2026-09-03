@@ -16,37 +16,38 @@ const footerColumns: FooterColumn[] = [
   {
     title: "Plant Engineering Services",
     links: [
-      { label: "Engineering Services", href: "/services/engineering#engineering-flow" },
-      { label: "Process Engineering", href: "/services/engineering?eng=process#engineering-flow" },
-      { label: "3D Piping Engineering", href: "/services/engineering?eng=piping-3d#engineering-flow" },
-      { label: "Piping Engineering Services", href: "/services/engineering?eng=piping-eng#engineering-flow" },
-      { label: "Instrumentation & Control", href: "/services/engineering?eng=instrumentation#engineering-flow" },
-      { label: "Piping Stress Analysis", href: "/services/engineering?eng=stress#engineering-flow" },
-      { label: "Greenfield Projects", href: "/services/engineering?eng=greenfield#engineering-flow" },
-      { label: "Brownfield Projects", href: "/services/engineering?eng=brownfield#engineering-flow" },
+      { label: "Engineering Services", href: "/services/engineering/" },
+      { label: "Process Engineering", href: "/services/engineering/flow/process/" },
+      { label: "3D Piping Engineering", href: "/services/engineering/flow/piping-3d/" },
+      { label: "Piping Engineering Services", href: "/services/engineering/flow/piping-eng/" },
+      { label: "Instrumentation & Control", href: "/services/engineering/flow/instrumentation/" },
+      { label: "Piping Stress Analysis", href: "/services/engineering/flow/stress/" },
+      { label: "Greenfield Projects", href: "/services/engineering/flow/greenfield/" },
+      { label: "Brownfield Projects", href: "/services/engineering/flow/brownfield/" },
+      { label: "Power Plants", href: "/services/engineering/flow/power-plants/" },
     ],
   },
   {
     title: "Cad Services",
     links: [
-      { label: "Process Flow Diagram (PFD)", href: "/services/engineering?cad=cad-pfd#cad-flow" },
-      { label: "P&ID Drawings", href: "/services/engineering?cad=cad-pid#cad-flow" },
-      { label: "Isometric Drawings", href: "/services/engineering?cad=cad-iso#cad-flow" },
-      { label: "General Arrangement", href: "/services/engineering?cad=cad-ga#cad-flow" },
-      { label: "CAD Conversion", href: "/services/engineering?cad=cad-conversion#cad-flow" },
-      { label: "CAD Training", href: "/services/engineering?cad=cad-training#cad-flow" },
-      { label: "CAD Automation", href: "/services/engineering?cad=cad-automation#cad-flow" },
-      { label: "Fire Evacuation Drawings", href: "/services/engineering?cad=cad-fire#cad-flow" },
+      { label: "Process Flow Diagram (PFD)", href: "/services/cad/flow/cad-pfd/" },
+      { label: "P&ID Drawings", href: "/services/cad/flow/cad-pid/" },
+      { label: "Isometric Drawings", href: "/services/cad/flow/cad-iso/" },
+      { label: "General Arrangement", href: "/services/cad/flow/cad-ga/" },
+      { label: "CAD Conversion", href: "/services/cad/flow/cad-conversion/" },
+      { label: "CAD Training", href: "/services/cad/flow/cad-training/" },
+      { label: "CAD Automation", href: "/services/cad/flow/cad-automation/" },
+      { label: "Fire Evacuation Drawings", href: "/services/cad/flow/cad-fire/" },
     ],
   },
   {
     title: "Features",
     links: [
-      { label: "AI Engineering Tools", href: "/platform/overview" },
-      { label: "Search + Data AI", href: "/platform/overview" },
-      { label: "Security + Governance", href: "/platform/overview" },
-      { label: "Development Tools", href: "/platform/overview" },
-      { label: "Integrations", href: "/platform/integrations" },
+      { label: "AI Engineering Tools", href: "/platform/overview/" },
+      { label: "Search + Data AI", href: "/platform/overview/" },
+      { label: "Security + Governance", href: "/platform/overview/" },
+      { label: "Development Tools", href: "/platform/overview/" },
+      { label: "Features", href: "/platform/features/" },
     ],
   },
   {
@@ -55,26 +56,17 @@ const footerColumns: FooterColumn[] = [
       { label: "About", href: "/#about" },
       { label: "Leadership", href: "/#about" },
       { label: "Partners", href: "/#about" },
-      { label: "Contact Us", href: "/contact" },
+      { label: "Contact Us", href: "/contact/" },
     ],
   },
 
   {
     title: "Certifications",
     links: [
-      { label: "ISO  9001 : 2015", href: "/blogs/iso-9001-2015" },
-      { label: "Startup India Certified", href: "/blogs/startup-certified" },
+      { label: "ISO  9001 : 2015", href: "/blogs/iso-9001-2015/" },
+      { label: "Startup India Certified", href: "/blogs/startup-certified/" },
     ],
   },
-  // {
-  //   title: "Resources",
-  //   links: [
-  //     { label: "Reports & Research", href: "/blogs/all" },
-  //     { label: "Implementation Index", href: "/blogs/all" },
-  //     { label: "AI Readiness Report", href: "/blogs/all" },
-  //     { label: "Try Demo", href: "/#cta", isSpecial: true },
-  //   ],
-  // },
 ];
 
 const socialLinks = [
@@ -213,8 +205,8 @@ export default function FooterSection() {
               <Image
                 src="/Logo.jpeg"
                 alt="Port AI logo"
-                width={52}
-                height={52}
+                width={48}
+                height={48}
                 className="h-12 w-12 rounded-full object-cover"
               />
               <div className="space-y-1 text-sm text-[var(--color-on-footer-muted)]">
@@ -236,6 +228,7 @@ export default function FooterSection() {
                   alt="Location QR code"
                   width={80}
                   height={80}
+                  loading="lazy"
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -275,6 +268,10 @@ export default function FooterSection() {
                 <img
                   src="/ISOimage.webp"
                   alt="ISO 9001:2015 certification badge"
+                  width={40}
+                  height={40}
+                  loading="lazy"
+                  decoding="async"
                   className="h-10 w-10 object-contain"
                 />
                 <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">

@@ -1,50 +1,87 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import AboutSection from "../components/sections/AboutSection";
 import HeroSection from "../components/sections/HeroSection";
 import ProvenResultsSection from "../components/sections/ProvenResultsSection";
+import { JsonLd, createWebPageSchema } from "../lib/schema";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Port AI Engineers | Industrial Plant Engineering & CAD Services",
+  },
+  description:
+    "Precision-focused industrial plant engineering, 3D piping design, process engineering, stress analysis, and advanced CAD automation services powered by AI.",
+  alternates: {
+    canonical: "https://portaiengineers.com/",
+  },
+  openGraph: {
+    title: "Port AI Engineers | Industrial Plant Engineering & CAD Services",
+    description:
+      "Precision-focused industrial plant engineering, 3D piping design, process engineering, stress analysis, and advanced CAD automation services powered by AI.",
+    url: "https://portaiengineers.com/",
+    siteName: "Port AI Engineers",
+    images: [
+      {
+        url: "/hero-petrochemical-DMHvwGIB.webp",
+        width: 1200,
+        height: 630,
+        alt: "Port AI Engineers - Industrial Plant Engineering and CAD Services",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Port AI Engineers | Industrial Plant Engineering & CAD Services",
+    description:
+      "Precision-focused industrial plant engineering, 3D piping design, process engineering, stress analysis, and advanced CAD automation services powered by AI.",
+    images: ["/hero-petrochemical-DMHvwGIB.webp"],
+  },
+};
 
 export default function Home() {
   const engineeringServices = [
     {
-      title: "Engineering Services",
-      description: "Integrated plant planning and execution support.",
-      href: "/services/engineering",
-    },
-    {
       title: "Process Engineering",
       description: "Process optimization from concept through delivery.",
-      href: "/services/engineering/flow/process",
+      href: "/services/engineering/flow/process/",
     },
     {
       title: "3D Piping Engineering",
       description: "Accurate 3D routing for build-ready layouts.",
-      href: "/services/engineering/flow/piping-3d",
+      href: "/services/engineering/flow/piping-3d/",
     },
     {
       title: "Piping Engineering",
       description: "Code-compliant piping systems and specifications.",
-      href: "/services/engineering/flow/piping-eng",
+      href: "/services/engineering/flow/piping-eng/",
     },
     {
       title: "Instrumentation & Control",
       description: "Smart control strategies for safe operations.",
-      href: "/services/engineering/flow/instrumentation",
+      href: "/services/engineering/flow/instrumentation/",
     },
     {
       title: "Piping Stress Analysis",
       description: "Stress validation for reliability and safety.",
-      href: "/services/engineering/flow/stress",
+      href: "/services/engineering/flow/stress/",
     },
     {
       title: "Greenfield Projects",
       description: "End-to-end engineering for new facilities.",
-      href: "/services/engineering/flow/greenfield",
+      href: "/services/engineering/flow/greenfield/",
     },
     {
       title: "Brownfield Projects",
       description: "Revamps and upgrades with minimal downtime.",
-      href: "/services/engineering/flow/brownfield",
+      href: "/services/engineering/flow/brownfield/",
+    },
+    {
+      title: "Power Plants",
+      description: "Comprehensive engineering for thermal, co-gen, and renewable plants.",
+      href: "/services/engineering/flow/power-plants/",
     },
   ];
 
@@ -52,42 +89,42 @@ export default function Home() {
     {
       title: "Process Flow Diagram (PFD)",
       description: "Clear process mapping for early alignment.",
-      href: "/services/cad/flow/cad-pfd",
+      href: "/services/cad/flow/cad-pfd/",
     },
     {
       title: "P&ID Drawings",
       description: "Detailed piping and instrumentation diagrams.",
-      href: "/services/cad/flow/cad-pid",
+      href: "/services/cad/flow/cad-pid/",
     },
     {
       title: "Isometric Drawings",
       description: "Fabrication-ready isometrics and spools.",
-      href: "/services/cad/flow/cad-iso",
+      href: "/services/cad/flow/cad-iso/",
     },
     {
       title: "General Arrangement",
       description: "Site and equipment layout coordination.",
-      href: "/services/cad/flow/cad-ga",
+      href: "/services/cad/flow/cad-ga/",
     },
     {
       title: "CAD Conversion",
       description: "Migrate legacy files to modern CAD.",
-      href: "/services/cad/flow/cad-conversion",
+      href: "/services/cad/flow/cad-conversion/",
     },
     {
       title: "CAD Training",
       description: "Upskill teams with practical CAD workflows.",
-      href: "/services/cad/flow/cad-training",
+      href: "/services/cad/flow/cad-training/",
     },
     {
       title: "CAD Automation",
       description: "Automations that reduce drafting time.",
-      href: "/services/cad/flow/cad-automation",
+      href: "/services/cad/flow/cad-automation/",
     },
     {
       title: "Fire Evacuation Drawings",
       description: "Compliant safety plans and egress maps.",
-      href: "/services/cad/flow/cad-fire",
+      href: "/services/cad/flow/cad-fire/",
     },
   ];
 
@@ -119,8 +156,17 @@ export default function Home() {
     "Industrial Utilities",
   ];
 
+  const webPageSchema = createWebPageSchema({
+    id: "https://portaiengineers.com/#webpage",
+    url: "https://portaiengineers.com/",
+    name: "Port AI Engineers | Industrial Plant Engineering & CAD Services",
+    description:
+      "Precision-focused industrial plant engineering, 3D piping design, process engineering, stress analysis, and advanced CAD automation services powered by AI.",
+  });
+
   return (
     <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
+      <JsonLd schema={webPageSchema} />
       <HeroSection />
       <section className="bg-[var(--color-bg)] px-6 pt-1 pb-6 sm:px-10 sm:pt-2 sm:pb-8 mt-1">
         <div className="mx-auto w-full max-w-6xl">
@@ -153,17 +199,17 @@ export default function Home() {
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
               Services
             </span>
-            <h1 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
               Engineering and CAD services built for complex delivery.
-            </h1>
+            </h2>
             <p className="max-w-2xl text-base text-[var(--color-muted)] sm:text-lg">
               We transform complex concepts into precision-engineered realities, using advanced CAD solutions to accelerate innovation and streamline the path from blueprint to build.
             </p>
             <Link
-              href="/services/engineering"
+              href="/services/"
               className="w-fit rounded-full border border-[var(--color-primary)] px-6 py-2 text-sm font-semibold text-[var(--color-primary)] transition-colors duration-300 hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
             >
-              Learn More
+              Explore All Services &rarr;
             </Link>
           </div>
 
@@ -278,6 +324,10 @@ export default function Home() {
                   <img
                     src="/ISOimage.webp"
                     alt="ISO 9001:2015 certification badge"
+                    width={56}
+                    height={56}
+                    loading="lazy"
+                    decoding="async"
                     className="h-14 w-14 object-contain"
                   />
                   <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
@@ -285,15 +335,23 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <Link
-                href="/blogs/iso-9001-2015"
-                className="flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)]"
-              >
-                Learn More
-                <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  &rarr;
-                </span>
-              </Link>
+              <div className="flex flex-wrap items-center gap-4">
+                <Link
+                  href="/blogs/iso-9001-2015/"
+                  className="flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)]"
+                >
+                  Learn More
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    &rarr;
+                  </span>
+                </Link>
+                <Link
+                  href="/blogs/"
+                  className="text-sm font-medium text-[var(--color-muted)] transition-colors hover:text-[var(--color-primary)] hover:underline"
+                >
+                  Explore All Blogs &amp; Insights &rarr;
+                </Link>
+              </div>
             </div>
           </div>
         </div>

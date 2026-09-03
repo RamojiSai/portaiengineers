@@ -1,10 +1,49 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  JsonLd,
+  createWebPageSchema,
+  createBreadcrumbSchema,
+} from "../../lib/schema";
+
+export const metadata: Metadata = {
+  title: "Contact Us | Hyderabad, India",
+  description:
+    "Contact Port AI Engineers Pvt. Ltd. in Kukatpally, Hyderabad, India. Inquire about industrial plant engineering, 3D piping design, and CAD services.",
+  alternates: {
+    canonical: "https://portaiengineers.com/contact/",
+  },
+  openGraph: {
+    title: "Contact Port AI Engineers | Hyderabad, India",
+    description:
+      "Contact Port AI Engineers Pvt. Ltd. in Kukatpally, Hyderabad, India. Inquire about industrial plant engineering, 3D piping design, and CAD services.",
+    url: "https://portaiengineers.com/contact/",
+    siteName: "Port AI Engineers",
+    images: [
+      {
+        url: "/hero-refinery-DwatFbCg.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Port AI Engineers - Contact Us",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Port AI Engineers | Hyderabad, India",
+    description:
+      "Contact Port AI Engineers Pvt. Ltd. in Kukatpally, Hyderabad, India. Inquire about industrial plant engineering, 3D piping design, and CAD services.",
+    images: ["/hero-refinery-DwatFbCg.jpg"],
+  },
+};
 
 const contactItems = [
   {
     label: "Email",
-    value: "contact@portaienginees.com",
-    href: "mailto:contact@portaienginees.com",
+    value: "contact@portaiengineers.com",
+    href: "mailto:contact@portaiengineers.com",
     description: "Send us your project requirements and timelines.",
     icon: (
       <svg
@@ -152,8 +191,24 @@ const socialLinks = [
 ];
 
 export default function ContactPage() {
+  const contactPageSchema = createWebPageSchema({
+    id: "https://portaiengineers.com/contact/#webpage",
+    url: "https://portaiengineers.com/contact/",
+    name: "Contact Us | Hyderabad, India",
+    description:
+      "Contact Port AI Engineers Pvt. Ltd. in Kukatpally, Hyderabad, India. Inquire about industrial plant engineering, 3D piping design, and CAD services.",
+    type: "ContactPage",
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://portaiengineers.com/" },
+    { name: "Contact", url: "https://portaiengineers.com/contact/" },
+  ]);
+
   return (
     <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
+      <JsonLd schema={contactPageSchema} />
+      <JsonLd schema={breadcrumbSchema} />
       <section className="mx-auto w-full max-w-5xl px-5 py-14 sm:px-10 sm:py-20">
         <div className="space-y-4 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-primary)]">
