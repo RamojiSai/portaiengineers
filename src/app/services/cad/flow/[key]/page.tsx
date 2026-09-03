@@ -28,7 +28,7 @@ type FlowDetail = {
 
 const CAD_IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
   "/PFD.jpeg": { width: 1024, height: 724 },
-  "/P&ID.png": { width: 822, height: 518 },
+  "/images/services/cad-pid.png": { width: 822, height: 518 },
   "/images/services/piping-isometric.webp": { width: 1536, height: 1024 },
   "/GeneralArrangements.jpg": { width: 1144, height: 755 },
   "/images/services/cad-training.webp": { width: 992, height: 992 },
@@ -77,7 +77,7 @@ const flowDetails: FlowDetail[] = [
     key: "cad-pid",
     title: "P&ID",
     h1: "Piping & Instrumentation Diagram (P&ID)",
-    image: "/P&ID.png",
+    image: "/images/services/cad-pid.png",
     imageAlt: "Piping and instrumentation diagram",
     description: [
       "P&ID drawings capture the detailed piping, instrumentation, and control logic required to build and operate safely.",

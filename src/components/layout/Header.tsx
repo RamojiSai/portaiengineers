@@ -224,8 +224,9 @@ export default function Header() {
       </div>
 
       <div
-        className={`overflow-hidden border-t border-[var(--color-border)] bg-[var(--color-bg)] transition-[max-height,opacity] duration-300 md:hidden ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-          }`}
+        className={`border-t border-[var(--color-border)] bg-[var(--color-bg)] transition-[max-height,opacity] duration-300 md:hidden ${
+          isOpen ? "max-h-[80vh] overflow-y-auto opacity-100" : "max-h-0 overflow-hidden opacity-0"
+        }`}
       >
         <nav className="flex flex-col gap-4 px-6 py-4 text-sm font-medium text-[var(--color-text)]">
           {navItems.map((item) => {
