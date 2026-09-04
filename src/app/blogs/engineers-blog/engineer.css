@@ -9,8 +9,8 @@
   box-sizing: border-box;
 }
 
-/* ── CSS VARIABLES ── */
-:root {
+/* ── CSS VARIABLES (Scoped to .engineering-blog-page to avoid global leakage) ── */
+.engineering-blog-page {
   --navy:       #0B1F3A;
   --blue:       #1A4B8C;
   --sky:        #2E86DE;
