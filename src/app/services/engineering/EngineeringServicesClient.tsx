@@ -91,6 +91,23 @@ const nodes = [
   },
 ];
 
+const engineeringGridDisciplines = [
+  ...nodes.map((node) => ({
+    key: node.key,
+    slug: node.slug,
+    title: node.title,
+    overview: node.overview,
+    whatWeDo: node.whatWeDo,
+  })),
+  {
+    key: "plant-layout",
+    slug: "plant-layout",
+    title: "Industrial Plant Layout",
+    overview: "Comprehensive plot planning, equipment layout, and multidiscipline spatial coordination.",
+    whatWeDo: "We organize plant equipment, utility corridors, and access envelopes for seamless execution.",
+  },
+];
+
 const featureBlocks = [
   {
     title: "Intelligent Engineering",
@@ -311,26 +328,26 @@ function EngineeringServicesPageContent() {
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {nodes.map((node) => (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {engineeringGridDisciplines.map((item) => (
               <Link
-                key={node.key}
-                href={`/services/engineering/${node.slug}/`}
+                key={item.key}
+                href={`/services/engineering/${item.slug}/`}
                 className="group flex flex-col justify-between rounded-2xl border border-slate-700/80 bg-[#0E265C] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#8494FF] hover:shadow-[0_12px_30px_rgba(132,148,255,0.2)]"
               >
                 <div className="space-y-3">
                   <h3 className="text-lg font-semibold text-white transition-colors group-hover:text-[#8494FF]">
-                    {node.title}
+                    {item.title}
                   </h3>
                   <p className="text-xs leading-relaxed text-slate-300 sm:text-sm">
-                    {node.overview}
+                    {item.overview}
                   </p>
                   <p className="text-xs text-slate-400">
-                    {node.whatWeDo}
+                    {item.whatWeDo}
                   </p>
                 </div>
                 <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-[#8494FF] transition-transform group-hover:translate-x-1">
-                  View {node.title} &rarr;
+                  View {item.title} &rarr;
                 </span>
               </Link>
             ))}

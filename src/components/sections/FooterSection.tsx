@@ -25,6 +25,7 @@ const footerColumns: FooterColumn[] = [
       { label: "Greenfield Projects", href: "/services/engineering/greenfield-projects/" },
       { label: "Brownfield Projects", href: "/services/engineering/brownfield-projects/" },
       { label: "Power Plants", href: "/services/engineering/power-plants/" },
+      { label: "Industrial Plant Layout", href: "/services/engineering/plant-layout/" },
     ],
   },
   {

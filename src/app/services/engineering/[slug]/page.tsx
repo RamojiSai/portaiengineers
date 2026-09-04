@@ -37,6 +37,7 @@ const ENGINEERING_IMAGE_DIMENSIONS: Record<string, { width: number; height: numb
   "/images/services/greenfield-project.webp": { width: 1536, height: 1024 },
   "/images/services/brownfield.webp": { width: 1536, height: 1024 },
   "/co2-capture.webp": { width: 992, height: 558 },
+  "/GeneralArrangements.jpg": { width: 1144, height: 755 },
 };
 
 const serviceDetails: ServiceDetail[] = [
@@ -276,7 +277,7 @@ const serviceDetails: ServiceDetail[] = [
       "Higher delivery confidence for industrial plant investments",
     ],
     relatedServices: [
-      { title: "Process Engineering Services", href: "/services/engineering/process/" },
+      { title: "Industrial Plant Layout Services", href: "/services/engineering/plant-layout/" },
       { title: "3D Piping Design Services", href: "/services/engineering/piping-3d/" },
       { title: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
       { title: "General Arrangement Drawing Services", href: "/services/cad/general-arrangement/" },
@@ -360,6 +361,48 @@ const serviceDetails: ServiceDetail[] = [
       { title: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
       { title: "Piping Stress Analysis Services", href: "/services/engineering/piping-stress-analysis/" },
       { title: "Instrumentation Engineering Services", href: "/services/engineering/instrumentation/" },
+    ],
+  },
+  {
+    slug: "plant-layout",
+    title: "Industrial Plant Layout Design Services",
+    metaTitle: "Industrial Plant Layout Design Services | Port AI Engineers",
+    metaDescription:
+      "Port AI Engineers provides industrial plant layout design services, delivering optimized equipment layouts, plot plans, and multi-discipline spatial coordination.",
+    h1: "Industrial Plant Layout Design Services",
+    image: "/GeneralArrangements.jpg",
+    imageAlt: "Industrial plant layout and equipment arrangement design",
+    description: [
+      "Port AI Engineers provides industrial plant layout design services, translating process flow requirements and complex engineering criteria into organized, efficient physical plant arrangements. We work with industrial operators, EPCs, and engineering teams to establish coherent spatial frameworks for process units, utility blocks, and auxiliary facilities.",
+      "Our engineering team coordinates comprehensive plot plan development and site organization, evaluating overall land topography, battery limit boundaries, and prevailing wind conditions. We establish equipment spacing criteria, define primary utility routing corridors, and structure plant zoning to accommodate both immediate construction phases and long-term expansion requirements.",
+      "We focus on equipment arrangement and accessibility, determining equipment centerlines, foundation footprints, and required maintenance clearance envelopes. By planning crane reach radiuses, laydown zones, nozzle orientations, and operator transit corridors early in the layout phase, we ensure equipment can be safely operated, inspected, and serviced throughout the plant lifecycle.",
+      "Our layout process bridges process documentation with physical engineering reality, integrating PFD flowstreams and P&ID line specifications with civil structural framing and 3D piping routing. Working in close collaboration with piping stress analysts and structural designers, we ensure pipe racks, pump skids, and vessel connections align with mechanical load paths and thermal expansion envelopes.",
+      "Safety, egress, and practical circulation remain central to our spatial coordination approach. We incorporate clear personnel walkways, vehicular roadways, emergency evacuation corridors, and designated fire-safety buffers across every operating unit, ensuring full alignment with industrial safety standards and local statutory requirements.",
+      "By delivering thoroughly validated plant layout documentation, we provide a stable, coordinated reference point for downstream engineering disciplines. These deliverables feed directly into General Arrangement drawings, detailed 3D piping design, procurement packages, and multidisciplinary project coordination, supporting smooth site construction and operational clarity.",
+    ],
+    highlights: [
+      "Plot plan development and site organization",
+      "Equipment layout and spatial coordination",
+      "Maintenance access and operational clearance planning",
+      "Multidiscipline coordination across piping, equipment, and structures",
+    ],
+    deliverables: [
+      "Industrial plant layout plans",
+      "Plot plan and equipment arrangement documentation",
+      "Equipment positioning and spatial coordination drawings",
+      "Utility routing and battery-limit coordination documentation",
+    ],
+    outcomes: [
+      "Clearer spatial coordination between plant disciplines",
+      "Better visibility of equipment access and maintenance requirements",
+      "More organized plant layout documentation for downstream engineering",
+      "Improved coordination of equipment, piping, and utility spaces",
+    ],
+    relatedServices: [
+      { title: "General Arrangement Drawing Services", href: "/services/cad/general-arrangement/" },
+      { title: "3D Piping Design Services", href: "/services/engineering/piping-3d/" },
+      { title: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
+      { title: "Greenfield Engineering Services", href: "/services/engineering/greenfield-projects/" },
     ],
   },
 ];

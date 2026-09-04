@@ -119,6 +119,12 @@ export default function ServicesIndexPage() {
       description:
         "Multidisciplinary engineering deliverables and design support across the power generation plant lifecycle.",
     },
+    {
+      title: "Industrial Plant Layout",
+      slug: "plant-layout",
+      description:
+        "Comprehensive plot planning, equipment layout, and multidiscipline spatial coordination for industrial facilities.",
+    },
   ];
 
   const cadDisciplines = [

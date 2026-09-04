@@ -195,6 +195,7 @@ const serviceDetails: ServiceDetail[] = [
       "Reduced site layout conflicts and optimized equipment footings",
     ],
     relatedServices: [
+      { title: "Industrial Plant Layout Services", href: "/services/engineering/plant-layout/" },
       { title: "3D Piping Design Services", href: "/services/engineering/piping-3d/" },
       { title: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
       { title: "Piping Isometric Drawing Services", href: "/services/cad/isometric/" },
