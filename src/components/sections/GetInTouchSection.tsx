@@ -1,11 +1,12 @@
 import Link from "next/link";
+import ContactForm from "./ContactForm";
 
 const contactItems = [
   {
     label: "Email",
     value: "contact@portaiengineers.com",
     href: "mailto:contact@portaiengineers.com",
-    description: "Send us your project requirements and timelines.",
+    description: "Send us your project scope and timelines.",
     icon: (
       <svg
         className="h-5 w-5"
@@ -26,7 +27,7 @@ const contactItems = [
     label: "Phone",
     value: "+91 9440584273",
     href: "tel:+919440584273",
-    description: "Talk to our engineering team directly.",
+    description: "Speak directly with our engineering team.",
     icon: (
       <svg
         className="h-5 w-5"
@@ -46,7 +47,7 @@ const contactItems = [
     label: "WhatsApp",
     value: "+91 9440584273",
     href: "https://wa.me/919440584273",
-    description: "Start a quick chat with our team.",
+    description: "Start an instant message chat.",
     icon: (
       <svg
         className="h-5 w-5"
@@ -67,7 +68,7 @@ const contactItems = [
     label: "Address",
     value: "Kukatpally, Hyderabad, Telangana - 500072, India",
     href: "https://maps.app.goo.gl/1m6XzmsweawyRhDh8",
-    description: "Visit our office or schedule an onsite consultation.",
+    description: "Our engineering operations office.",
     icon: (
       <svg
         className="h-5 w-5"
@@ -151,76 +152,194 @@ const socialLinks = [
   },
 ];
 
-export default function GetInTouchSection() {
+interface GetInTouchSectionProps {
+  showForm?: boolean;
+}
+
+export default function GetInTouchSection({ showForm = true }: GetInTouchSectionProps) {
   return (
-    <section className="w-full bg-[var(--color-primary-soft)] px-5 py-14 sm:px-10 sm:py-20">
+    <section id="contact" className="w-full scroll-mt-20 bg-[var(--color-primary-soft)] px-5 py-14 sm:px-10 sm:py-20">
       <div className="mx-auto w-full max-w-6xl">
         <div className="space-y-4 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-primary)]">
-            Get in Touch
+            Contact / Get in Touch
           </p>
           <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-text)] sm:text-3xl lg:text-4xl">
-            Ready to Collaborate with Port AI Engineers?
+            Let&#39;s discuss your engineering or CAD requirements
           </h2>
           <p className="mx-auto max-w-2xl text-sm text-[var(--color-muted)] sm:text-base lg:text-lg">
-            Reach out with your project goals, timelines, or technical questions. We
-            respond quickly with clear next steps and expert guidance.
+            Schedule a meeting directly on our calendar, reach out to our team, or send us a message below. We respond quickly with expert guidance.
           </p>
         </div>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {contactItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="group flex items-start gap-4 rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[0_16px_40px_var(--color-card-shadow)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:shadow-[0_20px_50px_var(--color-primary-glow)] sm:p-6"
-              target={item.label === "Address" ? "_blank" : undefined}
-              rel={item.label === "Address" ? "noreferrer" : undefined}
-            >
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-primary)_10%,var(--color-bg))] text-[var(--color-primary)]">
-                {item.icon}
-              </div>
-              <div className="space-y-2">
-                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
-                  {item.label}
+        {showForm ? (
+          /* Two-column layout with Contact Form */
+          <div className="mt-12 grid gap-8 lg:grid-cols-12 lg:gap-10">
+            {/* Left Column: Direct Booking & Contact Info */}
+            <div className="space-y-6 lg:col-span-5">
+              {/* Direct Demo / Appointment Card */}
+              <div className="rounded-3xl border border-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_8%,var(--color-surface))] p-6 shadow-[0_16px_40px_var(--color-card-shadow)]">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm">
+                    <svg
+                      className="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" />
+                      <line x1="8" y1="2" x2="8" y2="6" />
+                      <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
+                      Instant Booking
+                    </span>
+                    <h3 className="text-lg font-semibold text-[var(--color-text)]">
+                      Schedule a Demo / Meeting
+                    </h3>
+                  </div>
                 </div>
-                <div className="text-base font-semibold text-[var(--color-text)] sm:text-lg">
-                  {item.value}
-                </div>
-                <p className="text-sm text-[var(--color-muted)]">
-                  {item.description}
+                <p className="mt-3 text-sm text-[var(--color-muted)]">
+                  Pick a convenient time directly on Google Calendar to talk with our engineering leadership.
                 </p>
+                <div className="mt-4">
+                  <a
+                    href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] px-5 py-3 text-sm font-semibold text-[var(--color-on-primary)] shadow-md transition-all duration-300 hover:opacity-95 hover:shadow-lg"
+                  >
+                    <span>Schedule Appointment</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </div>
               </div>
-            </Link>
-          ))}
-        </div>
 
-        <div className="mt-10 rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[0_16px_40px_var(--color-card-shadow)] sm:p-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
-                Follow Us
-              </p>
-              <h3 className="mt-2 text-lg font-semibold text-[var(--color-text)] sm:text-xl">
-                Stay connected with Port AI Engineers
-              </h3>
+              {/* Contact Cards */}
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+                {contactItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="group flex items-start gap-3.5 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-md"
+                    target={item.label === "Address" ? "_blank" : undefined}
+                    rel={item.label === "Address" ? "noreferrer" : undefined}
+                  >
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-primary)_10%,var(--color-bg))] text-[var(--color-primary)]">
+                      {item.icon}
+                    </div>
+                    <div className="min-w-0 space-y-0.5">
+                      <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                        {item.label}
+                      </div>
+                      <div className="truncate text-sm font-semibold text-[var(--color-text)]">
+                        {item.value}
+                      </div>
+                      <p className="text-xs text-[var(--color-muted)]">
+                        {item.description}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              {/* Social Follow */}
+              <div className="flex items-center justify-between rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-4 shadow-sm">
+                <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--color-muted)]">
+                  Follow Us
+                </span>
+                <div className="flex items-center gap-2">
+                  {socialLinks.map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={link.label}
+                      className="group inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-primary)_6%,var(--color-bg))] text-[var(--color-primary)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
+                    >
+                      {link.icon}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="flex flex-wrap items-center gap-3">
-              {socialLinks.map((link) => (
+
+            {/* Right Column: Contact Form */}
+            <div className="lg:col-span-7">
+              <ContactForm />
+            </div>
+          </div>
+        ) : (
+          /* Compact View for secondary pages */
+          <div className="mt-10 space-y-8">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {contactItems.map((item) => (
                 <Link
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={link.label}
-                  className="group inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-primary)_6%,var(--color-bg))] text-[var(--color-primary)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
+                  key={item.label}
+                  href={item.href}
+                  className="group flex items-start gap-4 rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[0_16px_40px_var(--color-card-shadow)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:shadow-[0_20px_50px_var(--color-primary-glow)] sm:p-6"
+                  target={item.label === "Address" ? "_blank" : undefined}
+                  rel={item.label === "Address" ? "noreferrer" : undefined}
                 >
-                  {link.icon}
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-primary)_10%,var(--color-bg))] text-[var(--color-primary)]">
+                    {item.icon}
+                  </div>
+                  <div className="space-y-1">
+                    <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
+                      {item.label}
+                    </div>
+                    <div className="text-base font-semibold text-[var(--color-text)]">
+                      {item.value}
+                    </div>
+                    <p className="text-xs text-[var(--color-muted)]">
+                      {item.description}
+                    </p>
+                  </div>
                 </Link>
               ))}
             </div>
+
+            {/* Demo & Social Strip */}
+            <div className="flex flex-col gap-6 rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[0_16px_40px_var(--color-card-shadow)] sm:flex-row sm:items-center sm:justify-between sm:p-8">
+              <div className="space-y-1">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
+                  Calendar Appointment
+                </span>
+                <h3 className="text-lg font-semibold text-[var(--color-text)] sm:text-xl">
+                  Schedule a direct demo with our engineers
+                </h3>
+                <p className="text-sm text-[var(--color-muted)]">
+                  Select a date and time that suits you best for an in-depth technical consultation.
+                </p>
+              </div>
+              <div className="flex shrink-0 flex-wrap items-center gap-4">
+                <a
+                  href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-[var(--color-on-primary)] shadow-md transition-all duration-300 hover:opacity-95 hover:shadow-lg"
+                >
+                  <span>Schedule Demo</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-5 py-3 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)]"
+                >
+                  Contact Page
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

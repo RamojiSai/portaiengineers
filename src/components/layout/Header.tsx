@@ -123,72 +123,82 @@ export default function Header() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-[var(--color-text)] md:flex">
-          {navItems.map((item) => {
-            const isServicesItem = item.label === "Services";
-            const isActive = isServicesItem
-              ? pathname.startsWith("/services")
-              : item.items.some((entry) => pathname.startsWith(entry.href));
+        <div className="hidden items-center gap-6 md:flex">
+          <nav className="flex items-center gap-8 text-sm font-medium text-[var(--color-text)]">
+            {navItems.map((item) => {
+              const isServicesItem = item.label === "Services";
+              const isActive = isServicesItem
+                ? pathname.startsWith("/services")
+                : item.items.some((entry) => pathname.startsWith(entry.href));
 
-            return (
-              <div key={item.label} className="group relative">
-                <Link
-                  href={item.href}
-                  className={`flex items-center gap-2 transition-colors duration-300 hover:text-[var(--color-primary)] ${isActive ? "text-[var(--color-primary)]" : ""
-                    }`}
-                >
-                  {item.label}
-                  <span
-                    className={`transition-transform duration-300 group-hover:rotate-180 ${isActive ? "rotate-180" : ""
+              return (
+                <div key={item.label} className="group relative">
+                  <Link
+                    href={item.href}
+                    className={`flex items-center gap-2 transition-colors duration-300 hover:text-[var(--color-primary)] ${isActive ? "text-[var(--color-primary)]" : ""
                       }`}
                   >
-                    <svg
-                      className="h-3.5 w-3.5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
+                    {item.label}
+                    <span
+                      className={`transition-transform duration-300 group-hover:rotate-180 ${isActive ? "rotate-180" : ""
+                        }`}
                     >
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                  </span>
-                </Link>
-                <div className="pointer-events-none absolute left-0 top-full z-30 pt-3 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
-                  <div className="w-60 translate-y-2 rounded-2xl bg-[color-mix(in_srgb,var(--color-bg)_85%,transparent)] p-4 text-sm text-[var(--color-text)] shadow-[0_16px_30px_var(--color-card-shadow)] backdrop-blur-lg transition-all duration-300 group-hover:translate-y-0">
-                    <div className="flex flex-col gap-2">
-                      {item.items.map((entry) => {
-                        const entryHash = entry.href.split("#")[1];
-                        const entryBase = entry.href.split("#")[0];
+                      <svg
+                        className="h-3.5 w-3.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </span>
+                  </Link>
+                  <div className="pointer-events-none absolute left-0 top-full z-30 pt-3 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
+                    <div className="w-60 translate-y-2 rounded-2xl bg-[color-mix(in_srgb,var(--color-bg)_85%,transparent)] p-4 text-sm text-[var(--color-text)] shadow-[0_16px_30px_var(--color-card-shadow)] backdrop-blur-lg transition-all duration-300 group-hover:translate-y-0">
+                      <div className="flex flex-col gap-2">
+                        {item.items.map((entry) => {
+                          const entryHash = entry.href.split("#")[1];
+                          const entryBase = entry.href.split("#")[0];
 
-                        const isEntryActive = isServicesItem
-                          ? isEngineeringServicesPage
-                            ? (activeSection ?? "engineering-flow") === entryHash
-                            : pathname.startsWith(entryBase)
-                          : pathname.startsWith(entryBase);
+                          const isEntryActive = isServicesItem
+                            ? isEngineeringServicesPage
+                              ? (activeSection ?? "engineering-flow") === entryHash
+                              : pathname.startsWith(entryBase)
+                            : pathname.startsWith(entryBase);
 
-                        return (
-                          <Link
-                            key={entry.label}
-                            href={entry.href}
-                            className={`rounded-lg px-3 py-2 transition-colors duration-300 hover:bg-[color-mix(in_srgb,var(--color-bg)_70%,transparent)] hover:text-[var(--color-primary)] ${isEntryActive
-                                ? "bg-[color-mix(in_srgb,var(--color-bg)_70%,transparent)] text-[var(--color-primary)]"
-                                : ""
-                              }`}
-                          >
-                            {entry.label}
-                          </Link>
-                        );
-                      })}
+                          return (
+                            <Link
+                              key={entry.label}
+                              href={entry.href}
+                              className={`rounded-lg px-3 py-2 transition-colors duration-300 hover:bg-[color-mix(in_srgb,var(--color-bg)_70%,transparent)] hover:text-[var(--color-primary)] ${isEntryActive
+                                  ? "bg-[color-mix(in_srgb,var(--color-bg)_70%,transparent)] text-[var(--color-primary)]"
+                                  : ""
+                                }`}
+                            >
+                              {entry.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </nav>
+              );
+            })}
+          </nav>
+          <a
+            href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--color-on-primary)] shadow-sm transition-all duration-300 hover:opacity-95 hover:shadow-md"
+          >
+            Schedule Demo
+          </a>
+        </div>
 
         <button
           type="button"
@@ -313,6 +323,17 @@ export default function Header() {
               </div>
             );
           })}
+          <div className="mt-2 border-t border-[var(--color-border)] pt-3">
+            <a
+              href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              className="flex w-full items-center justify-center rounded-xl bg-[var(--color-primary)] px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[var(--color-on-primary)] shadow-sm transition-opacity hover:opacity-95"
+            >
+              Schedule Demo
+            </a>
+          </div>
         </nav>
       </div>
     </header>

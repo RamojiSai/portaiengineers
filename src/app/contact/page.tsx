@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ContactForm from "../../components/sections/ContactForm";
 import {
   JsonLd,
   createWebPageSchema,
@@ -209,7 +210,7 @@ export default function ContactPage() {
     <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
       <JsonLd schema={contactPageSchema} />
       <JsonLd schema={breadcrumbSchema} />
-      <section className="mx-auto w-full max-w-5xl px-5 py-14 sm:px-10 sm:py-20">
+      <section id="contact" className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-10 sm:py-20">
         <div className="space-y-4 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-primary)]">
             Contact Port AI Engineers
@@ -218,74 +219,120 @@ export default function ContactPage() {
             Ready to Collaborate with Port AI Engineers?
           </h1>
           <p className="mx-auto max-w-2xl text-sm text-[var(--color-muted)] sm:text-base lg:text-lg">
-            Share your project scope, timelines, or technical questions. Our engineering
-            team responds quickly with clear next steps and tailored support.
+            Share your project scope, timelines, or technical questions. Schedule a meeting directly on our calendar or submit the form below for prompt assistance.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {contactItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="group flex h-full items-start gap-4 rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[0_16px_40px_var(--color-card-shadow)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:shadow-[0_20px_50px_var(--color-primary-glow)] sm:p-6"
-              target={item.label === "Address" ? "_blank" : undefined}
-              rel={item.label === "Address" ? "noreferrer" : undefined}
-            >
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-primary)_10%,var(--color-bg))] text-[var(--color-primary)]">
-                {item.icon}
-              </div>
-              <div className="space-y-2">
-                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
-                  {item.label}
+        <div className="mt-12 grid gap-8 lg:grid-cols-12 lg:gap-10">
+          {/* Left Column: Direct Appointment Booking & Info */}
+          <div className="space-y-6 lg:col-span-5">
+            {/* Calendar Scheduling Card */}
+            <div className="rounded-3xl border border-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_8%,var(--color-surface))] p-6 shadow-[0_16px_40px_var(--color-card-shadow)]">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm">
+                  <svg
+                    className="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
                 </div>
-                <div className="text-base font-semibold text-[var(--color-text)] sm:text-lg">
-                  {item.value}
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
+                    Instant Booking
+                  </span>
+                  <h2 className="text-lg font-semibold text-[var(--color-text)]">
+                    Schedule a Demo / Meeting
+                  </h2>
                 </div>
-                <p className="text-sm text-[var(--color-muted)]">
-                  {item.description}
-                </p>
               </div>
-            </Link>
-          ))}
-        </div>
-
-        <div className="mt-10 rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[0_16px_40px_var(--color-card-shadow)] sm:p-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
-                Follow Us
+              <p className="mt-3 text-sm text-[var(--color-muted)]">
+                Book a direct session with our engineering consultants via Google Calendar to review your specifications.
               </p>
-              <h2 className="mt-2 text-lg font-semibold text-[var(--color-text)] sm:text-xl">
-                Stay connected with Port AI Engineers
-              </h2>
-            </div>
-            <div className="flex flex-wrap items-center gap-3">
-              {socialLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
+              <div className="mt-4">
+                <a
+                  href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
                   target="_blank"
-                  rel="noreferrer"
-                  aria-label={link.label}
-                  className="group inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-primary)_6%,var(--color-bg))] text-[var(--color-primary)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] px-5 py-3 text-sm font-semibold text-[var(--color-on-primary)] shadow-md transition-all duration-300 hover:opacity-95 hover:shadow-lg"
                 >
-                  {link.icon}
+                  <span>Schedule Appointment</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Contact Items */}
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+              {contactItems.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="group flex items-start gap-3.5 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-md"
+                  target={item.label === "Address" ? "_blank" : undefined}
+                  rel={item.label === "Address" ? "noreferrer" : undefined}
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-primary)_10%,var(--color-bg))] text-[var(--color-primary)]">
+                    {item.icon}
+                  </div>
+                  <div className="min-w-0 space-y-0.5">
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                      {item.label}
+                    </div>
+                    <div className="truncate text-sm font-semibold text-[var(--color-text)]">
+                      {item.value}
+                    </div>
+                    <p className="text-xs text-[var(--color-muted)]">
+                      {item.description}
+                    </p>
+                  </div>
                 </Link>
               ))}
             </div>
+
+            {/* Social Follow */}
+            <div className="flex items-center justify-between rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-4 shadow-sm">
+              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--color-muted)]">
+                Follow Us
+              </span>
+              <div className="flex items-center gap-2">
+                {socialLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={link.label}
+                    className="group inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-primary)_6%,var(--color-bg))] text-[var(--color-primary)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
+                  >
+                    {link.icon}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Contact Form */}
+          <div className="lg:col-span-7">
+            <ContactForm />
           </div>
         </div>
 
-        <div className="mt-10 flex items-center justify-center">
+        <div className="mt-12 flex items-center justify-center">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)]"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
           >
-            Back to Home
-            <span className="transition-transform duration-300 group-hover:translate-x-1">
-              →
-            </span>
+            &larr; Back to Home
           </Link>
         </div>
       </section>

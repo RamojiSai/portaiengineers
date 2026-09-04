@@ -13,8 +13,8 @@ export default function GlobalGetInTouch() {
 
   return (
     <>
-      <GetInTouchSection />
       <WorkPlatformsSection />
+      <GetInTouchSection showForm={pathname === "/"} />
     </>
   );
 }

@@ -186,15 +186,17 @@ export default function FooterSection() {
               <p className="text-sm leading-relaxed text-[var(--color-on-footer-muted)]">
                 Get answers and a customized quote for your projects
               </p>
-              <Link
-                href="/contact"
+              <a
+                href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex w-full items-center justify-between rounded-xl border border-[color-mix(in_srgb,var(--color-on-footer)_55%,transparent)] bg-transparent px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.26em] text-[var(--color-on-footer)] transition-all duration-300 hover:border-[var(--color-primary)] hover:shadow-[0_0_18px_rgba(15,118,110,0.35)]"
               >
                 SCHEDULE DEMO
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

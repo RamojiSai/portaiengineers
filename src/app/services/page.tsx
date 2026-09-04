@@ -363,11 +363,20 @@ export default function ServicesIndexPage() {
                 Whether you need multidisciplinary plant engineering, specialized piping stress validation, or fabrication-ready CAD drawings, Port AI Engineers is ready to collaborate.
               </p>
               <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+                <a
+                  href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-2.5 text-sm font-semibold text-[var(--color-on-primary)] shadow-md transition-all duration-300 hover:opacity-95 hover:shadow-lg"
+                >
+                  <span>Schedule a Demo</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-6 py-2.5 text-sm font-semibold text-[var(--color-on-primary)] transition-opacity hover:opacity-90"
+                  className="inline-flex items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)]"
                 >
-                  Contact Our Team &rarr;
+                  Contact Our Team
                 </Link>
                 <Link
                   href="/services/engineering"
