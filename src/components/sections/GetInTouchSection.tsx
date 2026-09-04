@@ -331,7 +331,7 @@ export default function GetInTouchSection({ showForm = true }: GetInTouchSection
                   <span aria-hidden="true">&rarr;</span>
                 </a>
                 <Link
-                  href="/contact"
+                  href="/contact/"
                   className="inline-flex items-center justify-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-5 py-3 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)]"
                 >
                   Contact Page

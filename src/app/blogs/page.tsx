@@ -90,7 +90,7 @@ export default function BlogsListingPage() {
                 <div className="relative h-64 overflow-hidden bg-slate-900">
                   <Image
                     src={card.image}
-                    alt=""
+                    alt={card.title}
                     width={600}
                     height={400}
                     priority={index === 0}

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Suspense, useEffect, useMemo, useState } from "react";
 
 const NODE_SWITCH_MS = 10000;
-const COUNT_DURATION_MS = 1400;
 
 const nodes = [
   {
@@ -110,20 +109,17 @@ const featureBlocks = [
   },
 ];
 
-const metricTargets = [
-  { value: 98, suffix: "%", label: "Design Accuracy" },
-  { value: 10, suffix: "x", label: "Faster Engineering Delivery" },
-  { value: 60, suffix: "%", label: "Reduced Rework" },
-  { value: 24, suffix: "/7", label: "Technical Support" },
+const engineeringPillars = [
+  { value: "Precision", label: "Design Accuracy & QA" },
+  { value: "Agile", label: "Streamlined Delivery" },
+  { value: "Proactive", label: "Rework Prevention" },
+  { value: "Dedicated", label: "Technical Support" },
 ];
 
 function EngineeringServicesPageContent() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isEngineeringVisible, setIsEngineeringVisible] = useState(false);
   const [isWhyVisible, setIsWhyVisible] = useState(false);
-  const [metricValues, setMetricValues] = useState<number[]>(
-    metricTargets.map(() => 0)
-  );
 
   const activeNode = useMemo(() => nodes[activeIndex], [activeIndex]);
 
@@ -183,36 +179,6 @@ function EngineeringServicesPageContent() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (!isWhyVisible) {
-      return;
-    }
-
-    let rafId: number | null = null;
-    const start = window.performance.now();
-
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / COUNT_DURATION_MS, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-
-      setMetricValues(
-        metricTargets.map((metric) => Math.round(metric.value * eased))
-      );
-
-      if (progress < 1) {
-        rafId = window.requestAnimationFrame(tick);
-      }
-    };
-
-    rafId = window.requestAnimationFrame(tick);
-
-    return () => {
-      if (rafId !== null) {
-        window.cancelAnimationFrame(rafId);
-      }
-    };
-  }, [isWhyVisible]);
-
   return (
     <div className="min-h-screen bg-[#0B1F4D] text-[var(--color-text)]">
       {/* Section 1: Interactive Engineering Wheel */}
@@ -230,7 +196,7 @@ function EngineeringServicesPageContent() {
             <nav className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8494FF]">
               <Link href="/" className="hover:underline">Home</Link>
               <span className="px-2 text-white/40">/</span>
-              <Link href="/services" className="hover:underline">Services</Link>
+              <Link href="/services/" className="hover:underline">Services</Link>
               <span className="px-2 text-white/40">/</span>
               <span className="text-white">Engineering</span>
             </nav>
@@ -389,13 +355,13 @@ function EngineeringServicesPageContent() {
                 </p>
                 <div className="pt-2 flex flex-wrap gap-4">
                   <Link
-                    href="/services/cad"
+                    href="/services/cad/"
                     className="inline-flex items-center gap-2 rounded-full bg-[#8494FF] px-6 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                   >
                     Explore CAD Services &rarr;
                   </Link>
                   <Link
-                    href="/contact"
+                    href="/contact/"
                     className="inline-flex items-center gap-2 rounded-full border border-slate-600 bg-transparent px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:border-[#8494FF] hover:text-[#8494FF]"
                   >
                     Contact Our Engineers &rarr;
@@ -494,7 +460,7 @@ function EngineeringServicesPageContent() {
 
             <div className="pt-2">
               <Link
-                href="/contact"
+                href="/contact/"
                 className="inline-flex items-center gap-2 rounded-full border border-[#8494FF] px-6 py-2.5 text-sm font-semibold text-[#8494FF] transition-colors duration-300 hover:bg-[#8494FF] hover:text-white"
               >
                 Inquire About Engineering Services &rarr;
@@ -508,17 +474,16 @@ function EngineeringServicesPageContent() {
               : "translate-x-6 opacity-0"
               }`}
           >
-            {metricTargets.map((metric, index) => (
+            {engineeringPillars.map((pillar) => (
               <div
-                key={metric.label}
+                key={pillar.label}
                 className="rounded-2xl border border-[#8494FF]/15 bg-[rgba(132,148,255,0.08)] p-6 shadow-[0_12px_30px_rgba(15,23,42,0.08)]"
               >
                 <div className="text-3xl font-semibold text-[#8494FF] sm:text-4xl">
-                  {metricValues[index]}
-                  {metric.suffix}
+                  {pillar.value}
                 </div>
                 <p className="mt-2 text-sm font-semibold uppercase tracking-[0.2em] text-slate-300">
-                  {metric.label}
+                  {pillar.label}
                 </p>
               </div>
             ))}

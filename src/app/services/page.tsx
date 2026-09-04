@@ -46,7 +46,7 @@ export default function ServicesIndexPage() {
       title: "Engineering Services",
       description:
         "Comprehensive plant engineering, 3D piping design, process engineering, instrumentation & control, and piping stress analysis.",
-      href: "/services/engineering",
+      href: "/services/engineering/",
       badge: "Plant & Systems",
       highlights: [
         "Process Engineering",
@@ -59,7 +59,7 @@ export default function ServicesIndexPage() {
       title: "CAD Services",
       description:
         "Fabrication-ready drafting, P&ID, PFD, isometric drawings, general arrangement layouts, CAD conversion, and automation.",
-      href: "/services/cad",
+      href: "/services/cad/",
       badge: "Drafting & Automation",
       highlights: [
         "P&ID and PFD Diagrams",
@@ -275,7 +275,7 @@ export default function ServicesIndexPage() {
                 </h2>
               </div>
               <Link
-                href="/services/engineering"
+                href="/services/engineering/"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
               >
                 View Engineering Services Division &rarr;
@@ -320,7 +320,7 @@ export default function ServicesIndexPage() {
                 </h2>
               </div>
               <Link
-                href="/services/cad"
+                href="/services/cad/"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
               >
                 View CAD Services Division &rarr;
@@ -373,19 +373,19 @@ export default function ServicesIndexPage() {
                   <span aria-hidden="true">&rarr;</span>
                 </a>
                 <Link
-                  href="/contact"
+                  href="/contact/"
                   className="inline-flex items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)]"
                 >
                   Contact Our Team
                 </Link>
                 <Link
-                  href="/services/engineering"
+                  href="/services/engineering/"
                   className="inline-flex items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)]"
                 >
                   Engineering Services
                 </Link>
                 <Link
-                  href="/services/cad"
+                  href="/services/cad/"
                   className="inline-flex items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)]"
                 >
                   CAD Services

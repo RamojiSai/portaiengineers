@@ -263,7 +263,7 @@ export default function FooterSection() {
               © 2026 Port AI. All rights reserved.
             </p>
             <Link
-              href="/blogs/iso-9001-2015"
+              href="/blogs/iso-9001-2015/"
               className="flex items-center text-xs font-semibold text-[var(--color-primary)]"
             >
               <div className="relative flex items-center gap-3 rounded-2xl border border-[color-mix(in_srgb,var(--color-primary)_45%,transparent)] bg-[color-mix(in_srgb,var(--color-primary)_20%,transparent)] px-3 py-2 shadow-[0_18px_40px_var(--color-card-shadow)]">

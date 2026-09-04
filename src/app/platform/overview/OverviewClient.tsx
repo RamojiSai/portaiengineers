@@ -69,10 +69,10 @@ const deliverCards = [
 ];
 
 const coreStrengths = [
-  { value: "99%", label: "Engineering Quality" },
-  { value: "3x", label: "Faster Delivery" },
-  { value: "24/7", label: "Technical Support" },
-  { value: "AI-Driven", label: "Smart Engineering Execution" },
+  { value: "Certified", label: "Engineering Quality" },
+  { value: "Agile", label: "Project Delivery" },
+  { value: "Dedicated", label: "Technical Support" },
+  { value: "Modern", label: "Smart Engineering Execution" },
 ];
 
 export default function OverviewClient() {

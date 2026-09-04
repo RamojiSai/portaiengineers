@@ -78,9 +78,6 @@ export default function HeroSection() {
 
   return (
     <section className="relative flex h-[75vh] min-h-[520px] items-center overflow-hidden">
-      <h1 className="sr-only">
-        Industrial Plant Engineering & CAD Services Powered by AI
-      </h1>
       <div className="absolute inset-0">
         {slides.map((slide, index) => {
           const isActive = index === activeIndex;
@@ -110,11 +107,11 @@ export default function HeroSection() {
           className="fade-in-up -mt-20 flex w-full max-w-2xl flex-col items-center gap-6 text-center sm:items-start sm:text-left sm:pl-0 lg:pl-2"
         >
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-primary)]">
-            Engineering Services
-          </span>
-          <p className="hero-gradient-text text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
             {activeSlide.heading}
-          </p>
+          </span>
+          <h1 className="hero-gradient-text text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+            P&ID, Piping & Industrial Engineering Services
+          </h1>
           <p className="hero-subtext text-base sm:text-lg">
             {activeSlide.subtext}
           </p>

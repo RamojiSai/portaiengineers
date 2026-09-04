@@ -28,7 +28,7 @@ export const blogCards: BlogCard[] = [
     date: "May 5, 2026",
     author: "Port AI Engineers",
     readTime: "8 min read",
-    href: "/blogs/all",
+    href: "/blogs/all/",
     tags: ["Engineering", "Company", "Quality"],
   },
   {
@@ -41,7 +41,7 @@ export const blogCards: BlogCard[] = [
     date: "July 2025",
     author: "Port AI CAD Team",
     readTime: "7 min read",
-    href: "/blogs/engineers-blog",
+    href: "/blogs/engineers-blog/",
     tags: ["CAD", "Design", "BIM"],
   },
   {
@@ -54,7 +54,7 @@ export const blogCards: BlogCard[] = [
     date: "May 2025",
     author: "Port AI Engineers",
     readTime: "5 min read",
-    href: "/blogs/iso-9001-2015",
+    href: "/blogs/iso-9001-2015/",
     tags: ["ISO", "Quality", "Process"],
   },
   {
@@ -67,7 +67,7 @@ export const blogCards: BlogCard[] = [
     date: "June 2026",
     author: "Port AI Engineers",
     readTime: "6 min read",
-    href: "/blogs/startup-certified",
+    href: "/blogs/startup-certified/",
     tags: ["Recognition", "Growth", "Innovation"],
   },
   {
@@ -80,7 +80,7 @@ export const blogCards: BlogCard[] = [
     date: "June 2026",
     author: "Port AI Engineering",
     readTime: "6 min read",
-    href: "/blogs/piping-stress-analysis",
+    href: "/blogs/piping-stress-analysis/",
     tags: ["Piping", "Stress", "Reliability"],
   },
   {
@@ -93,7 +93,7 @@ export const blogCards: BlogCard[] = [
     date: "April 2026",
     author: "Port AI Planning",
     readTime: "6 min read",
-    href: "/blogs/greenfield-projects",
+    href: "/blogs/greenfield-projects/",
     tags: ["Greenfield", "Project", "Planning"],
   },
   {
@@ -106,7 +106,7 @@ export const blogCards: BlogCard[] = [
     date: "March 2026",
     author: "Port AI Safety",
     readTime: "5 min read",
-    href: "/blogs/fire-evacuation-planning",
+    href: "/blogs/fire-evacuation-planning/",
     tags: ["Safety", "Fire", "Compliance"],
   },
 ];
@@ -122,7 +122,7 @@ export const blogPosts: BlogDetail[] = [
     date: "June 2026",
     author: "Port AI Engineering",
     readTime: "6 min read",
-    href: "/blogs/piping-stress-analysis",
+    href: "/blogs/piping-stress-analysis/",
     tags: ["Piping", "Stress", "Reliability"],
     content: (
       <>
@@ -167,7 +167,7 @@ export const blogPosts: BlogDetail[] = [
     date: "April 2026",
     author: "Port AI Planning",
     readTime: "6 min read",
-    href: "/blogs/greenfield-projects",
+    href: "/blogs/greenfield-projects/",
     tags: ["Greenfield", "Project", "Planning"],
     content: (
       <>
@@ -208,7 +208,7 @@ export const blogPosts: BlogDetail[] = [
     date: "March 2026",
     author: "Port AI Safety",
     readTime: "5 min read",
-    href: "/blogs/fire-evacuation-planning",
+    href: "/blogs/fire-evacuation-planning/",
     tags: ["Safety", "Fire", "Compliance"],
     content: (
       <>

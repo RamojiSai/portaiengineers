@@ -16,7 +16,9 @@ type RelatedService = {
 type ServiceDetail = {
   slug: string;
   title: string;
-  h1?: string;
+  metaTitle: string;
+  metaDescription: string;
+  h1: string;
   image: string;
   imageAlt: string;
   description: string[];
@@ -40,12 +42,16 @@ const CAD_IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = 
 const serviceDetails: ServiceDetail[] = [
   {
     slug: "pfd",
-    title: "Process Flow Diagram (PFD)",
+    title: "PFD Design & Drafting Services",
+    metaTitle: "PFD Design & Drafting Services | Port AI Engineers",
+    metaDescription:
+      "Port AI Engineers delivers detailed Process Flow Diagram (PFD) design and drafting services, mapping equipment, stream balances, and industrial process workflows.",
+    h1: "PFD Design & Drafting Services",
     image: "/PFD.jpeg",
     imageAlt: "Process flow diagram for industrial engineering",
     description: [
-      "Process Flow Diagrams provide a clear, high-level view of how materials and energy move through an industrial system.",
-      "We create structured PFDs that capture major equipment, key streams, and operating intent to guide all downstream engineering.",
+      "Port AI Engineers provides Process Flow Diagram (PFD) design and drafting services, preparing structured schematics that illustrate major equipment sequences, stream balances, and operating conditions across industrial systems.",
+      "Our drafting specialists organize primary process flowpaths, fluid characteristics, and utility distribution networks to establish a dependable foundation for downstream P&ID development.",
       "Our drafting team organizes main equipment sequences, fluid stream identifications, and core utility distribution networks with clarity.",
       "Each diagram incorporates standardized equipment tags, basic stream temperature and pressure annotations, and balanced flow indicators.",
       "Our team aligns process assumptions early to reduce rework and keep design reviews efficient across client engineering teams.",
@@ -69,19 +75,23 @@ const serviceDetails: ServiceDetail[] = [
       "Reduced revision cycles in early industrial system design",
     ],
     relatedServices: [
-      { title: "Piping & Instrumentation Diagram (P&ID)", href: "/services/cad/pid/" },
-      { title: "Piping Engineering", href: "/services/engineering/piping-engineering/" },
+      { title: "P&ID Design & Drafting Services", href: "/services/cad/pid/" },
+      { title: "Process Engineering Services", href: "/services/engineering/process/" },
+      { title: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
     ],
   },
   {
     slug: "pid",
-    title: "P&ID",
-    h1: "Piping & Instrumentation Diagram (P&ID)",
+    title: "P&ID Design & Drafting Services",
+    metaTitle: "P&ID Design & Drafting Services | Port AI Engineers",
+    metaDescription:
+      "Port AI Engineers provides professional P&ID design and drafting services, delivering standards-compliant piping and instrumentation diagrams for industrial plants.",
+    h1: "P&ID Design & Drafting Services",
     image: "/images/services/cad-pid.png",
     imageAlt: "Piping and instrumentation diagram",
     description: [
-      "P&ID drawings capture the detailed piping, instrumentation, and control logic required to build and operate safely.",
-      "We develop P&IDs that are standards-compliant, clearly tagged, and ready for review across engineering teams.",
+      "Port AI Engineers delivers comprehensive P&ID design and drafting services, developing detailed piping and instrumentation diagrams that clearly capture process control logic, line specifications, and safety systems for industrial facilities.",
+      "Our engineering specialists handle complete P&ID development, conversion from legacy formats, and drawing reviews across mechanical, process, and instrumentation disciplines.",
       "Our drafting specialists document pipeline sizes, valve types, instrumentation bubbles, inline components, and safety relief devices in full detail.",
       "By incorporating process control interlocks, utility connections, and boundary battery limits, our drawings serve as the authoritative coordination blueprint between mechanical, electrical, and automation engineers.",
       "Each sheet is structured for maintenance, operational clarity, and long-term facility asset management.",
@@ -105,20 +115,23 @@ const serviceDetails: ServiceDetail[] = [
       "Accurate construction and procurement references across disciplines",
     ],
     relatedServices: [
-      { title: "Process Flow Diagram (PFD)", href: "/services/cad/pfd/" },
-      { title: "Instrumentation & Control", href: "/services/engineering/instrumentation/" },
-      { title: "Piping Engineering", href: "/services/engineering/piping-engineering/" },
+      { title: "PFD Design & Drafting Services", href: "/services/cad/pfd/" },
+      { title: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
+      { title: "Instrumentation Engineering Services", href: "/services/engineering/instrumentation/" },
     ],
   },
   {
     slug: "isometric",
-    title: "Isometric",
-    h1: "Piping Isometric Drawings",
+    title: "Piping Isometric Drawing Services",
+    metaTitle: "Piping Isometric Drawing Services | Port AI Engineers",
+    metaDescription:
+      "Port AI Engineers provides piping isometric drawing services, producing fabrication-ready isometrics with accurate dimensions, weld details, and integrated BOMs.",
+    h1: "Piping Isometric Drawing Services",
     image: "/images/services/piping-isometric.webp",
     imageAlt: "Industrial piping isometric drawing",
     description: [
-      "Isometric drawings translate piping layouts into fabrication-ready instructions.",
-      "We provide accurate dimensions, weld points, and material callouts that support fast shop work and precise installation.",
+      "Port AI Engineers delivers precision piping isometric drawing services, translating complex piping designs into fabrication-ready isometric drawings with comprehensive dimensional and welding details.",
+      "Our isometric drafting workflows extract accurate cut pipe lengths, fitting angles, spool boundaries, and integrated Bills of Materials (BOM) to streamline shop fabrication and field erection.",
       "Each drawing captures 3D piping routing in a single-line isometric projection, detailing exact cut lengths, fitting angles, and elevations.",
       "Our team incorporates complete bills of materials (BOM), spool numbering, weld identification (shop vs. field), and support location coordinates.",
       "We validate constructability against physical routing constraints to prevent site revisions and schedule delays during fabrication and erection.",
@@ -142,19 +155,23 @@ const serviceDetails: ServiceDetail[] = [
       "Improved dimensional accuracy during field erection and tie-in",
     ],
     relatedServices: [
-      { title: "3D Piping Engineering", href: "/services/engineering/piping-3d/" },
-      { title: "Piping Engineering", href: "/services/engineering/piping-engineering/" },
-      { title: "General Arrangement (GA)", href: "/services/cad/general-arrangement/" },
+      { title: "3D Piping Design Services", href: "/services/engineering/piping-3d/" },
+      { title: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
+      { title: "General Arrangement Drawing Services", href: "/services/cad/general-arrangement/" },
     ],
   },
   {
     slug: "general-arrangement",
-    title: "General Arrangement (GA)",
+    title: "General Arrangement Drawing Services",
+    metaTitle: "General Arrangement Drawing Services | Port AI Engineers",
+    metaDescription:
+      "Port AI Engineers provides General Arrangement (GA) drawing services, delivering coordinated equipment layouts, elevation views, and site structural plans.",
+    h1: "General Arrangement Drawing Services",
     image: "/GeneralArrangements.jpg",
     imageAlt: "Industrial general arrangement drawing",
     description: [
-      "GA drawings establish how equipment, structures, and access paths fit together on site.",
-      "We produce layout plans that support safe access, maintenance, and operational efficiency across industrial facilities.",
+      "Port AI Engineers provides General Arrangement (GA) drawing services, producing coordinated equipment arrangement drawings, piping GA layouts, and structural spatial plans for industrial plants and process facilities.",
+      "We coordinate equipment positioning, maintenance clearances, nozzle orientations, and operator transit corridors across civil, structural, and mechanical disciplines.",
       "Our deliverables illustrate physical equipment placement, nozzle positions, structural foundations, maintenance drop areas, and operator transit corridors in plan and section views.",
       "By coordinating equipment centerlines with structural steel and piping headers, our layouts minimize spatial interferences across disciplines.",
       "Each layout is optimized for plant workflow, safety egress, crane access, and long-term equipment maintainability.",
@@ -178,19 +195,23 @@ const serviceDetails: ServiceDetail[] = [
       "Reduced site layout conflicts and optimized equipment footings",
     ],
     relatedServices: [
-      { title: "3D Piping Engineering", href: "/services/engineering/piping-3d/" },
-      { title: "Piping Engineering", href: "/services/engineering/piping-engineering/" },
-      { title: "Piping Isometric Drawings", href: "/services/cad/isometric/" },
+      { title: "3D Piping Design Services", href: "/services/engineering/piping-3d/" },
+      { title: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
+      { title: "Piping Isometric Drawing Services", href: "/services/cad/isometric/" },
     ],
   },
   {
     slug: "conversion",
-    title: "CAD Conversion",
-    image: "/images/services/cad-training.webp",
+    title: "CAD Conversion Services",
+    metaTitle: "CAD Conversion Services | Port AI Engineers",
+    metaDescription:
+      "Port AI Engineers provides CAD conversion services, transforming legacy paper drawings, PDF files, and raster scans into standardized, editable CAD vector formats.",
+    h1: "CAD Conversion Services",
+    image: "/images/services/cad-conversion.webp",
     imageAlt: "CAD drawing conversion workflow",
     description: [
-      "CAD conversion modernizes legacy drawings into reusable digital assets.",
-      "We clean, standardize, and validate converted files to match current drafting standards, CAD layering guidelines, and text styles.",
+      "Port AI Engineers provides professional CAD conversion services, modernizing legacy paper blueprints, raster scans, and PDF drawing sets into dimensionally accurate, layered CAD vector files.",
+      "Our engineering drawing conversion process standardizes layers, blocks, and dimension styles according to client specifications, delivering clean digital archives ready for ongoing plant revamps and modifications.",
       "Whether digitizing legacy paper blueprints, raster scans, PDF sets, or obsolete CAD formats, our team verifies dimensional accuracy against original callouts.",
       "We structure converted drawings into standardized layers, normalized blocks, and clean vector geometry ready for modern engineering modifications.",
       "This enhances collaboration, improves digital archival, and streamlines future plant revamps and turnaround planning.",
@@ -214,18 +235,23 @@ const serviceDetails: ServiceDetail[] = [
       "Consistent, organized digital drawing archives across facilities",
     ],
     relatedServices: [
-      { title: "CAD Automation", href: "/services/cad/automation/" },
-      { title: "CAD Training", href: "/services/cad/training/" },
+      { title: "CAD Automation Services", href: "/services/cad/automation/" },
+      { title: "General Arrangement Drawing Services", href: "/services/cad/general-arrangement/" },
+      { title: "CAD Training Services", href: "/services/cad/training/" },
     ],
   },
   {
     slug: "training",
-    title: "CAD Training",
-    image: "/images/services/cad-conversion.webp",
+    title: "CAD Training Services",
+    metaTitle: "CAD Training Services | Port AI Engineers",
+    metaDescription:
+      "Port AI Engineers offers specialized CAD training services, equipping engineering teams with practical drafting workflows, layer standards, and industry practices.",
+    h1: "CAD Training Services",
+    image: "/images/services/cad-training.webp",
     imageAlt: "Industrial CAD training",
     description: [
-      "CAD training equips teams with the skills needed for consistent, high-quality drafting.",
-      "We tailor sessions to your workflows, using real project scenarios and practical exercises from plant and piping drafting.",
+      "Port AI Engineers delivers specialized CAD training services, preparing engineering and drafting teams with practical, project-based workflows for industrial and plant design.",
+      "Our training programs focus on industry drafting conventions, layer and block standardization, dynamic blocks, and efficient modeling practices tailored to engineering production environments.",
       "Our training modules focus on industry drafting conventions, layer management, title block standards, dynamic blocks, and efficient command workflows.",
       "Participants gain hands-on practice in drafting process schematics, isometric layouts, and general arrangement plans.",
       "Training materials and reference templates are structured for ongoing drafting team reference and continuous improvement.",
@@ -249,18 +275,22 @@ const serviceDetails: ServiceDetail[] = [
       "Consistent, professional drawing output across the organization",
     ],
     relatedServices: [
-      { title: "CAD Automation", href: "/services/cad/automation/" },
-      { title: "CAD Conversion", href: "/services/cad/conversion/" },
+      { title: "CAD Automation Services", href: "/services/cad/automation/" },
+      { title: "CAD Conversion Services", href: "/services/cad/conversion/" },
     ],
   },
   {
     slug: "automation",
-    title: "CAD Automation",
+    title: "CAD Automation Services",
+    metaTitle: "CAD Automation Services | Port AI Engineers",
+    metaDescription:
+      "Port AI Engineers offers CAD automation services, creating custom drafting routines, dynamic block libraries, and automated drawing workflows for engineering teams.",
+    h1: "CAD Automation Services",
     image: "/images/services/cad-automation.webp",
     imageAlt: "CAD automation and drafting workflow",
     description: [
-      "CAD automation reduces repetitive drafting work and increases delivery speed.",
-      "We build automation scripts and workflows aligned to your drafting standards and drawing production requirements.",
+      "Port AI Engineers provides custom CAD automation services, streamlining engineering workflows and eliminating repetitive drafting tasks through tailored scripts, macros, and dynamic libraries.",
+      "We build automated drafting workflows that standardize title blocks, enforce layer hygiene, and accelerate drawing package production while maintaining strict engineering quality standards.",
       "By automating routine tasks such as title block population, layer standardization, batch plotting, and drawing index generation, teams eliminate manual errors.",
       "Our custom routines free engineers and draftsmen to focus on high-value design coordination and constructability reviews.",
       "Automation scripts are documented for maintainability, ease of use, and future expansion as project requirements grow.",
@@ -284,19 +314,23 @@ const serviceDetails: ServiceDetail[] = [
       "Scalable delivery capacity to handle large engineering project volumes",
     ],
     relatedServices: [
-      { title: "CAD Conversion", href: "/services/cad/conversion/" },
-      { title: "CAD Training", href: "/services/cad/training/" },
+      { title: "CAD Conversion Services", href: "/services/cad/conversion/" },
+      { title: "Piping Isometric Drawing Services", href: "/services/cad/isometric/" },
+      { title: "CAD Training Services", href: "/services/cad/training/" },
     ],
   },
   {
     slug: "fire-evacuation",
-    title: "Fire Evacuation",
-    h1: "Fire Evacuation Plans & Layouts",
+    title: "Fire Evacuation Drawing Services",
+    metaTitle: "Fire Evacuation Drawing Services | Port AI Engineers",
+    metaDescription:
+      "Port AI Engineers delivers compliant fire evacuation drawing services, providing clear emergency exit routes, safety equipment maps, and facility layouts.",
+    h1: "Fire Evacuation Drawing Services",
     image: "/images/services/fire-evacuation.webp",
     imageAlt: "Fire evacuation layout drawing",
     description: [
-      "Fire evacuation drawings provide clear guidance for safe exits and emergency response.",
-      "We produce compliant layouts with clear routing, signage, and equipment references.",
+      "Port AI Engineers provides fire evacuation drawing services, developing compliant emergency evacuation plans, exit route layouts, and fire safety drawings for industrial plants and commercial facilities.",
+      "Our CAD team maps primary and secondary emergency exit layouts, assembly areas, and emergency equipment locations to ensure audit readiness and workforce safety.",
       "Our drawings map primary and secondary escape routes, emergency assembly points, fire alarm pull stations, fire extinguishers, and hose reel positions.",
       "By incorporating architectural floor plans and industrial plant layouts, we ensure symbols and directional arrows are immediately legible in high-stress situations.",
       "Our documentation supports safety audits, regulatory compliance inspections, personnel training, and facility emergency readiness.",
@@ -320,8 +354,8 @@ const serviceDetails: ServiceDetail[] = [
       "Faster, organized emergency egress and response coordination",
     ],
     relatedServices: [
-      { title: "General Arrangement (GA)", href: "/services/cad/general-arrangement/" },
-      { title: "CAD Conversion", href: "/services/cad/conversion/" },
+      { title: "General Arrangement Drawing Services", href: "/services/cad/general-arrangement/" },
+      { title: "CAD Conversion Services", href: "/services/cad/conversion/" },
     ],
   },
 ];
@@ -344,10 +378,9 @@ export async function generateMetadata({
     };
   }
 
-  const title = `${detail.title} Services`;
-  const description =
-    detail.description[0] ||
-    `${detail.title} drafting deliverables and CAD solutions by Port AI Engineers Pvt. Ltd.`;
+  const title = { absolute: detail.metaTitle };
+  const plainTitle = detail.metaTitle;
+  const description = detail.metaDescription;
   const canonical = `https://portaiengineers.com/services/cad/${detail.slug}/`;
   const imageUrl = detail.image;
 
@@ -358,7 +391,7 @@ export async function generateMetadata({
       canonical,
     },
     openGraph: {
-      title: `${title} | Port AI Engineers`,
+      title: plainTitle,
       description,
       url: canonical,
       siteName: "Port AI Engineers",
@@ -375,7 +408,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | Port AI Engineers`,
+      title: plainTitle,
       description,
       images: [imageUrl],
     },
@@ -397,10 +430,8 @@ export default async function CadServiceDetailPage({
   const canonicalUrl = `https://portaiengineers.com/services/cad/${detail.slug}/`;
 
   const serviceSchema = createServiceSchema({
-    name: detail.title,
-    description:
-      detail.description[0] ||
-      `${detail.title} drafting deliverables and CAD solutions by Port AI Engineers Pvt. Ltd.`,
+    name: detail.h1,
+    description: detail.metaDescription,
     url: canonicalUrl,
     serviceType: "Industrial CAD Drafting Services",
     image: detail.image,
@@ -409,17 +440,15 @@ export default async function CadServiceDetailPage({
   const webPageSchema = createWebPageSchema({
     id: `${canonicalUrl}#webpage`,
     url: canonicalUrl,
-    name: `${detail.title} Services`,
-    description:
-      detail.description[0] ||
-      `${detail.title} drafting deliverables and CAD solutions by Port AI Engineers Pvt. Ltd.`,
+    name: detail.metaTitle,
+    description: detail.metaDescription,
   });
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", url: "https://portaiengineers.com/" },
     { name: "Services", url: "https://portaiengineers.com/services/" },
     { name: "CAD", url: "https://portaiengineers.com/services/cad/" },
-    { name: detail.h1 || detail.title, url: canonicalUrl },
+    { name: detail.h1, url: canonicalUrl },
   ]);
 
   const imageDimensions =
@@ -458,7 +487,7 @@ export default async function CadServiceDetailPage({
           </Link>
           <span className="px-2">→</span>
           <span className="text-[var(--color-text)]" aria-current="page">
-            {detail.h1 || detail.title}
+            {detail.h1}
           </span>
         </nav>
 
@@ -478,7 +507,7 @@ export default async function CadServiceDetailPage({
               CAD Service Detail
             </p>
             <h1 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
-              {detail.h1 || detail.title}
+              {detail.h1}
             </h1>
           </div>
 
@@ -573,10 +602,10 @@ export default async function CadServiceDetailPage({
             </div>
           </div>
 
-          {/* Contact / Scoping CTA Section */}
-          <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-primary-soft)] p-6">
+          {/* Next Steps CTA */}
+          <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div>
+              <div className="space-y-1">
                 <h3 className="text-lg font-semibold text-[var(--color-text)]">
                   Need a tailored CAD solution?
                 </h3>
@@ -585,7 +614,7 @@ export default async function CadServiceDetailPage({
                 </p>
               </div>
               <Link
-                href="/contact"
+                href="/contact/"
                 className="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-on-primary)] transition-colors duration-300 hover:bg-[color-mix(in_srgb,var(--color-primary)_85%,var(--color-bg))]"
               >
                 Contact Us
