@@ -9,8 +9,8 @@
   box-sizing: border-box;
 }
 
-/* ── CSS VARIABLES ── */
-:root {
+/* ── CSS VARIABLES (Scoped to .engineering-blog-page to avoid global leakage) ── */
+.engineering-blog-page {
   --navy:       #0B1F3A;
   --blue:       #1A4B8C;
   --sky:        #2E86DE;
@@ -515,6 +515,77 @@ html { scroll-behavior: smooth; }
 }
 .cad-footer strong { color: var(--gold); }
 
+/* ── NAVIGATION & RELATED SERVICES CARD ── */
+.cad-nav-card {
+  margin-top: 40px;
+  padding: 32px;
+  border-radius: 18px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  box-shadow: 0 8px 30px rgba(11, 31, 58, 0.06);
+}
+.cad-nav-card__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.cad-nav-card__title {
+  margin: 0 0 6px 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+.cad-nav-card__desc {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+.cad-nav-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.cad-nav-card__btn {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--light-bg);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cad-nav-card__btn:hover {
+  border-color: var(--sky);
+  color: var(--sky);
+}
+.cad-nav-card__btn--primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+}
+.cad-nav-card__btn--primary:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+.cad-nav-card__btn--outline {
+  border-color: var(--sky);
+  color: var(--sky);
+  background: transparent;
+}
+.cad-nav-card__btn--outline:hover {
+  background: var(--sky);
+  color: var(--white);
+}
+
 /* ================================================================
    RESPONSIVE
    ================================================================ */
@@ -527,4 +598,8 @@ html { scroll-behavior: smooth; }
   .cad-article       { padding: 36px 20px; }
   .cad-banner        { padding: 16px 20px; }
   .cad-hero__inner   { padding: 48px 20px 40px; }
+  .cad-nav-card      { padding: 24px 20px; }
+  .cad-nav-card__inner { flex-direction: column; align-items: flex-start; }
+  .cad-nav-card__links { width: 100%; flex-direction: column; align-items: stretch; }
+  .cad-nav-card__btn { text-align: center; width: 100%; }
 }

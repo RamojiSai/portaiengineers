@@ -17,27 +17,27 @@ const footerColumns: FooterColumn[] = [
     title: "Plant Engineering Services",
     links: [
       { label: "Engineering Services", href: "/services/engineering/" },
-      { label: "Process Engineering", href: "/services/engineering/flow/process/" },
-      { label: "3D Piping Engineering", href: "/services/engineering/flow/piping-3d/" },
-      { label: "Piping Engineering Services", href: "/services/engineering/flow/piping-eng/" },
-      { label: "Instrumentation & Control", href: "/services/engineering/flow/instrumentation/" },
-      { label: "Piping Stress Analysis", href: "/services/engineering/flow/stress/" },
-      { label: "Greenfield Projects", href: "/services/engineering/flow/greenfield/" },
-      { label: "Brownfield Projects", href: "/services/engineering/flow/brownfield/" },
-      { label: "Power Plants", href: "/services/engineering/flow/power-plants/" },
+      { label: "Process Engineering", href: "/services/engineering/process/" },
+      { label: "3D Piping Engineering", href: "/services/engineering/piping-3d/" },
+      { label: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
+      { label: "Instrumentation & Control", href: "/services/engineering/instrumentation/" },
+      { label: "Piping Stress Analysis", href: "/services/engineering/piping-stress-analysis/" },
+      { label: "Greenfield Projects", href: "/services/engineering/greenfield-projects/" },
+      { label: "Brownfield Projects", href: "/services/engineering/brownfield-projects/" },
+      { label: "Power Plants", href: "/services/engineering/power-plants/" },
     ],
   },
   {
     title: "Cad Services",
     links: [
-      { label: "Process Flow Diagram (PFD)", href: "/services/cad/flow/cad-pfd/" },
-      { label: "P&ID Drawings", href: "/services/cad/flow/cad-pid/" },
-      { label: "Isometric Drawings", href: "/services/cad/flow/cad-iso/" },
-      { label: "General Arrangement", href: "/services/cad/flow/cad-ga/" },
-      { label: "CAD Conversion", href: "/services/cad/flow/cad-conversion/" },
-      { label: "CAD Training", href: "/services/cad/flow/cad-training/" },
-      { label: "CAD Automation", href: "/services/cad/flow/cad-automation/" },
-      { label: "Fire Evacuation Drawings", href: "/services/cad/flow/cad-fire/" },
+      { label: "Process Flow Diagram (PFD)", href: "/services/cad/pfd/" },
+      { label: "P&ID Drawings", href: "/services/cad/pid/" },
+      { label: "Isometric Drawings", href: "/services/cad/isometric/" },
+      { label: "General Arrangement", href: "/services/cad/general-arrangement/" },
+      { label: "CAD Conversion", href: "/services/cad/conversion/" },
+      { label: "CAD Training", href: "/services/cad/training/" },
+      { label: "CAD Automation", href: "/services/cad/automation/" },
+      { label: "Fire Evacuation Drawings", href: "/services/cad/fire-evacuation/" },
     ],
   },
   {
@@ -186,15 +186,17 @@ export default function FooterSection() {
               <p className="text-sm leading-relaxed text-[var(--color-on-footer-muted)]">
                 Get answers and a customized quote for your projects
               </p>
-              <Link
-                href="/contact"
+              <a
+                href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex w-full items-center justify-between rounded-xl border border-[color-mix(in_srgb,var(--color-on-footer)_55%,transparent)] bg-transparent px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.26em] text-[var(--color-on-footer)] transition-all duration-300 hover:border-[var(--color-primary)] hover:shadow-[0_0_18px_rgba(15,118,110,0.35)]"
               >
                 SCHEDULE DEMO
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

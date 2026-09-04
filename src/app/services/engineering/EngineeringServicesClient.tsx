@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
 import { Suspense, useEffect, useMemo, useState } from "react";
 
 const NODE_SWITCH_MS = 10000;
@@ -10,6 +9,7 @@ const COUNT_DURATION_MS = 1400;
 const nodes = [
   {
     key: "process",
+    slug: "process",
     title: "Process Engineering",
     angle: 270,
     overview: "End-to-end process design from concept to execution.",
@@ -19,6 +19,7 @@ const nodes = [
   },
   {
     key: "piping-3d",
+    slug: "piping-3d",
     title: "3D Piping Engineering",
     angle: 315,
     overview: "3D models of piping systems for visualization and analysis.",
@@ -28,6 +29,7 @@ const nodes = [
   },
   {
     key: "piping-eng",
+    slug: "piping-engineering",
     title: "Piping Engineering",
     angle: 0,
     overview:
@@ -38,6 +40,7 @@ const nodes = [
   },
   {
     key: "instrumentation",
+    slug: "instrumentation",
     title: "Instrumentation & Control",
     angle: 45,
     overview: "Design of control systems and instrumentation for automation.",
@@ -48,6 +51,7 @@ const nodes = [
   },
   {
     key: "stress",
+    slug: "piping-stress-analysis",
     title: "Piping Stress Analysis",
     angle: 90,
     overview:
@@ -58,6 +62,7 @@ const nodes = [
   },
   {
     key: "greenfield",
+    slug: "greenfield-projects",
     title: "Greenfield Projects",
     angle: 135,
     overview: "Complete engineering support for new plant development.",
@@ -67,6 +72,7 @@ const nodes = [
   },
   {
     key: "brownfield",
+    slug: "brownfield-projects",
     title: "Brownfield Projects",
     angle: 180,
     overview: "Upgrading and modifying existing plants.",
@@ -76,6 +82,7 @@ const nodes = [
   },
   {
     key: "power-plants",
+    slug: "power-plants",
     title: "Power Plants",
     angle: 225,
     overview: "Engineering design support for power generation facilities.",
@@ -111,8 +118,6 @@ const metricTargets = [
 ];
 
 function EngineeringServicesPageContent() {
-  const pathname = usePathname();
-  const router = useRouter();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isEngineeringVisible, setIsEngineeringVisible] = useState(false);
   const [isWhyVisible, setIsWhyVisible] = useState(false);
@@ -132,56 +137,9 @@ function EngineeringServicesPageContent() {
 
   const isActive = (index: number) => index === activeIndex;
 
-  const getStoredKey = (key: string) => {
-    try {
-      return window.sessionStorage.getItem(key);
-    } catch {
-      return null;
-    }
-  };
-
-  const setStoredKey = (key: string, value: string) => {
-    try {
-      window.sessionStorage.setItem(key, value);
-    } catch {
-      return;
-    }
-  };
-
-  const updateQueryParam = (key: string, value: string) => {
-    if (typeof window === "undefined") return;
-    const params = new URLSearchParams(window.location.search);
-    params.set(key, value);
-    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
-  };
-
   const handleSelectNode = (index: number) => {
     setActiveIndex(index);
-    setStoredKey("engFlowKey", nodes[index].key);
-    updateQueryParam("eng", nodes[index].key);
   };
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const params = new URLSearchParams(window.location.search);
-    const engKey = params.get("eng");
-
-    if (engKey) {
-      setStoredKey("engFlowKey", engKey);
-      const index = nodes.findIndex((node) => node.key === engKey);
-      if (index >= 0 && index !== activeIndex) {
-        setActiveIndex(index);
-      }
-    } else {
-      const storedEngKey = getStoredKey("engFlowKey");
-      if (storedEngKey) {
-        const index = nodes.findIndex((node) => node.key === storedEngKey);
-        if (index >= 0 && index !== activeIndex) {
-          setActiveIndex(index);
-        }
-      }
-    }
-  }, [activeIndex]);
 
   useEffect(() => {
     const section = document.getElementById("why-choose-services");
@@ -357,7 +315,7 @@ function EngineeringServicesPageContent() {
 
                 <div className="mt-8">
                   <Link
-                    href={`/services/engineering/flow/${activeNode.key}`}
+                    href={`/services/engineering/${activeNode.slug}/`}
                     className="group inline-flex items-center gap-2 rounded-full border border-[#8494FF] px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8494FF] transition-colors duration-300 hover:bg-[#8494FF] hover:text-white"
                   >
                     Learn More
@@ -391,7 +349,7 @@ function EngineeringServicesPageContent() {
             {nodes.map((node) => (
               <Link
                 key={node.key}
-                href={`/services/engineering/flow/${node.key}`}
+                href={`/services/engineering/${node.slug}/`}
                 className="group flex flex-col justify-between rounded-2xl border border-slate-700/80 bg-[#0E265C] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#8494FF] hover:shadow-[0_12px_30px_rgba(132,148,255,0.2)]"
               >
                 <div className="space-y-3">

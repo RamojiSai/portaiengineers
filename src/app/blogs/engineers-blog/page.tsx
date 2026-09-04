@@ -510,23 +510,23 @@ export default function CADServicesPage() {
         </div>
 
         {/* NAVIGATION & RELATED SERVICES */}
-        <div style={{ marginTop: "40px", padding: "28px", borderRadius: "16px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.12)" }}>
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "16px" }}>
+        <div className="cad-nav-card">
+          <div className="cad-nav-card__inner">
             <div>
-              <h4 style={{ margin: "0 0 6px 0", fontSize: "16px", fontWeight: "600", color: "#fff" }}>Explore Engineering &amp; CAD Services</h4>
-              <p style={{ margin: 0, fontSize: "14px", color: "rgba(255,255,255,0.7)" }}>Browse our complete industrial services or discuss your project requirements.</p>
+              <h4 className="cad-nav-card__title">Explore Engineering &amp; CAD Services</h4>
+              <p className="cad-nav-card__desc">Browse our complete industrial services or discuss your project requirements.</p>
             </div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center" }}>
-              <Link href="/blogs/" style={{ padding: "8px 18px", borderRadius: "9999px", border: "1px solid rgba(255,255,255,0.3)", color: "#fff", textDecoration: "none", fontSize: "13px", fontWeight: "600" }}>
+            <div className="cad-nav-card__links">
+              <Link href="/blogs/" className="cad-nav-card__btn">
                 &larr; Back to Blogs
               </Link>
-              <Link href="/services/cad/" style={{ padding: "8px 18px", borderRadius: "9999px", border: "1px solid #3b82f6", color: "#3b82f6", textDecoration: "none", fontSize: "13px", fontWeight: "600" }}>
+              <Link href="/services/cad/" className="cad-nav-card__btn cad-nav-card__btn--outline">
                 CAD Services &rarr;
               </Link>
-              <Link href="/services/engineering/" style={{ padding: "8px 18px", borderRadius: "9999px", border: "1px solid rgba(255,255,255,0.3)", color: "#fff", textDecoration: "none", fontSize: "13px", fontWeight: "600" }}>
+              <Link href="/services/engineering/" className="cad-nav-card__btn">
                 Engineering Services
               </Link>
-              <Link href="/contact/" style={{ padding: "8px 18px", borderRadius: "9999px", background: "#3b82f6", color: "#fff", textDecoration: "none", fontSize: "13px", fontWeight: "600" }}>
+              <Link href="/contact/" className="cad-nav-card__btn cad-nav-card__btn--primary">
                 Contact Us
               </Link>
             </div>

@@ -61,35 +61,35 @@ export default function CADServicesPage() {
     items: [
       {
         name: "Process Flow Diagram (PFD)",
-        url: "https://portaiengineers.com/services/cad/flow/cad-pfd/",
+        url: "https://portaiengineers.com/services/cad/pfd/",
       },
       {
         name: "Piping & Instrumentation Diagram (P&ID)",
-        url: "https://portaiengineers.com/services/cad/flow/cad-pid/",
+        url: "https://portaiengineers.com/services/cad/pid/",
       },
       {
         name: "Piping Isometric Drawings",
-        url: "https://portaiengineers.com/services/cad/flow/cad-iso/",
+        url: "https://portaiengineers.com/services/cad/isometric/",
       },
       {
         name: "General Arrangement (GA)",
-        url: "https://portaiengineers.com/services/cad/flow/cad-ga/",
+        url: "https://portaiengineers.com/services/cad/general-arrangement/",
       },
       {
         name: "CAD Conversion",
-        url: "https://portaiengineers.com/services/cad/flow/cad-conversion/",
+        url: "https://portaiengineers.com/services/cad/conversion/",
       },
       {
         name: "CAD Training",
-        url: "https://portaiengineers.com/services/cad/flow/cad-training/",
+        url: "https://portaiengineers.com/services/cad/training/",
       },
       {
         name: "CAD Automation",
-        url: "https://portaiengineers.com/services/cad/flow/cad-automation/",
+        url: "https://portaiengineers.com/services/cad/automation/",
       },
       {
         name: "Fire Evacuation Plans & Layouts",
-        url: "https://portaiengineers.com/services/cad/flow/cad-fire/",
+        url: "https://portaiengineers.com/services/cad/fire-evacuation/",
       },
     ],
   });

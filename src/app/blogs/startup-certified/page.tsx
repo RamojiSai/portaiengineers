@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import "./startup.css";
 import {
   JsonLd,
@@ -196,6 +195,20 @@ const startupHtml = `
     <p><strong>Engineering Excellence • Innovation • Reliability</strong></p>
     <p><strong>Recognized by Startup India</strong></p>
   </div>
+
+  <div class="startup-nav-card">
+    <div class="startup-nav-card__inner">
+      <div>
+        <h4 class="startup-nav-card__title">Explore More from Port AI Engineers</h4>
+        <p class="startup-nav-card__desc">Read our engineering insights or connect with our technical team.</p>
+      </div>
+      <div class="startup-nav-card__links">
+        <a href="/blogs/" class="startup-nav-card__btn">&larr; Back to Blogs</a>
+        <a href="/services/engineering/" class="startup-nav-card__btn">Engineering Services</a>
+        <a href="/contact/" class="startup-nav-card__btn startup-nav-card__btn--primary">Contact Us</a>
+      </div>
+    </div>
+  </div>
 </main>
 
 <footer class="startup-footer">
@@ -227,28 +240,6 @@ export default function StartupCertifiedPage() {
       <JsonLd schema={webPageSchema} />
       <JsonLd schema={breadcrumbSchema} />
       <div dangerouslySetInnerHTML={{ __html: startupHtml }} />
-      <div className="mx-auto my-8 max-w-4xl px-6">
-        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm">
-          <div>
-            <h4 className="text-base font-semibold text-[var(--color-text)]">Explore More from Port AI Engineers</h4>
-            <p className="text-sm text-[var(--color-muted)]">Read our engineering insights or connect with our technical team.</p>
-          </div>
-          <div className="flex items-center gap-4">
-            <Link
-              href="/blogs/"
-              className="rounded-full border border-[var(--color-border)] px-5 py-2.5 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
-            >
-              &larr; Back to Blogs
-            </Link>
-            <Link
-              href="/contact/"
-              className="rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-[var(--color-on-primary)] transition hover:opacity-90"
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

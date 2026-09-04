@@ -118,12 +118,22 @@ export default function HeroSection() {
           <p className="hero-subtext text-base sm:text-lg">
             {activeSlide.subtext}
           </p>
-          <Link
-            href="/contact"
-            className="hero-cta-gradient rounded-full border border-[#241E92] px-6 py-2 text-sm font-semibold text-white"
-          >
-            Contact Us
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:justify-start">
+            <a
+              href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-cta-gradient rounded-full border border-[#241E92] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+            >
+              Get a Demo
+            </a>
+            <Link
+              href="#contact"
+              className="rounded-full border border-[var(--color-primary)] bg-white/90 px-6 py-2.5 text-sm font-semibold text-[var(--color-primary)] shadow-sm backdrop-blur-sm transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white"
+            >
+              Contact Us
+            </Link>
+          </div>
         </div>
       </div>
 
