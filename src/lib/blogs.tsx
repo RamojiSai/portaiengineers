@@ -128,6 +128,22 @@ export const blogCards: BlogCard[] = [
     href: "/blogs/pfd-vs-pid/",
     tags: ["P&ID", "PFD", "Process Engineering", "CAD Drafting"],
   },
+  {
+    slug: "pdf-pid-conversion",
+    title: "How to Convert PDF P&IDs into Editable CAD Drawings",
+    metaTitle: "PDF to P&ID Conversion Services | Convert Scanned Drawings to CAD",
+    metaDescription:
+      "Learn the process of converting PDF, scanned, and legacy P&IDs into editable CAD drawings. Discover common challenges, deliverables, and engineering best practices.",
+    category: "CAD Conversion & Digitization",
+    image: "/images/services/cad-conversion.webp",
+    excerpt:
+      "Learn the process of converting PDF, scanned, and legacy P&IDs into editable CAD drawings. Discover common challenges, deliverables, and engineering best practices.",
+    date: "September 2026",
+    author: "Port AI Engineers",
+    readTime: "11 min read",
+    href: "/blogs/pdf-pid-conversion/",
+    tags: ["P&ID Conversion", "PDF to CAD", "CAD Drafting", "Process Engineering"],
+  },
 ];
 
 export const blogPosts: BlogDetail[] = [
@@ -639,6 +655,369 @@ export const blogPosts: BlogDetail[] = [
         </p>
         <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
           By treating the PFD-to-P&amp;ID transition as a formal engineering handoff—anchored by stabilized process data, disciplined tagging standards, and multi-discipline review gates—engineering organizations minimize rework, protect project schedules, and establish a dependable technical foundation for fabrication, construction, and safe plant operations.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "pdf-pid-conversion",
+    title: "How to Convert PDF P&IDs into Editable CAD Drawings",
+    metaTitle: "PDF to P&ID Conversion Services | Convert Scanned Drawings to CAD",
+    metaDescription:
+      "Learn the process of converting PDF, scanned, and legacy P&IDs into editable CAD drawings. Discover common challenges, deliverables, and engineering best practices.",
+    category: "CAD Conversion & Digitization",
+    image: "/images/services/cad-conversion.webp",
+    excerpt:
+      "Learn the process of converting PDF, scanned, and legacy P&IDs into editable CAD drawings. Discover common challenges, deliverables, and engineering best practices.",
+    date: "September 2026",
+    author: "Port AI Engineers",
+    readTime: "11 min read",
+    href: "/blogs/pdf-pid-conversion/",
+    tags: ["P&ID Conversion", "PDF to CAD", "CAD Drafting", "Process Engineering"],
+    content: (
+      <>
+        {/* Introduction */}
+        <p className="text-base leading-relaxed text-[var(--color-muted)]">
+          In operating industrial facilities—such as refineries, chemical plants, offshore platforms, gas facilities, and power stations—piping and instrumentation diagrams (P&amp;IDs) represent the central nervous system of plant engineering. Over decades of operation, modifications, and contractor handovers, these vital records frequently become trapped in non-editable formats: native PDFs from earlier EPC contractors, scanned raster PDFs, legacy TIFF images, paper prints in archives, obsolete CAD files, and operational drawings marked with handwritten pen and highlighter redlines.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          While viewing a static PDF or paper print in an office viewer suffices for routine checks, passive formats present severe obstacles during capital engineering work. A static image cannot be layered, measured dynamically, or modified in modern CAD software. When a facility plans a brownfield revamp, tie-in package, instrument modernization, or safety revalidation, having an editable, layered CAD representation becomes an operational necessity.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Moving from a legacy print or flat PDF to an editable CAD drawing differs fundamentally from standard office document conversion. An engineering drawing represents an interconnected system of process topology, mechanical specifications, and control logic. Digitizing these drawings through unmanaged automated tools or basic graphic tracing risks introducing dangerous errors into plant records. Achieving a reliable, editable CAD model requires a controlled engineering reconstruction process governed by systematic drafting workflows, technical interpretation, and disciplined checking protocols.
+        </p>
+
+        {/* SECTION 1 */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          1. What Is P&amp;ID Conversion?
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          A Piping and Instrumentation Diagram (P&amp;ID) is the foundational engineering schematic that defines the mechanical, fluid transport, and automated control architecture of an industrial plant. It maps equipment, process and utility piping, manual valves, automated control valves, field instrumentation, safety relief devices, and control loops needed for safe operation.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          There is a clear distinction between viewing a drawing and possessing an editable CAD representation. Viewing a PDF, blueprint, or scan allows personnel to inspect connections, read tags, or trace flow paths. However, that static image is inert: it cannot be updated to reflect a new tie-in, its text cannot be searched or extracted into line schedules, and its geometry cannot be incorporated into a digital plant model or revision-controlled workflow.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          In an engineering context, P&amp;ID conversion—often termed P&amp;ID digitization or CAD reconstruction—means transforming static, non-editable drawing sources into native, fully layered CAD files (typically DWG or DXF format). True conversion is not mere visual tracing. It is an engineering recreation process that translates graphical lines into structured pipe runs with standardized line codes, converts hand-drawn or blurred symbols into precise block entities with associative attributes, and organizes the drawing on standard engineering layers with designated text styles and title block metadata.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Because engineering drawings convey operational and safety obligations, the conversion process requires engineering interpretation and verification. Drawing specialists must interpret ambiguous linework, verify piping specification breaks, decipher alphanumeric tagging codes, and validate stream continuations across adjoining sheets. Simple automated conversion software cannot exercise this technical judgment; disciplined engineering review remains essential.
+        </p>
+
+        {/* SECTION 2 */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          2. Common Source Formats for P&amp;ID Conversion
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Legacy plant documentation arrives in diverse formats, each presenting unique challenges for drafting teams. Source format and quality directly govern preparation, conversion methodology, and verification requirements:
+        </p>
+        <div className="mt-6 space-y-4">
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+            <h3 className="text-lg font-semibold text-[var(--color-primary)]">Native Vector PDFs</h3>
+            <p className="mt-2 text-sm text-[var(--color-muted)]">
+              Digital files plotted directly from CAD systems. Although linework and text exist as vectors rather than pixels, layers, blocks, and parametric intelligence are typically flattened into raw geometry with fragmented text strings that must be reconstructed into structured CAD entities.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+            <h3 className="text-lg font-semibold text-[var(--color-primary)]">Scanned Raster PDFs</h3>
+            <p className="mt-2 text-sm text-[var(--color-muted)]">
+              Digital scans of paper prints or microfilms encapsulated in a PDF wrapper. Consisting solely of pixel grids, they frequently suffer from scanner skew, resolution loss, darkened borders, and compression artifacts that blur fine linework.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+            <h3 className="text-lg font-semibold text-[var(--color-primary)]">Raster Images (TIFF, PNG, JPEG)</h3>
+            <p className="mt-2 text-sm text-[var(--color-muted)]">
+              Raster archives from legacy document repositories. Bi-tonal TIFF images preserve clean lines, whereas lossy JPEG files introduce compression halos around dense instrumentation bubbles and line numbers, requiring digital filtering.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+            <h3 className="text-lg font-semibold text-[var(--color-primary)]">Physical Paper and Mylar Drawings</h3>
+            <p className="mt-2 text-sm text-[var(--color-muted)]">
+              Historical prints subject to yellowing, tearing, folds, stains, and non-uniform shrinkage that distort dimensional scale across sheet quadrants, requiring careful pre-scan preparation and digital calibration.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+            <h3 className="text-lg font-semibold text-[var(--color-primary)]">Legacy CAD Files</h3>
+            <p className="mt-2 text-sm text-[var(--color-muted)]">
+              Digital drawings created on obsolete platforms that lack standard fonts, use outdated layer schemes, reference missing external font files, or contain corrupted symbol definitions requiring modernization.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+            <h3 className="text-lg font-semibold text-[var(--color-primary)]">Marked-Up and Redlined Field Drawings</h3>
+            <p className="mt-2 text-sm text-[var(--color-muted)]">
+              Operational prints bearing handwritten pen, pencil, and highlighter notations reflecting field modifications, tie-ins, or valve removals that must be reconciled with base geometry.
+            </p>
+          </div>
+        </div>
+
+        {/* SECTION 3 */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          3. How PDF P&amp;ID Conversion Works
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          A reliable P&amp;ID conversion workflow relies on a systematic, staged methodology rather than ad-hoc drafting. While exact workflows vary according to project requirements, source condition, and client-specific drafting standards, a comprehensive conversion lifecycle typically encompasses eight core phases:
+        </p>
+        <div className="mt-6 space-y-4">
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">Phase 1</span>
+            <h3 className="text-base font-semibold text-[var(--color-text)] mt-1">Source Drawing Review &amp; Intake</h3>
+            <p className="mt-1 text-sm text-[var(--color-muted)]">The team inventories incoming files, verifying drawing numbers, revision letters, sheet counts, and reference documents (such as lead sheets, symbol legends, and line lists) to establish scope boundaries.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">Phase 2</span>
+            <h3 className="text-base font-semibold text-[var(--color-text)] mt-1">Drawing Quality Assessment &amp; Calibration</h3>
+            <p className="mt-1 text-sm text-[var(--color-muted)]">Technicians inspect visual clarity, performing digital pre-processing—such as deskewing, despeckling, contrast enhancement, and scale calibration—to align linework accurately with CAD grids.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">Phase 3</span>
+            <h3 className="text-base font-semibold text-[var(--color-text)] mt-1">Equipment and Tag Identification</h3>
+            <p className="mt-1 text-sm text-[var(--color-muted)]">Major process equipment—columns, vessels, reactors, tanks, exchangers, pumps, and compressors—is cataloged, symbols are matched against approved libraries, and alphanumeric tags and nozzle IDs are transcribed.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">Phase 4</span>
+            <h3 className="text-base font-semibold text-[var(--color-text)] mt-1">Piping and Line Information Reconstruction</h3>
+            <p className="mt-1 text-sm text-[var(--color-muted)]">Process, utility, and auxiliary piping lines are reconstructed as continuous vector polylines. Primary headers are drafted with appropriate line weights, flow arrows are placed, and line designation codes are transcribed.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">Phase 5</span>
+            <h3 className="text-base font-semibold text-[var(--color-text)] mt-1">Instrumentation and Valve Representation</h3>
+            <p className="mt-1 text-sm text-[var(--color-muted)]">Manual valves, check valves, control valves, safety relief valves, and specialty fittings are placed using standard blocks. Instrumentation bubbles are mapped with corresponding signal lines.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">Phase 6</span>
+            <h3 className="text-base font-semibold text-[var(--color-text)] mt-1">CAD Drafting and Layer Standardization</h3>
+            <p className="mt-1 text-sm text-[var(--color-muted)]">Linework, symbols, text, and dimensions are organized onto structured CAD layers according to client or industry drafting conventions, with standard colors, linetypes, and title block metadata.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">Phase 7</span>
+            <h3 className="text-base font-semibold text-[var(--color-text)] mt-1">Multi-Discipline Engineering Quality Review</h3>
+            <p className="mt-1 text-sm text-[var(--color-muted)]">A senior drawing checker performs a line-by-line comparison between the newly drafted CAD drawing and source documentation, cross-referencing equipment tags, line continuations, and drawing notes.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">Phase 8</span>
+            <h3 className="text-base font-semibold text-[var(--color-text)] mt-1">Revision and Issue Preparation</h3>
+            <p className="mt-1 text-sm text-[var(--color-muted)]">Review comments are incorporated into the CAD drawing. Deliverables are exported into required formats (native DWG, DXF, and searchable PDF), registers are updated, and formal packages are prepared under designated project issue statuses.</p>
+          </div>
+        </div>
+
+        {/* SECTION 4 */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          4. Why Simple PDF-to-CAD Conversion Is Not Always Enough
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          With the availability of generic PDF-to-CAD converter tools, plant managers often ask whether automated software alone can convert legacy P&amp;IDs. In industrial plant engineering, automated tracing tools invariably prove inadequate when used in isolation. An engineering drawing is not merely a collection of geometric vectors; it is an operational and safety document communicating functional relationships.
+        </p>
+        <ul className="mt-4 space-y-3 text-sm text-[var(--color-muted)]">
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">OCR Limitations:</strong> Automated OCR struggles with dense prints, frequently confusing similar characters—such as &quot;0&quot; and &quot;O&quot;, &quot;1&quot; and &quot;I&quot;, or &quot;8&quot; and &quot;B&quot;. A single misinterpreted character in an instrument tag alters the drawing&apos;s technical meaning.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Vector vs. Raster Translation Anomalies:</strong> Automated raster-to-vector utilities fit lines along pixel edges, generating hundreds of fragmented micro-lines rather than continuous pipes, while dumping elements onto a single default layer.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Ambiguous and Non-Standard Symbology:</strong> Automated algorithms cannot distinguish between an orifice flange, a restriction orifice, a spectacle blind, or a generic flange assembly. Distinguishing valve types requires domain knowledge.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Broken and Overlapping Linework:</strong> When process lines cross without connection, automated tools often join intersecting lines into false four-way junctions. Where text callouts overlap piping, automated tracing breaks the underlying line.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Absence of Engineering Context:</strong> Automated tools cannot evaluate whether a flow path makes physical sense, whether a relief line terminates properly, or whether continuation arrows match adjacent sheets. Comprehensive engineering review remains essential.</span>
+          </li>
+        </ul>
+
+        {/* SECTION 5 */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          5. Common Problems During P&amp;ID Conversion
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          During the conversion of legacy and scanned P&amp;IDs, engineering teams frequently encounter technical complications that affect the reconstruction process:
+        </p>
+        <ul className="mt-4 space-y-3 text-sm text-[var(--color-muted)]">
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Poor Scan Quality and Low Resolution:</strong> Scans performed under 200 DPI or multi-generation photocopies display severe line fading and fuzzy contours, making small annotations and pipe schedules difficult to read.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Missing or Unclear Equipment Tags:</strong> Historical equipment tags may be partially worn away, truncated, or inconsistent with plant registers, requiring cross-referencing mechanical equipment lists.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Overlapping Lines and Congested Areas:</strong> In dense areas—such as compressor manifolds and pump headers—piping lines, valve handles, impulse tubing, and callouts overlap, requiring careful spatial reconstruction.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Inconsistent Symbols Across Decades:</strong> Facilities with drawings created by multiple contractors often contain conflicting symbol conventions that require decoding historical legends.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Handwritten Markups and Conflicting Revisions:</strong> Reconciling field redlines is challenging when operating units maintain separate marked-up prints with conflicting notations, requiring formal clarification.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Incomplete Source Information and Missing Legends:</strong> Standalone drawing packages often lack master legend sheets or line lists, necessitating careful deductive verification.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Difficult Drawing Notes and Broken Continuations:</strong> Critical notes may be blurred, and process streams may exit sheets with continuation arrows that lack destination drawing numbers.</span>
+          </li>
+        </ul>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          When these issues arise, professional workflows avoid assumptions. Technical holds are placed on ambiguous items, and structured Requests for Information (RFIs) are compiled for resolution with client engineering personnel.
+        </p>
+
+        {/* SECTION 6 */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          6. What Should Be Checked After Conversion?
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Quality control is the defining boundary between basic drafting and professional engineering conversion. Following CAD reconstruction, drawings must undergo structured verification covering critical parameters:
+        </p>
+        <div className="mt-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+          <ul className="space-y-3 text-sm text-[var(--color-muted)]">
+            <li className="flex items-start gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+              <span><strong className="text-[var(--color-text)]">Equipment Tags:</strong> Every vessel, tank, column, exchanger, pump, and package unit is audited against the source drawing to confirm tag numbers, descriptions, and nozzle identifiers.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+              <span><strong className="text-[var(--color-text)]">Line Numbers:</strong> Line designations are verified segment by segment, confirming nominal pipe sizes, fluid service codes, sequence numbers, piping specs, and specification breaks.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+              <span><strong className="text-[var(--color-text)]">Valves:</strong> Manual, check, and control valves are checked for correct symbology, actuator orientation, normal operating position (NO/NC, CSO/CSC), and fail-safe action.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+              <span><strong className="text-[var(--color-text)]">Instrumentation:</strong> Bubbles are inspected to confirm function letters, loop numbers, location identifiers (field, panel, DCS), and signal line styles.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+              <span><strong className="text-[var(--color-text)]">Connectivity:</strong> Streams are traced from source to destination, ensuring flow arrows are oriented correctly and off-sheet continuation references match adjoining sheets.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+              <span><strong className="text-[var(--color-text)]">Notes &amp; Legends:</strong> General notes, vendor package boundaries, slope requirements, and special hold notes are accurately transcribed and aligned with legends.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+              <span><strong className="text-[var(--color-text)]">Revision Information &amp; Consistency:</strong> The CAD file is verified to ensure entities reside on correct layers, text styles comply with standards, and title block revision blocks are accurately recorded.</span>
+            </li>
+          </ul>
+        </div>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Rigorous post-conversion checking ensures that reconstructed CAD drawings reflect verified engineering data. However, reputable engineering providers do not claim hypothetical 100% automated accuracy or zero-error guarantees; quality is achieved through systematic human review, client collaboration, and disciplined revision control.
+        </p>
+
+        {/* SECTION 7 */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          7. Typical P&amp;ID Conversion Deliverables
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Upon completion of a P&amp;ID conversion program, engineering teams receive a deliverable package tailored to project and operational requirements:
+        </p>
+        <div className="mt-6 space-y-4">
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+            <h3 className="text-base font-semibold text-[var(--color-primary)]">Native Editable CAD Drawings (DWG / DXF)</h3>
+            <p className="mt-2 text-sm text-[var(--color-muted)]">
+              Structured, layered CAD files formatted to client drafting standards, layer matrices, symbol blocks, and title block templates, purge-cleaned of unused blocks or layers.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+            <h3 className="text-base font-semibold text-[var(--color-primary)]">High-Resolution Vector PDF Sets</h3>
+            <p className="mt-2 text-sm text-[var(--color-muted)]">
+              Searchable vector PDF drawing sets generated directly from completed CAD files, allowing plant teams to search equipment tags, line numbers, and valve callouts across desktop and mobile devices.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+            <h3 className="text-base font-semibold text-[var(--color-primary)]">Master Drawing Registers &amp; Metadata Indexes</h3>
+            <p className="mt-2 text-sm text-[var(--color-muted)]">
+              Tabular registers documenting drawing numbers, current revision levels, sheet titles, source references, and conversion dates for document management integration.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+            <h3 className="text-base font-semibold text-[var(--color-primary)]">Revision-Controlled Drawing Packages</h3>
+            <p className="mt-2 text-sm text-[var(--color-muted)]">
+              Issue sets categorized under formal revision statuses—such as Issue for Review (IFR) or As-Built (AB)—accompanied by redline markups, RFI logs, and technical deviation records.
+            </p>
+          </div>
+        </div>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Clearly, the exact deliverables provided depend on the specific project requirements, software ecosystem, and engineering specifications of the operating facility.
+        </p>
+
+        {/* SECTION 8 */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          8. When P&amp;ID Conversion Is Useful
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          P&amp;ID conversion delivers tangible value across a broad spectrum of industrial operating scenarios:
+        </p>
+        <ul className="mt-4 space-y-3 text-sm text-[var(--color-muted)]">
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Brownfield Engineering:</strong> EPC contractors require editable CAD drawings to route new pipelines, insert tie-in valves, and model unit additions without redrafting existing plant infrastructure from scratch.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Plant Modifications:</strong> When implementing equipment upgrades or line reroutes, having master CAD files ensures changes are integrated cleanly under formal change procedures.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Documentation Modernization:</strong> Digitizing aged, paper-based drawing archives prevents information loss, protects intellectual property, and establishes accessible corporate drawing repositories.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">As-Built Documentation:</strong> Ahead of major turnarounds or audits, consolidating decades of field markups into unified as-built CAD drawings prevents costly job delays.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Engineering Handover:</strong> During facility acquisitions or contractor transitions, delivering verified CAD drawings ensures incoming operations teams possess reliable technical baselines.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Legacy Drawing Recovery:</strong> Restoring torn, faded, or partially degraded prints into standardized CAD geometry protects critical plant safety information from permanent loss.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Digital Engineering Workflows:</strong> Facilities transitioning to 3D plant modeling or digital asset management platforms require digitized P&amp;IDs as the logical data backbone.</span>
+          </li>
+        </ul>
+
+        {/* SECTION 9 */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          9. P&amp;ID Conversion Services at Port AI Engineers
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Port AI Engineers provides comprehensive CAD conversion and process drafting services to EPC contractors, industrial plant owners, and engineering consultants. Our dedicated drafting teams specialize in converting legacy paper prints, scanned raster files, and static PDFs into standardized, editable CAD drawings that adhere strictly to client drafting standards.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Through our specialized <Link href="/services/cad/conversion/" className="font-semibold text-[var(--color-primary)] underline hover:opacity-80">CAD Conversion Services</Link>, we transform degraded or legacy documentation into production-grade CAD deliverables, applying rigorous layer management, custom block library integration, and precise geometric reconstruction.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Working alongside our CAD conversion capabilities, our <Link href="/services/cad/pid/" className="font-semibold text-[var(--color-primary)] underline hover:opacity-80">P&amp;ID Design &amp; Drafting Services</Link> support brownfield and greenfield projects with complete piping and instrumentation diagramming, line sizing integration, valve tagging, instrument loop mapping, and revision-controlled as-built drawing management.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Where process definition requires upstream coordination, our team supports clients with standardized <Link href="/services/cad/pfd/" className="text-[var(--color-primary)] underline hover:opacity-80">PFD Design &amp; Drafting Services</Link>, ensuring full continuity between conceptual process flow diagrams and detailed P&amp;IDs. Furthermore, our multi-discipline capabilities extend into physical layout execution through <Link href="/services/engineering/plant-layout/" className="text-[var(--color-primary)] underline hover:opacity-80">Industrial Plant Layout Design Services</Link>, helping industrial clients coordinate equipment spacing, battery limits, and piping corridors seamlessly from schematic design to physical arrangement.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          At Port AI Engineers, our conversion workflows are built on technical discipline, multi-tiered checking protocols, and transparent communication. We work closely with plant teams to resolve technical ambiguities, adhere to applicable project and industry drafting standards, and deliver reliable engineering documentation that supports safe facility operations.
+        </p>
+
+        {/* CONCLUSION */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          Conclusion
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          In modern industrial facility management, converting legacy PDF and scanned P&amp;IDs into editable CAD drawings is not a simple desktop utility exercise; it is an engineering reconstruction process that preserves the operational and safety integrity of capital assets. While passive formats preserve historical records, only intelligent, editable CAD representations provide the agility, clarity, and precision required to execute plant modifications, maintain regulatory compliance, and drive digital engineering initiatives.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          By pairing structured conversion workflows with diligent engineering interpretation, multi-tier quality checks, and formal revision control, plant owners and EPC teams ensure that digitized drawings serve as dependable foundations for engineering excellence and safe facility operations.
         </p>
       </>
     ),

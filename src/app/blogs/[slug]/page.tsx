@@ -82,6 +82,10 @@ const serviceMapping: Record<string, { label: string; href: string }> = {
     label: "P&ID and PFD CAD Services",
     href: "/services/cad/pid/",
   },
+  "pdf-pid-conversion": {
+    label: "CAD Conversion Services",
+    href: "/services/cad/conversion/",
+  },
 };
 
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
