@@ -2,7 +2,6 @@
 
 .iso-page, .iso-page * { box-sizing: border-box; }
 .iso-page *::before, .iso-page *::after { box-sizing: border-box; }
-.iso-page * { margin: 0; padding: 0; }
 
 :root {
   --navy: #021526;
@@ -426,10 +425,74 @@ h3.sub-title {
 }
 .iso-page footer strong { color: var(--gold); }
 
+/* ── EXPLORE MORE NAVIGATION CARD ── */
+.iso-nav-card {
+  margin-top: 40px;
+  padding: 32px;
+  border-radius: 18px;
+  background: var(--light-bg);
+  border: 1.5px solid var(--border);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+.iso-nav-card__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.iso-nav-card__title {
+  margin: 0 0 6px 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.iso-nav-card__desc {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+.iso-nav-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.iso-nav-card__btn {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.06);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.iso-nav-card__btn:hover {
+  border-color: var(--sky);
+  color: var(--sky);
+}
+.iso-nav-card__btn--primary {
+  background: var(--sky);
+  border-color: var(--sky);
+  color: var(--navy);
+}
+.iso-nav-card__btn--primary:hover {
+  opacity: 0.9;
+}
+
 @media (max-width: 600px) {
   .hero-inner { padding: 48px 20px 40px; }
   .article-wrap { padding: 36px 20px; }
   .commitment-block { padding: 30px 22px; }
   .cert-banner { padding: 16px 20px; }
   .about-card, .future-strip { flex-direction: column; }
+  .iso-nav-card { padding: 24px 20px; }
+  .iso-nav-card__inner { flex-direction: column; align-items: flex-start; }
+  .iso-nav-card__links { width: 100%; flex-direction: column; align-items: stretch; }
+  .iso-nav-card__btn { text-align: center; width: 100%; }
 }

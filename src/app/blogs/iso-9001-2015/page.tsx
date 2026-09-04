@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import "./iso.css";
 import {
   JsonLd,
@@ -320,6 +319,20 @@ const isoHtml = `
       </div>
     </div>
   </div>
+
+  <div class="iso-nav-card">
+    <div class="iso-nav-card__inner">
+      <div>
+        <h4 class="iso-nav-card__title">Explore More from Port AI Engineers</h4>
+        <p class="iso-nav-card__desc">Read our engineering insights or connect with our quality management team.</p>
+      </div>
+      <div class="iso-nav-card__links">
+        <a href="/blogs/" class="iso-nav-card__btn">&larr; Back to Blogs</a>
+        <a href="/services/engineering/" class="iso-nav-card__btn">Engineering Services</a>
+        <a href="/contact/" class="iso-nav-card__btn iso-nav-card__btn--primary">Contact Us</a>
+      </div>
+    </div>
+  </div>
 </main>
 
 <footer>
@@ -351,28 +364,6 @@ export default function Iso9001BlogPage() {
       <JsonLd schema={webPageSchema} />
       <JsonLd schema={breadcrumbSchema} />
       <div dangerouslySetInnerHTML={{ __html: isoHtml }} />
-      <div className="mx-auto my-8 max-w-4xl px-6">
-        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm">
-          <div>
-            <h4 className="text-base font-semibold text-[var(--color-text)]">Explore More from Port AI Engineers</h4>
-            <p className="text-sm text-[var(--color-muted)]">Read our engineering insights or connect with our quality management team.</p>
-          </div>
-          <div className="flex items-center gap-4">
-            <Link
-              href="/blogs/"
-              className="rounded-full border border-[var(--color-border)] px-5 py-2.5 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
-            >
-              &larr; Back to Blogs
-            </Link>
-            <Link
-              href="/contact/"
-              className="rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-[var(--color-on-primary)] transition hover:opacity-90"
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
