@@ -29,8 +29,8 @@ export async function generateMetadata({
     };
   }
 
-  const title = post.title;
-  const description = post.excerpt;
+  const title = post.metaTitle || post.title;
+  const description = post.metaDescription || post.excerpt;
   const canonical = `https://portaiengineers.com/blogs/${post.slug}/`;
   const imageUrl = post.image;
 
@@ -77,6 +77,10 @@ const serviceMapping: Record<string, { label: string; href: string }> = {
   "fire-evacuation-planning": {
     label: "Fire Evacuation Drawings & Layouts",
     href: "/services/cad/fire-evacuation/",
+  },
+  "pfd-vs-pid": {
+    label: "P&ID and PFD CAD Services",
+    href: "/services/cad/pid/",
   },
 };
 
