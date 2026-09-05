@@ -91,6 +91,10 @@ export default function EngineeringServicesPage() {
         name: "Power Plants",
         url: "https://portaiengineers.com/services/engineering/power-plants/",
       },
+      {
+        name: "Industrial Plant Layout",
+        url: "https://portaiengineers.com/services/engineering/plant-layout/",
+      },
     ],
   });
 

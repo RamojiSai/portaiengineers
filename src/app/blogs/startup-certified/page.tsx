@@ -210,11 +210,6 @@ const startupHtml = `
     </div>
   </div>
 </main>
-
-<footer class="startup-footer">
-  <p>© 2026 <strong>Port AI Engineers Pvt. Ltd.</strong> · Hyderabad, Telangana, India</p>
-  <p style="margin-top: 6px; font-size: 12px; opacity: 0.6;">Startup India Recognized · Engineering Excellence · Innovation</p>
-</footer>
 `;
 
 export default function StartupCertifiedPage() {

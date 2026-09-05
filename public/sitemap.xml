@@ -40,6 +40,9 @@
     <loc>https://portaiengineers.com/services/engineering/power-plants/</loc>
   </url>
   <url>
+    <loc>https://portaiengineers.com/services/engineering/plant-layout/</loc>
+  </url>
+  <url>
     <loc>https://portaiengineers.com/services/cad/pfd/</loc>
   </url>
   <url>
@@ -95,5 +98,20 @@
   </url>
   <url>
     <loc>https://portaiengineers.com/blogs/fire-evacuation-planning/</loc>
+  </url>
+  <url>
+    <loc>https://portaiengineers.com/blogs/pfd-vs-pid/</loc>
+  </url>
+  <url>
+    <loc>https://portaiengineers.com/blogs/pdf-pid-conversion/</loc>
+  </url>
+  <url>
+    <loc>https://portaiengineers.com/blogs/fire-evacuation-drawing-standards/</loc>
+  </url>
+  <url>
+    <loc>https://portaiengineers.com/blogs/industrial-ga-drawing-anatomy/</loc>
+  </url>
+  <url>
+    <loc>https://portaiengineers.com/blogs/industrial-plot-plan-site-zoning/</loc>
   </url>
 </urlset>

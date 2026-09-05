@@ -4,24 +4,24 @@ import { useEffect, useRef, useState } from "react";
 
 const metrics = [
   {
-    value: "90%",
-    label: "Faster Operations",
-    description: "We deliver with quality.",
+    value: "Verified",
+    label: "Quality-First Operations",
+    description: "Multi-stage QA and compliance checking across every deliverable.",
   },
   {
-    value: "24/7",
-    label: "Engagement",
-    description: "We provide support.",
+    value: "Dedicated",
+    label: "Technical Engagement",
+    description: "Responsive support and transparent project communication.",
   },
   {
-    value: "99%",
-    label: "Data Accuracy",
-    description: "Compliance and quality tracking.",
+    value: "Rigorous",
+    label: "Design Accuracy",
+    description: "Detailed code compliance and drawing verification.",
   },
   {
-    value: "10x",
-    label: "Faster Deployment",
-    description: "Data collection to client delivery.",
+    value: "Agile",
+    label: "Project Execution",
+    description: "Streamlined coordination from kickoff to client handover.",
   },
 ];
 

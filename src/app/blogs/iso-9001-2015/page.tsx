@@ -334,11 +334,6 @@ const isoHtml = `
     </div>
   </div>
 </main>
-
-<footer>
-  <p>© 2026 <strong>Port AI Engineers Private Limited</strong> · Hyderabad, Telangana, India</p>
-  <p style="margin-top: 6px; font-size: 12px; opacity: 0.6;">ISO 9001:2015 Certified · Quality Management System · Engineering Excellence</p>
-</footer>
 `;
 
 export default function Iso9001BlogPage() {

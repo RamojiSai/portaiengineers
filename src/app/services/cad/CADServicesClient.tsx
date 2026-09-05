@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Suspense, useEffect, useMemo, useState } from "react";
 
 const NODE_SWITCH_MS = 10000;
-const COUNT_DURATION_MS = 1400;
 
 const cadNodes = [
   {
@@ -123,20 +122,17 @@ const featureBlocks = [
   },
 ];
 
-const metricTargets = [
-  { value: 99, suffix: "%", label: "Drawing Accuracy" },
-  { value: 50, suffix: "%", label: "Faster CAD Delivery" },
-  { value: 80, suffix: "%", label: "Automation Efficiency" },
-  { value: 24, suffix: "/7", label: "Technical Support" },
+const cadPillars = [
+  { value: "Rigorous", label: "Drawing Accuracy & QA" },
+  { value: "Agile", label: "CAD Project Delivery" },
+  { value: "Standardized", label: "Drafting Automation" },
+  { value: "Dedicated", label: "Technical Support" },
 ];
 
 function CADServicesPageContent() {
   const [cadActiveIndex, setCadActiveIndex] = useState(0);
   const [isCadVisible, setIsCadVisible] = useState(false);
   const [isWhyVisible, setIsWhyVisible] = useState(false);
-  const [metricValues, setMetricValues] = useState<number[]>(
-    metricTargets.map(() => 0)
-  );
 
   const activeCadNode = useMemo(
     () => cadNodes[cadActiveIndex],
@@ -199,36 +195,6 @@ function CADServicesPageContent() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (!isWhyVisible) {
-      return;
-    }
-
-    let rafId: number | null = null;
-    const start = window.performance.now();
-
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / COUNT_DURATION_MS, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-
-      setMetricValues(
-        metricTargets.map((metric) => Math.round(metric.value * eased))
-      );
-
-      if (progress < 1) {
-        rafId = window.requestAnimationFrame(tick);
-      }
-    };
-
-    rafId = window.requestAnimationFrame(tick);
-
-    return () => {
-      if (rafId !== null) {
-        window.cancelAnimationFrame(rafId);
-      }
-    };
-  }, [isWhyVisible]);
-
   return (
     <div className="min-h-screen bg-[#0B1F4D] text-white">
       {/* Section 1: Interactive CAD Wheel */}
@@ -237,11 +203,15 @@ function CADServicesPageContent() {
         className="w-full bg-[#0B1F4D] px-6 py-16 sm:px-10"
       >
         <div className="mx-auto w-full max-w-6xl">
-          <div className="mx-auto mb-12 flex max-w-3xl flex-col items-center gap-4 text-center">
+          <div
+            className={`mx-auto mb-12 flex max-w-3xl flex-col items-center gap-4 text-center transition-all duration-700 ease-out ${
+              isCadVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
+          >
             <nav className="text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">
               <Link href="/" className="hover:underline">Home</Link>
               <span className="px-2 text-white/40">/</span>
-              <Link href="/services" className="hover:underline">Services</Link>
+              <Link href="/services/" className="hover:underline">Services</Link>
               <span className="px-2 text-white/40">/</span>
               <span className="text-white">CAD</span>
             </nav>
@@ -454,13 +424,13 @@ function CADServicesPageContent() {
 
             <div className="pt-2 flex flex-wrap gap-4">
               <Link
-                href="/contact"
+                href="/contact/"
                 className="inline-flex items-center gap-2 rounded-full bg-[#0284C7] px-6 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
               >
                 Inquire About CAD Services &rarr;
               </Link>
               <Link
-                href="/services/engineering"
+                href="/services/engineering/"
                 className="inline-flex items-center gap-2 rounded-full border border-slate-600 bg-transparent px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:border-[#38BDF8] hover:text-[#38BDF8]"
               >
                 Explore Engineering Services &rarr;
@@ -475,17 +445,16 @@ function CADServicesPageContent() {
                 : "translate-x-6 opacity-0"
             }`}
           >
-            {metricTargets.map((metric, index) => (
+            {cadPillars.map((pillar) => (
               <div
-                key={metric.label}
+                key={pillar.label}
                 className="rounded-2xl border border-[#38BDF8]/20 bg-[rgba(56,189,248,0.08)] p-6 shadow-[0_12px_30px_rgba(15,23,42,0.08)]"
               >
                 <div className="text-3xl font-semibold text-[#38BDF8] sm:text-4xl">
-                  {metricValues[index]}
-                  {metric.suffix}
+                  {pillar.value}
                 </div>
                 <p className="mt-2 text-sm font-semibold uppercase tracking-[0.2em] text-slate-300">
-                  {metric.label}
+                  {pillar.label}
                 </p>
               </div>
             ))}

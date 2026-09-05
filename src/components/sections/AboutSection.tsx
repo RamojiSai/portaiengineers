@@ -1,19 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 export default function AboutSection() {
-  const [animate, setAnimate] = useState(false);
-
-  useEffect(() => {
-    const timeoutId = window.setTimeout(() => {
-      setAnimate(true);
-    }, 150);
-
-    return () => window.clearTimeout(timeoutId);
-  }, []);
-
   return (
     <section
       className="relative flex min-h-screen items-center overflow-hidden bg-[linear-gradient(135deg,var(--color-primary-soft),var(--color-bg))] px-5 py-16 sm:px-10 sm:py-24"
@@ -86,26 +75,45 @@ export default function AboutSection() {
           <div className="relative mx-auto w-full max-w-sm">
             <div className="fade-in-up rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[0_20px_50px_var(--color-card-shadow)] sm:p-8">
               <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
-                <span>Our Pulse</span>
-                <span className="text-[var(--color-primary)]">Active</span>
+                <span>Operational Focus</span>
+                <span className="inline-flex items-center gap-1.5 text-[var(--color-primary)]">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                  Active
+                </span>
               </div>
-              <div className="mt-6 space-y-4">
+              <div className="mt-6 space-y-3.5">
                 {[
-                  { label: "Automation", value: "95%" },
-                  { label: "Quality", value: "98%" },
-                  { label: "Delivery", value: "99%" },
-                ].map((metric) => (
-                  <div key={metric.label} className="space-y-2">
-                    <div className="flex items-center justify-between text-sm font-medium text-[var(--color-text)]">
-                      <span>{metric.label}</span>
-                      <span>{metric.value}</span>
+                  {
+                    label: "Automation",
+                    status: "Core Platform",
+                    detail: "Standardized CAD workflows & custom tools",
+                  },
+                  {
+                    label: "Quality",
+                    status: "ISO 9001:2015",
+                    detail: "Multi-level drawing & engineering review",
+                  },
+                  {
+                    label: "Delivery",
+                    status: "Milestone-Tracked",
+                    detail: "Disciplined scheduling & clear handover",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-2xl border border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-surface)_50%,transparent)] p-4 transition-all duration-300 hover:border-[var(--color-primary)]"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-semibold text-[var(--color-text)]">
+                        {item.label}
+                      </span>
+                      <span className="rounded-full bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] px-2.5 py-0.5 text-xs font-semibold text-[var(--color-primary)]">
+                        {item.status}
+                      </span>
                     </div>
-                    <div className="h-2 w-full overflow-hidden rounded-full bg-[var(--color-border)]">
-                      <div
-                        className="h-full rounded-full bg-[var(--color-primary)] transition-all duration-1000 ease-out"
-                        style={{ width: animate ? metric.value : "0%" }}
-                      />
-                    </div>
+                    <p className="mt-1 text-xs text-[var(--color-muted)]">
+                      {item.detail}
+                    </p>
                   </div>
                 ))}
               </div>

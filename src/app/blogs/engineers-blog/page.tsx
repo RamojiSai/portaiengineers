@@ -534,14 +534,6 @@ export default function CADServicesPage() {
         </div>
 
       </main>
-
-      {/* ── FOOTER ── */}
-      <footer className="cad-footer">
-        <p>© 2026 <strong>Port AI Engineers Private Limited</strong> · Hyderabad, Telangana, India</p>
-        <p style={{ marginTop: "6px", fontSize: "12px", opacity: 0.6 }}>
-          ISO 9001:2015 Certified · Startup India Recognized · CAD &amp; Engineering Excellence
-        </p>
-      </footer>
     </div>
   );
 }
