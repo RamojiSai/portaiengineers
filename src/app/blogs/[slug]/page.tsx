@@ -94,6 +94,10 @@ const serviceMapping: Record<string, { label: string; href: string }> = {
     label: "General Arrangement Drawing Services",
     href: "/services/cad/general-arrangement/",
   },
+  "industrial-plot-plan-site-zoning": {
+    label: "Industrial Plant Layout Services",
+    href: "/services/engineering/plant-layout/",
+  },
 };
 
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
