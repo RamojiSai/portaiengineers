@@ -161,6 +161,23 @@ export const blogCards: BlogCard[] = [
     href: "/blogs/fire-evacuation-drawing-standards/",
     tags: ["Fire Evacuation", "CAD Drafting", "Safety Drawings", "Egress Mapping"],
   },
+  {
+    slug: "industrial-ga-drawing-anatomy",
+    title:
+      "Anatomy of an Industrial General Arrangement (GA) Drawing: Plans, Elevations & Sections",
+    metaTitle: "Industrial GA Drawings: Plans, Elevations & Sections",
+    metaDescription:
+      "Learn how industrial General Arrangement drawings are structured, including plans, elevations, sections, equipment placement, dimensions, access areas, and engineering coordination.",
+    category: "CAD Drafting & Plant Design",
+    image: "/GeneralArrangements.jpg",
+    excerpt:
+      "Learn how industrial General Arrangement drawings are structured, including plans, elevations, sections, equipment placement, dimensions, access areas, and engineering coordination.",
+    date: "September 2026",
+    author: "Port AI Engineers",
+    readTime: "11 min read",
+    href: "/blogs/industrial-ga-drawing-anatomy/",
+    tags: ["GA Drawing", "Plant Design", "Equipment Layout", "CAD Drafting"],
+  },
 ];
 
 export const blogPosts: BlogDetail[] = [
@@ -1402,6 +1419,350 @@ export const blogPosts: BlogDetail[] = [
         </p>
         <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
           To update your plant&apos;s emergency evacuation documentation or convert legacy floor plans into professional, revision-controlled CAD drawings, explore our <Link href="/services/cad/fire-evacuation/" className="font-semibold text-[var(--color-primary)] underline hover:opacity-80">Fire Evacuation Drawing Services</Link> or <Link href="/contact/" className="font-semibold text-[var(--color-primary)] underline hover:opacity-80">contact the engineering drafting team at Port AI Engineers</Link> today.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "industrial-ga-drawing-anatomy",
+    title:
+      "Anatomy of an Industrial General Arrangement (GA) Drawing: Plans, Elevations & Sections",
+    metaTitle: "Industrial GA Drawings: Plans, Elevations & Sections",
+    metaDescription:
+      "Learn how industrial General Arrangement drawings are structured, including plans, elevations, sections, equipment placement, dimensions, access areas, and engineering coordination.",
+    category: "CAD Drafting & Plant Design",
+    image: "/GeneralArrangements.jpg",
+    excerpt:
+      "Learn how industrial General Arrangement drawings are structured, including plans, elevations, sections, equipment placement, dimensions, access areas, and engineering coordination.",
+    date: "September 2026",
+    author: "Port AI Engineers",
+    readTime: "11 min read",
+    href: "/blogs/industrial-ga-drawing-anatomy/",
+    tags: ["GA Drawing", "Plant Design", "Equipment Layout", "CAD Drafting"],
+    content: (
+      <>
+        {/* SECTION 1: Introduction */}
+        <p className="text-base leading-relaxed text-[var(--color-muted)]">
+          In industrial plant engineering, translating conceptual process designs into physical operating facilities is a critical challenge for project teams. While process flow diagrams (PFDs) and piping and instrumentation diagrams (P&amp;IDs) establish thermodynamic and mechanical control logic, they communicate virtually nothing about physical space, elevation, or orientation. Bridging the gap between schematic logic and physical reality requires robust spatial documentation centered around the industrial General Arrangement drawing.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          A General Arrangement drawing—universally known as a GA drawing, equipment arrangement drawing, or equipment layout drawing—serves as the primary spatial master plan for an operating facility. By defining the physical positions of process vessels, rotating equipment, structural steel modules, pipe racks, and access ways, GA drawings provide an authoritative source of truth across engineering disciplines. For EPC contractors, engineering consultants, plant owners, and fabrication teams, these engineering drawings are fundamental to ensuring that physical equipment and structures fit together without spatial clashes or maintenance obstructions.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Because industrial facilities encompass intricate mechanical, civil, and structural interfaces, plant teams frequently engage Port AI Engineers for professional <Link href="/services/cad/general-arrangement/" className="font-semibold text-[var(--color-primary)] underline hover:opacity-80">General Arrangement Drawing Services</Link>. These specialized workflows deliver coordinated 2D plant GA drawing packages and equipment layouts that align engineering teams from early concept studies through construction execution.
+        </p>
+
+        {/* SECTION 2: What Is an Industrial General Arrangement Drawing? */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          1. What Is an Industrial General Arrangement Drawing?
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          An industrial General Arrangement drawing is a multi-view technical drawing defining the physical location, orientation, overall dimensions, and spatial relationships of major equipment, structures, and auxiliary systems within a plant area. Unlike single-discipline detail drawings, a plant GA drawing functions as an integration deliverable, illustrating how mechanical equipment, civil structures, piping corridors, and electrical systems co-exist in three dimensions.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          A GA drawing differs fundamentally from detailed fabrication drawings. Fabrication drawings—such as vessel shop prints, structural steel details, or piping isometrics—focus on component manufacturing, detailing weld symbols, bolt schedules, and plate thicknesses. In contrast, an equipment arrangement drawing operates at the system level, depicting equipment as geometric envelopes with boundary dimensions, nozzle orientations, mounting baseplates, and primary connection points without detailing minor internals.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          The primary purpose of a GA drawing is spatial coordination. It communicates physical arrangement so civil teams design foundations, structural engineers size pipe racks, piping designers route lines, and electrical engineers allocate cable trays. No single GA drawing serves every project phase or discipline; rather, GA drawings evolve across project lifecycles from preliminary concept plots to detailed construction layouts.
+        </p>
+
+        {/* SECTION 3: What Information Does a GA Drawing Typically Show? */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          2. What Information Does a GA Drawing Typically Show?
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          While specific content varies depending on facility type, engineering discipline, and project phase, professional engineering drawings typically incorporate several core informational categories:
+        </p>
+        <ul className="mt-4 space-y-2 text-sm text-[var(--color-muted)]">
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Equipment Placement &amp; Identification:</strong> Outlines of major mechanical equipment—columns, reactors, tanks, pumps, exchangers, and compressors—labeled with tag numbers matching P&amp;IDs.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Major Dimensions &amp; Centerlines:</strong> Overall boundary dimensions, footprint sizes, centerline coordinates, and spacing tied directly to established plant grids.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Elevations &amp; Vertical Datums:</strong> Finished floor levels (FFL), top of concrete (TOC), top of steel (TOS), nozzle centerlines, and platform elevations referenced to plant datum.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Access &amp; Maintenance Envelopes:</strong> Dedicated clearance envelopes for bundle pull zones, pump motor removal, tube replacement, and crane lifting paths.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Platforms &amp; Structural Elements:</strong> Operating decks, safety cages, vertical ladders, egress stair towers, and handrails where applicable.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Piping Interfaces &amp; Battery Limits:</strong> Primary pipe rack corridors, process headers, interface nozzle locations, and battery-limit lines where appropriate.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Reference Grids &amp; Orientation:</strong> Alphanumeric structural grid lines, coordinates, and plant north or true north indicators.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Drawing Notes &amp; Section References:</strong> Callouts linking to associated section cuts, detail sheets, vendor drawings, and piping layout documents.</span>
+          </li>
+        </ul>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Engineering teams tailor detail to drawing scope; overloading a GA drawing with minor details obscures critical equipment placement and spatial clarity.
+        </p>
+
+        {/* SECTION 4: GA Plans, Elevations and Sections */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          3. GA Plans, Elevations and Sections
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          To define three-dimensional space on two-dimensional media, an industrial General Arrangement drawing employs orthographic projection. The core anatomy of a GA drawing package revolves around three coordinated view types: plans, elevations, and sections.
+        </p>
+
+        {/* Subsection A: GA Plan */}
+        <div className="mt-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+          <h3 className="text-base font-semibold text-[var(--color-primary)]">A. The GA Plan View</h3>
+          <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
+            The GA plan is an orthographic top-down projection of an operating level. It defines equipment arrangement in the horizontal (X and Y) plane, locating centerlines of vessels, pump skids, and columns relative to structural grids or coordinates.
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
+            In multi-level facilities, separate GA plan sheets are prepared for each operating floor, mezzanine, and roof level, illustrating horizontal spacing, access aisles, forklift roadways, egress paths, and battery limits.
+          </p>
+        </div>
+
+        {/* Subsection B: GA Elevation */}
+        <div className="mt-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+          <h3 className="text-base font-semibold text-[var(--color-primary)]">B. The GA Elevation View</h3>
+          <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
+            The GA elevation is a vertical orthographic view looking horizontally at the facility from exterior viewpoints, typically designated by direction (e.g., North Elevation or Looking South). Elevation views communicate the vertical (Z) dimension, revealing equipment heights, skirt heights, support structures, framing tiers, and clear heights beneath pipe racks.
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
+            Elevation views illustrate vertical alignment between elevated equipment—such as condensers mounted above reflux drums—ensuring that process hydraulics and gravity flow requirements are viable.
+          </p>
+        </div>
+
+        {/* Subsection C: GA Section */}
+        <div className="mt-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+          <h3 className="text-base font-semibold text-[var(--color-primary)]">C. The GA Section View</h3>
+          <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
+            The GA section represents an imaginary vertical cut through the plant, slicing through equipment, pipe racks, and buildings to reveal internal spatial relationships hidden in exterior views. Section cuts are identified on plan views by cutting-plane lines with directional arrows (e.g., &quot;Section A-A&quot;).
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
+            Section views are indispensable for resolving congested multi-level spaces, showing vertical clearances between stacked heat exchangers, pipe rack tiers, beam penetrations, valve operating heights relative to grating, and drainage trenches.
+          </p>
+        </div>
+
+        {/* SECTION 5: Equipment Placement and Spatial Coordination */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          4. Equipment Placement and Spatial Coordination
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Equipment placement on a General Arrangement drawing balances operational efficiency, safety separation, constructability, and plant maintainability. In professional engineering practice, placing equipment is never simply a matter of fitting components into available footprint.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">Operational and Maintenance Access:</strong> Industrial equipment requires planned clearance for servicing and overhauls. Shell-and-tube exchangers require clearance to pull tube bundles. Pumps need laydown space and vertical clearance for motor and impeller rigging. Compressors demand crane access for casing removal. A well-constructed GA drawing delineates these maintenance envelopes with dashed boundary lines, preventing piping or structural steel from encroaching upon critical service corridors.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">Multi-Discipline Spatial Coordination:</strong> Equipment placement establishes boundary conditions for downstream disciplines. Civil engineers utilize equipment footprints and operating loads to design foundations. Electrical teams verify routing corridors for switchgear and cable trays. Piping engineers rely on equipment positions to establish pipe rack orientations and process line routing.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Drafting teams must not invent arbitrary numerical values for clearances or spacing. Specific clearance dimensions depend on equipment manufacturer guidelines, client engineering standards, ergonomic requirements, and adopted local safety codes.
+        </p>
+
+        {/* SECTION 6: Dimensions, Elevations and Reference Information */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          5. Dimensions, Elevations and Reference Information
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Dimensions and reference markers transform a visual layout into an actionable engineering coordinate system, ensuring contractors locate equipment accurately on site.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">Coordinate Datums and Reference Grids:</strong> Industrial facilities establish a plant coordinate system based on a benchmark datum. Structural column grids provide local reference lines. On a GA plan, equipment centerlines are dimensioned directly from these grid lines, ensuring civil surveyors establish anchor bolt locations accurately before equipment delivery.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">Elevation Datums:</strong> Vertical dimensions on GA drawings are expressed as absolute elevations relative to plant datum rather than incremental heights. Drawings specify key reference planes, including finished grade, top of concrete foundation (TOC), top of steel beam (TOS), and equipment centerline elevations (CL). Unified datums prevent cumulative measuring errors during construction.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">Dimensioning Hierarchy:</strong> General Arrangement drawings focus on primary reference dimensions: overall battery limit boundaries, grid spacing, equipment centerline coordinates, and major nozzle centerlines. Detailed equipment fabrication dimensions are omitted to maintain drawing legibility.
+        </p>
+
+        {/* SECTION 7: GA Drawings and Piping Design */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          6. GA Drawings and Piping Design
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          The General Arrangement drawing and piping design share a reciprocal relationship. In process plants, piping represents a major portion of capital expenditure; consequently, equipment placement directly influences piping economy and operational reliability.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">Nozzle Locations and Line Routability:</strong> Equipment arrangement dictates the routing complexity of process lines. Placing pump suction nozzles close to tank drain outlets minimizes suction line length and reduces pressure drop, preventing pump cavitation. Conversely, uncoordinated equipment placement forces complex piping loops, excessive fittings, and elevated nozzle loads that complicate stress analysis.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">Piping GA Drawings vs. Equipment GAs:</strong> While equipment GA drawings establish machinery footprints and foundations, piping GA drawings map major process headers, pipe racks, control valve manifolds, and support locations. These drawings coordinate pipe rack elevations, battery-limit tie-ins, and expansion loop clearances.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          GA drawings do not replace detailed piping isometrics or comprehensive 3D models. A piping GA communicates collective spatial arrangement, whereas piping isometric drawings provide fabrication-level spool dimensions, weld lists, and cut lengths required by pipe fitters.
+        </p>
+
+        {/* SECTION 8: GA Drawings and 3D Plant Design */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          7. GA Drawings and 3D Plant Design
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          In modern industrial project execution, General Arrangement drawings are typically generated directly from coordinated multi-discipline 3D plant design environments.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">Model Coordination and Drawing Extraction:</strong> Within contemporary 3D plant design software, mechanical equipment, structural steel, concrete foundations, and piping corridors are modeled concurrently in a shared digital space. Once the 3D model reaches design maturity gates, drawing specialists define orthographic cutting planes to extract plan views, elevations, and section drawings directly from the model database.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">Dynamic Consistency Across Views:</strong> Extracting GA drawings from 3D models ensures spatial integrity across views. If an equipment nozzle location or foundation pedestal is modified in the 3D model, associated plan, elevation, and section drawings can be updated systematically, eliminating discrepancies between drawing sheets.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          However, automated extraction alone does not produce an engineering-grade drawing. Model-extracted linework requires disciplined 2D CAD drafting cleanup: applying standardized layer styles, positioning legible dimension strings, optimizing annotations, and structuring revision title blocks. Modern plant design marries 3D spatial modeling with rigorous 2D drafting presentation.
+        </p>
+
+        {/* SECTION 9: Common Problems in Industrial GA Drawings */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          8. Common Problems in Industrial GA Drawings
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          In industrial projects, drawing coordination errors on GA deliverables frequently lead to field rework, fabrication clashes, and construction delays. Common documentation discrepancies include:
+        </p>
+        <ul className="mt-4 space-y-2 text-sm text-[var(--color-muted)]">
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Outdated Equipment Geometry:</strong> Equipment models based on preliminary quotes rather than certified vendor prints, causing mislocated nozzles or incorrect baseplates.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Inconsistent Dimensions:</strong> Centerline coordinates or boundary dimensions on a plan view that contradict matching elevation or section callouts.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Missing or Ambiguous Elevations:</strong> Omission of critical vertical datums—such as top of concrete, underside of pipe rack steel, or platform grating levels.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Unclear Section References:</strong> Section callout arrows on plan sheets referencing non-existent section cuts, missing detail numbers, or incorrect sheets.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Conflicting Equipment Tagging:</strong> Equipment tags that contradict P&amp;IDs, mechanical line lists, or process equipment datasheets.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Overlooked Maintenance Envelopes:</strong> Failing to show tube pull zones, pump removal paths, or valve access corridors, leading to unmaintainable installations.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Discipline Coordination Gaps:</strong> Structural columns clashing with foundation pedestals, or cable trays routed through piping corridors without inter-discipline reviews.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Drawing Revision Disconnects:</strong> 3D model changes failing to propagate into issued 2D drawing sets, leaving outdated prints on site.</span>
+          </li>
+        </ul>
+
+        {/* SECTION 10: GA Drawing Review and Quality Checks */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          9. GA Drawing Review and Quality Checks
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Quality assurance for General Arrangement drawings requires a structured engineering review process prior to formal drawing release:
+        </p>
+        <div className="mt-6 space-y-3">
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">1. Scope and Drawing Purpose Verification</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Verify drawing issue purpose (e.g., Issue for Review, Issue for Design, or Issue for Construction) and confirm battery limit boundaries.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">2. Equipment Tag and Datasheet Cross-Check</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Audit equipment tags against current P&amp;IDs, equipment lists, and certified vendor drawings to confirm dimensions and nozzle schedules.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">3. Grid and Dimension Verification</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Verify that equipment centerlines tie back to primary structural grids and dimension strings add up consistently across views.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">4. Datum and Elevation Reconciliation</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Confirm finished grade, top of concrete, top of steel, and centerline elevations across views against project datum.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">5. Multi-View Projection Alignment</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Cross-reference plan, elevation, and section views to verify identical spatial representation and confirm section arrows match target details.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">6. Maintenance and Egress Corridor Audit</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Verify maintenance envelopes, tube pull areas, crane access corridors, and safety egress paths are free of structural obstructions.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">7. Inter-Discipline Coordination Review</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Coordinate drawing overlays with civil, structural, piping, electrical, and HVAC teams to eliminate clashes at battery limits and interfaces.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">8. Revision Control and Release Governance</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Record revisions with formal clouding, revision block descriptions, signatory approvals, and logging in the master drawing register.</p>
+          </div>
+        </div>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Systematic quality checks ensure that issued GA drawings serve as reliable baselines, preventing costly field modifications and structural clashes.
+        </p>
+
+        {/* SECTION 11: GA Drawing Services at Port AI Engineers */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          10. General Arrangement Drawing Services at Port AI Engineers
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Port AI Engineers delivers comprehensive CAD drafting and engineering design coordination services to EPC contractors, industrial facility owners, and engineering consultants. Our plant design team specializes in developing clear, standardized, and revision-controlled General Arrangement drawings tailored to complex manufacturing, chemical, and energy facilities.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Through our specialized <Link href="/services/cad/general-arrangement/" className="font-semibold text-[var(--color-primary)] underline hover:opacity-80">General Arrangement Drawing Services</Link>, we support engineering programs with:
+        </p>
+        <ul className="mt-4 space-y-2 text-sm text-[var(--color-muted)]">
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span>Preparation of equipment arrangement drawings and plant GA drawings.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span>Multi-view GA development incorporating coordinated plans, elevations, and detailed section cuts.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span>Piping GA drawing drafting, pipe rack routing coordination, and interface nozzle layout management.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span>Integration with broader <Link href="/services/engineering/plant-layout/" className="text-[var(--color-primary)] underline hover:opacity-80">Industrial Plant Layout Design Services</Link> to optimize process unit spacing and battery limit coordination.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span>Coordinated drafting support aligned with <Link href="/services/engineering/piping-3d/" className="text-[var(--color-primary)] underline hover:opacity-80">3D Piping Design Services</Link> for seamless model-to-drawing extraction.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span>Digitization and modernization of legacy paper plots into layered, editable CAD formats via <Link href="/services/cad/conversion/" className="text-[var(--color-primary)] underline hover:opacity-80">CAD Conversion Services</Link>.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span>Strict drawing revision management, title block standardization, and drawing register coordination.</span>
+          </li>
+        </ul>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Our engineering-driven drafting workflows emphasize geometric precision, inter-discipline alignment, and strict adherence to client drafting standards, delivering dependable engineering deliverables for procurement and construction execution.
+        </p>
+
+        {/* SECTION 12: Conclusion */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          Conclusion
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          An industrial General Arrangement drawing is an indispensable pillar of plant engineering design. By unifying equipment placement, structural steel grids, piping corridors, and maintenance clearances across coordinated plan, elevation, and section views, GA drawings bridge the gap between schematic process intent and physical plant construction.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Whether developed directly through 2D drafting methods or extracted from coordinated 3D plant design software, successful GA drawings depend on rigorous dimensioning, consistent datum referencing, and systematic quality reviews. Clear, accurate equipment arrangement drawings minimize construction clashes, streamline multi-discipline handoffs, and protect ongoing facility operability.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          To develop new plant GA drawings, update existing equipment arrangements, or convert legacy layouts into structured CAD deliverables, explore our <Link href="/services/cad/general-arrangement/" className="font-semibold text-[var(--color-primary)] underline hover:opacity-80">General Arrangement Drawing Services</Link> or <Link href="/contact/" className="font-semibold text-[var(--color-primary)] underline hover:opacity-80">contact the engineering design team at Port AI Engineers</Link> today.
         </p>
       </>
     ),
