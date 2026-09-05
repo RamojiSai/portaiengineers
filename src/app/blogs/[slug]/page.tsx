@@ -86,6 +86,10 @@ const serviceMapping: Record<string, { label: string; href: string }> = {
     label: "CAD Conversion Services",
     href: "/services/cad/conversion/",
   },
+  "fire-evacuation-drawing-standards": {
+    label: "Fire Evacuation Drawing Services",
+    href: "/services/cad/fire-evacuation/",
+  },
 };
 
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {

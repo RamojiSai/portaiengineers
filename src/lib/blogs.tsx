@@ -144,6 +144,23 @@ export const blogCards: BlogCard[] = [
     href: "/blogs/pdf-pid-conversion/",
     tags: ["P&ID Conversion", "PDF to CAD", "CAD Drafting", "Process Engineering"],
   },
+  {
+    slug: "fire-evacuation-drawing-standards",
+    title:
+      "Industrial Fire Evacuation Drawing Standards: Egress Mapping, Symbols & Best Practices",
+    metaTitle: "Industrial Fire Evacuation Drawing Standards",
+    metaDescription:
+      "Learn how industrial fire evacuation drawings are developed, including egress routes, exits, assembly points, symbols, floor plans, and key documentation considerations.",
+    category: "Safety & CAD Documentation",
+    image: "/images/services/fire-evacuation.webp",
+    excerpt:
+      "Learn how industrial fire evacuation drawings are developed, including egress routes, exits, assembly points, symbols, floor plans, and key documentation considerations.",
+    date: "September 2026",
+    author: "Port AI Engineers",
+    readTime: "11 min read",
+    href: "/blogs/fire-evacuation-drawing-standards/",
+    tags: ["Fire Evacuation", "CAD Drafting", "Safety Drawings", "Egress Mapping"],
+  },
 ];
 
 export const blogPosts: BlogDetail[] = [
@@ -1018,6 +1035,373 @@ export const blogPosts: BlogDetail[] = [
         </p>
         <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
           By pairing structured conversion workflows with diligent engineering interpretation, multi-tier quality checks, and formal revision control, plant owners and EPC teams ensure that digitized drawings serve as dependable foundations for engineering excellence and safe facility operations.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "fire-evacuation-drawing-standards",
+    title:
+      "Industrial Fire Evacuation Drawing Standards: Egress Mapping, Symbols & Best Practices",
+    metaTitle: "Industrial Fire Evacuation Drawing Standards",
+    metaDescription:
+      "Learn how industrial fire evacuation drawings are developed, including egress routes, exits, assembly points, symbols, floor plans, and key documentation considerations.",
+    category: "Safety & CAD Documentation",
+    image: "/images/services/fire-evacuation.webp",
+    excerpt:
+      "Learn how industrial fire evacuation drawings are developed, including egress routes, exits, assembly points, symbols, floor plans, and key documentation considerations.",
+    date: "September 2026",
+    author: "Port AI Engineers",
+    readTime: "11 min read",
+    href: "/blogs/fire-evacuation-drawing-standards/",
+    tags: ["Fire Evacuation", "CAD Drafting", "Safety Drawings", "Egress Mapping"],
+    content: (
+      <>
+        {/* SECTION 1: Introduction */}
+        <p className="text-base leading-relaxed text-[var(--color-muted)]">
+          In industrial manufacturing plants, chemical processing facilities, high-bay distribution centers, and multi-discipline complexes, emergency preparedness depends on rapid, decisive communication. When an incident occurs—whether a fire, toxic gas leak, or chemical spill—personnel must make immediate egress decisions under acute stress. Machinery noise, smoke, power interruptions, and adrenaline significantly impair cognitive processing. In these critical moments, an accurate, legible industrial fire evacuation drawing serves as an indispensable visual guide for life safety and emergency response.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          An effective fire evacuation drawing is a functional life-safety schematic that translates complex facility geometry into actionable spatial guidance. For plant owners, EPC contractors, safety engineers, and documentation teams, maintaining drawing accuracy is a core operational priority. If an evacuation map displays obsolete layouts, sealed corridors, or misplaced equipment, it creates hazardous confusion during an evacuation. While facility-wide <Link href="/blogs/fire-evacuation-planning/" className="text-[var(--color-primary)] underline hover:opacity-80">industrial fire evacuation planning</Link> establishes broader safety procedures, drills, and management policies, physical drawings displayed throughout a plant communicate real-time egress pathways when seconds matter.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          To ensure drawings remain up to date and aligned with physical site conditions, engineering organizations frequently partner with Port AI Engineers for professional <Link href="/services/cad/fire-evacuation/" className="font-semibold text-[var(--color-primary)] underline hover:opacity-80">Fire Evacuation Drawing Services</Link>. These specialized workflows convert intricate facility layouts into standardized, high-contrast evacuation drawings engineered for demanding industrial environments.
+        </p>
+
+        {/* SECTION 2: What Is an Industrial Fire Evacuation Drawing? */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          1. What Is an Industrial Fire Evacuation Drawing?
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          An industrial fire evacuation drawing—also referred to as an emergency evacuation drawing, evacuation map, or egress route drawing—is a purpose-built safety diagram posted at strategic locations across a facility. Its primary objective is to orient building occupants, identify designated escape pathways, locate essential firefighting and life-safety equipment, and direct personnel safely toward exterior emergency exits and designated assembly points.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          An evacuation drawing differs fundamentally from general architectural floor plans, civil plots, structural framing drawings, or piping general arrangement (GA) drawings. Standard construction drawings feature dense dimensions, column grids, piping runs, and trade callouts. While essential for builders, this detail creates visual clutter in an emergency.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          In contrast, a fire evacuation CAD drawing filters out non-essential construction geometry, removing secondary utilities and interior details. What remains is a high-contrast layout accentuating perimeter walls, primary corridors, emergency exit doors, protected stairwells, and vital emergency assets. This clear visual hierarchy allows occupants to understand their egress options in seconds.
+        </p>
+
+        {/* SECTION 3: What Information Is Typically Shown? */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          2. What Information Is Typically Shown on an Evacuation Drawing?
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          While drawing content depends on facility hazards, occupancy, and jurisdiction, professional evacuation drawings typically include:
+        </p>
+        <ul className="mt-4 space-y-2 text-sm text-[var(--color-muted)]">
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Current Floor Layout:</strong> Simplified building envelope, primary dividing walls, major equipment footprints, and main circulation paths.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Designated Emergency Exits:</strong> Clearly highlighted exterior discharge doors, fire-rated stairwells, and horizontal exits through fire barriers.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Primary and Alternative Routes:</strong> Continuous paths showing approved egress travel, distinguishing primary from secondary routes.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Direction of Travel:</strong> Directional arrows guiding occupants away from hazard zones toward exits.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Assembly and Muster Points:</strong> Designated exterior assembly areas for post-evacuation roll-call accounting.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Orientation Marker (&quot;You Are Here&quot;):</strong> A prominent marker indicating the drawing&apos;s physical mounting position.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Life-Safety Equipment:</strong> Standard symbols for extinguishers, alarm pull stations, hose reels, eyewash units, and first-aid kits.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Legends and Metadata:</strong> A complete visual key of symbols, paired with title block data including facility name, floor level, and revision details.</span>
+          </li>
+        </ul>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Drafting teams must not assume every drawing requires every item. Overloading a map with secondary valves or electrical panels impairs legibility; content must satisfy local safety requirements while keeping escape paths visually prominent.
+        </p>
+
+        {/* SECTION 4: Egress Route Mapping */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          3. Egress Route Mapping: Hierarchy, Continuity, and Legibility
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          The core of an evacuation drawing is egress path mapping. In facilities with process vessels, machinery, or automated racks, route planning requires technical discipline.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">Primary and Alternative Routes:</strong> Egress planning requires route redundancy. Primary routes represent the most direct path to an approved exit, drafted using bold solid lines and prominent arrowheads. Alternative routes provide a secondary escape path if the primary corridor is blocked by fire, smoke, or debris, drafted with dashed or contrasting lines to maintain visual hierarchy.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">Route Continuity and Exit Identification:</strong> Egress paths must lead continuously from occupied areas through exit access aisles and protected enclosures out to exterior assembly points. Mapped paths must never terminate in dead ends, and exits must be clearly distinguished from operational doors.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">Avoiding Misleading Paths:</strong> Egress routes must never lead through transformer vaults, chemical storage, boiler rooms, or maintenance alleys. Mapped routes must reflect physical reality, accounting for railings, conveyor crossovers, and door clearances. Allowable travel distances and corridor dimensions are governed by adopted codes in the facility&apos;s jurisdiction.
+        </p>
+
+        {/* SECTION 5: Symbols, Legends and Visual Communication */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          4. Symbols, Legends and Visual Communication
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          During an emergency, written text can be difficult to interpret quickly under smoke or across language barriers. Consequently, fire safety drawings rely on standardized graphical symbols and disciplined visual communication.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Standard symbols on industrial fire evacuation CAD drawings include:
+        </p>
+        <ul className="mt-4 space-y-2 text-sm text-[var(--color-muted)]">
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Emergency Exits:</strong> Green graphical symbols (such as running-man glyphs) or bold &quot;EXIT&quot; markers designating exterior doors and stair towers.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Fire Extinguishers:</strong> Standard red icons denoting portable extinguishers, with class indicators where relevant to chemical or electrical hazards.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Alarm Points:</strong> Distinct symbols marking manual fire alarm pull stations and emergency communication devices.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">First-Aid and Safety Equipment:</strong> Green cross markers for first aid, and specific icons for eyewash and deluge safety showers.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Assembly Areas and Directional Arrows:</strong> Standard muster station icons and unambiguous directional travel arrows.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Orientation Indicator:</strong> A bold, high-contrast &quot;You Are Here&quot; focal point anchoring the observer&apos;s physical location.</span>
+          </li>
+        </ul>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Consistency across the facility is paramount. Symbol sets must not vary between production areas and administrative annexes. Every symbol displayed on the floor plan must be defined in the drawing legend with matching geometry and color, sized to remain legible without obscuring plant geometry.
+        </p>
+
+        {/* SECTION 6: Floor Plan Orientation and "You Are Here" */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          5. Floor Plan Orientation and the &quot;You Are Here&quot; Indicator
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          A major source of confusion in emergency drawings is incorrect orientation. Architectural drawings are standardly oriented &quot;North-Up.&quot; While appropriate for construction, north-up orientation can cause severe spatial disorientation on wall-mounted evacuation maps.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">The Principle of &quot;Head-Up&quot; Orientation:</strong> When viewing a wall-mounted plan, an individual&apos;s reference frame is egocentric: forward is down the hallway, left is physical left, and right is physical right. If a north-up plan is mounted on a south-facing wall, a left turn on paper corresponds to a right turn in reality. In an emergency, forced mental rotation introduces cognitive delay and risks wrong-way turns.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Professional workflows implement &quot;head-up&quot; or perspective-matched orientation. The drawing is rotated in CAD so that &quot;up&quot; on the sheet aligns with the viewer&apos;s physical sightline. If drawings are posted on opposite walls of the same hallway, two distinct CAD drawings must be produced—each rotated 180 degrees—so observers on either side experience an intuitive layout.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Each drawing must feature clear building, floor, and zone labels, alongside an unmistakable &quot;You Are Here&quot; indicator placed precisely at the mounting coordinate. Non-essential CAD layers—such as ceiling grids, conduit paths, and piping centerlines—must be purged so life-safety pathways remain visually dominant.
+        </p>
+
+        {/* SECTION 7: What Standards and Regulations May Apply? */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          6. What Standards and Regulations May Apply?
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          When preparing industrial evacuation drawings, engineering teams must evaluate the regulatory frameworks governing their facility. Requirements depend on country, regional jurisdiction, occupancy classification, industrial hazards, and adopted building and fire codes.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">OSHA Workplace Requirements (United States):</strong> In the United States, general industry workplace safety standards for emergency planning are established under <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.38" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] underline hover:opacity-80">OSHA 29 CFR 1910.38</a> (Emergency Action Plans). Under this regulation, covered employers must establish emergency action plans that include emergency evacuation procedures and exit-route assignments.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          In its compliance guidance and <a href="https://www.osha.gov/etools/evacuation-plans-procedures/eap/elements" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] underline hover:opacity-80">OSHA Evacuation Plans and Procedures eTool</a>, OSHA notes that floor plans and workplace evacuation maps showing emergency exit routes and assembly areas are an effective means of communicating exit assignments to employees. OSHA regulations do not prescribe a universal CAD drawing template, but clear, updated evacuation diagrams are widely recognized as an effective practice for meeting route communication duties.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">International Standard ISO 23601:2020:</strong> Internationally, the International Organization for Standardization published <a href="https://www.iso.org/standard/80678.html" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] underline hover:opacity-80">ISO 23601:2020</a> (Safety identification — Escape and evacuation plan signs). This standard establishes formal design principles for displayed escape and evacuation plan signs in buildings. It provides recommendations for layout hierarchy, drawing scales, safety color usage (green for egress routes, red for fire equipment), ISO 7010 safety symbols, and &quot;You Are Here&quot; placement.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <strong className="text-[var(--color-text)]">Important Jurisdictional Considerations:</strong> ISO 23601 provides standardized design principles rather than a universal legal mandate; its legal applicability depends on whether local regulations or corporate specifications adopt it. Similarly, OSHA defines overall emergency action plan duties without mandating a singular drawing format. Regional codes like the IBC, IFC, and NFPA 101 govern exit capacities, travel distances, and signage. Plant teams must always verify adopted codes, local fire authority requirements, and project specifications for their specific facility.
+        </p>
+
+        {/* SECTION 8: Common Problems in Fire Evacuation Drawings */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          7. Common Problems in Industrial Fire Evacuation Drawings
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          In active plants, fire evacuation drawings frequently degrade due to physical modifications and documentation neglect. Common engineering and documentation problems include:
+        </p>
+        <ul className="mt-4 space-y-2 text-sm text-[var(--color-muted)]">
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Outdated Floor Plans:</strong> Partitions shifted, modular offices built, or machinery installed without updating base drawings.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Blocked or Changed Routes:</strong> New machinery, conveyor lines, or warehouse racking placed across designated egress pathways.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Incorrect Equipment Locations:</strong> Extinguishers or pull stations relocated during maintenance while drawings show obsolete positions.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Missing or Misidentified Exits:</strong> Service doors incorrectly labeled as emergency exits, or newly added exits omitted.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Unclear Route Arrows:</strong> Overlapping or conflicting arrows pointing into dead ends or hazard areas.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Poor Orientation:</strong> North-up drawings posted indiscriminately without perspective rotation, confusing occupants during an evacuation.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Inconsistent Symbols and Clutter:</strong> Mismatched symbol sets across buildings and excessive construction linework obscuring life-safety data.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Obsolete Revisions:</strong> Contradictory drawing revisions posted across adjacent zones, undermining drawing credibility.</span>
+          </li>
+        </ul>
+
+        {/* SECTION 9: How Fire Evacuation Drawings Are Prepared and Reviewed */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          8. How Fire Evacuation Drawings Are Prepared and Reviewed
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Developing accurate, professional fire evacuation drawings requires a structured engineering workflow:
+        </p>
+        <div className="mt-6 space-y-3">
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">1. Intake &amp; Baseline Review</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Collect available architectural floor plans, civil layouts, equipment general arrangements, and facility EHS emergency documents.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">2. CAD Cleansing &amp; Layer Filtering</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Strip construction dimensions, structural grids, and piping details. Isolate perimeter walls, primary partitions, and corridors on dedicated CAD layers.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">3. Emergency Data Verification</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Cross-reference exit doors, stairwells, fire extinguishers, alarm pull stations, and eyewash units against verified facility records.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">4. Route Mapping &amp; Arrow Placement</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Draft primary and alternative egress paths using standardized line weights, verifying continuous routing to exterior exit discharges.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">5. Symbology &amp; Legend Integration</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Place standardized safety symbols at verified coordinates and create an exhaustive drawing legend matching all colors and line types.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">6. Perspective Rotation (&quot;You Are Here&quot;)</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Generate rotated sheet views matched to specific wall-mounting sightlines and position the &quot;You Are Here&quot; marker accurately.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">7. Multi-Discipline Engineering Review</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Review draft package against project requirements, checking exit continuity, legend completeness, and drafting accuracy.</p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <h3 className="text-sm font-semibold text-[var(--color-primary)]">8. Revision-Controlled Deliverable Issuance</h3>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Export drawings into native DWG, layered PDF, and display print formats, recording final issues in the master drawing register.</p>
+          </div>
+        </div>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Engineering teams must maintain transparency: drawings prepared from client records should be documented accordingly, distinguishing desk drafting from physical on-site walkdowns.
+        </p>
+
+        {/* SECTION 10: When CAD-Based Fire Evacuation Drawings Are Useful */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          9. When CAD-Based Fire Evacuation Drawings Are Useful
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Standardized CAD-based fire evacuation drawings provide essential utility across a diverse range of industrial operating environments:
+        </p>
+        <ul className="mt-4 space-y-2 text-sm text-[var(--color-muted)]">
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Manufacturing and Assembly Plants:</strong> Production floors with robotic cells and machinery requiring clearly marked pedestrian escape paths.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Chemical and Process Facilities:</strong> Processing units with hazardous material storage, elevated decks, and zoned muster stations.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">High-Bay Warehouses:</strong> Expansive racking layouts and forklift aisles where spatial disorientation is a known hazard during power failures.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Pharmaceutical and Cleanroom Suites:</strong> Pressure-zoned facilities where emergency egress must navigate airlocks and gowning rooms.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Industrial Control Rooms and Offices:</strong> Technical offices and operations centers located within plant battery limits.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Plant Revamps and Modernizations:</strong> Facility reconfigurations that require updating legacy emergency documentation.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Drawing Digitization Programs:</strong> Transforming scanned or paper plans into editable CAD models via <Link href="/services/cad/conversion/" className="text-[var(--color-primary)] underline hover:opacity-80">CAD Conversion Services</Link>.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span><strong className="text-[var(--color-text)]">Plant Layout Integration:</strong> Coordinating egress corridors with machinery footprints through specialized <Link href="/services/engineering/plant-layout/" className="text-[var(--color-primary)] underline hover:opacity-80">Industrial Plant Layout Design Services</Link>.</span>
+          </li>
+        </ul>
+
+        {/* SECTION 11: Fire Evacuation Drawing Services at Port AI Engineers */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          10. Fire Evacuation Drawing Services at Port AI Engineers
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Port AI Engineers delivers professional CAD drafting and engineering documentation support to EPC contractors, industrial plant operators, and engineering consultants. Our drafting team specializes in preparing clear, standardized, revision-controlled fire evacuation drawings tailored to demanding industrial environments.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Through our specialized <Link href="/services/cad/fire-evacuation/" className="font-semibold text-[var(--color-primary)] underline hover:opacity-80">Fire Evacuation Drawing Services</Link>, we support clients with:
+        </p>
+        <ul className="mt-4 space-y-2 text-sm text-[var(--color-muted)]">
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span>CAD-based fire evacuation drawing preparation and emergency exit layouts.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span>Egress route mapping, primary and alternative path design, and directional arrows.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span>Perspective-matched &quot;You Are Here&quot; drawing creation for specific mounting locations.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span>Symbol standardization and comprehensive legend development across industrial campuses.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span>Drawing conversion from scanned PDFs or paper blueprints to native CAD via <Link href="/services/cad/conversion/" className="text-[var(--color-primary)] underline hover:opacity-80">CAD Conversion Services</Link>.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+            <span>Drawing revision maintenance, layer standardization, and drawing register coordination.</span>
+          </li>
+        </ul>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          Our workflows emphasize technical discipline, visual clarity, and alignment with client drafting requirements, delivering reliable safety documentation for operations and compliance reviews.
+        </p>
+
+        {/* SECTION 12: Conclusion */}
+        <h2 className="mt-10 text-2xl font-semibold text-[var(--color-text)]">
+          Conclusion
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          In industrial facilities, an accurate, legible fire evacuation drawing is an essential component of life safety and emergency response preparedness. When alarms sound, plant personnel and emergency responders rely on these schematics to make swift, safe egress decisions. Outdated floor layouts, cluttered linework, ambiguous route arrows, and inverted orientations introduce critical confusion when seconds count.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          By applying clear visual hierarchies, primary and secondary egress paths, perspective-matched orientations, and disciplined revision control, industrial facilities can establish life-safety documentation that truly protects personnel. Because regulatory requirements, building codes, and safety standards vary across jurisdictions and facility occupancies, engineering teams must always coordinate their evacuation drawings with applicable local authorities and adopted codes.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+          To update your plant&apos;s emergency evacuation documentation or convert legacy floor plans into professional, revision-controlled CAD drawings, explore our <Link href="/services/cad/fire-evacuation/" className="font-semibold text-[var(--color-primary)] underline hover:opacity-80">Fire Evacuation Drawing Services</Link> or <Link href="/contact/" className="font-semibold text-[var(--color-primary)] underline hover:opacity-80">contact the engineering drafting team at Port AI Engineers</Link> today.
         </p>
       </>
     ),
