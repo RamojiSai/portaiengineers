@@ -154,27 +154,24 @@ export default function Header() {
   }, [isEngineeringServicesPage]);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-bg)_90%,transparent)] backdrop-blur">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 sm:px-10">
-        <Link href="/" className="flex items-center gap-3">
+    <header className="sticky top-0 z-40 w-full border-b border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-bg)_92%,transparent)] backdrop-blur-md">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <Link href="/" className="flex shrink-0 items-center gap-2.5 sm:gap-3">
           <Image
             src="/Logo.jpeg"
-            alt="Port AI Engineers Pvt. Ltd. Logo"
-            width={40}
-            height={40}
-            className="h-10 w-10 rounded-full object-cover"
+            alt="Port AI Engineers Logo"
+            width={38}
+            height={38}
+            className="h-9 w-9 rounded-full object-cover"
             priority
           />
-          <div className="flex flex-col leading-tight text-[var(--color-text)]">
-            <span className="text-base font-semibold">Port AI</span>
-            <span className="text-xs font-medium text-[var(--color-muted)]">
-              Engineers PVT. LTD
-            </span>
-          </div>
+          <span className="whitespace-nowrap text-base font-semibold tracking-tight text-[var(--color-text)] sm:text-lg">
+            Port AI Engineers
+          </span>
         </Link>
 
-        <div className="hidden items-center gap-6 md:flex">
-          <nav className="flex items-center gap-6 text-sm font-medium text-[var(--color-text)] lg:gap-8">
+        <div className="hidden items-center gap-5 md:flex xl:gap-8">
+          <nav className="flex items-center gap-4 text-sm font-medium text-[var(--color-text)] lg:gap-5 xl:gap-7">
             {navItems.map((item) => {
               const hasDropdown = Boolean(item.items && item.items.length > 0);
               const isServicesItem = item.label === "Services";
@@ -195,8 +192,8 @@ export default function Header() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className={`transition-colors duration-300 hover:text-[var(--color-primary)] ${
-                      isActive ? "text-[var(--color-primary)]" : ""
+                    className={`transition-colors duration-200 hover:text-[var(--color-primary)] ${
+                      isActive ? "font-semibold text-[var(--color-primary)]" : ""
                     }`}
                   >
                     {item.label}
@@ -208,13 +205,13 @@ export default function Header() {
                 <div key={item.label} className="group relative">
                   <Link
                     href={item.href}
-                    className={`flex items-center gap-1.5 transition-colors duration-300 hover:text-[var(--color-primary)] ${
-                      isActive ? "text-[var(--color-primary)]" : ""
+                    className={`flex items-center gap-1.5 transition-colors duration-200 hover:text-[var(--color-primary)] ${
+                      isActive ? "font-semibold text-[var(--color-primary)]" : ""
                     }`}
                   >
                     {item.label}
                     <span
-                      className={`transition-transform duration-300 group-hover:rotate-180 ${
+                      className={`transition-transform duration-200 group-hover:rotate-180 ${
                         isActive ? "rotate-180" : ""
                       }`}
                     >
@@ -232,9 +229,9 @@ export default function Header() {
                       </svg>
                     </span>
                   </Link>
-                  <div className="pointer-events-none absolute left-0 top-full z-30 pt-3 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
-                    <div className="w-60 translate-y-2 rounded-2xl bg-[color-mix(in_srgb,var(--color-bg)_85%,transparent)] p-4 text-sm text-[var(--color-text)] shadow-[0_16px_30px_var(--color-card-shadow)] backdrop-blur-lg transition-all duration-300 group-hover:translate-y-0">
-                      <div className="flex flex-col gap-2">
+                  <div className="pointer-events-none absolute left-0 top-full z-30 pt-2 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
+                    <div className="w-56 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-2 text-sm text-[var(--color-text)] shadow-md">
+                      <div className="flex flex-col gap-1">
                         {item.items!.map((entry) => {
                           const entryHash = entry.href.split("#")[1];
                           const entryBase = entry.href.split("#")[0];
@@ -251,10 +248,10 @@ export default function Header() {
                             <Link
                               key={entry.label}
                               href={entry.href}
-                              className={`rounded-lg px-3 py-2 transition-colors duration-300 hover:bg-[color-mix(in_srgb,var(--color-bg)_70%,transparent)] hover:text-[var(--color-primary)] ${
+                              className={`rounded-md px-3 py-2 transition-colors duration-150 hover:bg-[var(--color-surface-strong)] hover:text-[var(--color-primary)] ${
                                 isEntryActive
-                                  ? "bg-[color-mix(in_srgb,var(--color-bg)_70%,transparent)] text-[var(--color-primary)]"
-                                  : ""
+                                  ? "bg-[var(--color-surface-strong)] font-medium text-[var(--color-primary)]"
+                                  : "text-[var(--color-text)]"
                               }`}
                             >
                               {entry.label}
@@ -268,12 +265,12 @@ export default function Header() {
               );
             })}
           </nav>
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-2.5 xl:gap-3">
             <button
               type="button"
               onClick={toggleTheme}
               aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text)] transition-colors duration-200 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--color-border)] text-[var(--color-text)] transition-colors duration-200 hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-strong)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
             >
               {isDark ? (
                 <svg
@@ -315,13 +312,13 @@ export default function Header() {
               href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden items-center justify-center rounded-full border border-[var(--color-border)] px-3.5 py-2 text-xs font-semibold tracking-wider text-[var(--color-text)] transition-all duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] lg:inline-flex"
+              className="hidden items-center justify-center rounded-lg border border-[var(--color-border)] px-3.5 py-2 text-xs font-medium text-[var(--color-text)] transition-colors duration-200 hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-strong)] hover:text-[var(--color-primary)] sm:text-sm lg:inline-flex"
             >
               Schedule a Call
             </a>
             <Link
               href="/contact/"
-              className="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--color-on-primary)] shadow-sm transition-all duration-300 hover:opacity-95 hover:shadow-md"
+              className="inline-flex items-center justify-center rounded-lg bg-[var(--color-primary)] px-3.5 py-2 text-xs font-medium text-[var(--color-on-primary)] shadow-xs transition-colors duration-200 hover:bg-[var(--color-primary-hover)] sm:text-sm"
             >
               Request a Quote
             </Link>
@@ -333,7 +330,7 @@ export default function Header() {
             type="button"
             onClick={toggleTheme}
             aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text)] transition-colors duration-200 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--color-border)] text-[var(--color-text)] transition-colors duration-200 hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-strong)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
           >
             {isDark ? (
               <svg
@@ -377,7 +374,7 @@ export default function Header() {
             aria-label="Toggle menu"
             aria-expanded={isOpen}
             onClick={toggleMenu}
-            className="inline-flex items-center justify-center rounded-full border border-[var(--color-border)] p-2 text-[var(--color-text)] transition-colors duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+            className="inline-flex items-center justify-center rounded-lg border border-[var(--color-border)] p-2 text-[var(--color-text)] transition-colors duration-200 hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-strong)] hover:text-[var(--color-primary)]"
           >
             <svg
               className="h-5 w-5"
@@ -436,8 +433,8 @@ export default function Header() {
                       setIsOpen(false);
                       setActiveMobileMenu(null);
                     }}
-                    className={`block transition-colors duration-300 hover:text-[var(--color-primary)] ${
-                      isActive ? "text-[var(--color-primary)]" : ""
+                    className={`block transition-colors duration-200 hover:text-[var(--color-primary)] ${
+                      isActive ? "font-semibold text-[var(--color-primary)]" : ""
                     }`}
                   >
                     {item.label}
@@ -455,8 +452,8 @@ export default function Header() {
                       setIsOpen(false);
                       setActiveMobileMenu(null);
                     }}
-                    className={`flex-1 text-left transition-colors duration-300 hover:text-[var(--color-primary)] ${
-                      isActive ? "text-[var(--color-primary)]" : ""
+                    className={`flex-1 text-left transition-colors duration-200 hover:text-[var(--color-primary)] ${
+                      isActive ? "font-semibold text-[var(--color-primary)]" : ""
                     }`}
                   >
                     {item.label}
@@ -468,7 +465,7 @@ export default function Header() {
                     className="p-1 text-[var(--color-text)] transition-colors hover:text-[var(--color-primary)]"
                   >
                     <span
-                      className={`inline-block transition-transform duration-300 ${
+                      className={`inline-block transition-transform duration-200 ${
                         activeMobileMenu === item.label ? "rotate-180" : ""
                       }`}
                     >
@@ -515,9 +512,9 @@ export default function Header() {
                             setIsOpen(false);
                             setActiveMobileMenu(null);
                           }}
-                          className={`rounded-lg px-3 py-2 text-[var(--color-muted)] transition-colors duration-300 hover:bg-[var(--color-surface)] hover:text-[var(--color-primary)] ${
+                          className={`rounded-md px-3 py-2 text-[var(--color-muted)] transition-colors duration-150 hover:bg-[var(--color-surface-strong)] hover:text-[var(--color-primary)] ${
                             isEntryActive
-                              ? "bg-[var(--color-surface)] text-[var(--color-primary)]"
+                              ? "bg-[var(--color-surface-strong)] font-medium text-[var(--color-primary)]"
                               : ""
                           }`}
                         >
@@ -534,7 +531,7 @@ export default function Header() {
             <Link
               href="/contact/"
               onClick={() => setIsOpen(false)}
-              className="flex w-full items-center justify-center rounded-xl bg-[var(--color-primary)] px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[var(--color-on-primary)] shadow-sm transition-opacity hover:opacity-95"
+              className="flex w-full items-center justify-center rounded-lg bg-[var(--color-primary)] px-4 py-2.5 text-sm font-medium text-[var(--color-on-primary)] shadow-xs transition-colors hover:bg-[var(--color-primary-hover)]"
             >
               Request a Quote
             </Link>
@@ -543,7 +540,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="flex w-full items-center justify-center rounded-xl border border-[var(--color-border)] px-4 py-2.5 text-xs font-semibold tracking-wider text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+              className="flex w-full items-center justify-center rounded-lg border border-[var(--color-border)] px-4 py-2.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-strong)] hover:text-[var(--color-primary)]"
             >
               Schedule a Call
             </a>
