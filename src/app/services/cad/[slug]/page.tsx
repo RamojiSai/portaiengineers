@@ -27,6 +27,7 @@ type ServiceDetail = {
   deliverables: string[];
   outcomes: string[];
   relatedServices: RelatedService[];
+  relatedArticles?: RelatedService[];
 };
 
 const CAD_IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
@@ -53,6 +54,7 @@ const serviceDetails: ServiceDetail[] = [
     description: [
       "Port AI Engineers provides Process Flow Diagram (PFD) design and drafting services, preparing structured schematics that illustrate major equipment sequences, stream balances, and operating conditions across industrial systems.",
       "Our drafting specialists organize primary process flowpaths, fluid characteristics, and utility distribution networks to establish a dependable foundation for downstream P&ID development.",
+      "We support process consultants, EPC engineering teams, and industrial operators across India and the Gulf region, coordinating standard process documentation for projects in the UAE, Saudi Arabia, and Qatar.",
       "Our drafting team organizes main equipment sequences, fluid stream identifications, and core utility distribution networks with clarity.",
       "Each diagram incorporates standardized equipment tags, basic stream temperature and pressure annotations, and balanced flow indicators.",
       "Our team aligns process assumptions early to reduce rework and keep design reviews efficient across client engineering teams.",
@@ -80,6 +82,9 @@ const serviceDetails: ServiceDetail[] = [
       { title: "Process Engineering Services", href: "/services/engineering/process/" },
       { title: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
     ],
+    relatedArticles: [
+      { title: "PFD vs. P&ID: Key Differences in Plant Engineering", href: "/blogs/pfd-vs-pid/" },
+    ],
   },
   {
     slug: "pid",
@@ -93,6 +98,7 @@ const serviceDetails: ServiceDetail[] = [
     description: [
       "Port AI Engineers delivers comprehensive P&ID design and drafting services, developing detailed piping and instrumentation diagrams that clearly capture process control logic, line specifications, and safety systems for industrial facilities.",
       "Our engineering specialists handle complete P&ID development, conversion from legacy formats, and drawing reviews across mechanical, process, and instrumentation disciplines.",
+      "We support EPC contractors, engineering consultants, and industrial facility owners across India and the Gulf region, including outsourced drafting requirements in the UAE, Saudi Arabia, and Qatar.",
       "Our drafting specialists document pipeline sizes, valve types, instrumentation bubbles, inline components, and safety relief devices in full detail.",
       "By incorporating process control interlocks, utility connections, and boundary battery limits, our drawings serve as the authoritative coordination blueprint between mechanical, electrical, and automation engineers.",
       "Each sheet is structured for maintenance, operational clarity, and long-term facility asset management.",
@@ -119,6 +125,10 @@ const serviceDetails: ServiceDetail[] = [
       { title: "PFD Design & Drafting Services", href: "/services/cad/pfd/" },
       { title: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
       { title: "Instrumentation Engineering Services", href: "/services/engineering/instrumentation/" },
+    ],
+    relatedArticles: [
+      { title: "PFD vs. P&ID: Key Differences in Plant Engineering", href: "/blogs/pfd-vs-pid/" },
+      { title: "How to Convert PDF P&IDs into Editable CAD Drawings", href: "/blogs/pdf-pid-conversion/" },
     ],
   },
   {
@@ -173,6 +183,7 @@ const serviceDetails: ServiceDetail[] = [
     description: [
       "Port AI Engineers provides General Arrangement (GA) drawing services, producing coordinated equipment arrangement drawings, piping GA layouts, and structural spatial plans for industrial plants and process facilities.",
       "We coordinate equipment positioning, maintenance clearances, nozzle orientations, and operator transit corridors across civil, structural, and mechanical disciplines.",
+      "Our team supports plant operators, EPC contractors, and fabricators across India and the Gulf region, delivering coordinated GA drawing sets for projects in the UAE, Saudi Arabia, and Qatar.",
       "Our deliverables illustrate physical equipment placement, nozzle positions, structural foundations, maintenance drop areas, and operator transit corridors in plan and section views.",
       "By coordinating equipment centerlines with structural steel and piping headers, our layouts minimize spatial interferences across disciplines.",
       "Each layout is optimized for plant workflow, safety egress, crane access, and long-term equipment maintainability.",
@@ -200,6 +211,9 @@ const serviceDetails: ServiceDetail[] = [
       { title: "3D Piping Design Services", href: "/services/engineering/piping-3d/" },
       { title: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
       { title: "Piping Isometric Drawing Services", href: "/services/cad/isometric/" },
+    ],
+    relatedArticles: [
+      { title: "Anatomy of an Industrial General Arrangement (GA) Drawing", href: "/blogs/industrial-ga-drawing-anatomy/" },
     ],
   },
   {
@@ -240,6 +254,9 @@ const serviceDetails: ServiceDetail[] = [
       { title: "CAD Automation Services", href: "/services/cad/automation/" },
       { title: "General Arrangement Drawing Services", href: "/services/cad/general-arrangement/" },
       { title: "CAD Training Services", href: "/services/cad/training/" },
+    ],
+    relatedArticles: [
+      { title: "How to Convert PDF P&IDs into Editable CAD Drawings", href: "/blogs/pdf-pid-conversion/" },
     ],
   },
   {
@@ -333,6 +350,7 @@ const serviceDetails: ServiceDetail[] = [
     description: [
       "Port AI Engineers provides fire evacuation drawing services, developing compliant emergency evacuation plans, exit route layouts, and fire safety drawings for industrial plants and commercial facilities.",
       "Our CAD team maps primary and secondary emergency exit layouts, assembly areas, and emergency equipment locations to ensure audit readiness and workforce safety.",
+      "We support industrial plants, commercial complexes, and manufacturing facilities across India and the Gulf region, ensuring evacuation layouts meet statutory life-safety standards in the UAE, Saudi Arabia, and Qatar.",
       "Our drawings map primary and secondary escape routes, emergency assembly points, fire alarm pull stations, fire extinguishers, and hose reel positions.",
       "By incorporating architectural floor plans and industrial plant layouts, we ensure symbols and directional arrows are immediately legible in high-stress situations.",
       "Our documentation supports safety audits, regulatory compliance inspections, personnel training, and facility emergency readiness.",
@@ -358,6 +376,9 @@ const serviceDetails: ServiceDetail[] = [
     relatedServices: [
       { title: "General Arrangement Drawing Services", href: "/services/cad/general-arrangement/" },
       { title: "CAD Conversion Services", href: "/services/cad/conversion/" },
+    ],
+    relatedArticles: [
+      { title: "Industrial Fire Evacuation Drawing Standards: Egress Mapping & Symbols", href: "/blogs/fire-evacuation-drawing-standards/" },
     ],
   },
 ];
@@ -601,6 +622,37 @@ export default async function CadServiceDetailPage({
               </div>
             </div>
           </div>
+
+          {/* Related Technical Guides & Engineering Articles */}
+          {detail.relatedArticles && detail.relatedArticles.length > 0 && (
+            <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8">
+              <div className="space-y-4">
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
+                    Technical Documentation &amp; Insights
+                  </span>
+                  <h2 className="mt-1 text-xl font-semibold text-[var(--color-text)]">
+                    Technical Guides &amp; Engineering Articles
+                  </h2>
+                </div>
+                <p className="text-sm text-[var(--color-muted)]">
+                  Read in-depth technical guides, drafting standards, and engineering insights related to this discipline.
+                </p>
+                <div className="flex flex-wrap gap-3 pt-2">
+                  {detail.relatedArticles.map((article) => (
+                    <Link
+                      key={article.href}
+                      href={article.href}
+                      className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-2 text-xs font-semibold text-[var(--color-text)] transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+                    >
+                      <span>{article.title}</span>
+                      <span aria-hidden="true">&rarr;</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Next Steps CTA */}
           <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8">

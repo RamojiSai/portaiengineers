@@ -27,6 +27,7 @@ type ServiceDetail = {
   deliverables: string[];
   outcomes: string[];
   relatedServices: RelatedService[];
+  relatedArticles?: RelatedService[];
 };
 
 const ENGINEERING_IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
@@ -242,6 +243,9 @@ const serviceDetails: ServiceDetail[] = [
       { title: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
       { title: "Piping Isometric Drawing Services", href: "/services/cad/isometric/" },
     ],
+    relatedArticles: [
+      { title: "Piping Stress Analysis for Reliable Operation", href: "/blogs/piping-stress-analysis/" },
+    ],
   },
   {
     slug: "greenfield-projects",
@@ -282,6 +286,9 @@ const serviceDetails: ServiceDetail[] = [
       { title: "3D Piping Design Services", href: "/services/engineering/piping-3d/" },
       { title: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
       { title: "General Arrangement Drawing Services", href: "/services/cad/general-arrangement/" },
+    ],
+    relatedArticles: [
+      { title: "Greenfield Projects: Planning for Future Capacity", href: "/blogs/greenfield-projects/" },
     ],
   },
   {
@@ -376,6 +383,7 @@ const serviceDetails: ServiceDetail[] = [
     description: [
       "Port AI Engineers provides industrial plant layout design services, translating process flow requirements and complex engineering criteria into organized, efficient physical plant arrangements. We work with industrial operators, EPCs, and engineering teams to establish coherent spatial frameworks for process units, utility blocks, and auxiliary facilities.",
       "Our engineering team coordinates comprehensive plot plan development and site organization, evaluating overall land topography, battery limit boundaries, and prevailing wind conditions. We establish equipment spacing criteria, define primary utility routing corridors, and structure plant zoning to accommodate both immediate construction phases and long-term expansion requirements.",
+      "We support industrial project developers, EPCs, and plant engineering consultants across India and the Gulf region, developing comprehensive layout and plot planning solutions for facilities in the UAE, Saudi Arabia, and Qatar.",
       "We focus on equipment arrangement and accessibility, determining equipment centerlines, foundation footprints, and required maintenance clearance envelopes. By planning crane reach radiuses, laydown zones, nozzle orientations, and operator transit corridors early in the layout phase, we ensure equipment can be safely operated, inspected, and serviced throughout the plant lifecycle.",
       "Our layout process bridges process documentation with physical engineering reality, integrating PFD flowstreams and P&ID line specifications with civil structural framing and 3D piping routing. Working in close collaboration with piping stress analysts and structural designers, we ensure pipe racks, pump skids, and vessel connections align with mechanical load paths and thermal expansion envelopes.",
       "Safety, egress, and practical circulation remain central to our spatial coordination approach. We incorporate clear personnel walkways, vehicular roadways, emergency evacuation corridors, and designated fire-safety buffers across every operating unit, ensuring full alignment with industrial safety standards and local statutory requirements.",
@@ -404,6 +412,9 @@ const serviceDetails: ServiceDetail[] = [
       { title: "3D Piping Design Services", href: "/services/engineering/piping-3d/" },
       { title: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
       { title: "Greenfield Engineering Services", href: "/services/engineering/greenfield-projects/" },
+    ],
+    relatedArticles: [
+      { title: "Industrial Plot Plan Development & Site Zoning Principles", href: "/blogs/industrial-plot-plan-site-zoning/" },
     ],
   },
 ];
@@ -647,6 +658,37 @@ export default async function EngineeringServiceDetailPage({
               </div>
             </div>
           </div>
+
+          {/* Related Technical Guides & Engineering Articles */}
+          {detail.relatedArticles && detail.relatedArticles.length > 0 && (
+            <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8">
+              <div className="space-y-4">
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
+                    Technical Documentation &amp; Insights
+                  </span>
+                  <h2 className="mt-1 text-xl font-semibold text-[var(--color-text)]">
+                    Technical Guides &amp; Engineering Articles
+                  </h2>
+                </div>
+                <p className="text-sm text-[var(--color-muted)]">
+                  Read in-depth technical guides, engineering standards, and industry best practices related to this discipline.
+                </p>
+                <div className="flex flex-wrap gap-3 pt-2">
+                  {detail.relatedArticles.map((article) => (
+                    <Link
+                      key={article.href}
+                      href={article.href}
+                      className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-2 text-xs font-semibold text-[var(--color-text)] transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+                    >
+                      <span>{article.title}</span>
+                      <span aria-hidden="true">&rarr;</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Next Steps CTA */}
           <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8">
