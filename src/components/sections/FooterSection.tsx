@@ -42,16 +42,6 @@ const footerColumns: FooterColumn[] = [
     ],
   },
   {
-    title: "Features",
-    links: [
-      { label: "AI Engineering Tools", href: "/platform/overview/" },
-      { label: "Search + Data AI", href: "/platform/overview/" },
-      { label: "Security + Governance", href: "/platform/overview/" },
-      { label: "Development Tools", href: "/platform/overview/" },
-      { label: "Features", href: "/platform/features/" },
-    ],
-  },
-  {
     title: "Company",
     links: [
       { label: "About", href: "/#about" },
@@ -140,7 +130,7 @@ export default function FooterSection() {
     <footer className="w-full bg-[var(--color-footer-bg)] text-[var(--color-on-footer)]">
       <div className="border-t border-[color-mix(in_srgb,var(--color-on-footer)_10%,transparent)]" />
       <div className="mx-auto w-full max-w-6xl px-6 py-16 sm:px-10">
-        <div className="grid gap-10 lg:grid-cols-[repeat(5,minmax(0,1fr))_minmax(0,1.2fr)]">
+        <div className="grid gap-10 lg:grid-cols-[repeat(4,minmax(0,1fr))_minmax(0,1.2fr)]">
           {footerColumns.map((column) => (
             <div key={column.title} className="space-y-4">
               <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-on-footer-muted)]">

@@ -1,64 +1,39 @@
 import type { Metadata } from "next";
-import OverviewClient from "./OverviewClient";
-import {
-  JsonLd,
-  createWebPageSchema,
-  createBreadcrumbSchema,
-} from "../../../lib/schema";
 
 export const metadata: Metadata = {
-  title: "Platform Overview | Engineering Intelligence",
-  description:
-    "Explore Port AI Engineers' mission, vision, and core engineering delivery model, combining precision drafting, automation, and industrial systems design.",
+  title: "Redirecting...",
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
-    canonical: "https://portaiengineers.com/platform/overview/",
-  },
-  openGraph: {
-    title: "Platform Overview | Engineering Intelligence | Port AI Engineers",
-    description:
-      "Explore Port AI Engineers' mission, vision, and core engineering delivery model, combining precision drafting, automation, and industrial systems design.",
-    url: "https://portaiengineers.com/platform/overview/",
-    siteName: "Port AI Engineers",
-    images: [
-      {
-        url: "/Low-Carbon-Ammonia-image1.webp",
-        width: 1200,
-        height: 630,
-        alt: "Port AI Engineers - Platform Overview",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Platform Overview | Engineering Intelligence | Port AI Engineers",
-    description:
-      "Explore Port AI Engineers' mission, vision, and core engineering delivery model, combining precision drafting, automation, and industrial systems design.",
-    images: ["/Low-Carbon-Ammonia-image1.webp"],
+    canonical: "https://portaiengineers.com/services/",
   },
 };
 
-export default function OverviewPage() {
-  const webPageSchema = createWebPageSchema({
-    id: "https://portaiengineers.com/platform/overview/#webpage",
-    url: "https://portaiengineers.com/platform/overview/",
-    name: "Platform Overview | Engineering Intelligence",
-    description:
-      "Explore Port AI Engineers' mission, vision, and core engineering delivery model, combining precision drafting, automation, and industrial systems design.",
-  });
-
-  const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: "https://portaiengineers.com/" },
-    { name: "Platform", url: "https://portaiengineers.com/platform/" },
-    { name: "Overview", url: "https://portaiengineers.com/platform/overview/" },
-  ]);
+export default function LegacyPlatformOverviewRedirectPage() {
+  const target = "/services/";
 
   return (
-    <>
-      <JsonLd schema={webPageSchema} />
-      <JsonLd schema={breadcrumbSchema} />
-      <OverviewClient />
-    </>
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[var(--color-bg)] px-6 text-center text-[var(--color-text)]">
+      <div className="max-w-md space-y-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
+          Page Moved
+        </p>
+        <p className="text-base font-medium">
+          Redirecting to{" "}
+          <a href={target} className="text-[var(--color-primary)] underline">
+            {target}
+          </a>
+          ...
+        </p>
+        <meta httpEquiv="refresh" content={`0;url=${target}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.location.replace("${target}");`,
+          }}
+        />
+      </div>
+    </div>
   );
 }

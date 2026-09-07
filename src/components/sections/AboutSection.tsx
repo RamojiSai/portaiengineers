@@ -58,16 +58,10 @@ export default function AboutSection() {
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 sm:justify-start">
               <Link
-                href="/platform/overview/"
+                href="/services/"
                 className="inline-flex items-center justify-center rounded-full border border-[var(--color-primary)] px-6 py-2 text-sm font-semibold text-[var(--color-primary)] transition-colors duration-300 hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
               >
                 Learn More
-              </Link>
-              <Link
-                href="/platform/"
-                className="inline-flex items-center justify-center text-sm font-semibold text-[var(--color-primary)] transition-colors duration-300 hover:underline"
-              >
-                Explore Platform &rarr;
               </Link>
             </div>
           </div>
