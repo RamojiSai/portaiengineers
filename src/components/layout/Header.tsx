@@ -5,15 +5,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const navItems = [
-  {
-    label: "Company",
-    href: "/#about",
-    items: [
-      { label: "About Us", href: "/#about" },
-      { label: "Contact Us", href: "/contact/" },
-    ],
-  },
+type NavEntry = {
+  label: string;
+  href: string;
+};
+
+type NavItem = {
+  label: string;
+  href: string;
+  items?: NavEntry[];
+};
+
+const navItems: NavItem[] = [
   {
     label: "Services",
     href: "/services/",
@@ -26,22 +29,34 @@ const navItems = [
     ],
   },
   {
-    label: "Blogs",
+    label: "Industries",
+    href: "/#industries",
+  },
+  {
+    label: "About",
+    href: "/#about",
+  },
+  {
+    label: "Resources",
     href: "/blogs/",
     items: [
-      { label: "All Blogs", href: "/blogs/" },
-      { label: "Inside Port AI Engineers", href: "/blogs/all/" },
-      { label: "Engineering Blogs", href: "/blogs/engineers-blog/" },
+      { label: "All Resources", href: "/blogs/" },
+      { label: "Engineering Insights", href: "/blogs/engineers-blog/" },
+      { label: "Company Updates", href: "/blogs/all/" },
     ],
   },
   {
     label: "Certifications",
-    href: "/blogs/",
+    href: "/blogs/iso-9001-2015/",
     items: [
-      { label: "ISO Certified", href: "/blogs/iso-9001-2015/" },
-      { label: "Startup INDIA Certified", href: "/blogs/startup-certified/" },
+      { label: "ISO 9001:2015 Certified", href: "/blogs/iso-9001-2015/" },
+      { label: "Startup India Certified", href: "/blogs/startup-certified/" },
     ],
-  }
+  },
+  {
+    label: "Contact",
+    href: "/contact/",
+  },
 ];
 
 export default function Header() {
@@ -123,24 +138,49 @@ export default function Header() {
         </Link>
 
         <div className="hidden items-center gap-6 md:flex">
-          <nav className="flex items-center gap-8 text-sm font-medium text-[var(--color-text)]">
+          <nav className="flex items-center gap-6 text-sm font-medium text-[var(--color-text)] lg:gap-8">
             {navItems.map((item) => {
+              const hasDropdown = Boolean(item.items && item.items.length > 0);
               const isServicesItem = item.label === "Services";
               const isActive = isServicesItem
                 ? pathname.startsWith("/services")
-                : item.items.some((entry) => pathname.startsWith(entry.href));
+                : hasDropdown
+                  ? item.items!.some((entry) =>
+                      entry.href === "/blogs/"
+                        ? pathname === "/blogs" || pathname === "/blogs/"
+                        : pathname.startsWith(entry.href)
+                    )
+                  : item.href.startsWith("/#")
+                    ? false
+                    : pathname.startsWith(item.href);
+
+              if (!hasDropdown) {
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className={`transition-colors duration-300 hover:text-[var(--color-primary)] ${
+                      isActive ? "text-[var(--color-primary)]" : ""
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
 
               return (
                 <div key={item.label} className="group relative">
                   <Link
                     href={item.href}
-                    className={`flex items-center gap-2 transition-colors duration-300 hover:text-[var(--color-primary)] ${isActive ? "text-[var(--color-primary)]" : ""
-                      }`}
+                    className={`flex items-center gap-1.5 transition-colors duration-300 hover:text-[var(--color-primary)] ${
+                      isActive ? "text-[var(--color-primary)]" : ""
+                    }`}
                   >
                     {item.label}
                     <span
-                      className={`transition-transform duration-300 group-hover:rotate-180 ${isActive ? "rotate-180" : ""
-                        }`}
+                      className={`transition-transform duration-300 group-hover:rotate-180 ${
+                        isActive ? "rotate-180" : ""
+                      }`}
                     >
                       <svg
                         className="h-3.5 w-3.5"
@@ -159,7 +199,7 @@ export default function Header() {
                   <div className="pointer-events-none absolute left-0 top-full z-30 pt-3 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
                     <div className="w-60 translate-y-2 rounded-2xl bg-[color-mix(in_srgb,var(--color-bg)_85%,transparent)] p-4 text-sm text-[var(--color-text)] shadow-[0_16px_30px_var(--color-card-shadow)] backdrop-blur-lg transition-all duration-300 group-hover:translate-y-0">
                       <div className="flex flex-col gap-2">
-                        {item.items.map((entry) => {
+                        {item.items!.map((entry) => {
                           const entryHash = entry.href.split("#")[1];
                           const entryBase = entry.href.split("#")[0];
 
@@ -167,16 +207,19 @@ export default function Header() {
                             ? isEngineeringServicesPage
                               ? (activeSection ?? "engineering-flow") === entryHash
                               : pathname.startsWith(entryBase)
-                            : pathname.startsWith(entryBase);
+                            : entry.href === "/blogs/"
+                              ? pathname === "/blogs" || pathname === "/blogs/"
+                              : pathname.startsWith(entryBase);
 
                           return (
                             <Link
                               key={entry.label}
                               href={entry.href}
-                              className={`rounded-lg px-3 py-2 transition-colors duration-300 hover:bg-[color-mix(in_srgb,var(--color-bg)_70%,transparent)] hover:text-[var(--color-primary)] ${isEntryActive
+                              className={`rounded-lg px-3 py-2 transition-colors duration-300 hover:bg-[color-mix(in_srgb,var(--color-bg)_70%,transparent)] hover:text-[var(--color-primary)] ${
+                                isEntryActive
                                   ? "bg-[color-mix(in_srgb,var(--color-bg)_70%,transparent)] text-[var(--color-primary)]"
                                   : ""
-                                }`}
+                              }`}
                             >
                               {entry.label}
                             </Link>
@@ -189,14 +232,22 @@ export default function Header() {
               );
             })}
           </nav>
-          <a
-            href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--color-on-primary)] shadow-sm transition-all duration-300 hover:opacity-95 hover:shadow-md"
-          >
-            Schedule Demo
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden items-center justify-center rounded-full border border-[var(--color-border)] px-3.5 py-2 text-xs font-semibold tracking-wider text-[var(--color-text)] transition-all duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] lg:inline-flex"
+            >
+              Schedule a Call
+            </a>
+            <Link
+              href="/contact/"
+              className="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--color-on-primary)] shadow-sm transition-all duration-300 hover:opacity-95 hover:shadow-md"
+            >
+              Request a Quote
+            </Link>
+          </div>
         </div>
 
         <button
@@ -237,12 +288,40 @@ export default function Header() {
           isOpen ? "max-h-[80vh] overflow-y-auto opacity-100" : "max-h-0 overflow-hidden opacity-0"
         }`}
       >
-        <nav className="flex flex-col gap-4 px-6 py-4 text-sm font-medium text-[var(--color-text)]">
+        <nav className="flex flex-col gap-3 px-6 py-4 text-sm font-medium text-[var(--color-text)]">
           {navItems.map((item) => {
+            const hasDropdown = Boolean(item.items && item.items.length > 0);
             const isServicesItem = item.label === "Services";
             const isActive = isServicesItem
               ? pathname.startsWith("/services")
-              : item.items.some((entry) => pathname.startsWith(entry.href));
+              : hasDropdown
+                ? item.items!.some((entry) =>
+                    entry.href === "/blogs/"
+                      ? pathname === "/blogs" || pathname === "/blogs/"
+                      : pathname.startsWith(entry.href)
+                  )
+                : item.href.startsWith("/#")
+                  ? false
+                  : pathname.startsWith(item.href);
+
+            if (!hasDropdown) {
+              return (
+                <div key={item.label} className="rounded-lg px-2 py-2">
+                  <Link
+                    href={item.href}
+                    onClick={() => {
+                      setIsOpen(false);
+                      setActiveMobileMenu(null);
+                    }}
+                    className={`block transition-colors duration-300 hover:text-[var(--color-primary)] ${
+                      isActive ? "text-[var(--color-primary)]" : ""
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </div>
+              );
+            }
 
             return (
               <div key={item.label} className="flex flex-col gap-2">
@@ -253,8 +332,9 @@ export default function Header() {
                       setIsOpen(false);
                       setActiveMobileMenu(null);
                     }}
-                    className={`flex-1 text-left transition-colors duration-300 hover:text-[var(--color-primary)] ${isActive ? "text-[var(--color-primary)]" : ""
-                      }`}
+                    className={`flex-1 text-left transition-colors duration-300 hover:text-[var(--color-primary)] ${
+                      isActive ? "text-[var(--color-primary)]" : ""
+                    }`}
                   >
                     {item.label}
                   </Link>
@@ -265,8 +345,9 @@ export default function Header() {
                     className="p-1 text-[var(--color-text)] transition-colors hover:text-[var(--color-primary)]"
                   >
                     <span
-                      className={`inline-block transition-transform duration-300 ${activeMobileMenu === item.label ? "rotate-180" : ""
-                        }`}
+                      className={`inline-block transition-transform duration-300 ${
+                        activeMobileMenu === item.label ? "rotate-180" : ""
+                      }`}
                     >
                       <svg
                         className="h-4 w-4"
@@ -284,13 +365,14 @@ export default function Header() {
                   </button>
                 </div>
                 <div
-                  className={`grid overflow-hidden transition-all duration-300 ${activeMobileMenu === item.label
+                  className={`grid overflow-hidden transition-all duration-300 ${
+                    activeMobileMenu === item.label
                       ? "grid-rows-[1fr] opacity-100"
                       : "grid-rows-[0fr] opacity-0"
-                    }`}
+                  }`}
                 >
                   <div className="flex min-h-0 flex-col gap-1 pl-2">
-                    {item.items.map((entry) => {
+                    {item.items!.map((entry) => {
                       const entryHash = entry.href.split("#")[1];
                       const entryBase = entry.href.split("#")[0];
 
@@ -298,7 +380,9 @@ export default function Header() {
                         ? isEngineeringServicesPage
                           ? (activeSection ?? "engineering-flow") === entryHash
                           : pathname.startsWith(entryBase)
-                        : pathname.startsWith(entryBase);
+                        : entry.href === "/blogs/"
+                          ? pathname === "/blogs" || pathname === "/blogs/"
+                          : pathname.startsWith(entryBase);
 
                       return (
                         <Link
@@ -308,10 +392,11 @@ export default function Header() {
                             setIsOpen(false);
                             setActiveMobileMenu(null);
                           }}
-                          className={`rounded-lg px-3 py-2 text-[var(--color-muted)] transition-colors duration-300 hover:bg-[var(--color-surface)] hover:text-[var(--color-primary)] ${isEntryActive
-                            ? "bg-[var(--color-surface)] text-[var(--color-primary)]"
+                          className={`rounded-lg px-3 py-2 text-[var(--color-muted)] transition-colors duration-300 hover:bg-[var(--color-surface)] hover:text-[var(--color-primary)] ${
+                            isEntryActive
+                              ? "bg-[var(--color-surface)] text-[var(--color-primary)]"
                               : ""
-                            }`}
+                          }`}
                         >
                           {entry.label}
                         </Link>
@@ -322,15 +407,22 @@ export default function Header() {
               </div>
             );
           })}
-          <div className="mt-2 border-t border-[var(--color-border)] pt-3">
+          <div className="mt-2 flex flex-col gap-2 border-t border-[var(--color-border)] pt-3">
+            <Link
+              href="/contact/"
+              onClick={() => setIsOpen(false)}
+              className="flex w-full items-center justify-center rounded-xl bg-[var(--color-primary)] px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[var(--color-on-primary)] shadow-sm transition-opacity hover:opacity-95"
+            >
+              Request a Quote
+            </Link>
             <a
               href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="flex w-full items-center justify-center rounded-xl bg-[var(--color-primary)] px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[var(--color-on-primary)] shadow-sm transition-opacity hover:opacity-95"
+              className="flex w-full items-center justify-center rounded-xl border border-[var(--color-border)] px-4 py-2.5 text-xs font-semibold tracking-wider text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
             >
-              Schedule Demo
+              Schedule a Call
             </a>
           </div>
         </nav>

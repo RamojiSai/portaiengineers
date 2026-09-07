@@ -4,7 +4,7 @@ import Link from "next/link";
 type FooterLink = {
   label: string;
   href: string;
-  isSpecial?: boolean;
+  isExternal?: boolean;
 };
 
 type FooterColumn = {
@@ -14,48 +14,46 @@ type FooterColumn = {
 
 const footerColumns: FooterColumn[] = [
   {
-    title: "Plant Engineering Services",
+    title: "Services",
     links: [
-      { label: "Engineering Services", href: "/services/engineering/" },
-      { label: "Process Engineering", href: "/services/engineering/process/" },
-      { label: "3D Piping Engineering", href: "/services/engineering/piping-3d/" },
-      { label: "Piping Engineering Services", href: "/services/engineering/piping-engineering/" },
-      { label: "Instrumentation & Control", href: "/services/engineering/instrumentation/" },
-      { label: "Piping Stress Analysis", href: "/services/engineering/piping-stress-analysis/" },
-      { label: "Greenfield Projects", href: "/services/engineering/greenfield-projects/" },
-      { label: "Brownfield Projects", href: "/services/engineering/brownfield-projects/" },
-      { label: "Power Plants", href: "/services/engineering/power-plants/" },
-      { label: "Industrial Plant Layout", href: "/services/engineering/plant-layout/" },
-    ],
-  },
-  {
-    title: "Cad Services",
-    links: [
-      { label: "Process Flow Diagram (PFD)", href: "/services/cad/pfd/" },
-      { label: "P&ID Drawings", href: "/services/cad/pid/" },
-      { label: "Isometric Drawings", href: "/services/cad/isometric/" },
-      { label: "General Arrangement", href: "/services/cad/general-arrangement/" },
-      { label: "CAD Conversion", href: "/services/cad/conversion/" },
-      { label: "CAD Training", href: "/services/cad/training/" },
-      { label: "CAD Automation", href: "/services/cad/automation/" },
+      { label: "P&ID Design & Drafting", href: "/services/cad/pid/" },
+      { label: "PFD Design & Drafting", href: "/services/cad/pfd/" },
+      { label: "Plant Layout", href: "/services/engineering/plant-layout/" },
+      { label: "General Arrangement Drawings", href: "/services/cad/general-arrangement/" },
       { label: "Fire Evacuation Drawings", href: "/services/cad/fire-evacuation/" },
+      { label: "Piping Engineering", href: "/services/engineering/piping-engineering/" },
+      { label: "3D Piping Design", href: "/services/engineering/piping-3d/" },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "About", href: "/#about" },
-      { label: "Leadership", href: "/#about" },
-      { label: "Partners", href: "/#about" },
-      { label: "Contact Us", href: "/contact/" },
+      { label: "Industries", href: "/#industries" },
+      { label: "Certifications", href: "/blogs/iso-9001-2015/" },
+      { label: "Resources", href: "/blogs/" },
     ],
   },
-
   {
-    title: "Certifications",
+    title: "Contact",
     links: [
-      { label: "ISO  9001 : 2015", href: "/blogs/iso-9001-2015/" },
-      { label: "Startup India Certified", href: "/blogs/startup-certified/" },
+      {
+        label: "Hyderabad, Telangana, India",
+        href: "https://maps.app.goo.gl/1m6XzmsweawyRhDh8",
+        isExternal: true,
+      },
+      {
+        label: "contact@portaiengineers.com",
+        href: "mailto:contact@portaiengineers.com",
+        isExternal: true,
+      },
+      { label: "Contact Us", href: "/contact/" },
+      { label: "Request a Quote", href: "/contact/" },
+      {
+        label: "Schedule a Call",
+        href: "https://calendar.app.google/4EDU6NFyWQLtrG91A",
+        isExternal: true,
+      },
     ],
   },
 ];
@@ -130,29 +128,38 @@ export default function FooterSection() {
     <footer className="w-full bg-[var(--color-footer-bg)] text-[var(--color-on-footer)]">
       <div className="border-t border-[color-mix(in_srgb,var(--color-on-footer)_10%,transparent)]" />
       <div className="mx-auto w-full max-w-6xl px-6 py-16 sm:px-10">
-        <div className="grid gap-10 lg:grid-cols-[repeat(4,minmax(0,1fr))_minmax(0,1.2fr)]">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[repeat(3,minmax(0,1fr))_minmax(0,1.3fr)]">
           {footerColumns.map((column) => (
             <div key={column.title} className="space-y-4">
               <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-on-footer-muted)]">
                 {column.title}
               </h3>
               <div className="flex flex-col gap-2 text-sm text-[var(--color-on-footer)]">
-                {column.links.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    className="transition-colors duration-300 hover:text-[var(--color-primary)]"
-                  >
-                    {link.isSpecial ? (
-                      <span className="flex items-center gap-2">
+                {column.links.map((link) => {
+                  if (link.isExternal) {
+                    return (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        target={link.href.startsWith("http") ? "_blank" : undefined}
+                        rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                        className="transition-colors duration-300 hover:text-[var(--color-primary)]"
+                      >
                         {link.label}
-                        <span className="h-2 w-2 rounded-full bg-[var(--color-primary)] shadow-[0_0_8px_rgba(15,118,110,0.8)]" />
-                      </span>
-                    ) : (
-                      link.label
-                    )}
-                  </Link>
-                ))}
+                      </a>
+                    );
+                  }
+
+                  return (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className="transition-colors duration-300 hover:text-[var(--color-primary)]"
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           ))}
@@ -177,17 +184,28 @@ export default function FooterSection() {
               <p className="text-sm leading-relaxed text-[var(--color-on-footer-muted)]">
                 Get answers and a customized quote for your projects
               </p>
-              <a
-                href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex w-full items-center justify-between rounded-xl border border-[color-mix(in_srgb,var(--color-on-footer)_55%,transparent)] bg-transparent px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.26em] text-[var(--color-on-footer)] transition-all duration-300 hover:border-[var(--color-primary)] hover:shadow-[0_0_18px_rgba(15,118,110,0.35)]"
-              >
-                SCHEDULE DEMO
-                <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  →
-                </span>
-              </a>
+              <div className="flex flex-col gap-2.5 pt-1">
+                <Link
+                  href="/contact/"
+                  className="group inline-flex w-full items-center justify-between rounded-xl bg-[var(--color-primary)] px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[var(--color-on-primary)] transition-opacity hover:opacity-95"
+                >
+                  Request a Quote
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </Link>
+                <a
+                  href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex w-full items-center justify-between rounded-xl border border-[color-mix(in_srgb,var(--color-on-footer)_55%,transparent)] bg-transparent px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[var(--color-on-footer)] transition-all duration-300 hover:border-[var(--color-primary)] hover:shadow-[0_0_18px_rgba(15,118,110,0.35)]"
+                >
+                  Schedule a Call
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -209,8 +227,8 @@ export default function FooterSection() {
                     Engineers PVT. LTD
                   </span>
                 </div>
-                <p>
-                  Advanced Engineering Powered by AI
+                <p className="max-w-md text-xs leading-relaxed text-[var(--color-on-footer-muted)]">
+                  Port AI Engineers provides engineering design, drafting and CAD services for EPC and industrial projects.
                 </p>
               </div>
             </div>
