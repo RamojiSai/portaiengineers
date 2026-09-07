@@ -1,28 +1,56 @@
 @import "tailwindcss";
 @import "./themes.css";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  /* --background: #0e1b45; */
-  --background: #021526;
-  --foreground: #F7FAFC;
-  --color-primary: #4DA6FF;
-  --color-text: var(--foreground);
-  --color-bg: var(--background);
-  --color-surface: color-mix(in srgb, var(--background) 92%, var(--foreground) 8%);
-  --color-surface-strong: color-mix(in srgb, var(--background) 85%, var(--foreground) 15%);
-  --color-muted: color-mix(in srgb, var(--foreground) 60%, var(--background) 40%);
-  --color-muted-strong: color-mix(in srgb, var(--foreground) 75%, var(--background) 25%);
-  --color-border: color-mix(in srgb, var(--foreground) 15%, var(--background) 85%);
-  --color-border-strong: color-mix(in srgb, var(--foreground) 25%, var(--background) 75%);
-  --color-primary-soft: color-mix(in srgb, var(--color-primary) 14%, var(--background) 86%);
-  --color-primary-glow: color-mix(in srgb, var(--color-primary) 55%, transparent);
-  --color-on-primary: var(--background);
-  --color-hero-overlay: color-mix(in srgb, var(--foreground) 70%, transparent);
-  --color-on-hero: var(--background);
-  --color-card-shadow: color-mix(in srgb, var(--foreground) 18%, transparent);
-  --color-footer-bg: color-mix(in srgb, var(--foreground) 94%, var(--background) 6%);
-  --color-on-footer: var(--background);
-  --color-on-footer-muted: color-mix(in srgb, var(--color-on-footer) 70%, transparent);
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-surface-strong: #F1F5F9;
+  --color-text: #0F172A;
+  --color-muted: #475569;
+  --color-muted-strong: #334155;
+  --color-border: #E2E8F0;
+  --color-border-strong: #CBD5E1;
+  --color-primary: #0284C7;
+  --color-primary-hover: #0369A1;
+  --color-primary-soft: #F1F5F9;
+  --color-primary-glow: transparent;
+  --color-on-primary: #FFFFFF;
+  --color-accent-technical: #D97706;
+  --color-hero-overlay: rgba(15, 23, 42, 0.55);
+  --color-on-hero: #FFFFFF;
+  --color-card-shadow: rgba(15, 23, 42, 0.06);
+  --color-footer-bg: #0F172A;
+  --color-on-footer: #F8FAFC;
+  --color-on-footer-muted: #94A3B8;
+}
+
+html.dark {
+  --background: #0F172A;
+  --foreground: #F8FAFC;
+  --color-bg: #0F172A;
+  --color-surface: #1E293B;
+  --color-surface-strong: #334155;
+  --color-text: #F8FAFC;
+  --color-muted: #94A3B8;
+  --color-muted-strong: #CBD5E1;
+  --color-border: #334155;
+  --color-border-strong: #475569;
+  --color-primary: #38BDF8;
+  --color-primary-hover: #0284C7;
+  --color-primary-soft: rgba(56, 189, 248, 0.12);
+  --color-primary-glow: transparent;
+  --color-on-primary: #0F172A;
+  --color-accent-technical: #F59E0B;
+  --color-hero-overlay: rgba(15, 23, 42, 0.75);
+  --color-on-hero: #F8FAFC;
+  --color-card-shadow: rgba(0, 0, 0, 0.35);
+  --color-footer-bg: #0B1120;
+  --color-on-footer: #F8FAFC;
+  --color-on-footer-muted: #94A3B8;
 }
 
 @theme inline {
@@ -30,19 +58,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --color-hero-overlay: color-mix(in srgb, var(--background) 70%, transparent);
-    --color-on-hero: var(--foreground);
-    --color-on-primary: var(--foreground);
-    --color-footer-bg: var(--background);
-    --color-on-footer: var(--foreground);
-    --color-on-footer-muted: color-mix(in srgb, var(--color-on-footer) 65%, transparent);
-  }
 }
 
 body {
@@ -91,50 +106,17 @@ html {
   animation: float 3s ease-in-out infinite;
 }
 
-@keyframes hero-gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 .hero-gradient-text {
-  background-image: linear-gradient(
-    90deg,
-    #84c7ff 0%,
-    #4da6ff 25%,
-    #2b7bff 50%,
-    #241E92 70%,
-    #72e2ff 85%,
-    #4da6ff 100%
-  );
-  background-size: 240% 240%;
-  color: transparent;
-  animation: hero-gradient-shift 12s ease-in-out infinite;
-  -webkit-background-clip: text;
-  background-clip: text;
+  color: #ffffff;
 }
 
 .hero-subtext {
   color: #ffffff;
-  text-shadow: 0 2px 12px color-mix(in srgb, #0b2034 40%, transparent);
+  text-shadow: 0 2px 12px rgba(11, 32, 52, 0.4);
 }
 
 .hero-cta-gradient {
-  background-image: linear-gradient(
-    90deg,
-    #1f3ee8 0%,
-    #241E92 35%,
-    #2b7bff 65%,
-    #6fd3ff 100%
-  );
-  background-size: 220% 220%;
-  animation: hero-gradient-shift 10s ease-in-out infinite;
+  background-color: var(--color-primary);
 }
 
 @keyframes marquee-scroll {
@@ -162,12 +144,6 @@ html {
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
-    animation: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-gradient-text {
     animation: none;
   }
 }

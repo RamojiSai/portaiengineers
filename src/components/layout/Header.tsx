@@ -63,7 +63,43 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeMobileMenu, setActiveMobileMenu] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [isDark, setIsDark] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("theme");
+      if (stored === "dark") {
+        setIsDark(true);
+      } else if (stored === "light") {
+        setIsDark(false);
+      } else {
+        setIsDark(document.documentElement.classList.contains("dark"));
+      }
+    } catch {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const nextDark = !isDark;
+    setIsDark(nextDark);
+    try {
+      if (nextDark) {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      }
+    } catch {
+      if (nextDark) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    }
+  };
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
@@ -233,6 +269,48 @@ export default function Header() {
             })}
           </nav>
           <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text)] transition-colors duration-200 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
+            >
+              {isDark ? (
+                <svg
+                  className="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2" />
+                  <path d="M12 20v2" />
+                  <path d="m4.93 4.93 1.41 1.41" />
+                  <path d="m17.66 17.66 1.41 1.41" />
+                  <path d="M2 12h2" />
+                  <path d="M20 12h2" />
+                  <path d="m6.34 17.66-1.41 1.41" />
+                  <path d="m19.07 4.93-1.41 1.41" />
+                </svg>
+              ) : (
+                <svg
+                  className="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </svg>
+              )}
+            </button>
             <a
               href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
               target="_blank"
@@ -250,37 +328,82 @@ export default function Header() {
           </div>
         </div>
 
-        <button
-          type="button"
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-          onClick={toggleMenu}
-          className="inline-flex items-center justify-center rounded-full border border-[var(--color-border)] p-2 text-[var(--color-text)] transition-colors duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] md:hidden"
-        >
-          <svg
-            className="h-5 w-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text)] transition-colors duration-200 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
           >
-            {isOpen ? (
-              <>
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </>
+            {isDark ? (
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2" />
+                <path d="M12 20v2" />
+                <path d="m4.93 4.93 1.41 1.41" />
+                <path d="m17.66 17.66 1.41 1.41" />
+                <path d="M2 12h2" />
+                <path d="M20 12h2" />
+                <path d="m6.34 17.66-1.41 1.41" />
+                <path d="m19.07 4.93-1.41 1.41" />
+              </svg>
             ) : (
-              <>
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="18" x2="21" y2="18" />
-              </>
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg>
             )}
-          </svg>
-        </button>
+          </button>
+
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            onClick={toggleMenu}
+            className="inline-flex items-center justify-center rounded-full border border-[var(--color-border)] p-2 text-[var(--color-text)] transition-colors duration-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+          >
+            <svg
+              className="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              {isOpen ? (
+                <>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </>
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       <div
