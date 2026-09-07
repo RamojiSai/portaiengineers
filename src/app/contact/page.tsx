@@ -251,7 +251,7 @@ export default function ContactPage() {
                     Instant Booking
                   </span>
                   <h2 className="text-lg font-semibold text-[var(--color-text)]">
-                    Schedule a Demo / Meeting
+                    Schedule a Technical Call
                   </h2>
                 </div>
               </div>

@@ -177,7 +177,7 @@ export default function GetInTouchSection({ showForm = true }: GetInTouchSection
           <div className="mt-12 grid gap-8 lg:grid-cols-12 lg:gap-10">
             {/* Left Column: Direct Booking & Contact Info */}
             <div className="space-y-6 lg:col-span-5">
-              {/* Direct Demo / Appointment Card */}
+              {/* Direct Technical Call / Appointment Card */}
               <div className="rounded-3xl border border-[var(--color-primary)] bg-[color-mix(in_srgb,var(--color-primary)_8%,var(--color-surface))] p-6 shadow-[0_16px_40px_var(--color-card-shadow)]">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm">
@@ -202,7 +202,7 @@ export default function GetInTouchSection({ showForm = true }: GetInTouchSection
                       Instant Booking
                     </span>
                     <h3 className="text-lg font-semibold text-[var(--color-text)]">
-                      Schedule a Demo / Meeting
+                      Schedule a Technical Call
                     </h3>
                   </div>
                 </div>
@@ -307,17 +307,17 @@ export default function GetInTouchSection({ showForm = true }: GetInTouchSection
               ))}
             </div>
 
-            {/* Demo & Social Strip */}
+            {/* Technical Consultation & Appointment Strip */}
             <div className="flex flex-col gap-6 rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[0_16px_40px_var(--color-card-shadow)] sm:flex-row sm:items-center sm:justify-between sm:p-8">
               <div className="space-y-1">
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
                   Calendar Appointment
                 </span>
                 <h3 className="text-lg font-semibold text-[var(--color-text)] sm:text-xl">
-                  Schedule a direct demo with our engineers
+                  Schedule an Engineering Consultation
                 </h3>
                 <p className="text-sm text-[var(--color-muted)]">
-                  Select a date and time that suits you best for an in-depth technical consultation.
+                  Discuss your project requirements with our engineering team or submit your drawing package for review.
                 </p>
               </div>
               <div className="flex shrink-0 flex-wrap items-center gap-4">
@@ -327,7 +327,7 @@ export default function GetInTouchSection({ showForm = true }: GetInTouchSection
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-[var(--color-on-primary)] shadow-md transition-all duration-300 hover:opacity-95 hover:shadow-lg"
                 >
-                  <span>Schedule Demo</span>
+                  <span>Schedule a Call</span>
                   <span aria-hidden="true">&rarr;</span>
                 </a>
                 <Link

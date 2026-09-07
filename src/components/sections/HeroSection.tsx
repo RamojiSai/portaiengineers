@@ -122,7 +122,7 @@ export default function HeroSection() {
               rel="noopener noreferrer"
               className="hero-cta-gradient rounded-full border border-[#241E92] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
             >
-              Get a Demo
+              Schedule a Call
             </a>
             <Link
               href="#contact"
