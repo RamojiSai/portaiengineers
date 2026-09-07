@@ -61,7 +61,7 @@ export default function ProvenResultsSection() {
             Proven Impact
           </span>
           <h2 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
-            PROVEN IMPACT
+            Demonstrated Engineering Rigor &amp; QA
           </h2>
           <p className="text-sm text-[var(--color-muted)] sm:text-base">
             Real results across operations, engagement, and intelligence

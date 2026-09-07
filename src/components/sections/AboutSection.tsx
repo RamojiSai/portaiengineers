@@ -45,7 +45,7 @@ export default function AboutSection() {
             <div className="flex flex-wrap justify-center gap-3 sm:justify-start">
               {[
                 "Automation-first execution",
-                "Predictive design insights",
+                "Standards-compliant engineering checks",
                 "Enterprise-ready delivery",
               ].map((item) => (
                 <span
@@ -79,7 +79,7 @@ export default function AboutSection() {
                 {[
                   {
                     label: "Automation",
-                    status: "Core Platform",
+                    status: "Standardized CAD",
                     detail: "Standardized CAD workflows & custom tools",
                   },
                   {

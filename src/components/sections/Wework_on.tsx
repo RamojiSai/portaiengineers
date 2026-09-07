@@ -17,17 +17,17 @@ const allPlatforms = [...designPlatforms, ...stressAnalysisPlatforms];
 
 export function WorkPlatformsSection() {
   return (
-    <section className="py-20 bg-muted/30 overflow-hidden">
-      <div className="container-industrial">
+    <section className="py-20 bg-[var(--color-bg)] overflow-hidden">
+      <div className="mx-auto w-full max-w-6xl px-6 sm:px-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
+          <span className="inline-block px-4 py-1.5 bg-[color-mix(in_srgb,var(--color-primary)_10%,transparent)] text-[var(--color-primary)] text-xs font-semibold uppercase tracking-[0.2em] rounded-full mb-4">
             Our Expertise
           </span>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text)] mb-4">
             Work Platforms
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-[var(--color-muted)] max-w-2xl mx-auto text-sm sm:text-base">
             We leverage industry-leading software platforms to deliver precise engineering
             and design solutions for complex industrial projects.
           </p>
@@ -37,8 +37,8 @@ export function WorkPlatformsSection() {
       {/* Marquee Row */}
       <div className="relative w-full">
         {/* Fade edges */}
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-16 md:w-32 bg-gradient-to-r from-muted/30 to-transparent z-10" />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-32 bg-gradient-to-l from-muted/30 to-transparent z-10" />
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-16 md:w-32 bg-gradient-to-r from-[var(--color-bg)] to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-32 bg-gradient-to-l from-[var(--color-bg)] to-transparent z-10" />
 
         <div className="flex overflow-hidden">
           <div className="flex shrink-0 animate-marquee gap-6 pr-6">
@@ -55,10 +55,10 @@ export function WorkPlatformsSection() {
         </div>
       </div>
 
-      <div className="container-industrial">
+      <div className="mx-auto w-full max-w-6xl px-6 sm:px-10">
         {/* Additional Info */}
         <div className="mt-16 text-center">
-          <p className="text-muted-foreground text-sm max-w-3xl mx-auto">
+          <p className="text-[var(--color-muted)] text-sm max-w-3xl mx-auto">
             Our engineering team is proficient in all major industry-standard platforms,
             ensuring seamless integration with your existing workflows and delivering
             outputs in your preferred format.
@@ -87,7 +87,7 @@ function PlatformCard({
 }) {
   return (
     <div
-      className="group bg-card rounded-xl p-6 shadow-soft hover:shadow-elevated transition-all duration-300 flex flex-col items-center justify-center min-h-[180px] w-[180px] border border-border/50 hover:border-accent/30"
+      className="group bg-[var(--color-surface)] rounded-2xl p-6 shadow-[0_12px_30px_var(--color-card-shadow)] hover:shadow-[0_20px_40px_var(--color-card-shadow)] transition-all duration-300 flex flex-col items-center justify-center min-h-[180px] w-[180px] border border-[var(--color-border)] hover:border-[var(--color-primary)]"
     >
       {platform.image ? (
         <div className="flex-1 flex items-center justify-center w-full mb-3 px-2 h-[70px]">
@@ -102,11 +102,11 @@ function PlatformCard({
           />
         </div>
       ) : (
-        <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform duration-300">
-          <span className="text-2xl font-bold text-primary-foreground">{platform.text}</span>
+        <div className="w-20 h-20 rounded-xl bg-[var(--color-primary)] flex items-center justify-center mb-3 group-hover:scale-105 transition-transform duration-300">
+          <span className="text-2xl font-bold text-[var(--color-on-primary)]">{platform.text}</span>
         </div>
       )}
-      <span className="text-sm font-medium text-foreground/80 text-center line-clamp-2">
+      <span className="text-sm font-medium text-[var(--color-text)] text-center line-clamp-2">
         {platform.name}
       </span>
     </div>

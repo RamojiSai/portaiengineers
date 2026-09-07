@@ -187,7 +187,7 @@ export default function FooterSection() {
               <div className="flex flex-col gap-2.5 pt-1">
                 <Link
                   href="/contact/"
-                  className="group inline-flex w-full items-center justify-between rounded-xl bg-[var(--color-primary)] px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[var(--color-on-primary)] transition-opacity hover:opacity-95"
+                  className="group inline-flex w-full items-center justify-between rounded-xl bg-[var(--color-primary)] px-4 py-2.5 text-xs font-semibold text-[var(--color-on-primary)] transition-opacity hover:opacity-95"
                 >
                   Request a Quote
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -198,7 +198,7 @@ export default function FooterSection() {
                   href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex w-full items-center justify-between rounded-xl border border-[color-mix(in_srgb,var(--color-on-footer)_55%,transparent)] bg-transparent px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[var(--color-on-footer)] transition-all duration-300 hover:border-[var(--color-primary)] hover:shadow-[0_0_18px_rgba(15,118,110,0.35)]"
+                  className="group inline-flex w-full items-center justify-between rounded-xl border border-[color-mix(in_srgb,var(--color-on-footer)_55%,transparent)] bg-transparent px-4 py-2.5 text-xs font-semibold text-[var(--color-on-footer)] transition-colors duration-300 hover:border-[var(--color-primary)] hover:bg-[color-mix(in_srgb,var(--color-on-footer)_8%,transparent)]"
                 >
                   Schedule a Call
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -215,16 +215,15 @@ export default function FooterSection() {
             <div className="flex items-center gap-4">
               <Image
                 src="/Logo.jpeg"
-                alt="Port AI logo"
+                alt="Port AI Engineers logo"
                 width={48}
                 height={48}
                 className="h-12 w-12 rounded-full object-cover"
               />
               <div className="space-y-1 text-sm text-[var(--color-on-footer-muted)]">
-                <div className="flex flex-col leading-tight text-[var(--color-on-footer)]">
-                  <span className="text-base font-semibold">Port AI</span>
-                  <span className="text-xs font-medium text-[var(--color-on-footer-muted)]">
-                    Engineers PVT. LTD
+                <div className="leading-tight text-[var(--color-on-footer)]">
+                  <span className="text-base font-semibold tracking-tight text-[var(--color-on-footer)]">
+                    Port AI Engineers
                   </span>
                 </div>
                 <p className="max-w-md text-xs leading-relaxed text-[var(--color-on-footer-muted)]">
@@ -269,7 +268,7 @@ export default function FooterSection() {
         <div className="mt-8 border-t border-[color-mix(in_srgb,var(--color-on-footer)_10%,transparent)] pt-6">
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-xs text-[var(--color-on-footer-muted)]">
-              © 2026 Port AI. All rights reserved.
+              © 2026 Port AI Engineers Private Limited. All rights reserved.
             </p>
             <Link
               href="/blogs/iso-9001-2015/"
