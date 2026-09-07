@@ -5,26 +5,46 @@
 
 .startup-page {
   --navy: #0B1F3A;
-  --page-bg: #071326;
-  --card-bg: #0E265C;
+  --page-bg: var(--color-bg);
+  --card-bg: var(--color-surface);
   --blue: #0b2d5a;
-  --sky: #38BDF8;
+  --sky: var(--color-primary);
   --teal: #0FA3B1;
-  --gold: #D9A441;
+  --gold: #D97706;
   --white: #FFFFFF;
-  --text: #CBD5E1;
-  --text-bright: #F1F5F9;
-  --muted: #94A3B8;
-  --light-bg: #0D244D;
-  --border: rgba(255, 255, 255, 0.12);
-  --border-card: rgba(255, 255, 255, 0.15);
-  --tag-bg: rgba(56, 189, 248, 0.15);
-  --tag-text: #38BDF8;
+  --text: var(--color-muted);
+  --text-bright: var(--color-text);
+  --muted: var(--color-muted);
+  --light-bg: var(--color-surface-strong);
+  --border: var(--color-border);
+  --border-card: var(--color-border);
+  --tag-bg: var(--color-primary-soft);
+  --tag-text: var(--color-primary);
+  --card-shadow: var(--color-card-shadow);
 
   font-family: "DM Sans", sans-serif;
   color: var(--text);
   background: var(--page-bg);
   line-height: 1.75;
+}
+
+html.dark .startup-page {
+  --navy: #0B1F3A;
+  --page-bg: var(--color-bg);
+  --card-bg: var(--color-surface);
+  --blue: #0b2d5a;
+  --sky: #38BDF8;
+  --teal: #0FA3B1;
+  --gold: #F59E0B;
+  --text: var(--color-muted);
+  --text-bright: var(--color-text);
+  --muted: var(--color-muted);
+  --light-bg: var(--color-surface-strong);
+  --border: var(--color-border);
+  --border-card: var(--color-border);
+  --tag-bg: rgba(56, 189, 248, 0.15);
+  --tag-text: #38BDF8;
+  --card-shadow: rgba(0, 0, 0, 0.35);
 }
 
 .startup-hero {
@@ -118,9 +138,9 @@
 .cert-card-inner { display: flex; gap: 20px; padding: 20px; align-items: center; }
 .cert-left { flex: 0 0 360px; display: flex; justify-content: center; }
 .cert-right { flex: 1 1 340px; color: var(--text); }
-.cert-right h3 { font-family: "Playfair Display", serif; font-size: 1.25rem; margin-bottom: 10px; color: var(--white); }
-.cert-details { display: grid; gap: 8px; font-size: 14px; color: #CBD5E1; }
-.cert-details strong { color: var(--white); }
+.cert-right h3 { font-family: "Playfair Display", serif; font-size: 1.25rem; margin-bottom: 10px; color: var(--text-bright); }
+.cert-details { display: grid; gap: 8px; font-size: 14px; color: var(--muted); }
+.cert-details strong { color: var(--text-bright); }
 .cert-image-wrap { position: relative; display: inline-block; border-radius: 10px; overflow: hidden; }
 .cert-image-wrap img { display: block; width: 320px; max-width: 100%; height: auto; border-radius: 8px; transition: transform 0.45s ease, box-shadow 0.25s ease; }
 .cert-image-wrap:hover img { transform: scale(1.04); }
@@ -148,7 +168,7 @@
 
 .startup-lead {
   font-size: 1.1rem;
-  color: var(--text-bright);
+  color: var(--text);
   line-height: 1.8;
   margin-bottom: 44px;
   padding: 24px 28px;
@@ -160,14 +180,14 @@
   border-bottom: 1px solid var(--border);
 }
 .startup-lead strong {
-  color: var(--white);
+  color: var(--text-bright);
 }
 
 .startup-body h2 {
   font-family: "Playfair Display", serif;
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-bright);
   margin-bottom: 16px;
   margin-top: 52px;
 }
@@ -181,7 +201,7 @@
 .startup-body p {
   margin-bottom: 18px;
   font-size: 1rem;
-  color: #CBD5E1;
+  color: var(--text);
   line-height: 1.75;
 }
 
@@ -197,22 +217,22 @@
   border-radius: 14px;
   padding: 18px 16px;
   text-align: left;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  box-shadow: 0 4px 16px var(--card-shadow);
 }
 .startup-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.25);
-  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 8px 24px var(--card-shadow);
+  border-color: var(--sky);
 }
 .startup-card strong {
-  color: var(--white);
+  color: var(--text-bright);
   display: block;
   font-size: 1rem;
   margin-bottom: 6px;
 }
 .startup-card p {
-  color: #94A3B8;
+  color: var(--muted);
   font-size: 0.9rem;
   margin: 0;
   line-height: 1.6;
@@ -238,12 +258,12 @@
 }
 
 .startup-highlight {
-  background: linear-gradient(135deg, rgba(56,189,248,0.12), #0B1F4D);
+  background: linear-gradient(135deg, var(--light-bg), var(--card-bg));
   border: 1.5px solid var(--border-card);
   border-radius: 16px;
   padding: 24px;
   margin: 32px 0 44px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 24px var(--card-shadow);
 }
 .startup-highlight p {
   color: var(--text-bright);
@@ -263,7 +283,7 @@
   padding: 5px 14px;
   border-radius: 20px;
   letter-spacing: 0.03em;
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  border: 1px solid var(--border);
 }
 
 .startup-timeline {
@@ -278,7 +298,7 @@
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 12px 14px;
-  background: rgba(255,255,255,0.04);
+  background: var(--light-bg);
   color: var(--text-bright);
 }
 .startup-step-dot {
@@ -304,7 +324,7 @@
   border-radius: 18px;
   background: var(--card-bg);
   border: 1.5px solid var(--border-card);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 30px var(--card-shadow);
 }
 .startup-nav-card__inner {
   display: flex;
@@ -317,12 +337,12 @@
   margin: 0 0 6px 0;
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-bright);
 }
 .startup-nav-card__desc {
   margin: 0;
   font-size: 14px;
-  color: var(--text);
+  color: var(--muted);
 }
 .startup-nav-card__links {
   display: flex;
@@ -333,12 +353,12 @@
 .startup-nav-card__btn {
   padding: 8px 18px;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--white);
+  border: 1px solid var(--border);
+  color: var(--text-bright);
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--light-bg);
   transition: all 0.25s ease;
   display: inline-flex;
   align-items: center;
@@ -349,9 +369,9 @@
   color: var(--sky);
 }
 .startup-nav-card__btn--primary {
-  background: #0284C7;
-  border-color: #0284C7;
-  color: var(--white);
+  background: var(--sky);
+  border-color: var(--sky);
+  color: #FFFFFF;
 }
 .startup-nav-card__btn--primary:hover {
   opacity: 0.9;

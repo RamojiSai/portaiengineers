@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import AboutSection from "../components/sections/AboutSection";
@@ -321,13 +322,11 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="relative flex items-center gap-4 rounded-2xl border border-[color-mix(in_srgb,var(--color-primary)_30%,transparent)] bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)] px-5 py-4 shadow-[0_18px_40px_var(--color-card-shadow)]">
-                  <img
+                  <Image
                     src="/ISOimage.webp"
                     alt="ISO 9001:2015 certification badge"
                     width={56}
                     height={56}
-                    loading="lazy"
-                    decoding="async"
                     className="h-14 w-14 object-contain"
                   />
                   <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">

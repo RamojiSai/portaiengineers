@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -141,13 +142,11 @@ export default function BlogsAllClient() {
               </div>
 
               <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-white/5 shadow-[0_30px_80px_rgba(8,19,44,0.6)]">
-                <img
+                <Image
                   src="/co2-capture.webp"
                   alt="Engineering plant infrastructure"
                   width={992}
                   height={558}
-                  loading="lazy"
-                  decoding="async"
                   className="h-64 w-full object-cover sm:h-72 lg:h-[360px]"
                 />
               </div>
@@ -173,13 +172,11 @@ export default function BlogsAllClient() {
 
           <FadeIn>
             <figure className="overflow-hidden rounded-3xl border border-[#E5E7EB] bg-white shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
-              <img
+              <Image
                 src="/Low-Carbon-Ammonia-image1.webp"
                 alt="Industrial engineering design collaboration"
                 width={3000}
                 height={1285}
-                loading="lazy"
-                decoding="async"
                 className="h-64 w-full object-cover sm:h-80"
               />
               <figcaption className="px-5 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -513,13 +514,11 @@ export default async function CadServiceDetailPage({
           </div>
 
           <div className="overflow-hidden rounded-3xl border border-[var(--color-border)]">
-            <img
+            <Image
               src={detail.image}
               alt={detail.imageAlt}
               width={imageDimensions.width}
               height={imageDimensions.height}
-              loading="lazy"
-              decoding="async"
               className="h-auto max-h-[70vh] w-full object-contain sm:max-h-[75vh]"
             />
           </div>

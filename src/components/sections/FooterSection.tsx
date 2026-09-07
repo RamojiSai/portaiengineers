@@ -275,13 +275,11 @@ export default function FooterSection() {
               className="flex items-center text-xs font-semibold text-[var(--color-primary)]"
             >
               <div className="relative flex items-center gap-3 rounded-2xl border border-[color-mix(in_srgb,var(--color-primary)_45%,transparent)] bg-[color-mix(in_srgb,var(--color-primary)_20%,transparent)] px-3 py-2 shadow-[0_18px_40px_var(--color-card-shadow)]">
-                <img
+                <Image
                   src="/ISOimage.webp"
                   alt="ISO 9001:2015 certification badge"
                   width={40}
                   height={40}
-                  loading="lazy"
-                  decoding="async"
                   className="h-10 w-10 object-contain"
                 />
                 <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">

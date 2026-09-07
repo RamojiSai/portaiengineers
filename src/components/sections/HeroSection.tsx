@@ -99,7 +99,7 @@ export default function HeroSection() {
         })}
       </div>
 
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.02))]" />
+      <div className="absolute inset-0 bg-[var(--color-hero-overlay)]" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-6xl items-center px-6 py-24 sm:px-10">
         <div
@@ -120,7 +120,7 @@ export default function HeroSection() {
               href="https://calendar.app.google/4EDU6NFyWQLtrG91A"
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-cta-gradient rounded-full border border-[#241E92] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+              className="hero-cta-gradient rounded-full border border-transparent px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
             >
               Schedule a Call
             </a>

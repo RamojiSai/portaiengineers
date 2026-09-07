@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "CAD Services & Engineering Drawings in Industrial Projects",
@@ -232,14 +233,12 @@ export default function CADServicesPage() {
               </div>
             </div>
             <div className="cad-hero__img-box">
-              <img
+              <Image
                 src="/images/blogs/cad-engineering-team.webp"
                 alt="CAD engineers collaborating on 3D models"
                 width={720}
                 height={480}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
+                priority
               />
             </div>
           </div>
@@ -284,14 +283,12 @@ export default function CADServicesPage() {
 
         {/* Image 2 — CAD drawing beside text */}
         <div className="cad-img-card">
-          <img
+          <Image
             className="cad-img-card__img cad-img-card__img--dark"
             src="/images/blogs/cad-architectural-elevation.webp"
             alt="Detailed AutoCAD architectural elevation drawing"
             width={948}
             height={640}
-            loading="lazy"
-            decoding="async"
           />
           <div className="cad-img-card__text">
             <div className="cad-img-card__label">Real Work. Real Precision.</div>
@@ -315,14 +312,12 @@ export default function CADServicesPage() {
 
         {/* Image 3 — Designer at workstation */}
         <div className="cad-img-card" style={{ flexDirection: "row-reverse" }}>
-          <img
+          <Image
             className="cad-img-card__img"
             src="/images/blogs/cad-designer-workstation.webp"
             alt="CAD designer working on 3D models across multiple screens"
             width={1200}
             height={900}
-            loading="lazy"
-            decoding="async"
           />
           <div className="cad-img-card__text">
             <div className="cad-img-card__label">Our CAD Environment</div>

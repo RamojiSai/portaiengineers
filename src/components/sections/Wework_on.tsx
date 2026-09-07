@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const designPlatforms = [
   { name: "AutoCAD", image: "/autocad-CUR7zBdd.png" },
   { name: "AutoCAD Plant 3D", image: "/autocad-plant3d-BBiTCeXl.webp" },
@@ -91,13 +93,11 @@ function PlatformCard({
     >
       {platform.image ? (
         <div className="flex-1 flex items-center justify-center w-full mb-3 px-2 h-[70px]">
-          <img
+          <Image
             src={platform.image}
             alt={`${platform.name} engineering software platform logo`}
             width={100}
             height={70}
-            loading="lazy"
-            decoding="async"
             className="w-auto h-auto max-w-[100px] max-h-[70px] object-contain group-hover:scale-110 transition-transform duration-300"
           />
         </div>

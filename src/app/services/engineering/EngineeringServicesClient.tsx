@@ -197,11 +197,11 @@ function EngineeringServicesPageContent() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0B1F4D] text-[var(--color-text)]">
+    <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
       {/* Section 1: Interactive Engineering Wheel */}
       <section
         id="engineering-flow"
-        className="w-full bg-[#0B1F4D] px-6 py-16 sm:px-10"
+        className="w-full bg-[var(--color-bg)] px-6 py-16 sm:px-10"
       >
         <div className="mx-auto w-full max-w-6xl">
           <div
@@ -210,26 +210,27 @@ function EngineeringServicesPageContent() {
               : "-translate-y-6 opacity-0"
               }`}
           >
-            <nav className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8494FF]">
+            <nav className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
               <Link href="/" className="hover:underline">Home</Link>
-              <span className="px-2 text-white/40">/</span>
+              <span className="px-2 text-[var(--color-muted)]">/</span>
               <Link href="/services/" className="hover:underline">Services</Link>
-              <span className="px-2 text-white/40">/</span>
-              <span className="text-white">Engineering</span>
+              <span className="px-2 text-[var(--color-muted)]">/</span>
+              <span className="text-[var(--color-text)]">Engineering</span>
             </nav>
-            <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h1 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
               Plant & Piping Engineering Services
             </h1>
-            <p className="text-base text-white/75 sm:text-lg">
+            <p className="text-base text-[var(--color-muted)] sm:text-lg">
               Delivering intelligent engineering solutions designed for industrial
               precision, scalability, and operational excellence.
             </p>
           </div>
 
           <div className="grid w-full items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-            <div className="relative flex items-center justify-center lg:justify-start lg:-ml-10">
+            {/* Desktop Circular Wheel (Viewport >= 768px) */}
+            <div className="hidden md:flex relative items-center justify-center lg:justify-start lg:-ml-10">
               <div className="relative h-[320px] w-[320px] sm:h-[520px] sm:w-[520px] [--node-radius:120px] [--center-edge-offset:56px] sm:[--node-radius:190px] sm:[--center-edge-offset:84px]">
-                <div className="absolute left-1/2 top-1/2 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#6D7EFF] bg-[#8494FF] text-center text-sm font-semibold text-white shadow-[0_0_24px_rgba(132,148,255,0.55)] sm:h-40 sm:w-40">
+                <div className="absolute left-1/2 top-1/2 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-primary)] bg-[var(--color-primary)] text-center text-sm font-semibold text-[var(--color-on-primary)] shadow-sm sm:h-40 sm:w-40">
                   Engineering Services
                 </div>
 
@@ -243,9 +244,9 @@ function EngineeringServicesPageContent() {
                       transformOrigin: "left center",
                     }}
                   >
-                    <div className="h-full w-full rounded-full bg-[#CBD5E1]" />
+                    <div className="h-full w-full rounded-full bg-[var(--color-border)]" />
                     <div
-                      className={`absolute left-0 top-0 h-full w-full origin-left rounded-full bg-[#8494FF] transition-transform duration-700 ${isActive(index) ? "scale-x-100" : "scale-x-0"
+                      className={`absolute left-0 top-0 h-full w-full origin-left rounded-full bg-[var(--color-primary)] transition-transform duration-700 ${isActive(index) ? "scale-x-100" : "scale-x-0"
                         }`}
                     />
                   </div>
@@ -257,8 +258,8 @@ function EngineeringServicesPageContent() {
                     type="button"
                     onClick={() => handleSelectNode(index)}
                     className={`absolute left-1/2 top-1/2 flex h-14 w-14 items-center justify-center rounded-full border px-1 text-center text-[9px] font-semibold uppercase leading-tight tracking-[0.06em] transition-all duration-300 sm:h-24 sm:w-24 sm:text-[11px] sm:tracking-[0.08em] ${isActive(index)
-                      ? "scale-105 border-[#6D7EFF] bg-[#8494FF] text-white shadow-[0_0_20px_rgba(132,148,255,0.6)]"
-                      : "border-[#D6DEFF] bg-white text-[#1E293B] hover:scale-105 hover:border-[#8494FF] hover:bg-[#EEF2FF] hover:text-[#8494FF] hover:shadow-[0_0_16px_rgba(132,148,255,0.35)]"
+                      ? "scale-105 border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm"
+                      : "border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] hover:scale-105 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
                       }`}
                     style={{
                       transform: `translate(-50%, -50%) rotate(${node.angle}deg) translateX(var(--node-radius)) rotate(${-node.angle}deg)`,
@@ -271,35 +272,61 @@ function EngineeringServicesPageContent() {
             </div>
 
             <div className="flex flex-col gap-6">
+              {/* Mobile Service Selector (Viewport < 768px) */}
+              <div className="flex md:hidden flex-col gap-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-muted)]">
+                    Engineering Disciplines ({activeIndex + 1}/{nodes.length})
+                  </span>
+                </div>
+                <div className="flex gap-2 overflow-x-auto pb-2 -mx-2 px-2">
+                  {nodes.map((node, index) => (
+                    <button
+                      key={`mobile-${node.key}`}
+                      type="button"
+                      onClick={() => handleSelectNode(index)}
+                      className={`shrink-0 rounded-xl border px-4 py-2.5 text-xs font-semibold transition-all duration-200 min-h-[44px] ${
+                        isActive(index)
+                          ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm"
+                          : "border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] hover:border-[var(--color-border-strong)]"
+                      }`}
+                    >
+                      {node.title}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Active Service Card */}
               <article
                 key={activeNode.key}
-                className="fade-in-up rounded-2xl border border-slate-200/70 bg-white p-8 shadow-[0_22px_60px_rgba(15,23,42,0.1)] sm:p-10"
+                className="fade-in-up rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[0_16px_40px_var(--color-card-shadow)] sm:p-10"
               >
                 <div className="space-y-2">
-                  <h2 className="text-2xl font-semibold text-slate-900">
+                  <h2 className="text-2xl font-semibold text-[var(--color-text)]">
                     {activeNode.title}
                   </h2>
-                  <p className="text-base text-slate-600">{activeNode.overview}</p>
+                  <p className="text-base text-[var(--color-muted)]">{activeNode.overview}</p>
                 </div>
 
-                <div className="mt-6 space-y-2 border-l-4 border-[#8494FF] pl-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8494FF]">
+                <div className="mt-6 space-y-2 border-l-4 border-[var(--color-primary)] pl-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
                     Why It Matters
                   </p>
-                  <p className="text-base text-slate-600">{activeNode.whyItMatters}</p>
+                  <p className="text-base text-[var(--color-muted)]">{activeNode.whyItMatters}</p>
                 </div>
 
                 <div className="mt-6 space-y-2">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8494FF]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
                     What We Do
                   </p>
-                  <p className="text-base text-slate-600">{activeNode.whatWeDo}</p>
+                  <p className="text-base text-[var(--color-muted)]">{activeNode.whatWeDo}</p>
                 </div>
 
                 <div className="mt-8">
                   <Link
                     href={`/services/engineering/${activeNode.slug}/`}
-                    className="group inline-flex items-center gap-2 rounded-full border border-[#8494FF] px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8494FF] transition-colors duration-300 hover:bg-[#8494FF] hover:text-white"
+                    className="group inline-flex items-center gap-2 rounded-full border border-[var(--color-primary)] bg-transparent px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)] transition-colors duration-300 hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
                   >
                     Learn More
                     <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -313,17 +340,17 @@ function EngineeringServicesPageContent() {
         </div>
       </section>
 
-      {/* Section 2: Crawlable HTML Grid for All 8 Engineering Disciplines */}
-      <section className="w-full bg-[#08173B] px-6 py-16 sm:px-10 sm:py-20 border-t border-slate-800">
+      {/* Section 2: Crawlable HTML Grid for All Engineering Disciplines */}
+      <section className="w-full bg-[var(--color-bg)] px-6 py-16 sm:px-10 sm:py-20 border-t border-[var(--color-border)]">
         <div className="mx-auto w-full max-w-6xl space-y-10">
           <div className="flex flex-col gap-3 text-center sm:text-left">
-            <span className="text-xs font-semibold uppercase tracking-[0.24em] text-[#8494FF]">
+            <span className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-primary)]">
               Engineering Disciplines
             </span>
-            <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-text)] sm:text-3xl">
               Comprehensive Plant Engineering Capabilities
             </h2>
-            <p className="max-w-3xl text-sm text-white/70 sm:text-base">
+            <p className="max-w-3xl text-sm text-[var(--color-muted)] sm:text-base">
               Explore our core multidisciplinary capabilities delivering end-to-end process design, 3D piping routing, stress analysis, and plant engineering deliverables.
             </p>
           </div>
@@ -333,20 +360,20 @@ function EngineeringServicesPageContent() {
               <Link
                 key={item.key}
                 href={`/services/engineering/${item.slug}/`}
-                className="group flex flex-col justify-between rounded-2xl border border-slate-700/80 bg-[#0E265C] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#8494FF] hover:shadow-[0_12px_30px_rgba(132,148,255,0.2)]"
+                className="group flex flex-col justify-between rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:shadow-[0_12px_30px_var(--color-card-shadow)]"
               >
                 <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-white transition-colors group-hover:text-[#8494FF]">
+                  <h3 className="text-lg font-semibold text-[var(--color-text)] transition-colors group-hover:text-[var(--color-primary)]">
                     {item.title}
                   </h3>
-                  <p className="text-xs leading-relaxed text-slate-300 sm:text-sm">
+                  <p className="text-xs leading-relaxed text-[var(--color-muted)] sm:text-sm">
                     {item.overview}
                   </p>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-[var(--color-muted-strong)]">
                     {item.whatWeDo}
                   </p>
                 </div>
-                <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-[#8494FF] transition-transform group-hover:translate-x-1">
+                <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--color-primary)] transition-transform group-hover:translate-x-1">
                   View {item.title} &rarr;
                 </span>
               </Link>
@@ -356,54 +383,54 @@ function EngineeringServicesPageContent() {
       </section>
 
       {/* Section 3: Integrated CAD Support for Engineering Projects */}
-      <section className="w-full bg-[#0B1F4D] px-6 py-16 sm:px-10 sm:py-20 border-t border-slate-800/80">
+      <section className="w-full bg-[var(--color-bg)] px-6 py-16 sm:px-10 sm:py-20 border-t border-[var(--color-border)]">
         <div className="mx-auto w-full max-w-6xl">
-          <div className="rounded-3xl border border-slate-700/80 bg-[#0E265C] p-8 sm:p-12">
+          <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 sm:p-12 shadow-[0_16px_40px_var(--color-card-shadow)]">
             <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
               <div className="space-y-4">
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8494FF]">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">
                   Integrated Capabilities
                 </span>
-                <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-text)] sm:text-3xl">
                   Fabrication-Ready CAD Support for Engineering Projects
                 </h2>
-                <p className="text-sm text-slate-300 sm:text-base leading-relaxed">
+                <p className="text-sm text-[var(--color-muted)] sm:text-base leading-relaxed">
                   Every industrial engineering project relies on accurate, code-compliant documentation. Port AI Engineers supports plant engineering deliverables with comprehensive CAD drafting capabilities — including PFDs, P&amp;IDs, fabrication-ready isometrics, equipment arrangement drawings, and design automation.
                 </p>
                 <div className="pt-2 flex flex-wrap gap-4">
                   <Link
                     href="/services/cad/"
-                    className="inline-flex items-center gap-2 rounded-full bg-[#8494FF] px-6 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                    className="inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-2.5 text-sm font-semibold text-[var(--color-on-primary)] transition-opacity hover:opacity-90"
                   >
                     Explore CAD Services &rarr;
                   </Link>
                   <Link
                     href="/contact/"
-                    className="inline-flex items-center gap-2 rounded-full border border-slate-600 bg-transparent px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:border-[#8494FF] hover:text-[#8494FF]"
+                    className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-transparent px-6 py-2.5 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
                   >
                     Contact Our Engineers &rarr;
                   </Link>
                 </div>
               </div>
-              <div className="rounded-2xl border border-slate-700/60 bg-[#08173B]/70 p-6 space-y-4">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-white">
+              <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-6 space-y-4">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-text)]">
                   Key CAD Deliverables
                 </h3>
-                <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300">
+                <ul className="space-y-2.5 text-xs sm:text-sm text-[var(--color-muted)]">
                   <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#8494FF]" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)]" />
                     <span>Process Flow &amp; P&amp;ID Diagrams</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#8494FF]" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)]" />
                     <span>Fabrication-Ready Piping Isometrics</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#8494FF]" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)]" />
                     <span>General Arrangement (GA) Layouts</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#8494FF]" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)]" />
                     <span>Legacy CAD Conversion &amp; Automation</span>
                   </li>
                 </ul>
@@ -416,7 +443,7 @@ function EngineeringServicesPageContent() {
       {/* Section 4: Why Choose Section */}
       <section
         id="why-choose-services"
-        className="w-full bg-[#0B1F4D] px-6 py-20 sm:px-10 sm:py-24 border-t border-slate-800/80"
+        className="w-full bg-[var(--color-bg)] px-6 py-20 sm:px-10 sm:py-24 border-t border-[var(--color-border)]"
       >
         <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div
@@ -426,11 +453,11 @@ function EngineeringServicesPageContent() {
               }`}
           >
             <div className="space-y-4">
-              <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              <h2 className="text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
                 Why Choose Our{" "}
-                <span className="text-[#8494FF]">Engineering Services</span>
+                <span className="text-[var(--color-primary)]">Engineering Services</span>
               </h2>
-              <p className="text-base text-white/75 sm:text-lg">
+              <p className="text-base text-[var(--color-muted)] sm:text-lg">
                 We combine advanced engineering expertise, AI-powered automation,
                 and industry-standard design practices to deliver scalable,
                 precise, and future-ready engineering solutions.
@@ -441,10 +468,10 @@ function EngineeringServicesPageContent() {
               {featureBlocks.map((feature) => (
                 <div
                   key={feature.title}
-                  className="group rounded-2xl border border-slate-200/70 bg-white px-5 py-4 shadow-[0_12px_30px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1 hover:border-[#8494FF] hover:shadow-[0_20px_40px_rgba(132,148,255,0.2)]"
+                  className="group rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-4 shadow-[0_12px_30px_var(--color-card-shadow)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)]"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#8494FF]/10 text-[#8494FF]">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-primary-soft)] text-[var(--color-primary)]">
                       <svg
                         className="h-5 w-5"
                         viewBox="0 0 24 24"
@@ -463,10 +490,10 @@ function EngineeringServicesPageContent() {
                       </svg>
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-base font-semibold text-slate-900">
+                      <h3 className="text-base font-semibold text-[var(--color-text)]">
                         {feature.title}
                       </h3>
-                      <p className="text-sm text-slate-600">
+                      <p className="text-sm text-[var(--color-muted)]">
                         {feature.description}
                       </p>
                     </div>
@@ -478,7 +505,7 @@ function EngineeringServicesPageContent() {
             <div className="pt-2">
               <Link
                 href="/contact/"
-                className="inline-flex items-center gap-2 rounded-full border border-[#8494FF] px-6 py-2.5 text-sm font-semibold text-[#8494FF] transition-colors duration-300 hover:bg-[#8494FF] hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--color-primary)] px-6 py-2.5 text-sm font-semibold text-[var(--color-primary)] transition-colors duration-300 hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)]"
               >
                 Inquire About Engineering Services &rarr;
               </Link>
@@ -494,12 +521,12 @@ function EngineeringServicesPageContent() {
             {engineeringPillars.map((pillar) => (
               <div
                 key={pillar.label}
-                className="rounded-2xl border border-[#8494FF]/15 bg-[rgba(132,148,255,0.08)] p-6 shadow-[0_12px_30px_rgba(15,23,42,0.08)]"
+                className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[0_12px_30px_var(--color-card-shadow)]"
               >
-                <div className="text-3xl font-semibold text-[#8494FF] sm:text-4xl">
+                <div className="text-3xl font-semibold text-[var(--color-primary)] sm:text-4xl">
                   {pillar.value}
                 </div>
-                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.2em] text-slate-300">
+                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
                   {pillar.label}
                 </p>
               </div>

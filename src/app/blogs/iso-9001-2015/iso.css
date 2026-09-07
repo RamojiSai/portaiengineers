@@ -26,6 +26,53 @@
   line-height: 1.75;
 }
 
+html.dark .iso-page {
+  --navy: #38BDF8;
+  --blue: #38BDF8;
+  --sky: #38BDF8;
+  --cream: var(--color-bg);
+  --white: var(--color-surface);
+  --text: var(--color-muted);
+  --muted: var(--color-muted);
+  --light-bg: var(--color-surface-strong);
+  --border: var(--color-border);
+  --tag-bg: rgba(56, 189, 248, 0.12);
+  --tag-text: var(--color-primary);
+}
+
+html.dark .iso-banner {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+html.dark .iso-banner-right h3,
+html.dark h2.block-title,
+html.dark .lead strong,
+html.dark .scope-card .sc-label,
+html.dark .align-table thead tr,
+html.dark .align-table td:first-child,
+html.dark .benefit-card h3,
+html.dark .about-content h3,
+html.dark .iso-nav-card__title {
+  color: var(--color-text);
+}
+
+html.dark .align-table tbody tr:nth-child(odd) {
+  background: var(--color-surface);
+}
+
+html.dark .align-table tbody tr:nth-child(even) {
+  background: var(--color-surface-strong);
+}
+
+html.dark .align-table tbody tr:hover {
+  background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
+}
+
+html.dark .iso-nav-card__btn {
+  color: var(--color-text);
+}
+
 .hero {
   background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, #1e6eb5 100%);
   color: var(--white);
